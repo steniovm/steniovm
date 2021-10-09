@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--cabeçalho da pagina, com definição de caracteres e titulo-->
+        <meta charset="utl-8" />
+        <title>Formulario utilizando varios elementos</title>
+    </head>
+    <body style="background-color:#02AADD">
+    <!--fundo com um tom de ciano-->
+        <!--titulos utilizando cores diferentes-->
+        <h1 style="color: rgb(55, 61, 50);">Formulario utilizando varios elementos</h1>
+        <!--imagem clicavel com link abrindo em nova aba-->
+        
+        <p>Este Formulario utiliza diversos elementos</p>
+        <span>Click no elemento que desejar preencher</span><br /><br />
+        <form action="https://steniovm.free.beeceptor.com" method="POST">
+            <div>
+                <fieldset>
+                <label>Nome:</label><br />
+                <input type="text" id="Nome" name="nome" value="Fulano de Tal" /><br />
+                <label>Senha:</label><br />
+                <input type="password" id="Senha" name="senha" value="Abc195*#28" /><br />
+                <label>Nascimento:</label><br />
+                <input type="date" id="Nascimento" name="nascimento"/><br /><br />
+                <label>Genero:</label><br />
+                <input type="radio" id="Masc" name="Genero" value="Masculino" />Masculino<br />
+                <input type="radio" id="Femin" name="Genero" value="Feminino" />Feminino<br />
+                <input type="radio" id="Nbin" name="Genero" value="Não binário" />Não binário<br />
+                </fieldset>
+                <fieldset>
+                <label>Conhecimentos:</label><br />
+                <input type="checkbox" id="Programacao" name="conhecimento" value="Programacao" />Programação<br />
+                <input type="checkbox" id="EditImag" name="conhecimento" value="EditImag" />Edição de imagens<br />
+                <input type="checkbox" id="Planilhas" name="conhecimento" value="Planilhas" />Planilhas<br />
+                <input type="checkbox" id="Eletronica" name="conhecimento" value="Eletronica" />Eletronica<br /><br />
+                <label>Dominio:</label><br />
+                <input type="range" id="Matematica" name="dominio" value="20" />Matematica<br />
+                <input type="range" id="Portugues" name="dominio" value="70" />Portugues<br />
+                <input type="range" id="Ingles" name="dominio" value="10" />Ingles<br />
+                <input type="range" id="Ciencias" name="dominio" value="50" />Ciências<br />
+                <input type="hidden" id="tipo" name="dominio" value="umtextesomente" />
+                </fieldset>
+                <input type="submit" value="Enviar resposta" />
+                <input type="reset" value="Limpar formulario" /><br />
+            </div>
+        </form>
+        
+    </body>
+</html>
