@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!--<select name="" id="select" onClick="hello();">
+    <option>Select</option>
+    <option style="background-color: #CD5C5C;">#CD5C5C</option>
+    <option style="background-color: #F08080;">#F08080</option>
+    <option style="background-color: #FA8072;">#FA8072</option>
+    <option style="background-color: #E9967A;">#E9967A</option>
+    <option style="background-color: #FFA07A;">#FFA07A</option>
+</select>
+<script>
+function hello(){
+let d = document.getElementById("select");
+let text = d.options[d.selectedIndex].value;
+document.body.style.backgroundColor=text;
+}
+</script>-->
+<h2>Primeiro defina a cor do fundo da pagina, importante para comparar imagens com transparencia: 
+    <span id="ColorOutput"></span>
+</h2>
+  <label>Vermelho:</label><br />
+  <input type="range" id="redR" name="Red" min="0" max="255" value="255"/><br />
+  <label>Verde:</label><br />
+  <input type="range" id="greenR" name="Green" min="0" max="255" value="255"/><br />
+  <label>Azul:</label><br />
+  <input type="range" id="blueR" name="Blue" min="0" max="255" value="255"/><br />
+  <script>
+    function changeColor(){
+      let red = document.getElementById(redR).value;
+      let green = document.getElementById(greenR).value;
+      let blue = document.getElementById(blueR).value;
+      let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      document.body.style.backgroundColor = color;
+      document.getElementById('ColorOutput').innerHTML = ': ' + color;
+    }
+    document.getElementById('redR').addEventListener('input',changeColor);
+    document.getElementById('greenR').addEventListener('input',changeColor);
+    document.getElementById('blueR').addEventListener('input',changeColor);
+  </script>
+</body>
+</html>
