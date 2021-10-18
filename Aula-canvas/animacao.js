@@ -25,10 +25,10 @@ function bolinha(x,y,raio,r,g,b){
     this.r = r + Math.floor(Math.random()*10 - 5);
     this.g = g + Math.floor(Math.random()*10 - 5);
     this.b = b + Math.floor(Math.random()*10 - 5);
-    //this.dx = Math.random()*2 - 1;
-    //this.dy = Math.random()*2 - 1;
-    this.dx = 0;
-    this.dy = 0;
+    this.dx = Math.random() - 0.5;
+    this.dy = Math.random() - 0.5;
+    //this.dx = 0;
+    //this.dy = 0;
     this.mostrar = function(){
         c.beginPath();
         c.arc(this.x, this.y, this.ra, 0, 2*Math.PI);
