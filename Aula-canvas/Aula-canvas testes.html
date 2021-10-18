@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Trilha: Front-end (Lovelace) - Aula de canvas</title>
+    </head>
+  <body>
+    Olá pessoal!
+    <br />
+    <div style="text-align: center;">
+      <h2><strong>Animação feita com canvas</strong></h2>
+    </div>
+    <div style="text-align: center;">
+      <fieldset>
+        <canvas id="canvas" width="600"  height="800">Desculpe-me, seu navegador não suporta o elemento &lt;canvas&gt;.</canvas>
+      </fieldset>
+    </div>
+    <div style="text-align: center;">
+      <h2>Defina a cor do fundo da pagina para melhor visualização: 
+        <span id="ColorOutput"></span>
+      </h2>
+      <label>Vermelho:</label><br />
+      <input type="range" id="redR" min="0" max="255" value="10" style="accent-color: red;"/><br />
+      <label>Verde:</label><br />
+      <input type="range" id="greenR" min="0" max="255" value="10" style="accent-color: green;"/><br />
+      <label>Azul:</label><br />
+      <input type="range" id="blueR" min="0" max="255" value="10" style="accent-color: blue;"/><br />
+    </div>
+    <!--script do canvas-->
+    <script>
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      var c = canvas.getContext('2d');
+
+      let redop = 255 - document.getElementById('redR').value;
+      let greenop = 255 - document.getElementById('greenR').value;
+      let blueop = 255 - document.getElementById('blueR').value;
+      let colorop = 'rgb(' + redop + ',' + greenop + ',' + blueop + ')';
+      
+      console.log(colorop);
+      ctx.fillStyle = colorop;
+      ctx.fillRect(0, 0, 800, 600);
+      
+      c.fillStyle = "red"; 
+      c.fillRect(100,100,400,300); 
+      c.fillStyle = "blue";
+
+      c.beginPath();
+      c.moveTo(160,30);
+      c.lineTo(500,10);
+      c.lineTo(100,100);
+      c.closePath();
+      c.fill();
+      c.strokeStyle = 'rgb(128,0,128';
+      c.lineWidth = 5;
+      c.stroke();
+      c.fillStyle = 'yellow';
+
+      c.beginPath ();
+      c.moveTo(500,300);
+      c.bezierCurveTo(500,80,100,500,100,300);
+      c.lineTo (100,400);
+      c.lineTo (500,400);
+      c.closePath ();
+      c.fill();
+      c.lineWidth = 6;
+      c.strokeStyle = 'blue';
+      c.stroke ();
+            
+      document.getElementById("canvas").addEventListener('click', KeyDown, true);
+      function KeyDown(evt){
+        var canvas = document.getElementById("canvas");
+        // posição dos cliques descontando a distância da borda da janela
+        var posX = evt.clientX - canvas.offsetLeft;
+        var posY = evt.clientY - canvas.offsetTop;
+        console.log("Posição do clique: ", posX+","+posY);
+      }
+
+    </script>
+
+    <!--script para fundo da pagina-->
+    <script type="text/javascript">
+      function changeColor(){
+        let red = document.getElementById('redR').value;
+        let green = document.getElementById('greenR').value;
+        let blue = document.getElementById('blueR').value;
+        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+        document.body.style.backgroundColor = color;
+        document.getElementById('ColorOutput').innerHTML = ': ' + color;
+      }
+      document.getElementById('redR').addEventListener('input',changeColor);
+      document.getElementById('greenR').addEventListener('input',changeColor);
+      document.getElementById('blueR').addEventListener('input',changeColor);
+    </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Trilha: Front-end (Lovelace) - Aula de canvas</title>
+    </head>
+  <body style="background-color: darkgray;">
+    <strong>Olá pessoal! este é um simulador de evolução natural</strong>
+    <br />
+    Voce é um predador e as bolinhas são a presa, click na bolinha para caça-la
+    <div style="text-align: center;">
+      <h2>Defina a cor do fundo da pagina:<span id="ColorOutput"></span></h2>
+      <label>Vermelho:</label><br />
+      <input type="range" id="redR" min="0" max="255" value="200" style="accent-color: red;"/><br />
+      <label>Verde:</label><br />
+      <input type="range" id="greenR" min="0" max="255" value="200" style="accent-color: green;"/><br />
+      <label>Azul:</label><br />
+      <input type="range" id="blueR" min="0" max="255" value="200" style="accent-color: blue;"/><br />
+      <label>raio das bolinhas:</label><br />
+      <input type="number" id="raio" value="30"/><br />
+      <label>numero de bolinhas:</label><br />
+      <input type="number" id="numero" value="30"/><br />
+      <button type="botao" id="iniciar" value="iniciar" style="font-size: xx-large;">iniciar</button>
+    </div>
+    <div style="text-align: center;">
+      <h2><strong>Animação feita com canvas</strong></h2>
+    </div>
+    <div id="divcanva" style="text-align: center;">
+      <fieldset >
+        <canvas id="animacao" width="800" height="600" style="background-color: grey;"></canvas>
+      </fieldset>
+    </div>
+    <script  type="text/javascript" src="animacao.js"></script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="Meus projetos na Alpha Edtech - Canvas" />
+    <meta property="og:image" itemprop="image" content="../icone.jpg" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:alt" content="Ilustração de um atomo" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:locale" content="pt-br" />
+    <title>Trilha: Front-end (Lovelace) - Aula de canvas</title>
+    </head>
+  <body>
+    Olá pessoal!
+    <br />
+    <h1>Tuuuudo bem? Essa é uma aula para aprender a trabalhar com o elemento canvas.<br /></h1>
+    <div>
+      <h2><strong>Animação feita com canvas</strong></h2>
+      
+    </div>
+    <div style="text-align: center;">
+      <h2>Voce pode definir a cor do fundo da pagina para melhor visualização: 
+        <span id="ColorOutput"></span>
+      </h2>
+      <label>Vermelho:</label><br />
+      <input type="range" id="redR" min="0" max="255" value="255" style="accent-color: red;"/><br />
+      <label>Verde:</label><br />
+      <input type="range" id="greenR" min="0" max="255" value="255" style="accent-color: green;"/><br />
+      <label>Azul:</label><br />
+      <input type="range" id="blueR" min="0" max="255" value="255" style="accent-color: blue;"/><br />
+    </div>
+    <script>
+      function changeColor(){
+        let red = document.getElementById('redR').value;
+        console.log('teste');
+        let green = document.getElementById('greenR').value;
+        let blue = document.getElementById('blueR').value;
+        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+        console.log(red);
+        console.log(color);
+        document.body.style.backgroundColor = color;
+        document.getElementById('ColorOutput').innerHTML = ': ' + color;
+      }
+      document.getElementById('redR').addEventListener('input',changeColor);
+      document.getElementById('greenR').addEventListener('input',changeColor);
+      document.getElementById('blueR').addEventListener('input',changeColor);
+    </script>
+    </body>
+</html>
