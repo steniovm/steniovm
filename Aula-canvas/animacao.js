@@ -109,6 +109,8 @@ function clicar(e){
             bolinhas[i].r = bolinhas[mae].r + Math.floor(Math.random()*10 - 5);
             bolinhas[i].g = bolinhas[mae].g + Math.floor(Math.random()*10 - 5);
             bolinhas[i].b = bolinhas[mae].b + Math.floor(Math.random()*10 - 5);
+            bolinhas[i].dx = -bolinhas[mae].dx;
+            bolinhas[i].dy = -bolinhas[mae].dy;
             console.log("Posição da filha: "+ bolinhas[i].x+","+bolinhas[i].y);
             console.log('acertou');
             return;
@@ -119,10 +121,7 @@ function clicar(e){
 document.getElementById('redR').addEventListener('input',changeColor);
 document.getElementById('greenR').addEventListener('input',changeColor);
 document.getElementById('blueR').addEventListener('input',changeColor);
+document.getElementById('iniciar').addEventListener('click',pinicio);
 document.getElementById('iniciar').addEventListener('click',inicio);
 document.getElementById('iniciar').addEventListener('click',mostrarbol);
-document.getElementById('iniciar').addEventListener('click',pinicio);
 mycanvas.addEventListener('mouseup',clicar,true);
-
-//var nbol = document.getElementById('numero').value;
-//var rbol = document.getElementById('raio').value;
