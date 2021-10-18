@@ -25,8 +25,10 @@ function bolinha(x,y,raio,r,g,b){
     this.r = r + Math.floor(Math.random()*10 - 5);
     this.g = g + Math.floor(Math.random()*10 - 5);
     this.b = b + Math.floor(Math.random()*10 - 5);
-    this.dx = Math.random()*2 - 1;
-    this.dy = Math.random()*2 - 1;
+    //this.dx = Math.random()*2 - 1;
+    //this.dy = Math.random()*2 - 1;
+    this.dx = 0;
+    this.dy = 0;
     this.mostrar = function(){
         c.beginPath();
         c.arc(this.x, this.y, this.ra, 0, 2*Math.PI);
@@ -91,16 +93,26 @@ function clicar(e){
     var mae = Math.floor(Math.random()*(nbol-1));
     console.clear;
     console.log("Posição do clique: "+ mx+","+my);
-    for(i=0;i<nbol;i++){
-        if((mx-bolinhas[i].x<(2*bolinhas[i].ra)) && (my-bolinhas[i].y<(2*bolinhas[i].ra))){
+    console.log("Posição da mae: "+ bolinhas[mae].x+","+bolinhas[mae].y);
+    for(i=(nbol-1);i>=0;i--){
+        if(mae==i) mae = (mae+1)%255;
+        var dx = mx-bolinhas[i].x;
+        if (dx < 0 ) dx = - dx;
+        var dy = my-bolinhas[i].y;
+        if (dy < 0 ) dy = - dy;
+        //console.log("distancias: "+ dx+","+dy);
+        if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
+            console.log("distancias: "+ dx+","+dy);
+            console.log("Posição da vitima: "+ bolinhas[i].x+","+bolinhas[i].y);
             bolinhas[i].x = bolinhas[mae].x + Math.floor(Math.random()*10 - 5);
             bolinhas[i].y = bolinhas[mae].y + Math.floor(Math.random()*10 - 5);
             bolinhas[i].r = bolinhas[mae].r + Math.floor(Math.random()*10 - 5);
             bolinhas[i].g = bolinhas[mae].g + Math.floor(Math.random()*10 - 5);
             bolinhas[i].b = bolinhas[mae].b + Math.floor(Math.random()*10 - 5);
+            console.log("Posição da filha: "+ bolinhas[i].x+","+bolinhas[i].y);
             console.log('acertou');
             return;
-        }else{console.log('errou');}
+        }else{if (i == 0) console.log('errou');}
     }
 }
 
