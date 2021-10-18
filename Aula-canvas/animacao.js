@@ -106,9 +106,15 @@ function clicar(e){
             console.log("Posição da vitima: "+ bolinhas[i].x+","+bolinhas[i].y);
             bolinhas[i].x = bolinhas[mae].x + Math.floor(Math.random()*10 - 5);
             bolinhas[i].y = bolinhas[mae].y + Math.floor(Math.random()*10 - 5);
-            bolinhas[i].r = bolinhas[mae].r + Math.floor(Math.random()*10 - 5);
-            bolinhas[i].g = bolinhas[mae].g + Math.floor(Math.random()*10 - 5);
-            bolinhas[i].b = bolinhas[mae].b + Math.floor(Math.random()*10 - 5);
+            bolinhas[i].r = bolinhas[mae].r + Math.floor(Math.random()*50 - 25);
+            if(bolinhas[i].r > 255) bolinhas[i].r = 254;
+            if(bolinhas[i].r < 0) bolinhas[i].r = 1;
+            bolinhas[i].g = bolinhas[mae].g + Math.floor(Math.random()*50 - 25);
+            if(bolinhas[i].g > 255) bolinhas[i].g = 254;
+            if(bolinhas[i].g < 0) bolinhas[i].g = 1;
+            bolinhas[i].b = bolinhas[mae].b + Math.floor(Math.random()*50 - 25);
+            if(bolinhas[i].b > 255) bolinhas[i].b = 254;
+            if(bolinhas[i].b < 0) bolinhas[i].b = 1;
             bolinhas[i].dx = -bolinhas[mae].dx;
             bolinhas[i].dy = -bolinhas[mae].dy;
             console.log("Posição da filha: "+ bolinhas[i].x+","+bolinhas[i].y);
