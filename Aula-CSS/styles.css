@@ -1,0 +1,26 @@
+span{
+    color: #F00;
+    border: 2px #9F0;
+    font-weight: bolder;
+}
+form {
+    background-color: blueviolet;
+    font-size: 200%;
+}
+div {
+    text-align: center;
+}
+label {
+    font-weight: bold;
+}
+fieldset {
+    border-color: darkblue;
+    border-radius: 3%;
+    text-align: left;
+    width:fit-content;
+}
+input {
+    font-size: xx-small;
+    color: forestgreen;
+
+}
