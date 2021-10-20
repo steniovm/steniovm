@@ -1,11 +1,15 @@
-span{
-    color: #F00;
-    border: 2px #9F0;
-    font-weight: bolder;
+body {
+    background-color: #AAAAFF;
+    text-align: center;
 }
 form {
     background-color: blueviolet;
     font-size: 200%;
+}
+span {
+    color: #F00;
+    border: 2px #9F0;
+    font-weight: bolder;
 }
 div {
     text-align: center;
@@ -22,5 +26,44 @@ fieldset {
 input {
     font-size: xx-small;
     color: forestgreen;
-
+}
+input[type="submit"],
+input[type="reset"]{
+    font-size: 120%;
+}
+h1 {
+    color: rgb(55, 61, 50);
+}
+p {
+    color: #e41a4c;
+    font-size: larger;
+    font-weight: bold;
+}
+p+em{
+    font-size: x-large;
+}
+.especial{
+    background-color: coral;
+    text-decoration-color: cyan;
+    border: 2px yellow;
+}
+#nome, #senha {
+    color: darkred;
+    font-size: large;
+}
+input[type="radio"]{
+    color:darkviolet;
+    font-family: cursive;
+}
+input:hover{
+    font-size-adjust: calc(+50%);
+}
+Body p:last-child {
+    font-size: 220%;
+    font-weight: bold;
+    text-shadow: goldenrod;
+}
+Body p:first-child::first-line {
+    font-style: italic;
+    font-stretch: semi-expanded;
 }
