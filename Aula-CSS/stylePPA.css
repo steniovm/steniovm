@@ -1,0 +1,127 @@
+body{
+    background-color: #DDF;
+}
+h1{
+    font-weight: bolder;
+    font-family: Verdana;
+    font-style: italic;
+    color: #66f;
+    text-decoration: underline dotted blue ;
+}
+h2{
+    text-decoration: underline wavy blue;
+}
+h3{
+    text-align: center;
+    text-decoration: overline 1px;
+}
+table{
+    border: 2px;
+    border-style:groove;
+    border-color: goldenrod;
+    background-color: #aaa;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+th{
+    background-color: #888;
+    background-color: #aaa;
+}
+.assinatura{
+    font-family: cursive;
+    text-align: right;
+    font-size: larger;
+    text-decoration: underline blue;
+}
+.PPA{
+    text-indent: 3em;
+    font-family:'Lucida Sans';
+    font-size: x-large;
+    color: #66d;
+    font-style: oblique;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #777;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/PaleBlueDot.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    border: 12px;
+    border-color:goldenrod;
+    border-style:outset;
+}
+.PPA > h1{
+    font-size: xx-large;
+    text-align: center;
+}
+.imagem{
+    width: 453px;
+    text-align: justify;
+    border: 2px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+}
+.doida{
+    writing-mode: vertical-rl;
+}
+
+/*h1 {
+    color: red;
+  }
+p, li {
+    color: green;
+}
+li {
+    list-style-type: square;
+}
+span.special,
+li.special {
+    color: orange;
+    font-weight: bold;
+}
+
+li em {
+    color: rebeccapurple;
+}
+h1 + p {
+    font-size: 200%;
+}
+a:link {
+    color: pink;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    text-decoration: none;
+}
+body h1 + p .special {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}
+h1 {
+    color: blue;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+.outer {
+    border: 5px solid black;
+  }
+  
+  .box {
+    padding: 10px;
+    width: calc(90% - 30px);
+    background-color: rebeccapurple;
+    color: white;
+  }
+  .box2 {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    transform: rotate(0.8turn)
+  }*/
