@@ -64,7 +64,8 @@ th{
     margin-right: auto;
 }
 .doida{
-    writing-mode: vertical-rl;
+    writing-mode: sideways-lr; /*
+vertical-rl;*/
 }
 
 /*h1 {
