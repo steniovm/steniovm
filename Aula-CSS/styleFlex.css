@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "2Dumb";
+    src: url("2Dumb-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: "3Dumb";
+    src: url("3Dumb-webfont.woff") format("woff");
+}
+body{
+    background-color: rgb(147, 179, 201);
+    font-family: "3Dumb";
+}
+h1 {
+    color: red;
+    background-color: aquamarine;
+    border: 1px solid black;
+    text-align: center;
+}
+h2{
+    margin-left: 2em;
+}
+div{
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: rgb(197,229,251);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+img{
+    border: 4px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+}
+p{
+    background-color: darkkhaki;
+}
+.centro{
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
+}
+.centro p{
+    margin-left: auto;
+    margin-right: auto;
+}
+.vertical{
+    align-items: start;
+    justify-content: space-between;
+    text-align: start;
+    flex-direction: column;
+}
+.vertical p{
+    margin-left: 2em;
+}
+.horizontal{
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: row;
+}
+.horizontal p{
+    margin-left: auto;
+    margin-right: auto;
+}
+.linha{
+    flex-direction: row;
+    flex: initial;
+    align-items: stretch;
+}
+.linhar{
+    flex-direction: row-reverse;
+    flex: 1 1 auto;
+    align-items: stretch;
+}
+.coluna{
+    flex-direction: column;
+    flex: auto;
+    align-items: stretch;
+}
+.colunar{
+    flex-direction: column-reverse;
+    flex: auto;
+    align-items: stretch;
+}
+/*p{
+    color: black;
+}
+li {
+    color: green;
+}
+li {
+    list-style-type: square;
+}
+span.special,
+li.special {
+    color: orange;
+    font-weight: bold;
+}
+
+li em {
+    color: rebeccapurple;
+}
+h1{
+    font-size: 200%;
+}
+a:link {
+    color: pink;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    text-decoration: none;
+}
+body h1 + p .special {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}
+.outer {
+    border: 5px solid black;
+  }
+  
+  .box {
+    padding: 10px;
+    width: calc(90% - 30px);
+    background-color: rebeccapurple;
+    color: white;
+  }
+  .box2 {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    transform: rotate(0.8turn)
+  }*/
