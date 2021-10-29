@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "2Dumb";
+    src: url("2Dumb-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: "3Dumb";
+    src: url("3Dumb-webfont.woff") format("woff");
+}
+body{
+    background-color: rgb(147, 179, 201);
+    font-family: "3Dumb";
+}
+h1 {
+    color: red;
+    background-color: aquamarine;
+    border: 1px solid black;
+    text-align: center;
+}
+h2{
+    margin-left: 2em;
+}
+div{
+    /*margin-left: 1em;
+    margin-right: 1em;*/
+    background-color: rgb(197,229,251);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color:chocolate;
+    border-radius: 20px;
+}
+img{
+    border: 4px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+p{
+    background-color: darkkhaki;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 150px;
+}
+.box>*{
+    flex: 50px;
+}
+.quarks{
+    flex-direction: column;
+    height: 50px;
+    width: 200px;
+    flex-wrap: wrap;
+    background-color: #be8be7;
+}
+.leptons{
+    flex-direction: row;
+    height: 100px;
+    width: 200px;
+    flex-wrap: wrap;
+    background-color: #7dd848;
+}
+.neutrinos{
+    flex-direction: row;
+    border: none;
+    background-color: #7dd847;
+}
+.bosons{
+    flex-direction: column;
+    height: 300px;
+    width: 100px;
+    flex-wrap: wrap;
+    background-color: #ea6f46;
+}
+.higgs{
+    background-color: #efcf51;
+}
