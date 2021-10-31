@@ -1,0 +1,117 @@
+body{
+    
+    display: flex;
+    flex-direction: row;
+    border: 0px;
+    background-color: aquamarine;
+    text-align: center;
+    background-image: linear-gradient(105deg, #338, #8ad);
+}
+iframe{
+    border-radius: 10px;
+    border: none;
+    height: auto;
+}
+img{
+    height:100%;
+    width:100%;
+    border-radius: 40%;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-size: large;
+    font-weight: bolder;
+    color: #333;
+    -webkit-text-stroke: 1px #639;
+}
+h2{
+    font-style: italic;
+    font-weight: 900;
+    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #225;
+    -webkit-text-stroke: 2px #558;
+}
+.bodymenu{
+    flex-direction: column;
+    background-color: #ddd;
+}
+.bodycorpo{
+    display: flex;
+    flex-direction: column;
+}
+.linksmenu{
+    flex-direction: column;
+    font-weight: bold;
+}
+.linksmenu > a >div{
+    height: 2.5em;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #999;
+    background-image: linear-gradient(45deg, #111, #119);
+    margin-top: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(20, 20, 100, 0.5);
+}
+a{
+    font-weight: bold;
+    text-decoration: none;
+}
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #fdd;
+}
+a:visited {
+    text-decoration: none;
+    color:#baf;
+}
+a:focus, a:hover {
+    font-weight: bolder;
+    font-size: x-large;
+    color: #a3f;
+    border-bottom: 1px solid;
+    background: #119;
+    text-decoration: none;
+}
+a:active {
+    background: #119;
+    color: #a9e;
+    text-decoration: none;
+}
+.bodycorpo > div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    border: 5px #aaa;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px 10px rgba(0,0,139, 0.5);
+}
+.esquerda{
+    justify-content:start;
+}
+.esquerda > div{
+    width:fit-content;
+    margin: 1%;
+}
+.esquerda > div >img{
+    height: 300px;
+    width: 300px;
+    border-radius: 20%;
+}
+
+.direita{
+    justify-content: end;
+}
+.direita > div{
+    width:fit-content;
+    margin: 1%;
+}
+.direita > div >img{
+    height: 300px;
+    width: 300px;
+    border-radius: 20%;
+}
