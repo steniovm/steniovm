@@ -10,7 +10,7 @@ body{
 iframe{
     border-radius: 10px;
     border: none;
-    height: auto;
+    height:95vh;
 }
 img{
     height:100%;
@@ -35,7 +35,6 @@ h2{
 }
 .bodymenu{
     flex-direction: column;
-    background-color: #ddd;
 }
 .bodycorpo{
     display: flex;
@@ -52,7 +51,9 @@ h2{
     text-align: center;
     background-color: #999;
     background-image: linear-gradient(45deg, #111, #119);
-    margin-top: 5px;
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
     box-shadow: 3px 3px 3px 3px rgba(20, 20, 100, 0.5);
 }
 a{
@@ -70,7 +71,7 @@ a:visited {
 }
 a:focus, a:hover {
     font-weight: bolder;
-    font-size: x-large;
+    font-size: large;
     color: #a3f;
     border-bottom: 1px solid;
     background: #119;
