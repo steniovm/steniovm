@@ -5,7 +5,7 @@ body{
     border: 0px;
     background-color: aquamarine;
     text-align: center;
-    background-image: linear-gradient(105deg, #338, #8ad);
+    background-image: linear-gradient(105deg, #55a, #79c);
 }
 iframe{
     border-radius: 10px;
@@ -57,7 +57,7 @@ h3{
     border-radius: 20px;
     text-align: center;
     background-color: #999;
-    background-image: linear-gradient(45deg, #111, #119);
+    background-image: linear-gradient(45deg, #444, #44c);
     margin-top: 1px;
     margin-left: 5px;
     margin-right: 5px;
@@ -70,18 +70,18 @@ a{
 a:link {
     font-weight: bold;
     text-decoration: none;
-    color: #fdd;
+    color: #222;
 }
 a:visited {
     text-decoration: none;
-    color:#baf;
+    color:#225;
 }
 a:focus, a:hover {
     font-weight: bolder;
     font-size: large;
-    color: #a3f;
+    color: #bef;
     border-bottom: 1px solid;
-    background: #119;
+    /*background: #119;*/
     text-decoration: none;
 }
 a:active {
@@ -149,4 +149,10 @@ a:active {
     height: 300px;
     width: 300px;
     border-radius: 20%;
+}
+.esquerda > div > a{
+    font-size: medium;
+}
+.alinharacima{
+    align-self: stretch;
 }
