@@ -33,6 +33,13 @@ h2{
     color: #225;
     -webkit-text-stroke: 2px #558;
 }
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    text-decoration: underline wavy;
+    color: #225;
+    text-align: center;
+}
 .bodymenu{
     flex-direction: column;
 }
@@ -92,23 +99,50 @@ a:active {
     box-shadow: 10px 10px 10px 10px rgba(0,0,139, 0.5);
 }
 .esquerda{
-    justify-content:start;
+    justify-content: start;
+    flex-direction: column;
 }
 .esquerda > div{
+    text-align: start;
     width:fit-content;
     margin: 1%;
+    font-size: large;
+
 }
 .esquerda > div >img{
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     border-radius: 20%;
 }
-
+.sociais{
+    display: flex;
+    flex-direction: column;
+}
+.icons{
+    width: 80px;
+}
+.icons:focus, .icons:hover{
+    background:none;
+}
+.icons > img{
+    height:40px;
+    width: 40px;
+    border-radius: 2px;
+}
+.icons:focus > img, .icons:hover >img{
+    height:80px;
+    width:80px;
+    background: #911;
+}
+.inicio{
+    justify-content: space-between;
+}
 .direita{
     justify-content: end;
 }
 .direita > div{
     width:fit-content;
+    text-align: end;
     margin: 1%;
 }
 .direita > div >img{
