@@ -17,7 +17,8 @@ body::-webkit-scrollbar-thumb {
     background: #55a;
 }
 .index{
-    height:40em;
+    height:100vh;
+    background: none;
 }
 iframe{
     border: none;
@@ -43,16 +44,7 @@ h1{
     font-size: large;
     font-weight: bolder;
     color: #335;
-    /*-webkit-text-stroke: 1px #225;*/
 }
-/*h2{
-    font-style: italic;
-    font-weight: 900;
-    font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #225;
-    -webkit-text-stroke: 2px #558;
-}*/
 h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
@@ -206,24 +198,16 @@ a:active {
     margin: 1%;
     text-align: justify;
 }
-
-
-.esquerda{
-    justify-content: start;
-    flex-direction: column;
+.contatos{
+    display: flex;
+    align-self: stretch;
+    text-align: column;
+    margin: auto;
 }
-.esquerda > div{
+.contatos > div{
     text-align: start;
-    width:fit-content;
-    margin: 1%;
-    font-size: large;
+    margin: 5%;
 }
-.esquerda > div >img{
-    height: 350px;
-    width: 350px;
-    border-radius: 20%;
-}
-
 .sociais{
     display: flex;
     flex-direction: column;
@@ -244,26 +228,4 @@ a:active {
     width:60px;
     background: #966;
     border-radius: 30%;
-}
-.inicio{
-    justify-content: space-between;
-}
-.direita{
-    justify-content: end;
-}
-.direita > div{
-    width:fit-content;
-    text-align: end;
-    margin: 1%;
-}
-.direita > div >img{
-    height: 300px;
-    width: 300px;
-    border-radius: 20%;
-}
-.esquerda > div > a{
-    font-size: medium;
-}
-.alinharacima{
-    align-self: stretch;
 }
