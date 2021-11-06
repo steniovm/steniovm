@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "NimbusSanTW01Con";
+    src: url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.eot");
+    src: url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.eot?#iefix") format("embedded-opentype"),
+         url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.woff2") format("woff2"),
+         url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.woff") format("woff"),
+         url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.ttf") format("truetype"),
+         url("//db.onlinewebfonts.com/t/3591a95e9abd510d170b0ba4077e70d3.svg#NimbusSanTW01Con") format("svg");
+}
+
+@font-face {
+    font-family:"Mr De Haviland";
+    src:url("MrDeHaviland-Regular.eot?") format("eot"),
+    url("MrDeHaviland-Regular.woff") format("woff"),
+    url("MrDeHaviland-Regular.ttf") format("truetype"),
+    url("MrDeHaviland-Regular.svg#MrDeHaviland-Regular") format("svg");
+    font-weight:normal;font-style:normal;
+}
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.menu{
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 90px;
+    justify-content:space-evenly;
+    flex-direction: row;
+    margin: 0 0 0 15% ;
+}
+a{
+    font-family: "NimbusSanTW01Con";
+    width: 130px;
+    height: 55px;
+    border-top: solid 1px black;
+    text-decoration: none;
+}
+.carrinho{
+    border-top: none;
+}
+a > div{
+    width: 130px;
+    height: 55px;
+    padding: 5px 0 1px 0;
+}
+a:focus, a:hover{
+    border-top: solid 3px tomato;
+    color: #fbbc05;
+    padding: 5px 0 1px 0;
+}
+.principal{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 55px;
+    background-image: url("Imagens/8a3e6d_21668c4856154d9d95c66d3930bd3294mv2.jpg");
+    align-items: center;
+    justify-content: center;
+}
+.start{
+    height: 302px;
+    width: 721px;
+    background-color: rgba(255,255,255,0.9);
+    justify-content: center;
+    border: inset 4px black;
+    box-shadow: 0 0 0 1rem rgba(255,255,255,0.9);
+}
+h1{
+    font-size: 60px;
+    font-family: "NimbusSanTW01Con";
+}
+h1 > em{
+    font-family: "Mr De Haviland";
+}
+.substart{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+.substart > div{
+    width: 100%;
+    border: outset 5px black;
+    border-bottom: none;
+}
+.comece{
+    color: white;
+}
+.comece > div{
+    background-color: black;
+    width: 100%;
+    height: 86%;
+    text-align: center;
+    vertical-align:middle;
+    border: outset 5px black;
+}
+.comece:focus > div, .comece:hover > div{
+    background-color: transparent;
+    color: black;
+}
+p{
+    text-align: center;
+    vertical-align:middle;
+}
+.cent{
+    padding: 10%;
+}
+.recon{
+    display: flex;
+    flex-direction: row;
+    margin: 0 12% 0 12%;
+    justify-content: space-around;
+}
+.comp > div{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    vertical-align:middle;
+    background: tomato;
+}
+.comp:focus > div, .comp:hover > div{
+    background-color: #525252;
+    color: white;
+}
+.ender{
+    font-size: small;
+}
