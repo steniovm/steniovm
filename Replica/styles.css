@@ -118,7 +118,6 @@ p{
     height: auto;
     text-align: center;
     vertical-align:middle;
-    background: tomato;
 }
 .comp:focus > div, .comp:hover > div{
     background-color: #525252;
