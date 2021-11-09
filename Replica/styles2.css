@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'oswald-medium';
+    src:url("Oswald-Medium.ttf");
+}
+@font-face {
+    font-family: 'raleway';
+    src:url("Raleway-Regular.ttf");
+}
+
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.topo{
+    display: flex;
+    flex-direction: row;
+    background-color: #000769;
+    color: white;
+    justify-content: space-between;
+    height: 127px;
+    align-items: center;
+}
+.topo > div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+}
+span{
+    font-family: 'oswald-medium', sans-serif;
+    margin-left: 2%;
+    width: 120px;
+    font-size: 22px;
+    vertical-align: baseline;
+    font-weight: 400;
+    text-align: start;
+}
+.menu{
+    width: 714px;
+    justify-content: space-between;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+}
+a{
+    font-family: 'raleway', sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+a:focus, a:hover{
+    color: #fc9823
+}
+.inicial{
+    width: 100%;
+    max-width: 1189px;   
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+    background-image: url("imagens2/ea71bb_d4280c9435874086b9f2ff73d96b2b16f000.webp");
+    height: 860px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.inicial > div{
+    justify-content:space-between;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+}
+h1{
+    padding-top: 250px;
+    font-family: 'oswald-medium', sans-serif;
+    font-size: 72px;
+    vertical-align: baseline;
+    font-weight: 400;
+    text-align: start;
+    color: white;
+    text-align: center;
+}
+p{
+    font-family: 'raleway', sans-serif;
+    line-height: 33.4px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 780px;
+    color:#000769;
+    margin: auto;
+    font-size: 15px;
+}
+.slogan{
+    font-size: 20px;
+    color: white;
+}
+a > div{
+    width: 144px;
+    height: 45px;
+    text-align: center;
+    margin: auto;
+    justify-content:space-between;
+    align-content: center;
+    background-color: #fc9823;
+    font-family: 'raleway', sans-serif;
+    font-size: 15px;
+    margin-top: 40px;
+}
+a:focus >div, a:hover >div{
+    background-color: rgba(0,7,105,0.5);
+    color: white;
+}
+h2{
+    font-family: 'oswald-medium', sans-serif;
+    color: #fc9823;
+    font-size: 50px;
+    vertical-align: baseline;
+    text-align: center;
+    font-weight: 400;
+}
+.slogan2{ 
+    font-size: 18px;
+    width: 780px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.imagens{
+    display: flex;
+    height: 520px;
+    width: 1189px;
+    justify-content: space-between;
+    margin: auto;
+    flex-direction: row;
+    
+}
+.imagens > div{
+    display: flex;
+    width: 376px;
+}
+.imagens > div > a{
+    color: white;
+    font-family: 'oswald-medium', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 50%;
+    margin: auto;
+}
+.i1{
+    background-image: url("imagens2/ea71bb_05a6a57da574403ca693f002a922b506mv2_d_2326_2437_s_2.webp");
+}
+.i2{
+    background-image: url("imagens2/ea71bb_e1843477b4274f7e983d6f512d664740mv2_d_2109_1935_s_2.webp");
+}
+.i3{
+    background-image: url("imagens2/ea71bb_929ed199846f4702869772fba5674a55mv2_d_2807_2985_s_4_2.webp");
+}
+.solo{
+    display: flex;
+    flex-direction: column;
+    background-color: #000769;
+    color: white;
+    justify-content: space-between;
+    height: 180px;
+    align-items: center;
+}
+.solo > div{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+    margin: auto;
+}
+.dados{
+    width: 20%;
+    color: white;
+}
+.dados > p, .dados > div > p, .dados > div > a{
+    color: white;
+}
+.ssolo{
+    background-color: #e4e4e4;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    color:#000769;
+    font-size: 14px;
+    letter-spacing:-0.28px;
+    font-weight: 400;
+}
