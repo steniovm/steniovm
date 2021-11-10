@@ -1,0 +1,243 @@
+@font-face {
+    font-family: "HelveticaW01-Roman";
+    src: url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.eot");
+    src: url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/c5bd605b45237a12c99133fa9d7cae49.svg#HelveticaW01-Roman") format("svg");
+}
+@font-face {
+    font-family: 'Cookie';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/cookie/v12/syky-y18lb0tSbf9kgqS.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+@font-face {
+    font-family: "Proxima-N-W01-Reg";
+    src:url("https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/64017d81-9430-4cba-8219-8f5cc28b923e.woff2") format("woff2");
+}
+@font-face {
+    font-family: "DIN-Next-W01-Light";
+    src: url("https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/bc176270-17fa-4c78-a343-9fe52824e501.woff") format("woff");
+}
+body{
+    background: url("Imagens3/3b1f25_9da087f33f6c4bdcaea3c1de543438ae.webp") center center no-repeat fixed;
+    overflow-x: hidden;
+}
+.menu{
+    background-color: #362e26;
+    position: fixed;
+    height: 9%;
+    width: 100%;
+    margin-left: -10px;
+    margin-top: -20px;
+}
+.menu > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    vertical-align: baseline;
+    align-items: center;
+    margin-left: 18%;
+    margin-right: 20%;
+    margin-top: 2vh;
+}
+a{
+    color:#f3ede4;
+    font-family: "HelveticaW01-Roman", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 35px;
+    text-decoration: none; 
+}
+a:hover{
+    color: #dad2ca;
+    text-decoration: none; 
+}
+.inicio{
+    padding-top: 20%;
+    color: white;
+    text-align: center;
+}
+h1{
+    font-family: 'Cookie';
+    font-size: 172px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1px;
+}
+span{
+    font-family: "Proxima-N-W01-Reg";
+    font-size: 25px;
+    letter-spacing: 7.5px;
+    font-weight: 400;
+}
+.inicio >div >img{
+    height: 34px;
+    width: 139px;
+}
+.sobre{
+    background-color: #e78585;
+    background-image: url("Imagens3/21ff2961e4d94522b96543b873b063dc.webp");
+    margin-left: -10px;
+    margin-top: 20%;
+    height: 460px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.sobre > div{
+    height: 62px;
+    width: 548px;
+    text-align: center;
+}
+.sobre > div > span{
+    font-family: "Proxima-N-W01-Reg";
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.4px;
+}
+.parag{
+    color: white;
+    text-align: start;
+}
+.parag> p{
+    margin: auto;
+    margin-top: -30px;
+    margin-left: -40px;
+    padding: 0%;
+    font-family: "HelveticaW01-Roman", sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    vertical-align: baseline;
+    font-weight: 400;
+    text-align: start;
+}
+.sabores{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    margin-left: -10px;
+}
+.sabores >span{
+    margin-top: 100px;
+    color: #362e26;
+    font-family: "Proxima-N-W01-Reg";
+    font-size: 28px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+    text-align: center;
+}
+.sabores > div{
+    width: 748px;
+}
+.sabores >div >img{
+    height: 34px;
+    width: 139px;
+}
+.quem{
+    display: flex;
+    flex-direction: row;
+    background-color: #70babe;
+    background-image: url("Imagens3/3978993e99184d5e8c21f0204cd07bca.webp");
+    margin-left: -10px;
+    height: 660px;
+    align-items: center;
+    justify-content: space-around;
+}
+.quem > div {
+    width: 400px;
+}
+.quem > div >span{
+    color: white;
+    font-family: "Proxima-N-W01-Reg";
+    font-size: 28px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+    text-align: start;
+}
+.galeria{
+    height: 450px;
+    width: 100%;
+    margin-left: -300px;
+    display: flex;
+    flex-direction: row;
+}
+.contato{
+    background-color: #362e26;
+    display: flex;
+    flex-direction: row;
+    margin-left: -10px;
+    justify-content: space-evenly;
+    color: white;
+}
+.contato > div{
+    width: 487px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.contato > div > span{
+    font-family: "Proxima-N-W01-Reg";
+    font-size: 28px;
+    letter-spacing: 1.4px;
+    font-weight: 700;
+}
+.contato > div > div {
+    height: 26px;
+    width: 150px;
+}
+input{
+    width: 100%;
+    background-color: #514539;
+    font-family: "HelveticaW01-Roman";
+    font-size: 15px;
+    line-height: 21px;
+    vertical-align: baseline;
+    padding: 3px 3px 3px 24px;
+    font-weight: 400;
+    color: white;
+}
+textarea{
+    width: 100%;
+    height: 121px;
+    background-color: #514539;
+    font-family: "HelveticaW01-Roman";
+    font-size: 15px;
+    line-height: 21px;
+    vertical-align: baseline;
+    padding: 3px 3px 3px 24px;
+    font-weight: 400;
+    color: white;
+}
+button{
+    align-self: flex-end;
+    background-image: linear-gradient(to button, #897c71, #665749);;
+}
+.fim{
+    background-color: #362e26;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2px;
+    margin-left: -10px;
+    height: 140px;
+    justify-content: space-evenly;
+}
+.fim>span{
+    color: #90857b;
+    font-family: "DIN-Next-W01-Light";
+    font-size: 14px;
+    vertical-align: baseline;
+    font-weight: 400;
+    text-align: center;
+}
