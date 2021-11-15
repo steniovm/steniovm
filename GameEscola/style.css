@@ -46,7 +46,7 @@ html{
 .aindex > div{
     position: absolute;
     top: 0;
-    left: 0;
+    margin: 0 auto;
     width: 360px;
     height: 640px;
     background-color:transparent;
@@ -103,11 +103,13 @@ nav{
 .iconIni{
     position: absolute;
     opacity: 1;
+    cursor: pointer;
 }
 
 .iconAtv{
     position: absolute;
     opacity: 0;
+    cursor: pointer;
 
 }
 
@@ -161,26 +163,94 @@ main{
     justify-content: flex-end;
 }
 
-.dropConq:hover .iconIni{
-    opacity: 0;
-}
-
-.dropConq:hover .iconAtv{
-    opacity: 1;
-}
-
 /* Expande o conteudo da conquista e modifica a borda para melhor se enquadrar ao conteudo expandido */
 
-.dropConq:hover .contDropdown {
+input[name="option"] {
+    display: none;
+}
+
+.contDropdown {
+    display: none;
+    padding: 2%;
+    border: solid 2px #2430AD;
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+}
+
+#option1:checked ~ .dropConq .dp1 {
     display: flex;
     flex-direction: column;
 }
 
-.dropConq:hover .conquistas{
+#option1:checked ~ .dropConq .iconI1{
+    opacity: 0;
+}
+
+#option1:checked ~ .dropConq .iconA1{
+    opacity: 1;
+}
+
+#option1:checked ~ .dropConq .conquistas1{
     border-radius: 10px 10px 0 0;
 }
 
-.conquistas{
+
+#option2:checked ~ .dropConq .dp2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#option2:checked ~ .dropConq .iconI2{
+    opacity: 0;
+}
+
+#option2:checked ~ .dropConq .iconA2{
+    opacity: 1;
+}
+
+#option2:checked ~ .dropConq .conquistas2{
+    border-radius: 10px 10px 0 0;
+}
+
+
+#option3:checked ~ .dropConq .dp3 {
+    display: flex;
+    flex-direction: column;
+}
+
+#option3:checked ~ .dropConq .iconI3{
+    opacity: 0;
+}
+
+#option3:checked ~ .dropConq .iconA3{
+    opacity: 1;
+}
+
+#option3:checked ~ .dropConq .conquistas3{
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+#option4:checked ~ .dropConq .dp4 {
+    display: flex;
+    flex-direction: column;
+}
+
+#option4:checked ~ .dropConq .iconI4{
+    opacity: 0;
+}
+
+#option4:checked ~ .dropConq .iconA4{
+    opacity: 1;
+}
+
+#option4:checked ~ .dropConq .conquistas4{
+    border-radius: 10px 10px 0 0;
+}
+
+
+.conquistas1, .conquistas2, .conquistas3, .conquistas4{
     padding: 5px 5px;
     display: flex;
     border: solid 2px #2430AD;
@@ -190,17 +260,9 @@ main{
     flex: auto;
 }
 
-.conquistas p {
+.conquistas1 p, .conquistas2 p, .conquistas3 p, .conquistas4 p {
     margin: 0;
 }
-
-.contDropdown {
-    display: none;
-    padding: 2%;
-    border: solid 2px #2430AD;
-    border-radius: 0 0 10px 10px;
-    z-index: 1;
-  }
 
 .tipo{
     text-transform: uppercase;
