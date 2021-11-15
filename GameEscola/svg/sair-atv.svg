@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 28" width="34" height="28">
+	<title>Layer</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #2430ad;stroke-linecap:round;stroke-linejoin:round;stroke-width: 3 } 
+	</style>
+	<path id="Layer" class="shp0" d="M26.23 7.94L32 13.88M32 13.88L26.23 19.82M32 13.88L12.31 13.88M21.62 19.82L21.62 22.79C21.62 23.57 21.31 24.33 20.77 24.89C20.23 25.44 19.5 25.76 18.73 25.76L4.88 25.76C4.12 25.76 3.39 25.44 2.84 24.89C2.3 24.33 2 23.57 2 22.79L2 4.97C2 4.18 2.3 3.43 2.84 2.87C3.39 2.31 4.12 2 4.88 2L18.73 2C19.5 2 20.23 2.31 20.77 2.87C21.31 3.43 21.62 4.18 21.62 4.97L21.62 7.94L21.62 19.82Z" />
+</svg>

@@ -1,0 +1,12 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="33" height="33">
+	<title>mais</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #2430ad } 
+		.shp1 { fill: #ffc745 } 
+	</style>
+	<g id="mais">
+		<path id="Layer" class="shp0" d="M16.5 33C7.38 33 0 25.62 0 16.5C0 7.38 7.38 0 16.5 0C25.62 0 33 7.38 33 16.5C33 25.62 25.62 33 16.5 33Z" />
+		<path id="Layer" class="shp1" d="M14.34 11.29L14.34 7.02C14.89 4.99 18.82 4.99 19.38 7.02L19.38 13.9L26.03 13.9C27.99 14.47 27.99 18.53 26.03 19.1L19.38 19.1L19.38 25.98C18.82 28.01 14.89 28.01 14.34 25.98L14.34 19.1L6.78 19.1C5.07 18.53 5.07 14.47 6.78 13.9L14.34 13.9L14.34 11.29Z" />
+	</g>
+</svg>

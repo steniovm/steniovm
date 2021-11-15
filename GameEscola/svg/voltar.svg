@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" width="32" height="33">
+	<title>Layer</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffc745 } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="shp0" d="M31.93 0.75L22.19 15.75L31.79 32.87L0.07 16.53L31.93 0.13L31.93 0.75Z" />
+</svg>

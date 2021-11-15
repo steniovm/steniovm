@@ -1,0 +1,13 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
+	<title>Pasta 1</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #2430ad } 
+	</style>
+	<g id="Pasta 1">
+		<path id="Layer" class="shp0" d="M0 5.94L1.42 5.05L1.42 22.87C1.34 23.27 1.56 24.12 3.07 24.36C4.96 24.65 10.39 26.44 12.28 30C9.61 28.71 3.4 26.91 0 30L0 5.94Z" />
+		<path id="Layer" class="shp0" d="M14.41 8.61L14.41 30C9.69 23.35 4.88 22.48 3.07 22.87L3.07 0C9.69 1.66 13.39 6.44 14.41 8.61Z" />
+		<path id="Layer" class="shp0" d="M30 30C26.6 26.91 20.39 28.71 17.72 30C19.61 26.44 25.04 24.65 26.93 24.36C28.44 24.12 28.66 23.27 28.58 22.87L28.58 5.05L30 5.94L30 30Z" />
+		<path id="Layer" class="shp0" d="M26.93 0L26.93 22.87C25.12 22.48 20.31 23.35 15.59 30L15.59 8.61C16.61 6.44 20.31 1.66 26.93 0Z" />
+	</g>
+</svg>

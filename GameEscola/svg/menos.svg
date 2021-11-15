@@ -1,0 +1,12 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="33" height="33">
+	<title>menos</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #2430ad } 
+		.shp1 { fill: #ffc745 } 
+	</style>
+	<g id="menos">
+		<path id="Layer" class="shp0" d="M16.5 33C7.38 33 0 25.62 0 16.5C0 7.38 7.38 0 16.5 0C25.62 0 33 7.38 33 16.5C33 25.62 25.62 33 16.5 33Z" />
+		<path id="Layer" class="shp1" d="M6.29 16.34C6.29 15.13 7.27 14.14 8.49 14.14L24.51 14.14C25.73 14.14 26.71 15.13 26.71 16.34L26.71 16.66C26.71 17.87 25.73 18.86 24.51 18.86L8.49 18.86C7.27 18.86 6.29 17.87 6.29 16.66L6.29 16.34Z" />
+	</g>
+</svg>

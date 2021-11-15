@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Righteous&display=swap');
+
+@media screen and (min-width: 501px) {
+    body{
+        width: 360px;
+        height: 640px;
+        margin: 0 auto;
+        border: 1px solid #000;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+}
+
+@media screen and (MAX-width: 500px) {
+    body{
+        width: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+    }
+}
+
+/*barra de rolagem suave*/
+body::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+body::-webkit-scrollbar {
+    width: 3px;
+}
+body::-webkit-scrollbar-thumb {
+    background: #55a;
+}
+html{
+    background-color: #aaa;
+}
+/*pagina inicial*/
+.htmlindex{
+    background-color: #aaa;
+}
+.bodyindex{
+    background-color: #2430AD;
+}
+.iconindex >img{
+    margin-top: 50%;
+    width: 360px;
+}
+.aindex > div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 640px;
+    background-color:transparent;
+}
+
+/* Configurações do menu */
+nav{
+    display:flex;
+    flex: auto;
+    background-color: #2430AD;
+    flex-direction: column;
+    padding: 0 2%;
+    padding-top: 1%;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.menu{
+    display: flex;
+    flex: auto;
+    position: sticky;
+    top: 0;
+    flex-wrap: wrap;
+    list-style: none;
+    flex:auto;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li{
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+/* Adiciona o fundo branco quando o link do menu é clicado (pode ser ativado no futuro)
+.menu li:focus-within{
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+*/
+
+/* Permite que o icone do botão do menu seja modificado quando ele é clicado */
+.change{
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Configuração inicial do icone do menu */
+.iconIni{
+    position: absolute;
+    opacity: 1;
+}
+
+.iconAtv{
+    position: absolute;
+    opacity: 0;
+
+}
+
+/* Configuração do icone do menu ao ser clicado (pode ser ativado quando as outras paginas forem implementadas)
+.change:focus .iconIni{
+    opacity: 0;
+}
+.change:focus .iconAtv{
+    opacity: 1;
+}
+*/
+
+
+.active{
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.active .iconAtv{
+    opacity: 1;
+}
+
+/* Aqui começa o conteudo principal do site*/ 
+
+main{
+    margin: 2% 2%;
+    font-family: 'Righteous', cursive;
+    font-size: 18px;
+    color: #2430AD;
+}
+
+.PagConq{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.dropConq{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+/* Muda o icone de + para - ao passar o mouse na div .dropConq */
+.changePg{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.dropConq:hover .iconIni{
+    opacity: 0;
+}
+
+.dropConq:hover .iconAtv{
+    opacity: 1;
+}
+
+/* Expande o conteudo da conquista e modifica a borda para melhor se enquadrar ao conteudo expandido */
+
+.dropConq:hover .contDropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropConq:hover .conquistas{
+    border-radius: 10px 10px 0 0;
+}
+
+.conquistas{
+    padding: 5px 5px;
+    display: flex;
+    border: solid 2px #2430AD;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+}
+
+.conquistas p {
+    margin: 0;
+}
+
+.contDropdown {
+    display: none;
+    padding: 2%;
+    border: solid 2px #2430AD;
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+  }
+
+.tipo{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: solid 2px #2430AD;
+}
