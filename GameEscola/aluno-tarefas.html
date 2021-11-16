@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" href="svg/logo.svg" rel="shortcut icon">
+    <meta http-equiv="content-language" content="pt"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta property="og:title" content="GameEscola - Conquiste o Conhecimento">
+    <meta property="og:description" content="Plataforma de Gamificação do ensino"/>
+    <meta property="og:image" content="svg/logo.svg">
+    <meta property="og:locale" content="pt-br" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Righteous&display=swap" rel="stylesheet">
+    <title>Game escola - Tarefas</title>
+
+    
+</head>
+<body>
+    <nav id="links">
+        <div id="logo">
+            <img src="svg/logo.svg">
+        </div>
+
+
+        <ul class="menu">
+           <li id="perfil">
+               <a class="change" href="aluno-perfil.html">
+                <img class="iconIni" src="svg/perfil.svg">
+                <img class="iconAtv" src="svg/perfil-atv.svg">
+               </a>
+            </li>
+
+            <li id="turma">
+                <a class="change" href="aluno-turmas.html">
+                    <img class="iconIni" src="svg/turma.svg">
+                    <img class="iconAtv" src="svg/turma-atv.svg">
+                </a>
+             </li>
+
+             <li id="atividades" class="active">
+                <a class="change" href="#">
+                    <img class="iconIni" src="svg/atividades.svg">
+                    <img class="iconAtv" src="svg/atividades-atv.svg">
+                </a>
+             </li>
+
+             <li id="conquistas">
+                <a class="change" href="aluno-conquistas.html">
+                    <img class="iconIni" src="svg/conquistas.svg">
+                    <img class="iconAtv" src="svg/conquistas-Atv.svg">
+                </a>
+             </li>
+
+             <li id="notificacao">
+                <a class="change" href="aluno-notificacao.html">
+                    <img class="iconIni" src="svg/email.svg">
+                    <img class="iconAtv" src="svg/email-atv.svg">
+                </a>
+             </li>
+
+             <li id="sair">
+                <a class="change" href="Index.html">
+                    <img class="iconIni" src="svg/sair.svg">
+                    <img class="iconAtv" src="svg/sair-atv.svg">
+                </a>
+             </li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="PagConq">
+            <input type="checkbox" name="option" id="option1">
+            <input type="checkbox" name="option" id="option2">
+            <input type="checkbox" name="option" id="option3">
+            <input type="checkbox" name="option" id="option4">
+
+            <label class="dropConq" for="option1">
+                <div class="conquistas1">
+                    <img src="svg/atividade-abe.svg">
+                    <p>Atividades em aberto</p>
+                    <div class="changePg" href="#">
+                        <img class="iconIni iconI1" src="svg/mais.svg">
+                        <img class="iconAtv iconA1" src="svg/menos.svg">
+                    </div>
+                </div>
+                <div class="contDropdown dp1">
+                    <p class="tipo">trabalho de fisica</p>
+                    <p>Prazo: 18/11/2021</p>
+                </div>
+                <div class="contDropdown dp1">
+                    <p class="tipo">apresentação de projeto</p>
+                    <p>Prazo: 19/11/2021</p>
+                </div>
+            </label>
+
+            <label class="dropConq" for="option2">
+                <div class="conquistas2">
+                    <img src="svg/atividade-fec.svg">
+                    <p>Atividades fechadas</p>
+                    <dvi class="changePg" href="#">
+                        <img class="iconIni iconI2" src="svg/mais.svg">
+                        <img class="iconAtv iconA2" src="svg/menos.svg">
+                    </div>
+                </div>
+                <div class="contDropdown dp2">
+                    <p class="tipo">Lista de exercicios de cinemática</p>
+                    <p>Prazo: 15/11/2021</p>
+                </div>
+            </label>
+
+            <label class="dropConq" for="option3">
+                <div class="conquistas3">
+                    <img src="svg/atividade-ace.svg">
+                    <p>Atividades completadas</p>
+                    <div class="changePg" href="#">
+                        <img class="iconIni iconI3" src="svg/mais.svg">
+                        <img class="iconAtv iconA3" src="svg/menos.svg">
+                    </div>
+                </div>
+                <div class="contDropdown dp3">
+                    <p class="tipo">Roteiro de observação da Lua</p>
+                    <p>Prazo: 15/11/2021</p>
+                </div>
+                <div class="contDropdown dp3">
+                    <p class="tipo">Pesquisa cores</p>
+                    <p>Prazo: 14/11/2021</p>
+                </div>
+            </label>
+
+            <!--
+            <label class="dropConq" for="option4">
+                <div class="conquistas4">
+                    <img src="svg/atividade-nov.svg">
+                    <p>Nova Atividade</p>
+                    <div class="changePg" href="#">
+                        <img class="iconIni iconI4" src="svg/mais.svg">
+                        <img class="iconAtv iconA4" src="svg/menos.svg">
+                    </div>
+                </div>
+                <div class="contDropdown dp4">
+                    <p class="tipo">Criar</p>
+                </div>
+            -->
+            </label>
+        </article>
+    </main>
+    
+</body>
+</html>

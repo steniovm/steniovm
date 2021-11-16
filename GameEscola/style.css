@@ -3,11 +3,17 @@
 @media screen and (min-width: 501px) {
     body{
         width: 360px;
-        height: 640px;
+        min-height: 640px;
         margin: 0 auto;
         border: 1px solid #000;
         border-radius: 10px;
         background-color: #fff;
+    }
+    html{
+    background-color: #aaa;
+    }
+    nav{
+            border-radius: 10px 10px 0 0 ;
     }
 }
 
@@ -16,6 +22,14 @@
         width: 100%;
         margin: 0 auto;
         background-color: #fff;
+        border-radius: 0px;
+    }
+    
+    html{
+        background-color: #fff;
+    }
+        nav{
+            border-radius: 0;
     }
 }
 
@@ -29,9 +43,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
     background: #55a;
 }
-html{
-    background-color: #aaa;
-}
+
 /*pagina inicial*/
 .htmlindex{
     background-color: #aaa;
@@ -60,7 +72,7 @@ nav{
     flex-direction: column;
     padding: 0 2%;
     padding-top: 1%;
-    border-radius: 10px 10px 0 0 ;
+
 }
 
 .menu{
@@ -104,13 +116,14 @@ nav{
     position: absolute;
     opacity: 1;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .iconAtv{
     position: absolute;
     opacity: 0;
     cursor: pointer;
-
+    transition: 0.5s;
 }
 
 /* Configuração do icone do menu ao ser clicado (pode ser ativado quando as outras paginas forem implementadas)
@@ -132,7 +145,26 @@ nav{
     opacity: 1;
 }
 
-/* Aqui começa o conteudo principal do site*/ 
+/* Aqui começa o conteudo principal do site*/
+.inf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+} 
+
+.perfil-photo {
+    background-color: #FFC745;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.perfil-photo img {
+    width: 50px;
+    height: 50px;
+    transform: translate(50%, 50%);
+}
 
 main{
     margin: 2% 2%;
@@ -184,10 +216,12 @@ input[name="option"] {
 
 #option1:checked ~ .dropConq .iconI1{
     opacity: 0;
+    transform: rotate(180deg);
 }
 
 #option1:checked ~ .dropConq .iconA1{
     opacity: 1;
+    transform: rotate(180deg);
 }
 
 #option1:checked ~ .dropConq .conquistas1{
@@ -202,10 +236,12 @@ input[name="option"] {
 
 #option2:checked ~ .dropConq .iconI2{
     opacity: 0;
+    transform: rotate(180deg);
 }
 
 #option2:checked ~ .dropConq .iconA2{
     opacity: 1;
+    transform: rotate(180deg);
 }
 
 #option2:checked ~ .dropConq .conquistas2{
@@ -220,10 +256,12 @@ input[name="option"] {
 
 #option3:checked ~ .dropConq .iconI3{
     opacity: 0;
+    transform: rotate(180deg);
 }
 
 #option3:checked ~ .dropConq .iconA3{
     opacity: 1;
+    transform: rotate(180deg);
 }
 
 #option3:checked ~ .dropConq .conquistas3{
@@ -239,10 +277,12 @@ input[name="option"] {
 
 #option4:checked ~ .dropConq .iconI4{
     opacity: 0;
+    transform: rotate(180deg);
 }
 
 #option4:checked ~ .dropConq .iconA4{
     opacity: 1;
+    transform: rotate(180deg);
 }
 
 #option4:checked ~ .dropConq .conquistas4{
