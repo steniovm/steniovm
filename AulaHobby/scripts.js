@@ -1,0 +1,11 @@
+document.getElementById("title1").innerHTML = "Meu Hobby favorito";
+document.getElementById("title2").innerHTML = "Quem sou eu";
+document.getElementById("myname").innerHTML = "Nome: Stênio";
+document.getElementById("myage").innerHTML = "idade: 38 anos";
+document.getElementById("myhome").innerHTML = "local: Belo Horizonte / MG";
+document.getElementById("title22").innerHTML = "Meu Hobby";
+document.getElementById("title3").innerHTML = "Jogar RPG";
+document.getElementById("descript").innerHTML = "Descrição:";
+document.getElementById("paragraf").innerHTML = "RPG é a sigla em inglês para role-playing game, um gênero de jogo no qual os jogadores assumem o papel de personagens imaginários, em um mundo fictício. Os jogos de RPG podem ser jogados de diversas formas. ... As principais características do RPG são a interatividade e o trabalho em grupo.";
+document.getElementById("link1").innerHTML = "Wikipedia - Role-playing_game";
+document.getElementById("link2").innerHTML = "D&D Site Oficial";
