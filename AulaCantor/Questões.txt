@@ -1,0 +1,34 @@
+Qual é o comportamento esperado do método document.querySelector()?
+
+Resposta:
+Retorna o primeiro elemento no documento que corresponde ao seletor dentro do ().
+O seletor deve ser escrito como em CSS, por exemplo, se for uma classe seria:
+let myelement = document.querySelector(".myclass");
+
+
+O que acontece quando seu documento HTML possui dois ou mais elementos utilizando a mesma classe e um comando
+document.querySelector() é executado pelo Javascript?
+
+Resposta:
+Irá retornar o primeiro elemento encontrado com aquela classe seguindo a ordem de leitura padrão de um HTML.
+
+
+Crie uma página HTML para apresentar o seu cantor(a) ou grupo musical favorito.
+Estruture o seu trabalho como um projeto (arquivos separados para HTML, CSS e Javascript).
+No arquivo Javascript, utilize o método document.querySelector() para alterar os atributos
+dos elementos como você quiser. 
+Use a criatividade.
+A página deverá conter as seguintes informações:
+
+Informações sobre você(Nome, idade, estado, foto);
+Informações sobre seu cantor(a) ou grupo musical favorito
+(Nome, gênero, links para consulta, imagens, lista de suas músicas preferidas);
+Resposta:
+
+
+Publique o material do exercício 3 no seu GitHub.
+
+Resposta:
+
+
+
