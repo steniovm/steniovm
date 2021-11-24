@@ -1,0 +1,30 @@
+1 Defina com suas palavras o que são funções.
+
+Resposta:
+São blocos de códigos nomeados de forma que podem ser invocados em outras linha de código.
+Funções servem para reaproveitar código.
+Uma função escrita uma única vez pode ser invocada diversas vezes durante a execução do programa,
+e bibliotecas de funções podem ser usadas por diversos programas.
+
+2 O que são os argumentos de uma função e qual o seu propósito?
+
+Resposta:
+Argumentos são valores que podem ser passados para a função para que ela use como dados de entrada
+no seu processamento. por exemplo, uma função que soma a + b precisa que os valores de a e de b
+sejam fornecidos a ela, e esse fornecimento de dados ocorre no momento de invocar a função por meio de
+parâmetros.
+
+3 Crie uma página HTML para apresentar um animal que você se identifica.  
+
+Estruture o seu trabalho como um projeto (arquivos separados para html, css e javascript).
+No arquivo Javascript, crie funções responsáveis por preencher cada bloco
+(Ex.: fillHeader(), fillMainSection() etc). 
+
+Use a criatividade. A página deve conter as seguintes informações:
+
+Informações sobre o animal (Espécie, imagens, habitat, links para consulta e uma breve descrição);
+Resposta:
+
+4 Publique o material do exercício 3 no seu GitHub.
+
+Resposta:

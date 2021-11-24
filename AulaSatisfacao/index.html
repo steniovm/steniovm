@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - pesquisa de satisfação</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - pesquisa de satisfação">
+        <meta property="og:description" content="pesquisa de satisfação">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/AulaSatisfacao/">
+        <meta property="og:image" content="background.jpg">
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="682">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname"></span>
+                    <span id="myage"></span>
+                    <span id="myhome"></span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <button onclick="clickmain()">Click me</button>
+            <h1 id="title1">Churrascaria Samir</h1>
+            <section class="tanks">
+                <h2>Agradeçemos pela visita</h2>
+                <span>É com sincera gratidão que nos despedimos, esperamos que volte sempre</span><br/>
+                <p>Por favor, responda nossa pesquisa de satisfação para que possamos te atender cada vez melhor</p>
+            </section>
+            <form action="https://steniovm.free.beeceptor.com" method="post" target="_blank">
+                <fieldset class="questions">
+                    <label></label>
+                    <input type="text" id="Nome" name="nome" value="Anônimo" /><br />
+                    <label></label>
+                    <input type="range" id="cordialidade" name="cord" value="90" /><br />
+                    <label></label>
+                    <input type="range" id="ambiente" name="ambi" value="90" /><br />
+                    <label></label>
+                    <input type="range" id="tempat" name="tempat" value="50" /><br />
+                    <label></label>
+                    <input type="range" id="tempag" name="tempag" value="10" /><br />
+                    <label></label>
+                    <input type="range" id="sabor" name="sabor" value="90" /><br />
+                    <label></label>
+                    <input type="range" id="recome" name="recome" value="90" /><br />
+                    <label></label>
+                    <input type="range" id="retorn" name="retorn" value="50" /><br />
+                    <label></label>
+                    <textarea id="area1" placeholder="Digite sua mensagem aqui..."></textarea>
+                    <button type="button" id="submit">Enviar</button>
+                </fieldset>
+            </form>
+        </main>
+        <footer>
+            <h3>links</h3>
+            <ul>
+                <li><a href="https://www.alphaedtech.org.br/" alt="alphaedtech">Site do Alpha</a></li>
+            </ul>
+        </footer>
+        <div id="results">
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+            <label class="results"></label>
+        </div>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
