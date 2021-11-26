@@ -153,12 +153,12 @@ function resetvalues(){
 //enviar
 function sendvalues(){
     let name = document.querySelector("#name");
-    if (name.value!=""){
+    if (name.value==""){
+        alert("Digite seu nome");
+    }else{
         //enviar para o chapeiro namesped[0 ao 3] e nome
         resetvalues();
         alert(name.value+", agradeçemos a preferencia. Aguarde seu pedido, será chamado pelo seu nome.");
-    }else{
-        alert("Digite seu nome");
     }
 }
 
