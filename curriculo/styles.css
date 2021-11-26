@@ -107,12 +107,14 @@ a:active {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px rgb(10,10,50);
     scroll-padding: 1px;
+    min-width: 50%;
 }
 .gerais{
-    justify-content:center;
+    justify-content:space-around;
     flex-direction: column;
     flex-direction: row;
     margin: auto;
+    min-height: 260px;
 }
 .gerais > div{
     text-align: start;
@@ -212,7 +214,7 @@ a:active {
     flex-direction: column;
 }
 .icons{
-    width: 60px;
+    width: 30px;
 }
 .icons:focus, .icons:hover{
     background:none;
@@ -225,5 +227,4 @@ a:active {
 .icons:focus > img, .icons:hover >img{
     height:35px;
     width:35px;
-    border-radius: 30%;
 }

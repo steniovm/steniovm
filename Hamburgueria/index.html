@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Hamburgueria</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Hamburgueria">
+        <meta property="og:description" content="Monte o hamburguer e peça online">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Hamburgueria/">
+        <meta property="og:image" content="img/principal.jpg">
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1000">
+        <meta property="og:image:height" content="706">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="img/stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname"></span>
+                    <span id="myage"></span>
+                    <span id="myhome"></span>
+                    <span>Grand Chef Hamburgueiro da minha casa</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Tatu's Burguers</h1>
+            <span>Monte o seu Sanduiche como preferir</span>
+            <!--<form action="https://steniovm.free.beeceptor.com" method="POST" target="_blank">-->
+            <form>
+                <fieldset id="paobox">
+                    <span>Escolha seu Pão</span>
+                    <div class="options">
+                        <div class="opt">
+                            <input id="paofree" type="radio" name="pao" value="pao0" class="optpao"/>Sem pão
+                            <img class="imgopt" src="img/pratovazio.jpg" alt="Sem pão"/>
+                            <span class="cash">R$0,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="paofrances" type="radio" name="pao" value="pao1" class="optpao"/>Pão francês
+                            <img class="imgopt" src="img/paofrances.jpg" alt="Pão Frances"/>
+                            <span class="cash">R$3,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="paoaustraliano" type="radio" name="pao" value="pao2" class="optpao"/>Pão Australiano
+                            <img class="imgopt" src="img/paoautraliano.jpg" alt="Pão Australiano"/>
+                            <span class="cash">R$8,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="paobrioche" type="radio" name="pao" value="pao3" class="optpao"/>Pão de Brioche
+                            <img class="imgopt" src="img/paobrioche.jpg" alt="Pão de Brioche"/>
+                            <span class="cash">R$6,00</span>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="burgerbox">
+                    <span>Escolha seu Hambúrguer</span>
+                    <div class="options">
+                        <div class="opt">
+                            <input id="burgerfree" type="radio" name="burguer" value="burger0" class="optburguer"/>Sem Hambúrguer
+                            <img class="imgopt" src="img/pratovazio.jpg" alt="Sem hambúrguer"/>
+                            <span class="cash">R$0,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="burguepicanha" type="radio" name="burguer" value="burger1" class="optburguer"/>Hambúrguer de picanha
+                            <img class="imgopt" src="img/burguerpicanha.jpg" alt="Hambúrguer de picanha"/>
+                            <span class="cash">R$13,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="burguecostela" type="radio" name="burguer" value="burguer2" class="optburguer"/>Hamburguer de costela
+                            <img class="imgopt" src="img/burguercostela.jpg" alt="Hamburguer de costela"/>
+                            <span class="cash">R$10,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="burguervegano" type="radio" name="burguer" value="burguer3" class="optburguer"/>Hamburguer Vegano
+                            <img class="imgopt" src="img/burguervegano.jpg" alt="Hamburguer Vegano"/>
+                            <span class="cash">R$12,00</span>
+                        </div>
+                    </div>
+                    <button type="button" id="back1">Voltar</button>
+                </fieldset>
+                <fieldset id="saltbox">
+                    <span>Escolha sua Salada</span>
+                    <div class="options">
+                        <div class="opt">
+                            <input id="saltfree" type="radio" name="salt" value="salt0" class="optsalt"/>Sem salada
+                            <img class="imgopt" src="img/pratovazio.jpg" alt="Sem salada"/>
+                            <span class="cash">R$0,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="saltalface" type="radio" name="salt" value="salt1" class="optsalt"/>Alface
+                            <img class="imgopt" src="img/alface.jpg" alt="Alface"/>
+                            <span class="cash">R$1,50</span>
+                        </div>
+                        <div class="opt">
+                            <input id="salttomate" type="radio" name="salt" value="salt2" class="optsalt"/>Tomate
+                            <img class="imgopt" src="img/tomate.jpg" alt="Tomate"/>
+                            <span class="cash">R$1,50</span>
+                        </div>
+                        <div class="opt">
+                            <input id="saltpickles" type="radio" name="salt" value="salt3" class="optsalt"/>Pickles
+                            <img class="imgopt" src="img/pickles.jpg" alt="Pickles"/>
+                            <span class="cash">R$3,00</span>
+                        </div>
+                    </div>
+                    <button type="button" id="back2">Voltar</button>
+                </fieldset>
+                <fieldset id="chessbox">
+                    <span>Escolha seu Queijo</span>
+                    <div class="options">
+                        <div class="opt">
+                            <input id="chessfree" type="radio" name="chess" value="chess0" class="optchess"/>Sem queijo
+                            <img class="imgopt" src="img/pratovazio.jpg" alt="Sem Queijo"/>
+                            <span class="cash">R$0,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="chessmussarela" type="radio" name="chess" value="chess1" class="optchess"/>Mussarela
+                            <img class="imgopt" src="img/mussarela.jpg" alt="Queijo Mussarela"/>
+                            <span class="cash">R$3,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="chessprato" type="radio" name="chess" value="chess2" class="optchess"/>Prato
+                            <img class="imgopt" src="img/queijoprato.jpg" alt="Queijo Prato"/>
+                            <span class="cash">R$3,00</span>
+                        </div>
+                        <div class="opt">
+                            <input id="chesscheddar" type="radio" name="chess" value="chess3" class="optchess"/>Cheddar
+                            <img class="imgopt" src="img/cheddar.jpg" alt="Queijo Cheddar"/>
+                            <span class="cash">R$5,00</span>
+                        </div>
+                    </div>
+                    <button type="button" id="back3">Voltar</button>
+                </fieldset>
+                <fieldset>
+                    <strong>Seu Pedido:</strong>
+                    <div class="options">
+                        <div class="opt">
+                            <strong class="namesped">Pão:</strong>
+                            <strong class="namesped">Hambúrguer:</strong>
+                            <strong class="namesped">Salada:</strong>
+                            <strong class="namesped">Queijo:</strong>
+                        </div>
+                        <div class="opt">
+                            <strong class="chasped">Pão:</strong>
+                            <strong class="chasped">Hambúrguer:</strong>
+                            <strong class="chasped">Salada:</strong>
+                            <strong class="chasped">Queijo:</strong>
+                        </div>
+                    </div>
+                    <strong id="tot">Total:</strong>
+                    <button type="button" id="back4">Voltar</button>
+                    <div>
+                        <input type="text" placeholder="Seu nome" name="name" id="name"/>
+                        <input type="submit" value="Enviar pedido" id="subm"/>
+                        <input type="reset" value="Limpar pedido" id="rese"/>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+            <footer>
+                <br/><br/><br/><br/>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script type="text/javascript" src="scripts.js"></script>
+        <script type="text/javascript" src="math.js"></script>
+    </body>
+</html>

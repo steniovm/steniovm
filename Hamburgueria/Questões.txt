@@ -1,0 +1,16 @@
+1. Na atividade de hoje, você é dono de uma hamburgueria (dê o nome que você quiser)
+e irá construir um cardápio digital. Com o auxílio de um formulário, o usuário poderá montar o próprio lanche,
+e no final você deverá calcular o valor a ser pago e montar uma ficha a ser entregue para o chapeiro
+contendo os itens escolhidos.
+
+a. Opções de pão: Pão francês (R$3,00), Pão Australiano (R$8,00), Pão de Brioche (R$6,00);
+
+b. Opções de hambúrguer: Hambúrguer de picanha (R$13,00), Hamburguer de costela (R$10,00), Hamburguer Vegano (R$12,00);
+
+c. Opções de salada: Alface (R$1,50), Tomate (R$1,50), sem salada (R$0,00);
+
+d. Opções de Queijo: Mussarela (R$3,00), Prato (R$3,00), Cheddar (R$5,00);
+
+Dica: Utilize formulários, funções e botões.
+
+2. Publique o material do exercício 1 no seu github.
