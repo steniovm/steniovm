@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Calculadora</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Calculadora">
+        <meta property="og:description" content="Calculadora basica com memoria de resultados">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Calculadora/">
+        <meta property="og:image" content="calculadora-clipart.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="880">
+        <meta property="og:image:height" content="1060">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 38 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Ordenação numerica</h1>
+            <section id="memoryall">
+                <h2>Valores em Memoria</h2>
+                <div id="memoryspace">
+                    <div class="memory">
+                        <span>M1</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M2</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M3</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M4</span>
+                        <label></label>
+                    </div>
+                </div>
+            </section>
+                <div id="calculator">
+                    <h3>Entre com valores</h3>
+                    <div id="values" class="invalue">
+                        <input type="number" id="number1" value="0" pattern="\f+">
+                        <input type="number" id="number2" value="0" pattern="\f+">
+                        <input type="number" id="number3" value="0" pattern="\f+">
+                        <input type="number" id="number4" value="0" pattern="\f+">
+                    </div>
+                    <button type="button" class="mR">Memorizar</button>
+                    <button type="button" class="mR">Ordenar crescente</button>
+                    <button type="button" class="mR">Ordenar decrescente</button>
+                </div>
+            </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script type="text/javascript" src="math.js"></script>
+    </body>
+</html>
