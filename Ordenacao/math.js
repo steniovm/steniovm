@@ -34,7 +34,7 @@ function initvalueselement(){
 //memorizar valores
 function saveR(){
     for(let i=0;i<memorys.length;i++){
-        memorys[i] = inputs[i].value;
+        memorys[i] = parseFloat(inputs[i].value);
         memolabel[i].innerHTML = arrend(inputs[i].value);
     }
 }
