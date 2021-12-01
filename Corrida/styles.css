@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'alternative Rock';
+    src: url(fonts/ALTERNATIVEROCK.ttf);
+}
+body{
+    min-width: 50px;
+    background-color:rgba(90, 156, 106);/* hsl(93,33,58);*/
+    align-items: center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(200, 200, 200, 0.8);
+    border-radius: 10px;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 20vh;
+    min-height:60px;
+    border-radius: 10px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+}
+span{
+    font-weight: bold;
+    margin: 10px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(93,33,58);
+    margin: 1% 0 1% 0;
+}
+h1{
+    font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color: rgba(250, 120, 70);
+    text-shadow: 3px 3px #e11;
+    text-align: center;
+    font-size: 8vh;
+}
+h2{
+    font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color: rgb(100, 50, 100);
+    font-weight: bold;
+    text-shadow: 2px 2px #555;
+    text-align: center;
+    font-size: 6vh;
+}
+section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#carssec >div{
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+    align-items: center;
+}
+.carsdiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1vw 1vw 1vw;
+}
+.carimg{
+    width: 150px;
+}
+.atribgraph{
+    height: 10px;
+    width: 100%;
+    background-image: linear-gradient(to right,#0045ff,#ff4500);
+}
+fieldset{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items:flex-start;
+}
+label{
+    font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: start;
+    font-size: 4vh;
+}
+#plays{
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.players{
+    margin: 1vw;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+#pista{
+    background-image: url("img/pista-de-corrida.png");
+    background-size: cover;
+    height: 69vh;  
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.carrum{
+    height: 10vh;
+    visibility: hidden;
+}
+.carimgr{
+    height: 8vh;
+    transform: scaleX(-1);
+}
+.countvolts{
+    font-size:unset;
+    visibility: hidden;
+}

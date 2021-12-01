@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Castigo do Bart</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Castigo do Bart">
+        <meta property="og:description" content="Ajude o Barte a escrever frases no quadro">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/CstigoBart/">
+        <meta property="og:image" content="simpsonsbart.jpg">
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="165">
+        <meta property="og:image:height" content="349">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="img/stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 38 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <h1 id="title1">MEGA RACER CIRCLE</h1>
+            <section id="carssec">
+                <h2>Conheça os carros</h2>
+                <div>
+                    <div class="carsdiv">
+                        <span class="carname">Sangue ardente</span>
+                        <img id="carverm" class="carimg" src="img/car1.png" alt="Carro vermelho"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                    <div class="carsdiv">
+                        <span class="carname">Trovão Azul</span>
+                        <img id="carazul" class="carimg" src="img/car2.png" alt="Carro azul"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                    <div class="carsdiv">
+                        <span class="carname">Brilho de vingança</span>
+                        <img id="caramar" class="carimg" src="img/car3.png" alt="Carro amarelo"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                    <div class="carsdiv">
+                        <span class="carname">Furia da noite</span>
+                        <img id="carpret" class="carimg" src="img/car4.png" alt="Carro preto"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                    <div class="carsdiv">
+                        <span class="carname">Folhas da destruição</span>
+                        <img id="carverde" class="carimg" src="img/car5.png" alt="Carro verde"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                    <div class="carsdiv">
+                        <span class="carname">Demonio púpura</span>
+                        <img id="carrocho" class="carimg" src="img/car6.png" alt="Carro rocho"/>
+                        <span class="caratrib">Velocidade mínima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Velocidade máxima: <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                        <span class="caratrib">Derrapagem (%): <strong class="caratribu"></strong></span>
+                        <div class="atribgraph"></div>
+                    </div>
+                </div>
+            </section>
+            <form>
+                <fieldset>
+                    <label>Numero de jogadores</label>
+                    <input type="number" id="numbercars" value="3" min="3" max="6" pattern="\d+" />
+                    <label>Modalidade</label>
+                    <input id="speed" type="radio" name="modalit" value="m0" class="modalit" checked/>
+                    <label for="speed">Corrida rápida (10voltas)</label>
+                    <input id="grand" type="radio" name="modalit" value="m1" class="modalit" />
+                    <label for="grand">Grande Prêmio (70 voltas)</label>
+                    <input id="enduro" type="radio" name="modalit" value="m2" class="modalit" />
+                    <label for="enduro">Enduro (160 voltas)</label>
+                    <button type="button" id="next">Continuar</button>
+                </fieldset>
+            </form>
+            <section>
+                    <h2>Competidores</h2>
+                <div  id="plays">
+                    <div class="players">
+                        <label class="playname">Pedro</label>
+                        <label class="playcar">Sangue ardente</label>
+                    </div>
+                    <div class="players">
+                        <label class="playname">Juca</label>
+                        <label class="playcar">Trovão Azul</label>
+                    </div>
+                    <div class="players">
+                        <label class="playname">Edna</label>
+                        <label class="playcar">Brilho de vingança</label>
+                    </div>
+                    <div class="players">
+                        <label class="playname">Perdedor</label>
+                        <label class="playcar">Furia da noite</label>
+                    </div>
+                    <div class="players">
+                        <label class="playname">Derrotado</label>
+                        <label class="playcar">Folhas da destruição</label>
+                    </div>
+                    <div class="players">
+                        <label class="playname">Coitadinho</label>
+                        <label class="playcar">Demonio púpura</label>
+                    </div>
+                </div>
+            </section>
+            <div id="pista">
+                <div class="carrum">
+                    <img id="car1" class="carimgr" src="img/car1.png" alt="Carro vermelho"/>
+                </div>
+                <div class="carrum">
+                    <img id="car2" class="carimgr" src="img/car2.png" alt="Carro azul"/>
+                </div>
+                <div class="carrum">
+                    <img id="car3" class="carimgr" src="img/car3.png" alt="Carro amarelo"/>
+                </div>
+                <div class="carrum">
+                    <img id="car4" class="carimgr" src="img/car4.png" alt="Carro preto"/>
+                </div>
+                <div class="carrum">
+                    <img id="car5" class="carimgr" src="img/car5.png" alt="Carro verde"/>
+                </div>
+                <div class="carrum">
+                    <img id="car6" class="carimgr" src="img/car6.png" alt="Carro rocho"/>
+                </div>
+            </div>
+            <section id="dataout">
+                <label class="countvolts">Player: <strong class="p1">Pedro</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label class="countvolts">Player: <strong class="p1">Juca</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label class="countvolts">Player: <strong class="p1">Edna</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label class="countvolts">Player: <strong class="p1">Perdedor</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label class="countvolts">Player: <strong class="p1">Derrotado</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label class="countvolts">Player: <strong class="p1">Coitadinho</strong> ---- numero de voltas: <strong class="volts">0</strong></label>
+                <label id="result">O vencedor foi o carro: <strong class="result">0</strong></label>
+            </section>
+        </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
