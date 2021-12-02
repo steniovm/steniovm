@@ -31,6 +31,7 @@ function markposition(posit){
                 state='F';
             }else{
                 state='X';
+                playgamer.innerHTML=state;
             }
         }
 
@@ -42,6 +43,7 @@ function markposition(posit){
                 state='F';
             }else{
                 state='O';
+                playgamer.innerHTML=state;
             }
         }
     }
@@ -54,6 +56,7 @@ function markposition(posit){
     }
     if(vervelha()){
         champ.innerHTML='VELHA';
+        playgamer.innerHTML='VELHA';
         state='F';
     }
 }
@@ -106,6 +109,7 @@ function resetgame(){
     state = 'O';
     updateboard();
     champ.innerHTML='';
+    playgamer.innerHTML=state;
 }
 //chamadas das funções
 updateboard();

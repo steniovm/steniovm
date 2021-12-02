@@ -3,8 +3,7 @@
     src: url(fonts/ALTERNATIVEROCK.ttf);
 }
 body{
-    min-width: 50px;
-    max-width: 500px;
+    max-width: 360px;
     background-image: url("velha1024x1024.jpg");
     background-position: center;
     background-repeat: repeat;
@@ -33,13 +32,14 @@ header, footer{
 }
 span{
     font-weight: bold;
-    background-color: rgba(220, 220, 220, 0.8);
+    background-color: rgba(220, 220, 220, 0.9);
 }
 main{
     display: flex;
     flex-direction: column;
-    background-color: rgba(174, 174, 174, 0.8);
-    margin: 1% 0 1% 0;
+    background-color: rgba(174, 174, 174, 0.9);
+    margin: 5% 0 5% 0;
+    padding: 5% 0 5% 0;
     align-items: center;
     border-radius: 10px;
 }
