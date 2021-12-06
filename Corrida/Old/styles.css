@@ -36,6 +36,7 @@ main{
     display: flex;
     flex-direction: column;
     background-color: hsl(93,33,58);
+    margin: 1% 0 1% 0;
 }
 h1{
     font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
@@ -52,49 +53,38 @@ h2{
     text-align: center;
     font-size: 6vh;
 }
-h3{
-    font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 5vh;
-}
 section{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.carssec >div{
+#carssec >div{
     display: flex;
-    justify-content: space-around;
+    justify-content:center;
     flex-direction: row;
     align-items: center;
 }
-.carsp{
+.carsdiv{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 0 1vw 1vw 1vw;
-    visibility: hidden;
 }
 .carimg{
-    width: 100px;
+    width: 150px;
 }
 .atribgraph{
     height: 10px;
     width: 100%;
     background-image: linear-gradient(to right,#0045ff,#ff4500);
 }
-form{
-    display: flex;
-    justify-content:center;
-}
 fieldset{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
-    width:fit-content;
+    align-items:flex-start;
 }
 label{
     font-family: 'alternative Rock','Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
@@ -115,13 +105,13 @@ label{
     visibility: hidden;
 }
 #pista{
-    background-image: url("img/pista-de-corrida.png");
+    background-image: url("../img/pista-de-corrida.png");
     background-size: cover;
     height: 69vh;  
     padding-top: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .carrum{
     height: 10vh;
@@ -133,4 +123,5 @@ label{
 }
 .countvolts{
     font-size:unset;
+    visibility: hidden;
 }
