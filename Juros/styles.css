@@ -1,0 +1,91 @@
+@font-face {
+    font-family: technology;
+    src: url(Technology-Bold-Italic.ttf.woff);
+}
+body{
+    min-width: 50px;
+    background-image: url("Background.webp");
+    background-position: center;
+    background-repeat: repeat-y;
+    align-items:center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(200, 200, 200, 0.8);
+    font-weight: bold;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 20vh;
+    min-height:60px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(174, 174, 174, 0.9);
+    margin: 1% 0 1% 0;
+}
+h1, h2, h3{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color:#333;
+    text-decoration:underline dotted #222;
+    text-shadow: 2px 2px #999;
+    text-align: center;
+}
+#sections{
+    display: flex;
+    flex-direction: row;
+}
+section{
+    width:min-content;
+    border:inset 2px #222;
+}
+#secinputs{
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#secshow{
+    width: min-content;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+input{
+    height: 5vh;
+    width: 100%;
+    font-size:x-large;
+    background-color: rgba(220, 220, 220, 0.8);
+    margin: 5px 5px 0 0 ;
+}
+button{
+    height: 5vh;
+    width: 100%;
+    font-size:x-large;
+    background-color: rgba(220, 220, 220, 0.8);
+    margin: 5px ;
+    width: 90%;
+}
+#valuenot{
+    font-family: technology;
+}
+table{
+    background-color: #eee;
+    min-width: 600px;
+}
+th{
+    background-color: #eea;
+}

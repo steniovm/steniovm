@@ -1,0 +1,63 @@
+Boas-vindas!
+Benvindo caro aspirante a dev!
+Nesta aula, você irá aprender sobre o método forEach().
+Ao final deste módulo você deverá:
+
+Ter entendido o que são, para que servem e como funciona o método forEach.
+Referências básicas:
+
+Array.prototype.forEach()
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+JavaScript forEach(): executando uma função para cada elemento de um array
+https://www.devmedia.com.br/javascript-foreach-executando-uma-funcao-para-cada-elemento-de-um-array/39808
+
+Exercícios:
+1. Os amigos Pedro, Juca e Edna continuam trabalhando em seu joguinho de corrida e dessa
+vez eles resolveram incluir uma função de evolução dos jogadores.
+Distribuição de pontos de experiência por corrida:
+
+Rapida (10 voltas)
+Primeiro Lugar: 200 pontos;
+Segundo Lugar: 120 pontos;
+Terceiro Lugar: 50 pontos;
+Gran Prix (70 voltas)
+Primeiro Lugar: 220 pontos;
+Segundo Lugar: 130 pontos;
+Terceiro Lugar: 75 pontos;
+Enduro (160 voltas)
+Primeiro Lugar: 250 pontos;
+Segundo Lugar: 150 pontos;
+Terceiro Lugar: 90 pontos;
+
+Para que um jogador passe de nível, são necessários 450 pontos. Cada vez que um jogador
+passar de nível, acrescente 1% da pontuação atual às velocidades Mínima e Máxima. O maior
+nível possível é 10.
+
+Ex.: Velocidade mínima de 150 + 1% = 151,5.
+Ex.: Velocidade maxima de 210 + 1% = 212,1.
+
+Para a atualização do joguinho, jogadores e seus respectivos carrinhos devem ser
+armazenados em um vetor de objetos.
+
+O botão de executar as corridas, deve percorrer os jogadores armazenados no vetor
+utilizando o método forEach() e executar as ações de atualização necessárias.
+
+Consideracões para se atentar:
+
+Para cada corrida executada, antes é escolhido um carrinho aleatório para o jogador
+(popular, sport, supersport), e este carrinho fornecerá a velocidade máxima, mínima, e
+derrapagem a serem calculados em cada volta.
+
+Para cada volta dentro de uma corrida, deve se calcular um valor de velocidade constante
+para o carro randomicamente, baseando-se nos valores de Velocidade Minima e Maxima
+passados.
+
+Exemplo:
+
+Velocidade da volta = random(Velocidade Minima, Velocidade Maxima) – %derrapagem
+Isso irá garantir que os carros sejam mais randômicos ao longo das corridas.
+
+2. Publique o material do exercício 1 no seu github.
+
+Em síntese:
+Neste módulo você iniciou os seus estudos sobre o método forEach().
