@@ -10,6 +10,7 @@ let valuenot = document.getElementById('valuenot');
 let inputbt = document.getElementById('innot');//insere dados
 let calcj = document.getElementById('calcjuros');//botão de caculos de juros
 let tabela = document.querySelector('table');//tabela de dados
+//let jurcel = document.querySelector('jurcel');
 let jurcel = [];//cedulas com o valor do jurus
 let notas  = [];//vetor de notas
 
@@ -81,6 +82,10 @@ function addnote(){
     //cria linha de tabela
     newline = novalinha();
     tabela.append(newline);
+    //limpa o formulario
+    nameclient.value="";
+    vencim.value="";
+    valuenot.value="";
 }
 //calula juros
 function calculator(){
