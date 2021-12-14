@@ -1,10 +1,10 @@
 @font-face {
     font-family: technology;
-    src: url(Technology-Bold-Italic.ttf.woff);
+    src: url(../Technology-Bold-Italic.ttf.woff);
 }
 body{
     min-width: 50px;
-    background-image: url("Background.webp");
+    background-image: url("../Background.webp");
     background-position: center;
     background-repeat: repeat-y;
     align-items:center;
@@ -51,8 +51,7 @@ section{
     border:inset 2px #222;
 }
 #secinputs{
-    /*width: min-content;*/
-    width: auto;
+    width: min-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,14 +67,14 @@ fieldset{
 input{
     height: 5vh;
     width: 100%;
-    font-size:large;
+    font-size:x-large;
     background-color: rgba(220, 220, 220, 0.8);
     margin: 5px 5px 0 0 ;
 }
 button{
     height: 5vh;
     width: 100%;
-    font-size:large;
+    font-size:x-large;
     background-color: rgba(220, 220, 220, 0.8);
     margin: 5px ;
     width: 90%;
@@ -85,7 +84,7 @@ button{
 }
 table{
     background-color: #eee;
-    min-width: 800px;
+    min-width: 600px;
 }
 th{
     background-color: #eea;

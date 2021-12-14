@@ -19,12 +19,3 @@ ATENÇÃO!
 Estruture o seu trabalho como um projeto (arquivos separados para html, css e javascript).
 Publique o Material do exercício no seu github (envie o link da publicação na resolução desse exercício)
 Envie o projeto em anexo (anexe o projeto desenvolvido na resposta dessa questão junto ao link do github)
-
-
-Joana tem uma nova demanda, agrupar os títulos por cliente e data de vencimento. 
-Para isso crie dois botões, um deles para agrupar e apresentar os títulos por cliente
-e outro para agrupar e apresentar os títulos por data de vencimento. 
-Utilize o método reduce para executar o exercício.
-O uso do método reduce() é obrigatório.
-
-Publique o material do exercício 1 no seu GitHub.
