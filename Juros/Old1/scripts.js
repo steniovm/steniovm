@@ -11,21 +11,17 @@ let inputbt = document.getElementById('innot');//insere dados
 let calcj = document.getElementById('calcjuros');//botão de caculos de juros
 let nameagrup = document.getElementById('nameagrup');//botão de agrupar por cliente
 let vencagrup = document.getElementById('vencagrup');//botão de agrupar por data de vencimento
-let tabela = document.getElementById('notas');//tabela de dados
-let tabgrups = document.getElementById('grups');//tabela com os somatórios dos grupos
-let notasfil = document.getElementById('notasfil');//tabela de dados filtrados
-let formfil = document.querySelectorAll('.formfil');//elementos de filtro
-let filtrob = document.getElementById('filtro');//botão do filtro
+let tabela = document.querySelector('table');//tabela de dados
+//let jurcel = document.querySelector('jurcel');
 let jurcel = [];//cedulas com o valor do jurus
 let notas  = [];//vetor de notas
-let notasfilt = [];//vetor de notas filtradas
 
 //objetos
 //objeto nota
 const novanota = () => ({
     numero: 0,
     nome: nameclient.value,
-    vencimento: new Date(vencim.value),
+    vencimento: new Date( vencim.value),
     valor: valuenot.value,
     atras: 0,
     juros: 0,
@@ -114,7 +110,7 @@ function novalinhagrupo(itemlinha){
   td1.innerHTML = itemlinha.nome;
   linha.append(td1);
   let td2 = document.createElement("td");//cria celula que recebe data de vencimento
-  td2.innerHTML = (itemlinha.vencimento.getFullYear()+"-"+(itemlinha.vencimento.getUTCMonth()+1)+"-"+itemlinha.vencimento.getUTCDate());
+  td2.innerHTML = itemlinha.vencimento;
   linha.append(td2);
   let td3 = document.createElement("td");//cria celula que recebe valor da nota
   td3.innerHTML = itemlinha.valor;
@@ -128,6 +124,7 @@ function novalinhagrupo(itemlinha){
   td5.innerHTML = itemlinha.juros;
   td2.classList = "jurcel";
   linha.append(td5);
+  console.log(linha);
   return linha;
 }
 //adcionar nota
@@ -153,44 +150,33 @@ function calculator(){
 function printjur(item, indice){
     jurcel[indice].innerHTML = (Math.floor(item*100))/100;
 }
-//insere soma por grupo
-function inseresoma(key, somatorio){
-  let linha = document.createElement("tr");//cria linha de tabela
-  let td0 = document.createElement("td");//cria celula que recebe chave do grupo
-  let td1 = document.createElement("td");//cria celula que recebe valor da soma
-  td0.innerHTML=key;
-  td1.innerHTML=somatorio;
-  linha.append(td0);
-  linha.append(td1);
-  tabgrups.append(linha);
-}
 //agrupa por cliente
 function agrupname(){
     let agrup = agruparPor(notas,'nome');
+    let count = 0;
     let keys = Object.keys(agrup);
-    let somas= [];
+    console.log(keys);
     keys.forEach((key) => {
-      let va = agrup[key].reduce(function(ac, at) {
-        return parseFloat(ac) + parseFloat(at.valor);
-      }, 0);
-      somas.push(va);
-      inseresoma(key,va);
-      });
+      console.log(key);
+      agrup[key].forEach((itemlinha) => {
+        novatabela();
+        tabela.append(novalinhagrupo(itemlinha))
+      })
+    });
 }
 //agrupa por data de vencimento
 function agrupvenc(){
     let agrup = agruparPor(notas,'vencimento');
+    let count = 0;
     let keys = Object.keys(agrup);
-    let somas= [];
+    console.log(keys);
     keys.forEach((key) => {
-      let va = agrup[key].reduce(function(ac, at) {
-        return parseFloat(ac) + parseFloat(at.valor);
-      }, 0);
-      somas.push(va);
-      let dff = new Date(key);
-      let df = dff.getFullYear()+"-"+(dff.getUTCMonth()+1)+"-"+dff.getUTCDate();
-      inseresoma(df,va);
-      });
+      console.log(key);
+      agrup[key].forEach((itemlinha) => {
+        novatabela();
+        tabela.append(novalinhagrupo(itemlinha))
+      })
+    });
 }
 //agrupa
 function agruparPor(notasr, propriedade) {
@@ -203,84 +189,12 @@ function agruparPor(notasr, propriedade) {
     return acc;
   }, {});
 }
-//insere nota filtradas na linha da tabela
-function linhafilt(notafilt){
-  let linha = document.createElement("tr");//cria linha de tabela
-  let td0 = document.createElement("td");//cria celula que recebe numero sequencial da nota
-  let td1 = document.createElement("td");//cria celula que recebe nome
-  let td2 = document.createElement("td");//cria celula que recebe data de vencimento
-  let td3 = document.createElement("td");//cria celula que recebe valor da nota
-  let td4 = document.createElement("td");//cria celula que recebe dias de atraso
-  let td5 = document.createElement("td");//cria celula que recebe valor de juros
-  td0.innerHTML = notafilt.numero;
-  linha.append(td0);
-  td1.innerHTML = notafilt.nome;
-  linha.append(td1);
-  let dff = new Date(notafilt.vencimento);
-  td2.innerHTML = dff.getFullYear()+"-"+(dff.getUTCMonth()+1)+"-"+dff.getUTCDate();
-  linha.append(td2);
-  td3.innerHTML = notafilt.valor;
-  linha.append(td3);
-  td4.innerHTML = notafilt.atras;
-  linha.append(td4);
-  td5.innerHTML = notafilt.juros;
-  linha.append(td5);
-  notasfil.append(linha);
-}
-//filtro
-function filtro(valorf){
-  let valorff = parseFloat(valorf.valor);
-  let dataini;
-  let datafim;
-  let datames;
-  if(formfil[0].value) dataini = new Date(formfil[0].value);
-  if(formfil[1].value) datafim = new Date(formfil[1].value);
-  if(formfil[2].value) datames = new Date(formfil[2].value);
-  if (formfil[2].value){//se inserido mês
-    if((formfil[3].value)&&(formfil[4].value)){//se inserido valores minimo e maximo
-      if((valorf.vencimento.getUTCMonth()==datames.getUTCMonth())&&//testa mes
-        (valorff >= parseFloat(formfil[3].value))&&(valorff <= parseFloat(formfil[4].value))){//testa valor
-           return valorf;
-         }
-    }else{//se não inserido valores minimo e maximo
-      if(valorf.vencimento.getUTCMonth()==datames.getUTCMonth()){//testa mes
-        return valorf;
-      }
-    }
-  }else{//se não inserido mês
-    if((formfil[0].value)&&(formfil[1].value)){//se inserido datas de inicio e fim
-      if((formfil[3].value)&&(formfil[4].value)){//se inserido valor minimo e maximo
-        if((valorf.vencimento.getMilliseconds()>=dataini.getMilliseconds())&&//testa data de inicio
-           (valorf.vencimento.getMilliseconds()<=datafim.getMilliseconds())&&//testa data de fim
-           (valorff >= parseFloat(formfil[3].value))&&(valorff <= parseFloat(formfil[4].value))){//testa valor
-             return valorf;
-           }
-      }else{//se não inserido valores minimo e maximo
-        if((valorf.vencimento.getMilliseconds()>=dataini.getMilliseconds())&&//testa data de inicio
-           (valorf.vencimento.getMilliseconds()<=datafim.getMilliseconds())){//testa data de fim
-             return valorf;
-           }
-      }
-    }else{//se não inseridas datas de inicio e fim
-      if((formfil[3].value)&&(formfil[4].value)){//se inserido valores minimos e maximos
-        if((valorff >= parseFloat(formfil[3].value))&&(valorff <= parseFloat(formfil[4].value))){//testa valores
-          return valorf;
-        }
-      }
-    }
-  }
-}
-function filtrar(){
-  notasfilt=notas.filter(filtro);
-  notasfilt.forEach(linhafilt);
-}
 
 //eventos
 inputbt.addEventListener('click',addnote);
 calcj.addEventListener('click',calculator);
 nameagrup.addEventListener('click',agrupname);
 vencagrup.addEventListener('click',agrupvenc);
-filtrob.addEventListener('click',filtrar);
 
 /*
 https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/

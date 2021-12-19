@@ -28,20 +28,3 @@ Utilize o método reduce para executar o exercício.
 O uso do método reduce() é obrigatório.
 
 Publique o material do exercício 1 no seu GitHub.
-
-
-
-Joana gostou muito dos seus serviços e continua nos demandando novos serviços, agora ela
-quer incluir uma forma de filtrar os títulos cadastrados. Para isso crie um formulário
-contendo os seguintes filtros:
-a. Data início;
-b. Data fim;
-c. Mês;
-d. Valor mínimo;
-e. Valor máximo;
-*O valor máximo e mínimo, é referente ao valor do título sem juros.
-*O uso do método filter() é obrigatório.
-
-Array.prototype.filter()
-o https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-o https://www.freecodecamp.org/news/javascript-array-filter-tutorial-how-to-iterate-through-elements-in-an-array/

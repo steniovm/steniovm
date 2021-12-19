@@ -1,10 +1,10 @@
 @font-face {
     font-family: technology;
-    src: url(Technology-Bold-Italic.ttf.woff);
+    src: url(../Technology-Bold-Italic.ttf.woff);
 }
 body{
     min-width: 50px;
-    background-image: url("Background.webp");
+    background-image: url("../Background.webp");
     background-position: center;
     background-repeat: repeat-y;
     align-items:center;
@@ -51,6 +51,7 @@ section{
     border:inset 2px #222;
 }
 #secinputs{
+    /*width: min-content;*/
     width: auto;
     display: flex;
     flex-direction: column;
@@ -84,7 +85,7 @@ button{
 }
 table{
     background-color: #eee;
-    min-width: 500px;
+    min-width: 800px;
 }
 th{
     background-color: #eea;

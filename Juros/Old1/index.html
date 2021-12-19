@@ -7,7 +7,7 @@
         <meta property="og:title" content="Stenio - Calculadora de Juros">
         <meta property="og:description" content="Calculadora de Juros">
         <meta property="og:url" content="https://steniovm.github.io/steniovm/Jurus/">
-        <meta property="og:image" content="calculadora-clipart.png">
+        <meta property="og:image" content="../calculadora-clipart.png">
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="880">
         <meta property="og:image:height" content="1060">
@@ -16,7 +16,7 @@
     <body id="bodypage">
         <header>
             <div id="divinfo" class="divinfo">
-                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <img id="myimg" class="myimg" src="../stenio.jpg" alt="Minha Foto"/>
                 <div id="divinfo2" class="divinfo2">
                     <span id="myname">Stênio V. Medeiros</span>
                     <span id="myage">38 anos</span>
@@ -43,44 +43,10 @@
                     <button id="calcjuros">Calcular Juros</button>
                     <button id="nameagrup">Agrupar por cliente</button>
                     <button id="vencagrup">Agrupar por vencimento</button>
-                    <form>
-                        <fieldset>
-                            <h3>Filtros</h3>
-                            <label>Data início</label>
-                            <input type="date" id="filini" class="formfil"/>
-                            <label>Data fim</label>
-                            <input type="date" id="filfim" class="formfil"/>
-                            <label>Mês</label>
-                            <input type="month" id="filmes" class="formfil"/>
-                            <label>Valor mínimo</label>
-                            <input type="number" id="fimmin" class="formfil" step="0.01" pattern="^\d*(\.\d{0,2})?$"/>
-                            <label>Valor máximo</label>
-                            <input type="number" id="filmax" class="formfil" step="0.01" pattern="^\d*(\.\d{0,2})?$"/>
-                        </fieldset>
-                    </form>
-                    <button id="filtro">filtrar</button>
                 </section>
                 <section id="secshow">
                     <h2>Entradas</h2>
-                    <table id="notas">
-                        <tr>
-                            <th>#</th>
-                            <th>Cliente</th>
-                            <th>Vencimento</th>
-                            <th>Valor</th>
-                            <th>Atraso (dias)</th>
-                            <th>Juros</th>
-                        </tr>
-                    </table>
-                    <h2>Somatórios</h2>
-                    <table id="grups">
-                        <tr>
-                            <th>grupo</th>
-                            <th>total</th>
-                        </tr>
-                    </table>
-                    <h2>Entradas Filtradas</h2>
-                    <table id="notasfil">
+                    <table>
                         <tr>
                             <th>#</th>
                             <th>Cliente</th>
