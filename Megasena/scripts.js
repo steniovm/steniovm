@@ -22,7 +22,7 @@ function callback(arg, n){
 //sorteia um numero
 function callbacks(){
   if (count < NUMEROS){
-    let num = (Math.floor(Math.random()*MAX)+1);
+    let num = (Math.ceil(Math.random()*MAX));
     let n = count;
     let ex = true;
     //verifica se o numero já foi sorteado
@@ -31,7 +31,7 @@ function callbacks(){
       numeros.forEach((param) => {
         if (num == param){
           //se econtrar numero igual sorteia novamente
-          num = (Math.floor(Math.random()*MAX)+1);
+          num = (Math.ceil(Math.random()*MAX));
           console.log("numero repetido: "+num);
           ex = true;
         }
@@ -41,7 +41,8 @@ function callbacks(){
   }else{
     clearInterval(nIntervId);
     printhisto();
-    butSort.style.visibility = "unset";
+    //butSort.style.visibility = "unset";
+    butSort.disabled = false;
   }
 }
 //limpar mostradores
@@ -53,7 +54,8 @@ function clearN(){
 //função sortear
 function sortear(){
   count = 0;
-  butSort.style.visibility = "hidden";
+  //butSort.style.visibility = "hidden";
+  butSort.disabled = true;
   srtAtual[0].innerHTML = sorteioN;
   clearN();
   nIntervId = setInterval(callbacks, 1000);
@@ -71,7 +73,7 @@ function printhisto(){
     cel[i].innerHTML = numeros[i-1];
     linha.append(cel[i]);
   }
-  tabela.append(linha);//adciona lina à tabela
+  tabela.append(linha);//adciona linha à tabela
 }
 
 //eventos
