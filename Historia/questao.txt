@@ -1,0 +1,14 @@
+Crie uma closure que receba como parâmetro um número inteiro que será utilizado como
+multiplicador na função a ser retornada.
+Crie uma página html contando uma historinha infantil à sua escolha. Adicione nesta página
+um botão para aumentar a fonte do texto e outro botão para diminuir a fonte do texto.
+Ambos os botões devem funcionar utilizando uma closure.
+Closure
+o https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures
+● Javascript: Mas afinal, o que são closures?
+o https://medium.com/@stephanowallace/javascript-mas-afinal-o-que-s%C3%A3o-closures-4d67863ca9fc
+● JavaScript Closures
+o https://www.w3schools.com/js/js_function_closures.asp
+Referências adicionais:
+● Freecodecamp
+o https://www.freecodecamp.org/news/lets-learn-javascript-closures-66feb44f6a44
