@@ -41,3 +41,19 @@ function diminuir(){
 //eventos
 buttonmais.addEventListener('click', aumentar);
 buttonmenos.addEventListener('click', diminuir);
+
+//projeto de clousers, multiplica
+function createMultiplier(value){
+  return function (val){
+    return value * val;
+  };
+}
+let multiplyBy5 = createMultiplier(5);
+console.log(multiplyBy5(10));//50
+console.log(multiplyBy5(12));//60
+console.log(multiplyBy5(7));//35
+
+let buttonmulti = document.getElementById('buttonmult');//botão mult
+buttonmulti.addEventListener('click', function(){
+  console.log(multiplyBy5(tamanho.value()));
+});
