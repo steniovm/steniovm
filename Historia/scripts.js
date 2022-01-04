@@ -22,6 +22,7 @@ let tamanho = (function() {
         mudarv(-1);
     },
     value: function() {
+      console.log(ftamanho);
       return ftamanho;
     }
   }
