@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Calculadora</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Calculadora">
+        <meta property="og:description" content="Calculadora basica com memoria de resultados">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Calculadora/">
+        <meta property="og:image" content="calculadora-clipart.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="880">
+        <meta property="og:image:height" content="1060">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 39 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Calculadora em loop continuo</h1>
+            <section id="memoryall">
+                <h2>Valores em Memoria</h2>
+                <div id="memoryspace">
+                    <div class="memory">
+                        <span>M1</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M2</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M3</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M4</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M5</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M6</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M7</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M8</span>
+                        <label></label>
+                    </div>
+                    <div class="memory">
+                        <span>M9</span>
+                        <label></label>
+                    </div>
+                </div>
+            </section>
+                <div id="calculator">
+                    <section id="invalues">
+                        <div id="valueA" class="invalue">
+                            <h3>Valor A</h3>
+                            <span>Escolha um valor memorizado ou digite:</span>
+                            <div>
+                                <button type="button" class="mA">M1</button>
+                                <button type="button" class="mA">M2</button>
+                                <button type="button" class="mA">M3</button>
+                                <button type="button" class="mA">M4</button>
+                                <button type="button" class="mA">M5</button>
+                                <button type="button" class="mA">M6</button>
+                                <button type="button" class="mA">M7</button>
+                                <button type="button" class="mA">M8</button>
+                                <button type="button" class="mA">M9</button>
+                                <input type="number" id="numberA" value="0">
+                            </div>
+                        </div>
+                        <div id="valueB" class="invalue">
+                            <h3>Valor B</h3>
+                            <span>Escolha um valor memorizado ou digite:</span>
+                            <div>
+                                <button type="button" class="mB">M1</button>
+                                <button type="button" class="mB">M2</button>
+                                <button type="button" class="mB">M3</button>
+                                <button type="button" class="mB">M4</button>
+                                <button type="button" class="mB">M5</button>
+                                <button type="button" class="mB">M6</button>
+                                <button type="button" class="mB">M7</button>
+                                <button type="button" class="mB">M8</button>
+                                <button type="button" class="mB">M9</button>
+                                <input type="number" id="numberB" value="0">
+                            </div>
+                        </div>
+                    </section>
+                    <section id="operators">
+                        <h3>Operação</h3>
+                        <button type="button" class="op">A + B</button>
+                        <button type="button" class="op">A - B</button>
+                        <button type="button" class="op">A * B</button>
+                        <button type="button" class="op">A / B</button>
+                        <button type="button" class="op">A % B</button>
+                        <button type="button" class="op">A = B</button>
+                        <button type="button" class="op">limpar</button>
+                    </section>
+                    <section id="results">
+                        <h3>Resultado</h3>
+                        <strong id="result"></strong>
+                        <span>Memorize o valor:</span>
+                        <div>
+                            <button type="button" class="mR">M1</button>
+                            <button type="button" class="mR">M2</button>
+                            <button type="button" class="mR">M3</button>
+                            <button type="button" class="mR">M4</button>
+                            <button type="button" class="mR">M5</button>
+                            <button type="button" class="mR">M6</button>
+                            <button type="button" class="mR">M7</button>
+                            <button type="button" class="mR">M8</button>
+                            <button type="button" class="mR">M9</button>
+                        </div>
+                    </section>
+                </div>
+            </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script type="text/javascript" src="mathfacture.js"></script>
+    </body>
+</html>
