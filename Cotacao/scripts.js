@@ -40,6 +40,11 @@ $(document).ready(function(){
         console.log(dados.data2);
     });
     $("#cotar").click(function(){
+        $("#det1").html('');
+        $("#det2").html('');
+        $("#desc").html('');
+        $("#result").html('');
+        $("#resultmoeda").html('');
         if(dados.moeda1 && dados.moeda2 && dados.data1 && dados.data2){ 
             console.log(`consulta a: https://economia.awesomeapi.com.br/${dados.moeda1}/10?start_date=${dados.data1}&end_date=${dados.data1}`);
             $.ajax({url:`https://economia.awesomeapi.com.br/${dados.moeda1}/10?start_date=${dados.data1}&end_date=${dados.data1}`})
@@ -47,7 +52,12 @@ $(document).ready(function(){
                 if (date.length >0){
                     console.log(date[0]);
                     dados.tx1=date[0].bid;
-                    $("#det1").html(JSON.stringify(date[0]));
+                    $("#det1").append("conversão: " + date[0].name+"<br/>");
+                    $("#det1").append("ultima cotação: " + date[0].ask+"<br/>");
+                    $("#det1").append("criação: " + date[0].create_date+"<br/>");
+                    $("#det1").append("maximo dia: " + date[0].high+"<br/>");
+                    $("#det1").append("minimo dia: " + date[0].low+"<br/>");
+                    $("#det1").append("fechamento: " + date[0].bid+"<br/>");
                 }else{
                     alert(`dados indisponiveis para ${dados.moeda1}`);
                 }
@@ -60,7 +70,12 @@ $(document).ready(function(){
                         if (date.length >0){
                             console.log(date[0]);
                             dados.tx2=date[0].bid;
-                            $("#det2").html(JSON.stringify(date[0]));
+                            $("#det2").append("conversão: " + date[0].name+"<br/>");
+                            $("#det2").append("ultima cotação: " + date[0].ask+"<br/>");
+                            $("#det2").append("criação: " + date[0].create_date+"<br/>");
+                            $("#det2").append("maximo dia: " + date[0].high+"<br/>");
+                            $("#det2").append("minimo dia: " + date[0].low+"<br/>");
+                            $("#det2").append("fechamento: " + date[0].bid+"<br/>");
                         }else{
                             alert(`dados indisponiveis para ${dados.moeda2}`);
                         }
