@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Cotação</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Cotação de moedas">
+        <meta property="og:description" content="cotação de moedas">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Cotacao/">
+        <meta property="og:image" content="calculadora-clipart.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="880">
+        <meta property="og:image:height" content="1060">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 38 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Cotação de moedas</h1>
+            <section id="imputs">
+                <h2>Dados de busca</h2>
+                <div id="imputspace">
+                    <div class="imputdat">
+                        <span>Moeda inicial</span>
+                        <select id="moedain">
+                            <option>escolher</option>
+                        </select>
+                    </div>
+                    <div class="imputdat">
+                        <span>Data inicial</span>
+                        <input type="date" id="datein" />
+                    </div>
+                    <div class="imputdat">
+                        <span>Moeda final</span>
+                        <select id="moedaout">
+                            <option>BRL</option>
+                        </select>
+                    </div>
+                    <div class="imputdat">
+                        <span>Data final</span>
+                        <input type="date" id="dateout" />
+                    </div>
+                </div>
+            </section>
+            <button id="cotar">COTAR</button>
+            <section id="results">
+                <h3>Resultado</h3>
+                <span id="desc"></span>
+                <div>
+                    <strong id="result"></strong>
+                    <strong id="resultmoeda"></strong>
+                </div>
+            </section>
+            <section id="detal">
+                <h3>Detalhes</h3>
+                <div>
+                    <textarea id="det1"></textarea>
+                    <textarea id="det2"></textarea>
+                </div>
+            </section>
+            </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
