@@ -1,0 +1,89 @@
+const studentsText = `ALEHFF EINSTEIN COSTA DE ASSIS (#4747)
+ANDERSON FERREIRA ALVES (#18513)
+ANDERSON PACHECO SOARES (#5312)
+ATHOS DA SILVA BALMANT (#18941)
+BRUNO BARBOSA SANTOS (#5342)
+DANUBIO RAYN FERNANDO MOREIRA MULLER (#5297)
+FABRICIO RODRIGUES PEREIRA (#11395)
+FELIPE ALAN DE ALMEIDA (#16167)
+FELYPE NASCIMENTO SILVA (#17079)
+FERNANDO CELESTRINO RIBEIRO (#6811)
+GABRIEL DE SOUSA (#20514)
+HUGO SOUSA PAIVA (#4835)
+JOAO MIGUEL CANDIDO ANASTACIO COSTA (#13713)
+MARCOS PETER SOUZA LOBATO JUNIOR (#17089)
+MARCOS RAFAEL DE PAULA (#11623)
+RENATO MIGUEL NASCIMENTO OLIVEIRA (#18311)
+RIDAILDA FLAVIA DE SOUZA PEREIRA (#4602)
+RODRIGO SOUZA DE FREITAS (#13919)
+RODRIGO VIEIRA CHAVES (#17992)
+SAMUEL HENRIQUE VIEIRA RODRIGUES (#7888)
+SERGIO PEREIRA DE OLIVEIRA JUNIOR (#4929)
+STENIO VINICIOS DE MEDEIROS (#5102)
+VINICIUS NORONHA ALMEIDA (#14689)
+VITOR RAMOS TURIBIO (#7578)
+WASHINGTON DE SOUZA GACHO (#11087)
+
+AUGUSTO RODRIGUES DE MELO BRAGA (#11728)
+DAVID GOMES NASCIMENTO (#5585)
+DAVID HENRIQUE SOUZA SANTANA (#17994)
+FELIPE BUENO NUNES (#12110)
+FELIPE TESSAROLLO RAMOS (#5476)
+FELIPE VICENTINI ALVAREZ (#4688)
+IVAN RAMALHO TONIAL (#5536)
+JAIME EDUARDO BURBANO LANDAZURI NETO (#5253)
+JOAO LUCAS DE ALCANTARA (#18512)
+JOSE CARLOS BATISTA DE OLIVEIRA NETO (#11742)
+LUAN RAABE PEREIRA FERREIRA (#7891)
+LUIS GUSTAVO CARDOSO ZANETTI PEREIRA (#9818)
+MARCOS DOUGLAS DA SILVA MARTINS (#15099)
+PEDRO LUCAS DE CASTRO SILVA (#14876)
+PLINIO FIGUEIREDO DOS SANTOS (#17955)
+RICARDO FELIPE MAGALHAES CARDOSO (#8738)
+TIAGO SANTOS DE JESUS (#15005)
+WELLINGTON RAMOS LACERDA FILHO (#10818)
+YAN CASSIANO VIEIRA (#11597)
+YETE ABUNA MARQUES LABARCA (#14992)`;
+
+const studentsUnfiltered = studentsText.split("\n");
+
+let students = [];
+
+studentsUnfiltered.forEach( (student) => {
+	if (student.length !== 0) {
+		students.push(student.split(" (")[0]);
+	}
+});
+
+/* Randomize array in-place using Durstenfeld shuffle algorithm */
+function shuffleArray(_array) {
+		let array = _array;
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+const shuffledArray = shuffleArray(students);
+
+let i = 1;
+
+let sorteio = "";
+
+shuffledArray.forEach( (student) => {
+  if (i < 5) {
+  	sorteio += student + "\n";
+		//console.log(student);
+  	i += 1;
+  } else {
+    sorteio += student + "\n";
+  	//console.log(student);
+  	i = 1;
+	  sorteio += `===========\n`;
+  }
+})
+
+console.log(sorteio);

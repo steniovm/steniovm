@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - CEP no mapa</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - CEP no mapa">
+        <meta property="og:description" content="consulta o CEP e mostra no mapa">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/cepmap/">
+        <meta property="og:image" content="icone_mapa.jpg">
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="250">
+        <meta property="og:image:height" content="176">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span id="myage">Idade: 38 anos</span>
+                    <span id="myhome">Local: Belo Horizonte / MG</span>
+                </div>
+            </div>
+        </header>
+        <main id="mainprin">
+            <h1 id="title1">Busca por CEP</h1>
+            <div id="submain">
+                <section id="inputs">
+                    <h2>CEP</h2>
+                    somente numeros
+                    <input type="text" id="cepin" placeholder="00000000" pattern=/^[0-9]{8}$//>
+                    <button id="sendcep">CONSULTAR</button>
+                    <span class="output">Rua</span>
+                    <span class="output">Bairro</span>
+                    <span class="output">Municipio</span>
+                    <span class="output">Latitude</span>
+                    <span class="output">Longitude</span>
+                    <span class="output">DDD</span>
+                    <span class="output">IBGE</span>
+                    <span class="output">CEP</span>
+                </section>
+                <iframe width="100%" height="auto" allowfullscreen>
+                </iframe>
+            </div>
+        </main>
+            <footer>
+                <span>Instituto Alpha Lumen</span><br/>
+                <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
+                <span>Trilha Linguagens de programação</span><br/>
+                <span>Projeto de Javascript</span><br/>
+            </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
