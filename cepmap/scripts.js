@@ -14,12 +14,16 @@ $(document).ready(function(){
                 $('.output').eq(6).html("IBGE: "+dados.city_ibge);
                 $('.output').eq(7).html("CEP: "+dados.cep);
                 plotarmapa(dados);
-            }).fail(function() {alert( "Error na tentativa de consulta\nVerifique o CEP digitado" );});
+            }).fail(function(error) {
+				alert( "Error na tentativa de consulta\nVerifique o CEP digitado" );
+				console.log(error);
+				return false});
         }else{
             alert("Formato de CEP incorreto\ndigite apenas 8 algarismos numericos.")
         }
     });
     function plotarmapa(dados){
+		//`https://www.google.com/maps?api=1&q=${lat}%2C${lng}&hl=es;z=14&output=embed`
         const urlmap = `https://www.google.com/maps/embed/v1/place?key=AIzaSyD9aYWJbEoJOUJ-3OE5JsemY1IotoZdyXo&q=${dados.cep}&center=${dados.lat},${dados.lng}&zoom=18`;
         console.log(urlmap);
         $('iframe').attr('src',urlmap);
