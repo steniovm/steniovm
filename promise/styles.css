@@ -1,0 +1,71 @@
+body{
+    width: 500px;
+    background-image: url("velha1024x1024.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    align-items:center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(200, 200, 200, 0.8);
+    font-weight: bold;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 10vh;
+    min-height:60px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(174, 174, 174, 0.9);
+    margin: 1% 0 1% 0;
+    padding: 0 0 1% 0;
+}
+h1, h2{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color:#333;
+    text-decoration:underline dotted #222;
+    text-shadow: 2px 2px #999;
+    text-align: center;
+}
+button{
+    height: 5vh;
+    width: auto;
+    font-size:large;
+    background-color: rgba(220, 220, 220, 0.8);
+    margin: 5px ;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+#submain{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    min-width: 500px;
+}
+textarea{
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+}
+#outputext{
+    min-height: 30px;
+}
