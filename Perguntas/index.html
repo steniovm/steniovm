@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Jogo de Perguntas - QUIZ</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Jogo de Perguntas">
+        <meta property="og:description" content="Jogo de Perguntas">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Perguntas/">
+        <meta property="og:image" content="velha.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body id="bodypage">
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span>email: <a href="mailto:steniovm@gmail.com">steniovm@gmail.com</a></span>
+                    <span>whatsapp: <a href="https://api.whatsapp.com/send?phone=5531988862861&text=Queria%20falar%20sobre%20o%20jogo%20de%20perguntas.">Meu Zap</a></span>
+                </div>
+            </div>
+        </header>
+        <span id="questionsfile">Carrege o arquivo de perguntas
+            <input type="file" id="filejson" />
+            <button id="exemplobt">mostra exemplo</button>
+            <textarea id="exemplo">
+Fazer um arquivo de texto com o formato abaixo e salvar com a extensão .json
+[
+    {
+     "category": "Categoria 1",
+     "question": "Questão 1",
+     "answer": "Resposta 1"
+    },
+    {
+    "category": "Categoria 2",
+    "question": "Questão 3",
+    "answer": "Resposta 3"
+    }
+]
+            </textarea>
+        </span>
+        <main id="mainprin">
+            <section id="sectconf">
+                Equipe 1:<input id="eq1" type="text" placeholder="Equipe 1" />
+                Equipe 2:<input id="eq2" type="text" placeholder="Equipe 2" />
+                Tempo:<input id="timegame" type="number" placeholder="30" min="10" max="60" />
+                Rodadas:<input id="roundsgame" type="number" placeholder="5" min="1" max="30" />
+                <input id="startgame" type="button" value="iniciar"/>
+            </section>
+            <h1 id="title1">Jogo de Perguntas - QUIZ</h1>
+            <div id="board">
+                <span id="roundtofinish"></span>
+                <span id="scores"></span>
+                <span id="textmessage"></span>
+                <div id="categorys"></div>
+                <strong id="question"></strong>
+                <strong id="answer"></strong>
+                <button id="resp" class="resp">Responder</button>
+                <button id="resp1" class="resp">Resposta correta</button>
+                <button id="resp2" class="resp">Resposta incorreta</button>
+                <label id="timeshow"></label>
+                <!--
+                <span id="playaction">Vez da Equipe: <strong id="playgamer"></strong></span>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <button type="button" class="buttonboard"></button>
+                <span id="finishaction">O VENCEDOR foi a Equipe: <strong id="champ"></strong></span>
+                -->
+            </div>
+        </main>
+            <footer>
+                <span>Mais projetos:</span><br/>
+                <a href="https://steniovm.github.io/steniovm/"><span>https://steniovm.github.io/steniovm/</span></a><br/>
+                <span>Projetos em HTML+CSS+JavaScript</span><br/>
+            </footer>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+body{
+    max-width: 1080px;
+    background-image: url("velha1024x1024.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    align-items:center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(240, 205, 49, 0.9);
+    border-radius: 10px;
+}
+footer{
+    padding: 10px;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 10vh;
+    min-height:60px;
+    border-radius: 10px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+span{
+    font-weight: bold;
+    background-color: rgba(240, 205, 49, 0.9);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(100, 65, 250, 0.9);
+    margin: 1% 0 1% 0;
+    padding: 1% 0 1% 0;
+    align-items: center;
+    border-radius: 10px;
+    visibility: hidden;
+}
+h1, #playaction{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color:#333;
+    background-color: rgba(220, 220, 220, 0.3);
+    text-decoration:underline dotted #222;
+    text-shadow: 2px 2px #999;
+    text-align: center;
+}
+#sectconf{
+    background-color: rgb(100, 65, 250);
+    font-weight: bold;
+}
+input{
+    background-color: rgba(200, 200, 255, 0.5);
+    border: none;
+    border-radius: 10px;    
+    font-size: large;
+    font-weight: bold;
+}
+#board{
+    width: 90%;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+button, #filejson{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color:rgba(200, 200, 255, 0.5);
+    font-size: small;
+    border: none;
+}
+#categorys{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    visibility: hidden;
+}
+#textmessage, #roundtofinish, #scores, #questionsfile{
+    background-color: rgb(200, 200, 255);
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+}
+#exemplo{
+    display: none;
+    width: 100%;
+    height: 13em;
+}
+#question, #answer{
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
+#timeshow, .resp{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: #ddd;
+    border:inset 2px #222;
+    padding: 1%;
+    border-radius: 50%;
+    font-weight: bold;
+    visibility: hidden;
+}
+.resp{
+    width: auto;
+    height: auto;
+    background-color: crimson;
+    border-radius: 10%;
+}
