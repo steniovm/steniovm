@@ -198,6 +198,7 @@ async function gameplay(){
                 console.log("questão: "+nquestion)
                 console.log(quest)
                 message = teans[activeplayer]+" - Responda a pergunta"
+                textmessage.innerHTML = message
                 questionbox.innerHTML = quest.question
                 answerbox.innerHTML = quest.answer
                 questionbox.style.visibility = "visible"

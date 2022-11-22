@@ -37,7 +37,7 @@ span{
 main{
     display: flex;
     flex-direction: column;
-    background-color: rgba(100, 65, 250, 0.9);
+    background-color: rgba(100, 65, 250, 0.95);
     margin: 1% 0 1% 0;
     padding: 1% 0 1% 0;
     align-items: center;
@@ -98,6 +98,9 @@ button, #filejson{
     width:fit-content;
     padding: 5px;
     border-radius: 5px;
+}
+#questionsfile{
+    background-color: rgb(200, 200, 255);
 }
 #textmessage{
     border-color: #aaa;
