@@ -27,8 +27,9 @@
         <span id="questionsfile">Carrege o arquivo de perguntas
             <input type="file" id="filejson" />
             <button id="exemplobt">mostra exemplo</button>
-            <textarea id="exemplo">
-Fazer um arquivo de texto com o formato abaixo e salvar com a extensão .json
+            <div  id="exemplo">
+Fazer um arquivo de texto com o formato abaixo e salvar com a extensão .json<br />
+                <pre>
 [
     {
      "category": "Categoria 1",
@@ -36,12 +37,14 @@ Fazer um arquivo de texto com o formato abaixo e salvar com a extensão .json
      "answer": "Resposta 1"
     },
     {
-    "category": "Categoria 2",
-    "question": "Questão 3",
-    "answer": "Resposta 3"
+     "category": "Categoria 2",
+     "question": "Questão 3",
+     "answer": "Resposta 3"
     }
 ]
-            </textarea>
+</pre>
+            </div>
+            
         </span>
         <main id="mainprin">
             <section id="sectconf">
@@ -63,19 +66,6 @@ Fazer um arquivo de texto com o formato abaixo e salvar com a extensão .json
                 <button id="resp1" class="resp">Resposta correta</button>
                 <button id="resp2" class="resp">Resposta incorreta</button>
                 <label id="timeshow"></label>
-                <!--
-                <span id="playaction">Vez da Equipe: <strong id="playgamer"></strong></span>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <button type="button" class="buttonboard"></button>
-                <span id="finishaction">O VENCEDOR foi a Equipe: <strong id="champ"></strong></span>
-                -->
             </div>
         </main>
             <footer>

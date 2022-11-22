@@ -130,7 +130,7 @@ function listcategorys(){
         console.log(item)
         let newcategory = document.createElement("div")
         newcategory.id = "cat"+item
-        newcategory.innerHTML = (item.toUpperCase())
+        newcategory.innerHTML = (it.toUpperCase())
         let red = Math.floor(Math.random()*255);
         let green = Math.floor(Math.random()*255);
         let blue = Math.floor(Math.random()*255);
@@ -149,18 +149,26 @@ function listcategorys(){
 
 async function tempAnswer(){
     respbt.style.visibility = "visible"
+    timeshow.style.visibility = "visible"
     for (let i=timeanswer*10; i>=0 ; i--){
-        timeshow.style.visibility = "visible"
         timeshow.innerHTML = i/10
         if (breakbt) {
             await timecheck();
             next = true
             return;
         }
-        await delay(100) 
+        await delay(100)
+        if (i==0){
+            next = true
+            scoresteans[(activeplayer+1)%2]++
+            answerbox.style.visibility = "visible"
+            respbt.style.visibility = "hidden"
+            scores.innerHTML = teans[0]+" - "+scoresteans[0]+" X "+scoresteans[1]+" - "+teans[1]
+            console.log(scoresteans)
+            next1 = true;
+            await delay(100)
+        } 
     }
-    next = true
-    scoresteans[(activeplayer+1)%2]++
 }
 
 async function gameplay(){

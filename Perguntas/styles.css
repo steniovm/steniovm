@@ -68,6 +68,7 @@ input{
     min-width: 100px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 button, #filejson{
     font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
@@ -78,26 +79,50 @@ button, #filejson{
 }
 #categorys{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     visibility: hidden;
 }
+#categorys>div{
+    font-weight: bold;
+    text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
+    padding: 5px;
+    border-radius: 5px;
+}
 #textmessage, #roundtofinish, #scores, #questionsfile{
-    background-color: rgb(200, 200, 255);
+    background-color: rgba(200, 200, 255, 0.5);
     font-size: x-large;
     font-weight: bold;
     text-align: center;
+    width:fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+#textmessage{
+    border-color: #aaa;
+    background-color: rgba(200, 200, 255, 0.9);
+    text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
+    padding: 10px;
 }
 #exemplo{
     display: none;
-    width: 100%;
-    height: 13em;
+    width: auto;
+    height: auto;
+    background-color: #aaa;
+    text-align: start;
+    z-index: 1;
+    position: fixed;
+    left: auto;
+    top: auto;
+    overflow: auto;
 }
 #question, #answer{
     visibility: hidden;
     display: flex;
     justify-content: center;
     font-style: italic;
+    text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
 }
 #timeshow, .resp{
     display: flex;
@@ -118,4 +143,8 @@ button, #filejson{
     height: auto;
     background-color: crimson;
     border-radius: 10%;
+}
+pre{
+    font-weight:normal;
+    font-size: medium;
 }
