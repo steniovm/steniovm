@@ -9,7 +9,7 @@ body{
 header, footer{
     height: 10%;
     width: auto;
-    background-color: rgba(240, 205, 49, 0.9);
+    background-color: rgba(205, 205, 150, 0.95);
     border-radius: 10px;
 }
 footer{
@@ -158,6 +158,7 @@ a{
 #mainedit{
     visibility: visible;
     align-items: flex-start;
+    background-color: #999;
 }
 #savefile{
     
