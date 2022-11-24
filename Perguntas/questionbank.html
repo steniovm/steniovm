@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>Stenio - Jogo de Perguntas - QUIZ</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        <meta property="og:title" content="Stenio - Jogo de Perguntas">
+        <meta property="og:description" content="Jogo de Perguntas">
+        <meta property="og:url" content="https://steniovm.github.io/steniovm/Perguntas/">
+        <meta property="og:image" content="velha.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta property="og:locale" content="pt-br" />
+    </head>
+    <body>
+        <header>
+            <div id="divinfo" class="divinfo">
+                <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+                <div id="divinfo2" class="divinfo2">
+                    <span id="myname">Nome: Stênio</span>
+                    <span>email: <a href="mailto:steniovm@gmail.com">steniovm@gmail.com</a></span>
+                    <span>whatsapp: <a href="https://api.whatsapp.com/send?phone=5531988862861&text=Queria%20falar%20sobre%20o%20jogo%20de%20perguntas.">Meu Zap</a></span>
+                </div>
+            </div>
+        </header>
+        <main id="mainedit">
+            <section id="menuedit">
+                <span>Carregar arquivo de perguntas (opcional)
+                    <input type="file" id="filejson" accept=".json" />
+                </span><br />
+                <span>Banco de Perguntas: </span>
+                <input type="text" id="filename" placeholder="Insira o nome do banco" />
+                <button id="savefile">Salvar banco de perguntas</button>
+            </section>
+            <section id="questionedit">
+                <nav>
+                    <button id="btprev">&lsaquo;</button>
+                    <spam id="questnumber">0</spam>
+                    <button id="btnext">&rsaquo;</button>
+                    <button id="btnewq">Acrescentar Questão</button>
+                </nav>
+                <div id="questarea">
+                    <label>Categoria</label>
+                    <input type="text" id="categoryedition" placeholder="Insira a categoria" />
+                    <label>Pergunta</label>
+                    <input type="text" id="questedition" placeholder="Insira a pergunta" />
+                    <label>Resposta</label>
+                    <input type="text" id="answeredition" placeholder="Insira a resposta" />
+                    <button id="btinsert">Confirmar</button>
+                </div>
+                <span id="messagetext"></span>
+            </section>
+        </main>
+        <footer>
+            <span>Mais projetos:</span><br/>
+            <a href="https://steniovm.github.io/steniovm/"><span>https://steniovm.github.io/steniovm/</span></a><br/>
+            <span>Projetos em HTML+CSS+JavaScript</span><br/>
+        </footer>
+        <script type="text/javascript" src="editscripts.js"></script>
+    </body>
+</html>
