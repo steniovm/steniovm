@@ -98,6 +98,7 @@ filejsonbt.addEventListener("change", function(){
     filelist.readAsText(filejsonbt.files[0])
     filelist.onload = function() {
         QUESTION = JSON.parse(filelist.result)
+        console.log(QUESTION)
         categorys.clear()
         QUESTION.forEach(item => {
             categorys.add(item.category)
@@ -127,7 +128,6 @@ function listcategorys(){
     categorysboard.innerHTML = null
     categorys.forEach(it => {
         item = it.replace(" ", "");
-        console.log(item)
         let newcategory = document.createElement("div")
         newcategory.id = "cat"+item
         newcategory.innerHTML = (it.toUpperCase())
@@ -145,6 +145,7 @@ function listcategorys(){
             next = true;
         })
     })
+    console.log(categorys)
 }
 
 async function tempAnswer(){
@@ -156,8 +157,9 @@ async function tempAnswer(){
             await timecheck();
             next = true
             return;
+        } else {
+            await delay(100)
         }
-        await delay(100)
         if (i==0){
             next = true
             scoresteans[(activeplayer+1)%2]++
@@ -165,7 +167,6 @@ async function tempAnswer(){
             respbt.style.visibility = "hidden"
             scores.innerHTML = teans[0]+" - "+scoresteans[0]+" X "+scoresteans[1]+" - "+teans[1]
             console.log(scoresteans)
-            next1 = true;
             await delay(100)
         } 
     }
@@ -205,7 +206,7 @@ async function gameplay(){
                 answerbox.style.visibility = "hidden"
                 await waitUserInput(tempAnswer);
                 activeplayer = (activeplayer+1)%2
-                console.log(activeplayer)
+                console.log("activeplayer = "+activeplayer)
                 statusgame = 1;
                 rounds--;
                 breakbt = false;
@@ -224,9 +225,9 @@ function startgame(){
     rounds = roundsgame.value ? roundsgame.value : roundsgame.placeholder
     console.log(teans[0]+" "+teans[1]+"  "+timeanswer+"  "+rounds)
     activeplayer = 0
+    console.log("activeplayer = "+activeplayer)
     questionbox.style.visibility = "hidden"
     answerbox.style.visibility = "hidden"
-    activeplayer = 0
     scoresteans = [0,0]
     statusgame = 1
     next = false;
