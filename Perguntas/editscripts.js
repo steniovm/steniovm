@@ -1,10 +1,5 @@
 let QUESTION = []
 let number = 0
-let modelquestion = {
-    "category": "",
-    "question": "",
-    "answer": ""
-   }
 
 const filejsonbt = document.getElementById("filejson")
 const questnumber = document.getElementById("questnumber")
@@ -30,11 +25,10 @@ filejsonbt.addEventListener("change", function(){
         QUESTION = JSON.parse(filelist.result)
         filename.value = filejsonbt.files[0].name.split(".")[0]
         console.log(filejsonbt.files[0].name)
-        console.log(QUESTION)
         number = QUESTION.length-1
         showquestions()
         messagetext.innerHTML = "Questões carregadas"
-        await delay(1000)
+        await delay(500)
         messagetext.innerHTML = ""
       };
     filelist.onerror = function() {
@@ -54,23 +48,29 @@ btnext.addEventListener("click", function(){
     }
 })
 btnewq.addEventListener("click", async function() {
+    let modelquestion = {
+        "category": "",
+        "question": "",
+        "answer": ""
+    }
+    number = QUESTION.length
     QUESTION.push(modelquestion)
-    number = QUESTION.length-1
     showquestions()
     messagetext.innerHTML = "Nova questão adcionada"
-    await delay(1000)
+    await delay(500)
     messagetext.innerHTML = ""
 })
 btinsert.addEventListener("click", async function() {
     QUESTION[number].category = categoryedition.value
     QUESTION[number].question = questedition.value
     QUESTION[number].answer = answeredition.value
+    console.log(number)
     console.log(QUESTION[number])
     messagetext.innerHTML = "Questão alterada"
-    await delay(1000)
+    await delay(500)
     messagetext.innerHTML = ""
 })
-//savefile.addEventListener("click", async function() {
+
 savefile.addEventListener("click", async function(){
     let data = new Blob([JSON.stringify(QUESTION,false,1)]);
     let namestring = "QuestionBank"
@@ -86,15 +86,15 @@ savefile.addEventListener("click", async function(){
     downloadLink.href = URL.createObjectURL(data);
     downloadLink.style.display = 'none';
     downloadLink.click();
-
     messagetext.innerHTML = "Banco de questões salva como: "+namestring+'.json'
-    await delay(1000)
+    await delay(500)
     messagetext.innerHTML = ""
 })
 
 function showquestions(){
+    console.log(number)
     console.log(QUESTION[number])
-    questnumber.innerHTML = (number+1)
+    questnumber.innerHTML = (number+1+"/"+QUESTION.length)
     categoryedition.value = QUESTION[number].category
     questedition.value = QUESTION[number].question
     answeredition.value = QUESTION[number].answer
