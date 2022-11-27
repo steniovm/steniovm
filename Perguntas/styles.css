@@ -198,3 +198,55 @@ label{
     border-radius: 5px;
     text-align: center;
 }
+/*controle de audio*/
+#music-control{
+    border: #000 solid 5px;
+    border-radius: 12px;
+    min-width: 145px;
+    min-height: 45px;
+    height: 6%;
+    width: 12%;
+    background-color: var(--beige-bg);
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .audiobtn{
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+  }
+  .audiobtn:hover{
+    cursor: pointer;
+  }
+  .audiobtn:active{
+    filter: invert(98%) sepia(2%) saturate(9%) hue-rotate(61deg) brightness(103%) contrast(103%);
+  }
+  #mute-audio{
+    background-image: url("mute-vol.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+  #down-audio{
+    background-image: url("down-vol.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+  #up-audio{
+    background-image: url("up-vol.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+  #max-audio{
+    background-image: url("max-vol.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+  }
+  

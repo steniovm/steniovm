@@ -33,6 +33,8 @@ const timeshow = document.getElementById("timeshow")
 const respbt = document.getElementById("resp")
 const respcor = document.getElementById("resp1")
 const respinc = document.getElementById("resp2")
+const musicplay = document.getElementById("background-music")
+const musiccontrol = document.querySelectorAll(".audiobtn")
 
 let categorys = new Set(QUESTION.map(value => value.category))
 let exem = false
@@ -151,9 +153,13 @@ function listcategorys(){
 async function tempAnswer(){
     respbt.style.visibility = "visible"
     timeshow.style.visibility = "visible"
+    //audio de fundo
+    musicplay.play();
+    musicplay.volume = 0.5;
     for (let i=timeanswer*10; i>=0 ; i--){
         timeshow.innerHTML = i/10
         if (breakbt) {
+            musicplay.pause()
             await timecheck();
             next = true
             return;
@@ -170,6 +176,7 @@ async function tempAnswer(){
             await delay(100)
         } 
     }
+    musicplay.pause()
 }
 
 async function gameplay(){
@@ -235,5 +242,22 @@ function startgame(){
     breakbt = false;
     gameplay()
 }
+
+musiccontrol[0].addEventListener("click", function(){
+    musicplay.volume = 0;
+})
+musiccontrol[1].addEventListener("click", function(){
+    if(musicplay.volume>=0.1){
+        musicplay.volume -= 0.1;
+    }
+})
+musiccontrol[2].addEventListener("click", function(){
+    if(musicplay.volume<=0.9){
+        musicplay.volume += 0.1;
+    }
+})
+musiccontrol[3].addEventListener("click", function(){
+    musicplay.volume = 1;
+})
 
 startbutton.addEventListener('click', startgame)
