@@ -221,6 +221,7 @@ async function gameplay(){
             default:
         }
     }
+    roundtofinish.innerHTML = "rodadas restantes: 0"
     message = "Fim de Jogo"
     textmessage.innerHTML = message
 }

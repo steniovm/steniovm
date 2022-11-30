@@ -81,11 +81,12 @@ input{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     visibility: hidden;
 }
 #categorys>div{
     font-weight: bold;
+    font-size: xx-large;
     text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
     padding: 5px;
     border-radius: 5px;
