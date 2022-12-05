@@ -1,24 +1,3 @@
-//dados json
-let scores = [
-    {"name":"alpha","score":140},
-    {"name":"kenji","score":130},
-    {"name":"stenio","score":110},
-    {"name":"sonic","score":100},
-    {"name":"mario","score":90},
-    {"name":"alex kid","score":80},
-    {"name":"bomberman","score":70},
-    {"name":"link","score":60},
-    {"name":"ash","score":40},
-    {"name":"pitfall","score":30}
-]
-const players = []
-if (document.cookie.indexOf('mathscores')>=0){
-    scores = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathscores='))?.split("=")[1])
-}else{
-    document.cookie = "mathscores="+JSON.stringify(scores)
-}
-//url para requicisões
-const url = 'http://' + location.host.split(':')[0] + ':3000/';
 //elementos html
 let bStart = document.getElementById('bStart');
 let initPlay = document.getElementById('initPlay');
@@ -34,6 +13,40 @@ let showtimer = document.getElementById('showtimer');
 let applause = document.getElementById('applause');
 let emoji = document.getElementById('emoji');
 let defeat = document.getElementById('defeat');
+let bContinue = document.getElementById('bContinue');
+//dados json
+let scores = [
+    {"name":"alpha","score":140},
+    {"name":"kenji","score":130},
+    {"name":"stenio","score":110},
+    {"name":"sonic","score":100},
+    {"name":"mario","score":90},
+    {"name":"alex kid","score":80},
+    {"name":"bomberman","score":70},
+    {"name":"link","score":60},
+    {"name":"ash","score":40},
+    {"name":"pitfall","score":30}
+]
+const players = []
+let playercookie = {'name': '','description': '','score': 0,'level': 0,'timecred': 0}
+//resgata scores nos cookies
+if (document.cookie.indexOf('mathscores')>=0){
+    scores = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathscores='))?.split("=")[1])
+}else{
+    document.cookie = "mathscores="+JSON.stringify(scores)
+}
+//resgata dados do jogador nos cookies
+if (document.cookie.indexOf('mathplayer')>=0){
+    playercookie =JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathplayer='))?.split("=")[1])
+    players.push(playercookie)
+    bContinue.style.display= "unset"
+    bContinue.innerHTML = "continuar como "+playercookie.name
+}/*else{
+    document.cookie = "mathplayer={'name': '','description': '','score': 0,'level': 0,'timecred': 0}"
+}*/
+//url para requicisões
+const url = 'http://' + location.host.split(':')[0] + ':3000/';
+console.log('url: '+url);
 //sons
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
@@ -202,8 +215,18 @@ function stargame(){
     //Informaçoes iniciais do audio de fundo
     document.getElementById('background-music').play();
     document.getElementById("background-music").volume = 0.5;
-
-    
+}
+//comando de continuar jogo
+function continuegame(){
+    gamedates.setUser(playercookie);
+    //muda a tela
+    initPlay.style.display='none';
+    gameplay.style.display='flex';
+    //instancia o jogador e inicia o jogo
+    sendstatus(playername.value);
+    //Informaçoes iniciais do audio de fundo
+    document.getElementById('background-music').play();
+    document.getElementById("background-music").volume = 0.5;
 }
 //quando é um novo jogador
 function playerinit(){
@@ -306,6 +329,13 @@ function sendscores(){
 }
 //envia requisição para salvar os dados no servidor
 function sendregister(){
+    console.log("agora")
+    console.log(players)
+    if(gamedates.getscoreuser()>playercookie.score){
+        playercookie = gamedates.getUser()
+        document.cookie = "mathplayer="+JSON.stringify(playercookie)
+        console.log(playercookie)
+    }
     let indexplayer = players.find(function(item){
         item.name === gamedates.getUser().name
     })
@@ -409,7 +439,7 @@ updateTime();
 timectrl = window.setInterval(updateTime, 1000); 
 //eventos
 bStart.addEventListener('click',stargame);
-
+bContinue.addEventListener('click', continuegame)
 //cria os blocos arrastaveis
 for(let i=0;i<9;i++){
     $("#supermain").append(`<div class="moveable1" value=1 inside=0></div> `)

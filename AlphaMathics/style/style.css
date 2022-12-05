@@ -148,7 +148,7 @@ input{
   border-radius: 30px;
 }
 /*botoes tela inicial*/
-#bStart,#bTutorial{
+#bStart,#bTutorial, #bContinue{
   background: #4d9b4d;
   color: white;
   color: var(--blue-ligth);
@@ -159,7 +159,10 @@ input{
   font: bold 1.4em Modak, Grobold, Dokdo, arial, sans-serif, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
 }
-#bTutorial:hover, #bStart:hover, #reset-btn:hover {
+#bContinue{
+  display: none;
+}
+#bTutorial:hover, #bStart:hover, #reset-btn:hover, #bContinue:hover{
   border-color: white;
 }
 /*imagem tela inicial*/
