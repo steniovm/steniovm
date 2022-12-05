@@ -37,7 +37,7 @@ if (document.cookie.indexOf('mathscores')>=0){
 }
 //resgata dados do jogador nos cookies
 if (document.cookie.indexOf('mathplayer')>=0){
-    playercookie =JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathplayer='))?.split("=")[1])
+    playercookie=JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathplayer='))?.split("=")[1])
     players.push(playercookie)
     bContinue.style.display= "unset"
     bContinue.innerHTML = "continuar como "+playercookie.name
@@ -218,12 +218,20 @@ function stargame(){
 }
 //comando de continuar jogo
 function continuegame(){
-    gamedates.setUser(playercookie);
+    //gamedates.setUser(playercookie);
     //muda a tela
     initPlay.style.display='none';
     gameplay.style.display='flex';
     //instancia o jogador e inicia o jogo
-    sendstatus(playername.value);
+    //sendstatus(layercookie.name);
+    gamedates.setnameuser(playercookie.name);
+    gamedates.setdescuser(playercookie.description);
+    gamedates.setleveluser(playercookie.level);
+    gamedates.setscoreuser(playercookie.score);
+    gamedates.setTimeCred(playercookie.timecred);
+    playershowname.innerHTML = gamedates.getnameuser();
+    playershowtag.innerHTML = gamedates.getdescuser();
+    initlevel();
     //Informaçoes iniciais do audio de fundo
     document.getElementById('background-music').play();
     document.getElementById("background-music").volume = 0.5;
@@ -329,9 +337,8 @@ function sendscores(){
 }
 //envia requisição para salvar os dados no servidor
 function sendregister(){
-    console.log("agora")
     console.log(players)
-    if(gamedates.getscoreuser()>playercookie.score){
+    if(gamedates.getscoreuser()>=playercookie.score){
         playercookie = gamedates.getUser()
         document.cookie = "mathplayer="+JSON.stringify(playercookie)
         console.log(playercookie)
