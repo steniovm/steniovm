@@ -1,18 +1,22 @@
 //dados json
-const scores = [
-    {"name":"alpha","score":1000},
-    {"name":"RYAN","score":600},
-    {"name":"kenji","score":540},
-    {"name":"sonic","score":500},
-    {"name":"coisador","score":420},
-    {"name":"mario","score":390},
-    {"name":"stenio","score":360},
-    {"name":"alex kid","score":270},
-    {"name":"pacman","score":180},
-    {"name":"bomberman","score":130}
+let scores = [
+    {"name":"alpha","score":140},
+    {"name":"kenji","score":130},
+    {"name":"stenio","score":110},
+    {"name":"sonic","score":100},
+    {"name":"mario","score":90},
+    {"name":"alex kid","score":80},
+    {"name":"bomberman","score":70},
+    {"name":"link","score":60},
+    {"name":"ash","score":40},
+    {"name":"pitfall","score":30}
 ]
 const players = []
-
+if (document.cookie.indexOf('mathscores')>=0){
+    scores = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathscores='))?.split("=")[1])
+}else{
+    document.cookie = "mathscores="+JSON.stringify(scores)
+}
 //url para requicisões
 const url = 'http://' + location.host.split(':')[0] + ':3000/';
 //elementos html
@@ -216,9 +220,9 @@ function playerinit(){
 }
 //imprime o ranking de pontuações
 function showScores(data){
-    //scoresvalues.forEach((item,index)=>{
-        //item.innerHTML = `<div>${(index+1)} - ${data[index].name}</div><div>${data[index].score}</div>`;
-    //})
+    scoresvalues.forEach((item,index)=>{
+        item.innerHTML = `<div>${(index+1)} - ${data[index].name}</div><div>${data[index].score}</div>`;
+    })
 }
 //inicia o nivel de jogo
 function initlevel(){
@@ -259,7 +263,25 @@ function nextlevel(){
 }
 //envia requicisão do ranking de pontuações
 function sendscores(){
+    if (gamedates.getscoreuser() > scores[scores.length-1].score){
+        let indexscore = scores.findIndex(function(item){
+            return item.name === gamedates.getnameuser()
+        })
+        if ((indexscore > -1)){
+            if ((gamedates.getscoreuser() > scores[indexscore].score))
+                scores[indexscore].score=gamedates.getscoreuser()
+        }else{
+            scores.push({"name":gamedates.getnameuser(),"score":gamedates.getscoreuser()})
+        }
+    }
+    scores = scores.sort(function (a, b){
+        return b.score - a.score;
+    })
+    if (scores.length>10){
+        scores.pop()
+    }
     console.log(scores);
+    document.cookie = "mathscores="+JSON.stringify(scores)
     showScores(scores);
 /*    //monta url da requicisão
     const fullurl = url + 'scores';
