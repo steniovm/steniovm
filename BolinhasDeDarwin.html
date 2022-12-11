@@ -1,29 +1,243 @@
 <!DOCTYPE html>
 <!--
 Autor: Stênio Vinicios de Medeiros
-AlphaEdTech Turma Lovelace I
+AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (18/01/2022)
+Ultima atualização (11/12/2022)
 contato: steniovm@gmail.com
 -->
 <html>
+    <header>
+        <style>
+body{
+    height: auto;
+    width: auto;
+    background-color: #444;
+    display: flex;
+    flex-wrap: wrap;
+}
+main{
+    background-color: #888;
+    padding: 4px;
+}
+input, button{
+    max-width: 130px;
+    background-color: #bbb;
+    border: none;
+    margin: 5px;
+}
+#text{
+    max-height: 50vh;
+}
+#gamerconfig{
+    display: flex;
+    flex-direction: column;
+    top: 2vh;
+    left: 10%;
+    position: fixed;
+    z-index: 1;
+    background-color: #888;
+    border: solid #444;
+    max-height: 100vh;
+    width: min-content;
+    max-width: 80vw;
+}
+#gamerplay{
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#gamerplay>div{
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    height:15vh;
+    width: 40vw;
+    resize: none;
+    font-size: large;
+    background-color: #888;
+    border: none; 
+    scrollbar-color: #888;
+    scrollbar-width: thin;
+    scrollbar-color: #444 #888;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px;
+    border: solid #222 1px ;
+    min-width: 15vw;
+}
+#textlog{
+    max-width: 98%;
+}
+#formconf{
+    display: flex;
+    flex-wrap: wrap;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #888;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 20px;
+}
+        </style>
+        <title>Bolinhas de Darwin: Simulador de evolução natural</title>
+    </header>
     <body>
     <canvas width="800" height="600"></canvas>
+    <section id="gamerconfig">
+        <b>Instruções</b>
+        <Textarea readonly>
+Você é um predador e as bolinhas são as presas. Click nas bolinhas para predá-las.
+
+Cada vez que acertar um ataque (click) voce se nutre e ganha um ponto de energia.
+Quando erra o ataque voce se cansa e perde um ponto de energia.
+Voce tambem perde ponto de energia por fome e cansaço com o passar do tempo.
+
+A cada periodo de reprodução cada bolinha tem uma chance ter um filho.
+Logo, quanto maior for a população mais rapido ela cresce.
+
+As bolinhas filhas herdam caracteristiscas das bolinhas mãe e sofrem leves mutações.
+
+Tente controlar a população:
+    Se chegar a 0 (zero) voce fica sem alimento e morre de fome.
+    Se chegar ao valor máximo as bolinhas dominam o mundo, se revoltam e matam o predador (você).
+
+Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflagem e enganam o predador.
+        </Textarea>
+        <b>Configurações</b>
+        <div id="formconf">
+            <label>
+                <b>Energia inicial:</b>
+                <i>Ataques (clicks) que o predador pode dar</i>
+                <input id="NM" type="number" value="30" min="0" max="100"/>
+            </label>
+            <label>
+                <b>População inicial:</b>
+                <input id="NP" type="number" value="30" min="1" max="99"/>
+            </label>
+            <label>
+                <b>Tamanho das bolinhas:</b>
+                <input id="IRaio" type="number" value="30" min="2" max="100"/>
+            </label>
+            <label>
+                <b>População Maxima:</b>
+                <i>população máxima para o colapso ecolágico</i>
+                <input id="IMax" type="number" value="100" min="10" max="500"/>
+            </label>
+            <label>
+                <b>Tempo de reprodução</b>
+                <i>tempo minimo entre uma reprodução e outra</i>
+                <input id="Itime" type="number" value="1" min="1" max="10"/>
+            </label>
+            <label>
+                <b>Chance de reprodução</b>
+                <i>chance % de uma bolinha se reproduzir a cada tempo</i>
+                <input id="IChance" type="number" value="10.0" min="1" max="100" step="0.1"/>
+            </label>
+            <label>
+                <b>Ambiente</b>
+                <i>Cor de fundo em RGB</i>
+                <i>Vermelho</i>
+                <input id="Ired" class="icolor" type="number" value="200" min="0" max="255"/>
+                <i>Verde</i>
+                <input id="Igreen" class="icolor" type="number" value="200" min="0" max="255"/>
+                <i>Azul</i>
+                <input id="Iblue" class="icolor" type="number" value="200" min="0" max="255"/>
+            </label>  
+        </div>
+        <button id="Iniciar">Iniciar</button>
+    </section>
+    <main>
+        <h1>Bolinhas de Darwin</h1>
+        <section id="gamerplay">
+            <div>
+                <b>Energia:</b>
+                <label id="NMordidas" class="labelshow"></label>
+                <b>População:</b>
+                <label id="NPresas" class="labelshow"></label>
+                <button id="bRestart">Reniciar</button>
+            </div>
+            <div>
+                <b>Tempo de vida:</b>
+                <label id="ltime" class="labelshow">00</label>
+                <b>Maior tempo:</b>
+                <label id="ltimemax" class="labelshow">00</label>
+            </div>
+        </section>
+        <b>log:</b>
+        <label id="textlog"></label>
+        <a href="mailto:steniovm@gmail.com">
+<pre>
+Autor: Stênio Vinicios de Medeiros
+AlphaEdTech Turma Lovelace
+Exercicios sobre canvas arquivo unico
+Ultima atualização (11/12/2022)
+contato: steniovm@gmail.com
+</pre></a>
+        <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
+            <b>Página em arquivo unico, fique a vontade para baixar</b>
+        </a>
+    </main>
     <script type="text/javascript">
-var mycanvas = document.querySelector('canvas');
-var c = mycanvas.getContext('2d');
-var nbol = 30;
-var rbol = 30;
+const textprint = document.getElementById('text');
+const nMordidas = document.getElementById('NMordidas');
+const nPresas = document.getElementById('NPresas');
+const textlog = document.getElementById('textlog');
+const mycanvas = document.querySelector('canvas');
+const gamerconfig = document.getElementById('gamerconfig');
+const gamerplay = document.getElementById('gamerplay');
+const biniciar = document.getElementById('Iniciar')
+const nmord = document.getElementById('NM');
+const npres = document.getElementById('NP');
+const iraio = document.getElementById('IRaio');
+const ltime = document.getElementById('ltime');
+const bRestart = document.getElementById('bRestart');
+const IMax = document.getElementById('IMax');
+const Itime = document.getElementById('Itime');
+const IChance = document.getElementById('IChance');
+const colorrgb = document.querySelectorAll('.icolor');
+
+let c = mycanvas.getContext('2d');
+let paused = true;
+let nbol = npres.value;
+let rbol = iraio.value;
 c.width = mycanvas.offsetWidth;
 c.height = mycanvas.offsetHeight;
-var bolinhas = vetorbol(nbol);
+let bolinhas = vetorbol(nbol);
+let energy = nMordidas.value;
+let timegame = 0;
+let repchance = (IChance.value)/100;
+let maxbols = Number.parseInt(IMax.value);
+let reptime = Itime.value;
 
 function changeColor(){
   let red = Math.floor(Math.random()*255);
   let green = Math.floor(Math.random()*255);
   let blue = Math.floor(Math.random()*255);
-  let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-  mycanvas.style.backgroundColor = 'rgb(' + (255-red) + ',' + (255-green) + ',' + (255-blue) + ')';
+  mycanvas.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  colorrgb[0].value = red;
+  colorrgb[0].style.backgroundColor = "rgb("+red+",0,0)";
+  colorrgb[0].style.color = "rgb(0,255,255)";
+  colorrgb[1].value = green;
+  colorrgb[1].style.backgroundColor = "rgb(0,"+green+",0)";
+  colorrgb[1].style.color = "rgb(255,0,255)";
+  colorrgb[2].value = blue;
+  colorrgb[2].style.backgroundColor = "rgb(0,0,"+blue+")";
+  colorrgb[2].style.color = "rgb(255,255,0)";
+}
+
+function changeNewColor(){
+  mycanvas.style.backgroundColor = 'rgb(' + colorrgb[0].value + ',' + colorrgb[1].value + ',' + colorrgb[2].value + ')';
+  colorrgb[0].value = red;
+  colorrgb[1].value = green;
+  colorrgb[2].value = blue;
 }
 
 function bolinha(x,y,raio,r,g,b){
@@ -56,23 +270,25 @@ function bolinha(x,y,raio,r,g,b){
         }
         this.mostrar();
     }
-
+    
 }
 
-function vetorbol(){
-    var bolinhas = [];
-    for(var i=0; i<nbol; i++){
-        var x = Math.floor(Math.random()*c.width);
-        var y = Math.floor(Math.random()*c.height);
-        var r = Math.floor(Math.random()*255);
-        var g = Math.floor(Math.random()*255);
-        var b = Math.floor(Math.random()*255);
+function vetorbol(nb){
+    let bolinhas = [];
+    for(let i=0; i<nb; i++){
+        let x = Math.floor(Math.random()*c.width);
+        let y = Math.floor(Math.random()*c.height);
+        let r = Math.floor(Math.random()*255);
+        let g = Math.floor(Math.random()*255);
+        let b = Math.floor(Math.random()*255);
         bolinhas.push(new bolinha(x,y,rbol,r,g,b));
     }
+    nPresas.innerHTML = nb;
     return bolinhas;
 }
 
 function inicio(){
+    if (paused) return;
     bolinhas = vetorbol(nbol);
     for(i=0;i<nbol;i++){
         bolinhas[i].mostrar();
@@ -81,6 +297,7 @@ function inicio(){
 }
 
 function mostrarbol(){
+    if (paused) return;
     c.clearRect(0,0,innerWidth,innerHeight);
     requestAnimationFrame(mostrarbol);
     for(i=0;i<nbol;i++){
@@ -89,47 +306,130 @@ function mostrarbol(){
 }
 
 function pinicio(){
-    nbol = 30;
-    rbol = 30;
+    nbol = npres.value;
+    rbol = iraio.value;
+    energy = nmord.value;
+    nMordidas.innerHTML = energy;
+    maxbols = Number.parseInt(IMax.value);
+    repchance = (IChance.value)/100;
+    paused = false;
 }
 
 function clicar(e){
-    var mx = e.clientX;
-    var my = e.clientY;
-    var mae = Math.floor(Math.random()*(nbol-1));
-    console.clear;
+    if (paused) return;
+    let mx = e.clientX;
+    let my = e.clientY;
     for(i=(nbol-1);i>=0;i--){
-        if(mae==i) mae = (mae+1)%255;
-        var dx = mx-bolinhas[i].x;
+        let dx = mx-bolinhas[i].x;
         if (dx < 0 ) dx = - dx;
-        var dy = my-bolinhas[i].y;
+        let dy = my-bolinhas[i].y;
         if (dy < 0 ) dy = - dy;
         if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
-            bolinhas[i].x = bolinhas[mae].x + Math.floor(Math.random()*10 - 5);
-            bolinhas[i].y = bolinhas[mae].y + Math.floor(Math.random()*10 - 5);
-            bolinhas[i].r = bolinhas[mae].r + Math.floor(Math.random()*50 - 25);
-            if(bolinhas[i].r > 255) bolinhas[i].r = 254;
-            if(bolinhas[i].r < 0) bolinhas[i].r = 1;
-            bolinhas[i].g = bolinhas[mae].g + Math.floor(Math.random()*50 - 25);
-            if(bolinhas[i].g > 255) bolinhas[i].g = 254;
-            if(bolinhas[i].g < 0) bolinhas[i].g = 1;
-            bolinhas[i].b = bolinhas[mae].b + Math.floor(Math.random()*50 - 25);
-            if(bolinhas[i].b > 255) bolinhas[i].b = 254;
-            if(bolinhas[i].b < 0) bolinhas[i].b = 1;
-            bolinhas[i].dx = -bolinhas[mae].dx;
-            bolinhas[i].dy = -bolinhas[mae].dy;
+            textlog.innerHTML = "Acertou: ("+mx+","+my+")"
+            if (energy<100) energy++;
+            nMordidas.innerHTML = energy
+            bolinhas.splice(i,1);
+            nbol = bolinhas.length
+            nPresas.innerHTML = nbol;
             return;
-        }else{if (i == 0) console.log('errou');}
+        }else{
+            if (i == 0) {
+                textlog.innerHTML = "Errou: ("+mx+","+my+")"
+                if (energy) energy--;
+                nMordidas.innerHTML = energy;
+            }
+        }
     }
 }
+function newbirth(n){
+    if (paused) return;
+    let bolmae = bolinhas[n];
+    let x = bolmae.x + Math.floor(Math.random()*10 - 5);;
+    let y = bolmae.y + Math.floor(Math.random()*10 - 5);;
+    let r = bolmae.r + Math.floor(Math.random()*50 - 25);
+    if(r > 255) r = 254;
+    if(r < 0) r = 1;
+    let g = bolmae.g + Math.floor(Math.random()*50 - 25);
+    if(g > 255) g = 254;
+    if(g < 0) g = 1;
+    let b = bolmae.b + Math.floor(Math.random()*50 - 25);
+    if(b > 255) b = 254;
+    if(b < 0) b = 1;
+    bolinhas.push(new bolinha(x,y,rbol,r,g,b));
+    nbol = bolinhas.length
+    nPresas.innerHTML = nbol;
+}
+
+async function pastime(){
+    if (paused) return;
+    let timeciclo = 0;
+    let interval = setInterval(function(){
+        timegame++;
+        timeciclo++;
+        ltime.innerHTML = timegame;
+        if (nbol>=maxbols){
+            clearInterval(interval);
+            textlog.innerHTML = "As bolinhas dominaram o mundo e mataram os predadores!!!"
+            paused = true;
+        }else if (nbol<=0){
+            clearInterval(interval);
+            textlog.innerHTML = "As bolinhas foram extintas e os predadores morreram de fome!!!"
+            paused = true;
+        }else if (energy <= 0){
+            clearInterval(interval);
+            textlog.innerHTML = "Sua energia vital acabou e voce desfaleceu!!!"
+            paused = true;
+        }
+        let max = bolinhas.length;
+        if (timeciclo==reptime){
+            if (energy > 0) {
+                energy--;
+                nMordidas.innerHTML = energy;
+            }
+            let s = 0
+            for(let i=0;i<max;i++){
+            s = Math.random();
+            console.log(nbol);
+            if (s < repchance) {
+                newbirth(i);
+                console.log("reproduziu");
+            }
+            }
+            timeciclo = 0;
+        }
+    },1000); 
+}
+
+biniciar.addEventListener("click", function(){
+    gamerconfig.style.display = "none";
+    gamerplay.style.display = "flex";
+    pinicio();
+    inicio();
+    mostrarbol();
+    pastime();
+    changeNewColor();
+});
+bRestart.addEventListener("click", function(){
+    gamerconfig.style.display = "flex";
+    bolinhas = [];
+    timegame = 0;
+    paused = true;
+})
+
+colorrgb[0].addEventListener('change', function(){
+    colorrgb[0].style.backgroundColor = "rgb("+colorrgb[0].value+",0,0)";
+    colorrgb[0].style.color = "rgb(0,255,255)";
+})
+colorrgb[1].addEventListener('change', function(){
+    colorrgb[1].style.backgroundColor = "rgb(0,"+colorrgb[1].value+",0)";
+    colorrgb[1].style.color = "rgb(255,0,255)";
+})
+colorrgb[2].addEventListener('change', function(){
+    colorrgb[2].style.backgroundColor = "rgb(0,0,"+colorrgb[2].value+")";
+    colorrgb[2].style.color = "rgb(255,255,0)";
+})
 
 changeColor();
-pinicio();
-inicio();
-mostrarbol();
-alert("Você é um predador e as bolinhas são as presas. Click nas bolinhas para preda-las.");
-alert("Cada vez que uma bolinha é morta outra bolinha tem um filho com características herdadas e levemente mutadas.");
-alert("Observe a evolução natural das bolinhas para se camuflar e enganar o predador.");
 mycanvas.addEventListener('mouseup',clicar,true);
     </script>
 </body>
