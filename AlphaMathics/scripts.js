@@ -14,6 +14,13 @@ let applause = document.getElementById('applause');
 let emoji = document.getElementById('emoji');
 let defeat = document.getElementById('defeat');
 let bContinue = document.getElementById('bContinue');
+let playercookie = {
+    "name": "",
+    "description": "",
+    "score": 0,
+    "level": 0,
+    "timecred": 0
+};
 //dados json
 let scores = [
     {"name":"alpha","score":140},
