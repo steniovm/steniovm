@@ -237,7 +237,7 @@ function setCookie() {
 
 if (document.cookie.indexOf('timegame')>=0){
     timegamemax = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('timegame='))?.split("=")[1])
-    ltimemax.value = timegamemax;
+    ltimemax.innerHTML = timegamemax;
 }else{
     setCookie();
 }
@@ -398,7 +398,7 @@ async function pastime(){
             textlog.innerHTML = "As bolinhas dominaram o mundo e mataram os predadores!!!"
             if (timegame > timegamemax){
                 timegamemax = timegame;
-                ltimemax.value = timegamemax;
+                ltimemax.innerHTML = timegamemax;
                 setCookie();
             }
             paused = true;
@@ -407,7 +407,7 @@ async function pastime(){
             textlog.innerHTML = "As bolinhas foram extintas e os predadores morreram de fome!!!"
             if (timegame > timegamemax){
                 timegamemax = timegame;
-                ltimemax.value = timegamemax;
+                ltimemax.innerHTML = timegamemax;
                 setCookie();
             }
             paused = true;
