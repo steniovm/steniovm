@@ -207,6 +207,7 @@ const nmord = document.getElementById('NM');
 const npres = document.getElementById('NP');
 const iraio = document.getElementById('IRaio');
 const ltime = document.getElementById('ltime');
+const ltimemax = document.getElementById('ltimemax');
 const bRestart = document.getElementById('bRestart');
 const IMax = document.getElementById('IMax');
 const Itime = document.getElementById('Itime');
@@ -236,6 +237,7 @@ function setCookie() {
 
 if (document.cookie.indexOf('timegame')>=0){
     timegamemax = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('timegame='))?.split("=")[1])
+    ltimemax.value = timegamemax;
 }else{
     setCookie();
 }
@@ -396,6 +398,7 @@ async function pastime(){
             textlog.innerHTML = "As bolinhas dominaram o mundo e mataram os predadores!!!"
             if (timegame > timegamemax){
                 timegamemax = timegame;
+                ltimemax.value = timegamemax;
                 setCookie();
             }
             paused = true;
@@ -404,6 +407,7 @@ async function pastime(){
             textlog.innerHTML = "As bolinhas foram extintas e os predadores morreram de fome!!!"
             if (timegame > timegamemax){
                 timegamemax = timegame;
+                ltimemax.value = timegamemax;
                 setCookie();
             }
             paused = true;
