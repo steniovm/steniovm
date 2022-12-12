@@ -3,7 +3,7 @@
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (11/12/2022)
+Ultima atualização (12/12/2022)
 contato: steniovm@gmail.com
 -->
 <html>
@@ -173,8 +173,8 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
             <div>
                 <b>Tempo de vida:</b>
                 <label id="ltime" class="labelshow">00</label>
-                <b style="display: none">Maior tempo:</b>
-                <label style="display: none" id="ltimemax" class="labelshow">00</label>
+                <b>Maior tempo:</b>
+                <label id="ltimemax" class="labelshow">00</label>
             </div>
         </section>
         <b>log:</b>
@@ -184,7 +184,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas arquivo unico
-Ultima atualização (11/12/2022)
+Ultima atualização (12/12/2022)
 contato: steniovm@gmail.com
 </pre></a>
         <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
@@ -222,9 +222,24 @@ c.height = mycanvas.offsetHeight;
 let bolinhas = vetorbol(nbol);
 let energy = nMordidas.value;
 let timegame = 0;
+let timegamemax = 0;
 let repchance = (IChance.value)/100;
 let maxbols = Number.parseInt(IMax.value);
 let reptime = Itime.value;
+
+function setCookie() {
+  const d = new Date();
+  d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = 'timegame' + "=" + timegamemax + ";" + expires + ";path=/";
+}
+
+if (document.cookie.indexOf('timegame')>=0){
+    timegamemax = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('timegame='))?.split("=")[1])
+}else{
+    setCookie();
+}
+
 
 function changeColor(){
   let red = Math.floor(Math.random()*255);
@@ -379,14 +394,26 @@ async function pastime(){
         if (nbol>=maxbols){
             clearInterval(interval);
             textlog.innerHTML = "As bolinhas dominaram o mundo e mataram os predadores!!!"
+            if (timegame > timegamemax){
+                timegamemax = timegame;
+                setCookie();
+            }
             paused = true;
         }else if (nbol<=0){
             clearInterval(interval);
             textlog.innerHTML = "As bolinhas foram extintas e os predadores morreram de fome!!!"
+            if (timegame > timegamemax){
+                timegamemax = timegame;
+                setCookie();
+            }
             paused = true;
         }else if (energy <= 0){
             clearInterval(interval);
             textlog.innerHTML = "Sua energia vital acabou e voce desfaleceu!!!"
+            if (timegame > timegamemax){
+                timegamemax = timegame;
+                setCookie();
+            }
             paused = true;
         }
         let max = bolinhas.length;

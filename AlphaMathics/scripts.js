@@ -28,12 +28,15 @@ let scores = [
     {"name":"pitfall","score":30}
 ]
 const players = []
-let playercookie = {'name': '','description': '','score': 0,'level': 0,'timecred': 0}
+const d = new Date();
+d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+let cookieexpires = "; expires="+d.toUTCString()+ ";path=/";
+
 //resgata scores nos cookies
 if (document.cookie.indexOf('mathscores')>=0){
     scores = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('mathscores='))?.split("=")[1])
 }else{
-    document.cookie = "mathscores="+JSON.stringify(scores)
+    document.cookie = "mathscores="+JSON.stringify(scores)+cookieexpires;
 }
 //resgata dados do jogador nos cookies
 if (document.cookie.indexOf('mathplayer')>=0){
@@ -312,7 +315,7 @@ function sendscores(){
         scores.pop()
     }
     console.log(scores);
-    document.cookie = "mathscores="+JSON.stringify(scores)
+    document.cookie = "mathscores="+JSON.stringify(scores)+cookieexpires
     showScores(scores);
 /*    //monta url da requicisão
     const fullurl = url + 'scores';
@@ -340,7 +343,7 @@ function sendregister(){
     console.log(players)
     if(gamedates.getscoreuser()>=playercookie.score){
         playercookie = gamedates.getUser()
-        document.cookie = "mathplayer="+JSON.stringify(playercookie)
+        document.cookie = "mathplayer="+JSON.stringify(playercookie)+cookieexpires
         console.log(playercookie)
     }
     let indexplayer = players.find(function(item){
