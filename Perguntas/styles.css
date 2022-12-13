@@ -1,6 +1,6 @@
 body{
     max-width: 1080px;
-    background-image: url("velha1024x1024.jpg");
+    background-image: url("background-question.jpg");
     background-position: center;
     background-repeat: repeat;
     align-items:center;
@@ -116,6 +116,7 @@ input{
 }
 #questionsfile{
     background-color: rgb(200, 200, 255);
+    padding: 2px 10px;
 }
 #textmessage{
     background-color: #F5EA14;

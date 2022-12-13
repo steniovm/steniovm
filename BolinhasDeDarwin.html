@@ -3,7 +3,7 @@
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (12/12/2022)
+Ultima atualização (13/12/2022)
 contato: steniovm@gmail.com
 -->
 <html>
@@ -26,7 +26,7 @@ input, button{
     border: none;
     margin: 5px;
 }
-#Iniciar{
+#Iniciar, #bRestart{
     border-radius: 5px;
     background-color: greenyellow;
     color: blueviolet;
@@ -75,12 +75,33 @@ label{
     border: solid #222 1px ;
     min-width: 15vw;
 }
+.labelshow{
+    background-color: goldenrod;
+}
 #textlog{
     max-width: 98%;
+    background-color: goldenrod;
 }
 #formconf{
     display: flex;
     flex-wrap: wrap;
+}
+#mostAmb{
+    display: flex;
+    border: solid 1px black;
+    padding: auto;
+    min-width: 10vw;
+    min-height: 10vw;
+    justify-content: center;
+    align-items: center;
+}
+#mostBol{
+    border-radius: 50%;
+}
+h4, pre{
+    background-color: #acbe6b;
+    padding: 2px;
+    border-radius: 5px;
 }
 ::-webkit-scrollbar {
   width: 12px;
@@ -130,7 +151,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
             </label>
             <label>
                 <b>Tamanho das bolinhas:</b>
-                <input id="IRaio" type="number" value="30" min="2" max="100"/>
+                <input id="IRaio" type="number" value="30" min="2" max="200"/>
             </label>
             <label>
                 <b>População Maxima:</b>
@@ -140,7 +161,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
             <label>
                 <b>Tempo de reprodução</b>
                 <i>tempo minimo entre uma reprodução e outra</i>
-                <input id="Itime" type="number" value="1" min="1" max="10"/>
+                <input id="Itime" type="number" value="1" min="1" max="20"/>
             </label>
             <label>
                 <b>Chance de reprodução</b>
@@ -156,7 +177,8 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
                 <input id="Igreen" class="icolor" type="number" value="200" min="0" max="255"/>
                 <i>Azul</i>
                 <input id="Iblue" class="icolor" type="number" value="200" min="0" max="255"/>
-            </label>  
+            </label>
+            <label><div id="mostAmb"><div id="mostBol"></div></div></label>
         </div>
         <button id="Iniciar" tabindex="1" autofocus>Iniciar</button>
     </section>
@@ -184,11 +206,11 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas arquivo unico
-Ultima atualização (12/12/2022)
+Ultima atualização (13/12/2022)
 contato: steniovm@gmail.com
 </pre></a>
         <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
-            <b>Página em arquivo unico, fique a vontade para baixar</b>
+            <h4>Página em arquivo unico, fique a vontade para baixar</h4>
         </a>
         <a href="https://steniovm.github.io/steniovm">
             <h4>Veja meus outros projetos</h4>
@@ -213,6 +235,8 @@ const IMax = document.getElementById('IMax');
 const Itime = document.getElementById('Itime');
 const IChance = document.getElementById('IChance');
 const colorrgb = document.querySelectorAll('.icolor');
+const mostAmb = document.getElementById('mostAmb');
+const mostBol = document.getElementById('mostBol');
 
 let c = mycanvas.getContext('2d');
 let paused = true;
@@ -227,6 +251,10 @@ let timegamemax = 0;
 let repchance = (IChance.value)/100;
 let maxbols = Number.parseInt(IMax.value);
 let reptime = Itime.value;
+mostAmb.style.height = (2*iraio.value + 4)+'px';
+mostAmb.style.width = (2*iraio.value + 4)+'px';
+mostBol.style.height = (2*iraio.value)+'px';
+mostBol.style.width = (2*iraio.value)+'px';
 
 function setCookie() {
   const d = new Date();
@@ -248,6 +276,8 @@ function changeColor(){
   let green = Math.floor(Math.random()*255);
   let blue = Math.floor(Math.random()*255);
   mycanvas.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  mostAmb.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  mostBol.style.backgroundColor = 'rgb(' + (255-red) + ',' + (255-green) + ',' + (255-blue) + ')';
   colorrgb[0].value = red;
   colorrgb[0].style.backgroundColor = "rgb("+red+",0,0)";
   colorrgb[0].style.color = "rgb(0,255,255)";
@@ -261,9 +291,6 @@ function changeColor(){
 
 function changeNewColor(){
   mycanvas.style.backgroundColor = 'rgb(' + colorrgb[0].value + ',' + colorrgb[1].value + ',' + colorrgb[2].value + ')';
-  colorrgb[0].value = red;
-  colorrgb[1].value = green;
-  colorrgb[2].value = blue;
 }
 
 function bolinha(x,y,raio,r,g,b){
@@ -337,6 +364,7 @@ function pinicio(){
     energy = nmord.value;
     nMordidas.innerHTML = energy;
     maxbols = Number.parseInt(IMax.value);
+    reptime = Itime.value;
     repchance = (IChance.value)/100;
     paused = false;
 }
@@ -459,14 +487,23 @@ bRestart.addEventListener("click", function(){
 colorrgb[0].addEventListener('change', function(){
     colorrgb[0].style.backgroundColor = "rgb("+colorrgb[0].value+",0,0)";
     colorrgb[0].style.color = "rgb(0,255,255)";
+    mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
 })
 colorrgb[1].addEventListener('change', function(){
     colorrgb[1].style.backgroundColor = "rgb(0,"+colorrgb[1].value+",0)";
     colorrgb[1].style.color = "rgb(255,0,255)";
+    mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
 })
 colorrgb[2].addEventListener('change', function(){
     colorrgb[2].style.backgroundColor = "rgb(0,0,"+colorrgb[2].value+")";
     colorrgb[2].style.color = "rgb(255,255,0)";
+    mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
+})
+iraio.addEventListener('change', function(){
+    mostAmb.style.height = (2*iraio.value + 4)+'px';
+    mostAmb.style.width = (2*iraio.value + 4)+'px';
+    mostBol.style.height = (2*iraio.value)+'px';
+    mostBol.style.width = (2*iraio.value)+'px';
 })
 
 changeColor();
