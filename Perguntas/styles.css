@@ -44,13 +44,16 @@ main{
     border-radius: 10px;
     visibility: hidden;
 }
-h1, #playaction{
+h1{
     font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
     color:#333;
-    background-color: rgba(220, 220, 220, 0.3);
+    background-color: rgb(150, 100, 220);
     text-decoration:underline dotted #222;
     text-shadow: 2px 2px #999;
     text-align: center;
+    border-radius: 30px;
+    padding: 0 20px;
+    margin: 0;
 }
 #sectconf{
     background-color: rgb(100, 65, 250);
@@ -70,6 +73,16 @@ input{
     flex-direction: column;
     align-items: center;
 }
+#boardhead{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+    visibility: hidden;
+}
+#boardhead>span{
+    margin: 10px;
+}
 #exemplobt, #filejson{
     font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
     text-align: center;
@@ -88,26 +101,29 @@ input{
     font-weight: bold;
     font-size: xx-large;
     text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 3px solid black;
 }
 #textmessage, #roundtofinish, #scores, #questionsfile{
-    background-color: rgba(200, 200, 255, 0.5);
     font-size: x-large;
     font-weight: bold;
     text-align: center;
     width:fit-content;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 3px solid black;
 }
 #questionsfile{
     background-color: rgb(200, 200, 255);
 }
 #textmessage{
-    border-color: #aaa;
-    background-color: rgba(200, 200, 255, 0.9);
+    background-color: #F5EA14;
     text-shadow: -1px -1px 0px #aaa, -1px 1px 0px #aaa, 1px -1px 0px #aaa, 1px 0px 0px #aaa;
     padding: 10px;
+}
+#scores, #roundtofinish{
+    background-color: rgb(241, 57, 217);
 }
 #exemplo{
     display: none;
@@ -135,8 +151,8 @@ input{
     justify-content: center;
     align-self: center;
     align-items: center;
-    background-color: #ddd;
-    border:inset 2px #222;
+    background-color: #F5EA14;
+    border:inset 5px #222;
     padding: 1%;
     border-radius: 50%;
     font-weight: bold;
@@ -146,7 +162,16 @@ input{
     width: auto;
     height: auto;
     background-color: crimson;
-    border-radius: 10%;
+    border-radius: 30px;
+    font-weight: bolder;
+    border:inset 5px #222;
+    font-size: x-large;
+}
+#resp1{
+    background-color: #F5EA14;
+}
+#resp2{
+    background-color: #6904c9;
 }
 pre{
     font-weight:normal;
@@ -154,6 +179,12 @@ pre{
 }
 a{
     background-color: transparent;
+}
+strong{
+    background-color: #8db4f3;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 30px;
 }
 /*pagina de edição*/
 #mainedit{

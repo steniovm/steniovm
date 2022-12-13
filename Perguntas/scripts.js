@@ -17,6 +17,7 @@ const board = document.getElementById("board")
 const categorysboard = document.getElementById("categorys")
 const textmessage = document.getElementById("textmessage")
 const startbutton = document.getElementById("startgame")
+const boardhead = document.getElementById("boardhead")
 const eq1 = document.getElementById("eq1")
 const eq2 = document.getElementById("eq2")
 const timegame = document.getElementById("timegame")
@@ -236,6 +237,7 @@ function startgame(){
     console.log("activeplayer = "+activeplayer)
     questionbox.style.visibility = "hidden"
     answerbox.style.visibility = "hidden"
+    boardhead.style.visibility = "visible"
     scoresteans = [0,0]
     statusgame = 1
     next = false;
