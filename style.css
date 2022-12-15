@@ -4,6 +4,9 @@
 }
 .leftclass{
     width: 20%;
+    background-color: #c0d2e9;
+    border-radius: 20px;
+    padding: 5px;
 }
 .rigthclass{
     width: 100%;
@@ -15,6 +18,7 @@ body{
 h1{
     color: #433;
     text-decoration: underline wavy goldenrod;
+    text-align: center;
 }
 ul {
     margin: 0;
@@ -60,6 +64,9 @@ iframe{
     min-width: 800px;
     height: 100%;
     min-height: 630px;
+    border-radius: 20px;
+    background-color: #c0d2e9;
+    border: none;
 }
 .myimg{
     height: 10vh;
@@ -73,19 +80,20 @@ iframe{
     margin-left: 1%;
     font-weight: bold;
 }
+.sociais{
+    min-height: 150px;
+}
 .icons{
     padding: 10px;
     color: transparent;
 }
 .icons:focus, .icons:hover{
-    background: rgba(255,255,255,0.1);
     padding: 0;
 }
 .icons > img{
     height:40px;
     width: 40px;
     border-radius: 10px;
-    background-color: rgba(255,255,255,0.5);
 }
 .icons:focus > img, .icons:hover >img{
     height:45px;
