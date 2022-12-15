@@ -3,7 +3,7 @@
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (13/12/2022)
+Ultima atualização (14/12/2022)
 contato: steniovm@gmail.com
 -->
 <html>
@@ -12,19 +12,24 @@ contato: steniovm@gmail.com
 body{
     height: auto;
     width: auto;
-    background-color: #444;
+    background-color: #888;
     display: flex;
     flex-wrap: wrap;
 }
 main{
-    background-color: #888;
+    background-color: #e5e5e5;
     padding: 4px;
 }
 input, button{
     max-width: 130px;
+    background: #bbb;
     background-color: #bbb;
+    accent-color: #888;
     border: none;
     margin: 5px;
+}
+input[type="range"]{
+    min-width: 50px;
 }
 #Iniciar, #bRestart{
     border-radius: 5px;
@@ -42,7 +47,7 @@ input, button{
     left: 10%;
     position: fixed;
     z-index: 1;
-    background-color: #888;
+    background-color: #e5e5e5;
     border: solid #444;
     max-height: 100vh;
     width: min-content;
@@ -59,10 +64,10 @@ input, button{
 }
 textarea{
     height:15vh;
-    width: 40vw;
+    width: 55vw;
     resize: none;
     font-size: large;
-    background-color: #888;
+    background-color: #e5e5e5;
     border: none; 
     scrollbar-color: #888;
     scrollbar-width: thin;
@@ -86,6 +91,11 @@ label{
     display: flex;
     flex-wrap: wrap;
 }
+#most{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #mostAmb{
     display: flex;
     border: solid 1px black;
@@ -107,11 +117,7 @@ h4, pre{
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #888;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #444;
-  border-radius: 20px;
+  background: #e5e5e5;
 }
         </style>
         <title>Bolinhas de Darwin: Simulador de evolução natural</title>
@@ -146,39 +152,42 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
                 <input id="NM" type="number" value="30" min="0" max="100"/>
             </label>
             <label>
+                <b>Tamanho das bolinhas:</b>
+                <input id="IRaio" type="range" value="30" min="2" max="200"/>
+            </label>
+            <label>
                 <b>População inicial:</b>
                 <input id="NP" type="number" value="30" min="1" max="99"/>
             </label>
             <label>
-                <b>Tamanho das bolinhas:</b>
-                <input id="IRaio" type="number" value="30" min="2" max="200"/>
-            </label>
-            <label>
-                <b>População Maxima:</b>
-                <i>população máxima para o colapso ecolágico</i>
+                <b>População máxima:</b>
+                <i>população máxima</i>
+                <i>para o colapso ecológico</i>
                 <input id="IMax" type="number" value="100" min="10" max="500"/>
             </label>
             <label>
-                <b>Tempo de reprodução</b>
-                <i>tempo minimo entre uma reprodução e outra</i>
+                <b>Periodo de reprodução</b>
+                <i>tempo minimo (segundos)</i>
+                <i>entre uma reprodução e outra</i>
                 <input id="Itime" type="number" value="1" min="1" max="20"/>
             </label>
             <label>
                 <b>Chance de reprodução</b>
-                <i>chance % de uma bolinha se reproduzir a cada tempo</i>
+                <i>chance % de uma bolinha</i>
+                <i>se reproduzir a cada periodo</i>
                 <input id="IChance" type="number" value="10.0" min="1" max="100" step="0.1"/>
             </label>
             <label>
                 <b>Ambiente</b>
                 <i>Cor de fundo em RGB</i>
                 <i>Vermelho</i>
-                <input id="Ired" class="icolor" type="number" value="200" min="0" max="255"/>
+                <input id="Ired" class="icolor" type="range" value="200" min="0" max="255"/>
                 <i>Verde</i>
-                <input id="Igreen" class="icolor" type="number" value="200" min="0" max="255"/>
+                <input id="Igreen" class="icolor" type="range" value="200" min="0" max="255"/>
                 <i>Azul</i>
-                <input id="Iblue" class="icolor" type="number" value="200" min="0" max="255"/>
+                <input id="Iblue" class="icolor" type="range" value="200" min="0" max="255"/>
             </label>
-            <label><div id="mostAmb"><div id="mostBol"></div></div></label>
+            <label id="most"><div id="mostAmb"><div id="mostBol"></div></div></label>
         </div>
         <button id="Iniciar" tabindex="1" autofocus>Iniciar</button>
     </section>
@@ -206,7 +215,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas arquivo unico
-Ultima atualização (13/12/2022)
+Ultima atualização (14/12/2022)
 contato: steniovm@gmail.com
 </pre></a>
         <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
@@ -270,7 +279,6 @@ if (document.cookie.indexOf('timegame')>=0){
     setCookie();
 }
 
-
 function changeColor(){
   let red = Math.floor(Math.random()*255);
   let green = Math.floor(Math.random()*255);
@@ -279,14 +287,11 @@ function changeColor(){
   mostAmb.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
   mostBol.style.backgroundColor = 'rgb(' + (255-red) + ',' + (255-green) + ',' + (255-blue) + ')';
   colorrgb[0].value = red;
-  colorrgb[0].style.backgroundColor = "rgb("+red+",0,0)";
-  colorrgb[0].style.color = "rgb(0,255,255)";
+  colorrgb[0].style.accentColor = "rgb("+red+",0,0)";
   colorrgb[1].value = green;
-  colorrgb[1].style.backgroundColor = "rgb(0,"+green+",0)";
-  colorrgb[1].style.color = "rgb(255,0,255)";
+  colorrgb[1].style.accentColor = "rgb(0,"+green+",0)";
   colorrgb[2].value = blue;
-  colorrgb[2].style.backgroundColor = "rgb(0,0,"+blue+")";
-  colorrgb[2].style.color = "rgb(255,255,0)";
+  colorrgb[2].style.accentColor = "rgb(0,0,"+blue+")";
 }
 
 function changeNewColor(){
@@ -485,18 +490,15 @@ bRestart.addEventListener("click", function(){
 })
 
 colorrgb[0].addEventListener('change', function(){
-    colorrgb[0].style.backgroundColor = "rgb("+colorrgb[0].value+",0,0)";
-    colorrgb[0].style.color = "rgb(0,255,255)";
+    colorrgb[0].style.accentColor = "rgb("+colorrgb[0].value+",0,0)";
     mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
 })
 colorrgb[1].addEventListener('change', function(){
-    colorrgb[1].style.backgroundColor = "rgb(0,"+colorrgb[1].value+",0)";
-    colorrgb[1].style.color = "rgb(255,0,255)";
+    colorrgb[1].style.accentColor = "rgb(0,"+colorrgb[1].value+",0)";
     mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
 })
 colorrgb[2].addEventListener('change', function(){
-    colorrgb[2].style.backgroundColor = "rgb(0,0,"+colorrgb[2].value+")";
-    colorrgb[2].style.color = "rgb(255,255,0)";
+    colorrgb[2].style.accentColor = "rgb(0,0,"+colorrgb[2].value+")";
     mostAmb.style.backgroundColor = "rgb("+colorrgb[0].value+","+colorrgb[1].value+","+colorrgb[2].value+")";
 })
 iraio.addEventListener('change', function(){
