@@ -10,7 +10,11 @@
 }
 body{
     background-color: #d0eeaa;
-    background: #688da6;
+    background: #1074b9;
+}
+h1{
+    color: #433;
+    text-decoration: underline wavy goldenrod;
 }
 ul {
     margin: 0;
@@ -34,7 +38,7 @@ ul>li>a {
     font-size: larger;
     color: #222;
     /*background: #fff;*/
-    background: #486d86;
+    background: #9bcbec;
     padding: 5px;
     border: 1px solid #222;
     /*-webkit-text-stroke: 1px #222;*/
@@ -56,4 +60,34 @@ iframe{
     min-width: 800px;
     height: 100%;
     min-height: 630px;
+}
+.myimg{
+    height: 10vh;
+    min-height:120px;
+    border-radius: 10px;
+    margin: 10%;
+}
+.divinfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    font-weight: bold;
+}
+.icons{
+    padding: 10px;
+    color: transparent;
+}
+.icons:focus, .icons:hover{
+    background: rgba(255,255,255,0.1);
+    padding: 0;
+}
+.icons > img{
+    height:40px;
+    width: 40px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.5);
+}
+.icons:focus > img, .icons:hover >img{
+    height:45px;
+    width:45px;
 }
