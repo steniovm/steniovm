@@ -12,12 +12,11 @@
     width: 100%;
 }
 body{
-    background-color: #d0eeaa;
-    background: #1074b9;
+    background: #d7dbe1;
 }
 h1{
     color: #433;
-    text-decoration: underline wavy goldenrod;
+    text-decoration: underline overline double #dcb;
     text-align: center;
 }
 ul {
@@ -44,7 +43,9 @@ ul>li>a {
     /*background: #fff;*/
     background: #9bcbec;
     padding: 5px;
-    border: 1px solid #222;
+    /*margin: 1px;*/
+    border-radius: 15px;
+    /*border: 1px solid #222;*/
     /*-webkit-text-stroke: 1px #222;*/
  }
 a:visited{
