@@ -16,8 +16,9 @@ body{
 }
 h1{
     color: #433;
-    text-decoration: underline overline double #dcb;
+    /*text-decoration: underline overline double #8bb5;*/
     text-align: center;
+    text-shadow: 0px 5px 5px #8bb, -2px -2px 0px #8bb;
 }
 ul {
     margin: 0;
@@ -47,6 +48,7 @@ ul>li>a {
     border-radius: 15px;
     /*border: 1px solid #222;*/
     /*-webkit-text-stroke: 1px #222;*/
+    box-shadow: 0px 0px 50px 0px #8bb;
  }
 a:visited{
     color:#500;
@@ -95,6 +97,7 @@ iframe{
     height:40px;
     width: 40px;
     border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px #8bb;
 }
 .icons:focus > img, .icons:hover >img{
     height:45px;
