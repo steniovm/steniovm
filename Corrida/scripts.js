@@ -121,41 +121,49 @@ function playgame(){
     let vvictory = [0,0,0];
     let vitvolt=0;
     let vitoriy=0;
+    let interval;
+    const voltatemp = 1000;
     //intera volta a volta
-    for(let i=0;i<nvoltas;i++){
-        for(let j=0;j<NPLAYERS;j++){
-            let sorte = Math.random();
-            let vmax = cars[j][carsrum[j]].velocMax;
-            let vmin = cars[j][carsrum[j]].velocMin;
-            let derr = cars[j][carsrum[j]].derrapagem;
-            avanco[j]=(sorte*(vmax-vmin)+vmin)*(1-(derr/100));
-                if(avanco[j] > avanco[vitvolt]){
-                    vitvolt=j;
+    //for(let i=0;i<nvoltas;i++){
+    let i = 0;
+    interval = setInterval(function(){
+            for(let j=0;j<NPLAYERS;j++){
+                let sorte = Math.random();
+                let vmax = cars[j][carsrum[j]].velocMax;
+                let vmin = cars[j][carsrum[j]].velocMin;
+                let derr = cars[j][carsrum[j]].derrapagem;
+                avanco[j]=(sorte*(vmax-vmin)+vmin)*(1-(derr/100));
+                    if(avanco[j] > avanco[vitvolt]){
+                        vitvolt=j;
+                }
             }
-        }
-        vvictory[vitvolt]++;//contabiliza a melhor volta
-        avancoimg[vitvolt] += (100/nvoltas);
-            if(vvictory[vitvolt] > vvictory[vitoriy]){
-                vitoriy=vitvolt;
-        }
-    }
-    //atualiza os elementos html
-    for (let i=0; i < NPLAYERS; i++){
-        volts[i].innerHTML = vvictory[i];
-        carrum[i].style.marginLeft = (avancoimg[i]+'%');
-        volts[i].innerHTML = vvictory[i];
-    }
-    //mostra o vencedor
-    if (vitoriy == 0){
-        champ.innerHTML = ("PEDRO");
-        alert("PARABENS PEDRO - VOCE VENCEU "+vvictory[0]+" VOLTAS");
-    }else if (vitoriy == 1){
-        champ.innerHTML = ("JUCA");
-        alert("PARABENS JUCA - VOCE VENCEU "+vvictory[1]+" VOLTAS");
-    }else if (vitoriy == 2){
-        champ.innerHTML = ("EDNA");
-        alert("PARABENS EDNA - VOCE VENCEU "+vvictory[2]+" VOLTAS");
-    }
+            vvictory[vitvolt]++;//contabiliza a melhor volta
+            avancoimg[vitvolt] += (100/nvoltas);
+                if(vvictory[vitvolt] > vvictory[vitoriy]){
+                    vitoriy=vitvolt;
+            }
+            //atualiza os elementos html
+            for (let j=0; j < NPLAYERS; j++){
+                volts[j].innerHTML = vvictory[j];
+                carrum[j].style.marginLeft = (avancoimg[j]+'%');
+                volts[j].innerHTML = vvictory[j];
+            }
+            i++;
+            if (i >= nvoltas) {
+                clearInterval(interval);
+                //mostra o vencedor
+                if (vitoriy == 0){
+                    champ.innerHTML = ("PEDRO");
+                    alert("PARABENS PEDRO - VOCE VENCEU "+vvictory[0]+" VOLTAS");
+                }else if (vitoriy == 1){
+                    champ.innerHTML = ("JUCA");
+                    alert("PARABENS JUCA - VOCE VENCEU "+vvictory[1]+" VOLTAS");
+                }else if (vitoriy == 2){
+                    champ.innerHTML = ("EDNA");
+                    alert("PARABENS EDNA - VOCE VENCEU "+vvictory[2]+" VOLTAS");
+                }
+            }
+    },voltatemp);
 }
 //enventos
 //clicar em gerar carro

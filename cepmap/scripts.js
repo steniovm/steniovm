@@ -23,8 +23,8 @@ $(document).ready(function(){
         }
     });
     function plotarmapa(dados){
-		//`https://www.google.com/maps?api=1&q=${lat}%2C${lng}&hl=es;z=14&output=embed`
-        const urlmap = `https://www.google.com/maps/embed/v1/place?key=AIzaSyD9aYWJbEoJOUJ-3OE5JsemY1IotoZdyXo&q=${dados.cep}&center=${dados.lat},${dados.lng}&zoom=18`;
+		const urlmap = `https://www.google.com/maps?api=1&q=${dados.lat}%2C${dados.lng}&hl=pt-BR;z=14&output=embed`
+        //const urlmap = `https://www.google.com/maps/embed/v1/place?key=AIzaSyD9aYWJbEoJOUJ-3OE5JsemY1IotoZdyXo&q=${dados.cep}&center=${dados.lat},${dados.lng}&zoom=18`;
         console.log(urlmap);
         $('iframe').attr('src',urlmap);
     }

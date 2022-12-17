@@ -4,10 +4,12 @@
 let playgamer = document.getElementById("playgamer");
 let champ = document.getElementById("champ");
 let bboard = document.querySelectorAll(".buttonboard");
+let tabela = document.getElementById('tabHist');//tabela de jogos
 let state = 'O';//variavel de estado - 'O' = vez do jogador O - 'X' = vez do jogador X - 'F' = Jogo finalizado
 let boardstate = [['-','-','-'],
                   ['-','-','-'],
                   ['-','-','-']];//matriz do jogo
+let jogoN =  0;//numero do jogo
 
 //preenchimento dos elementos
 function updateboard(){
@@ -29,6 +31,7 @@ function markposition(posit){
             bboard[posit].innerHTML='O';
             if (verfinsh()){
                 state='F';
+                printhisto(1);
             }else{
                 state='X';
                 playgamer.innerHTML=state;
@@ -41,6 +44,7 @@ function markposition(posit){
             bboard[posit].innerHTML='X';
             if (verfinsh()){
                 state='F';
+                printhisto(3);
             }else{
                 state='O';
                 playgamer.innerHTML=state;
@@ -50,13 +54,17 @@ function markposition(posit){
     //quando o jogo termina
     if (state=='F'){
         champ.innerHTML=tempchamp;
-        if(tempchamp=='F' || tempchamp=='VELHA'){
+        resetgame(tempchamp);
+        /*if(tempchamp=='F' || tempchamp=='VELHA'){
             resetgame();
-        }
-    }
-    if(vervelha()){
+        }else if(tempchamp=='O' || tempchamp!='X'){
+            resetgame(tempchamp);
+        }*/
+    } else if(vervelha()){
         champ.innerHTML='VELHA';
         playgamer.innerHTML='VELHA';
+        tempchamp=='VELHA';
+        printhisto(2);
         state='F';
     }
 }
@@ -102,15 +110,36 @@ function vervelha(){
     return test;
 }
 
-function resetgame(){
+function resetgame(cha){
     boardstate = [['-','-','-'],
                   ['-','-','-'],
                   ['-','-','-']];
-    state = 'O';
+    if (cha=='O') state = 'X';
+    else state = 'O';
     updateboard();
     champ.innerHTML='';
     playgamer.innerHTML=state;
 }
+
+//imprime hitórico
+function printhisto(v){
+    let linha = document.createElement("tr");//cria linha de tabela
+    let cel = new Array(4);
+    cel[0] = document.createElement("td");//cria primira celula da linha
+    cel[0].innerHTML = (++jogoN);
+    linha.append(cel[0]);
+    for (let i=1; i<=3;i++){
+      cel[i] = document.createElement("td");//cria celula
+      if (i==v){
+        cel[i].innerHTML = '*';//celula vencedora
+      } else{
+        cel[i].innerHTML = '-';//celula perdedora
+      }
+      linha.append(cel[i]);
+    }
+    tabela.append(linha);//adciona linha à tabela
+  }
+
 //chamadas das funções
 updateboard();
 

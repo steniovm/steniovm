@@ -17,7 +17,7 @@ header, footer{
     align-items: center;
 }
 .myimg{
-    height: 10vh;
+    height: 6vh;
     min-height:60px;
     border-radius: 10px;
 }
@@ -29,6 +29,9 @@ span{
     font-weight: bold;
     background-color: rgba(220, 220, 220, 0.8);
     margin-bottom: 5px;
+}
+.divinfo2>span{
+    margin-bottom: 0;
 }
 main{
     display: flex;
