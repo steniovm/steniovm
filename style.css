@@ -24,16 +24,19 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    width:180px;
+    width:200px;
 }
 ul>li {
     position: relative;
 }
 li>ul {
     position: absolute;
-    left: 179px;
+    left: 199px;
     top: 0;
     display: none;
+}
+li>ul>li{
+    width:260px;
 }
 ul>li>a {
     display: block;

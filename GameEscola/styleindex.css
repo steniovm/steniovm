@@ -313,8 +313,8 @@ input[name="option"] {
     border-bottom: solid 2px #2430AD;
 }
 iframe{
-    width: 360px;
-    min-height: 640px;
+    width: 501px;
+    min-height: 650px;
     border-radius: 20px;
 }
 ul {
