@@ -4,7 +4,12 @@ const INITAL = 14;//inicia com 14 px
 //variaveis globais
 let buttonmais = document.getElementById('buttonmais');//botão mais
 let buttonmenos = document.getElementById('buttonmenos');//botão menos
-let texto = document.getElementById('pincipal');//seção principal da pagina
+let buttoAa = document.getElementById('buttonAa');//botão caixa alta baixa
+let buttonmulti = document.getElementById('buttonmult');//botão mult
+let texto = document.getElementById('principal');//seção principal da pagina
+let mainbox = document.querySelector('main');//main da pagina
+let caixa = false; //false = caixa baixa, true = caixa alta;
+let transp = true; //false = opaco, true = transparente;
 
 //classe de clousures
 let tamanho = (function() {
@@ -37,11 +42,33 @@ function diminuir(){
   tamanho.diminuir();
   texto.style.fontSize = tamanho.value() + 'px';
 }
-
+function caixaaltabaixa(){
+  if (!caixa){
+    caixa = true;
+    texto.style.textTransform = 'uppercase';
+  }else{
+    caixa = false;
+    texto.style.textTransform = "none";
+  }
+}
 //eventos
 buttonmais.addEventListener('click', aumentar);
 buttonmenos.addEventListener('click', diminuir);
+buttoAa.addEventListener('click',caixaaltabaixa);
 
+buttonmulti.addEventListener('click', function(){
+  if (!transp){
+    transp = true;
+    mainbox.style.backgroundColor = '#aeaeae80';
+  }else{
+    transp = false;
+    mainbox.style.backgroundColor = "#aeaeae";
+  }
+  //coisas do exercicios
+  console.log(multiplyBy5(tamanho.value()));
+});
+
+//coisas do exercicios
 //projeto de clousers, multiplica
 function createMultiplier(value){
   return function (val){
@@ -53,7 +80,3 @@ console.log(multiplyBy5(10));//50
 console.log(multiplyBy5(12));//60
 console.log(multiplyBy5(7));//35
 
-let buttonmulti = document.getElementById('buttonmult');//botão mult
-buttonmulti.addEventListener('click', function(){
-  console.log(multiplyBy5(tamanho.value()));
-});

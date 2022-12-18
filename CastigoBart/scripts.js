@@ -332,6 +332,7 @@ function writeboard(){
             }
         }
     }
+    phr.style.width = (CARCTERLINES*0.8)+'em';
     nlines++;
     results[0].innerHTML = nlines;
     results[1].innerHTML = nboards;
