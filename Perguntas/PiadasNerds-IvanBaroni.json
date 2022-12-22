@@ -151,6 +151,11 @@
  },
  {
   "category": "Matemática",
+  "question": "O que uma grávida matemática responde quando perguntam se é menino ou menina?",
+  "answer": "Sim"
+ },
+ {
+  "category": "Matemática",
   "question": "Como o matemático cerca todas as ovelhas do mundo?",
   "answer": "Faz um cercado em volta de si mesmo e se define estando do lado de fora."
  },
@@ -176,6 +181,11 @@
  },
  {
   "category": "Matemática",
+  "question": "Por que o 3 não pode se casar com o 7?",
+  "answer": "Porque eles são primos. É uma pena, formariam um casal 10…"
+ },
+ {
+  "category": "Matemática",
   "question": "O que o cachorro π faz?",
   "answer": "Pilates."
  },
@@ -188,6 +198,101 @@
   "category": "Matemática",
   "question": "Qual é a cor do plano cartesiano?",
   "answer": "Coordenada."
+ },
+ {
+  "category": "Matemática",
+  "question": "Por que o estudante de cálculo numérico não afunda?",
+  "answer": "Porque ele usa ponto flutuante."
+ },
+ {
+  "category": "Matemática",
+  "question": "Na Festa do Triângulo estavam o seno, o cosseno, o ângulo reto e a hipotenusa.\nO que o cateto adjacente disse para o cateto oposto?",
+  "answer": "Nossa, cotangente!"
+ },
+ {
+  "category": "Matemática",
+  "question": "O que fazer para resolver o problema da dor de cabeça constante?",
+  "answer": "Tire a derivada."
+ },
+ {
+  "category": "Matemática",
+  "question": "Como o capitão Nascimento resolve problemas de matemática?",
+  "answer": "Ele enfia o livro no saco e o obriga a entregar as respostas."
+ },
+ {
+  "category": "Matemática",
+  "question": "Por que a imagem dos gráficos do capitão Nascimento pertence aos reais negativos?",
+  "answer": "Porque com ele -não vai subir ninguém!-."
+ },
+ {
+  "category": "Matemática",
+  "question": "Qual o volume de um tigre morto?",
+  "answer": "4πR³/3, porque é uma ex-fera."
+ },
+ {
+  "category": "Matemática",
+  "question": "O que é pior do que um raio cair na sua cabeça?",
+  "answer": "Cair um diâmetro."
+ },
+ {
+  "category": "Matemática",
+  "question": "O que uma reta reversa disse para a outra?",
+  "answer": "Você não está nos meus planos."
+ },
+ {
+  "category": "Matemática",
+  "question": "Qual era o cavaleiro mais redondo entre os Cavaleiros da Távola Redonda?",
+  "answer": "Sir Cunferência."
+ },
+ {
+  "category": "Matemática",
+  "question": "Seja 'a' a altura e 'z' o raio, qual o volume da pizza?",
+  "answer": "Pi.z.z.a."
+ },
+ {
+  "category": "Matemática",
+  "question": "Como se chama o triângulo com cavalos por todos os lados?",
+  "answer": "Triângulo equilátero."
+ },
+ {
+  "category": "Matemática",
+  "question": "Por que o tarado virou estatístico?",
+  "answer": "Porque adora pornográfico (para ficar olhando as curvas)."
+ },
+ {
+  "category": "Matemática",
+  "question": "Uma placa de gelo tem 1 cm de largura e 2 cm de comprimento. Qual é o nome do filme?",
+  "answer": "A área do gelo 2."
+ },
+ {
+  "category": "Matemática",
+  "question": "O herói mascarado tem uma terrível equação de segundo grau para resolver. Qual é o nome do filme?",
+  "answer": "A Bhaskara do Zorro."
+ },
+ {
+  "category": "Matemática",
+  "question": "Neo precisa encontrar os autovalores e os autovetores de uma matriz. Qual é o nome do filme?",
+  "answer": "Matrix Resolutions."
+ },
+ {
+  "category": "Matemática",
+  "question": "-Alfa beta gama delta épsilon zeta eta teta iota capa lambda ni csi ômicron pi rô sigma tau upsilon fi qui psi ômega.- Qual é o nome do filme?",
+  "answer": "Esqueceram de mi."
+ },
+ {
+  "category": "Matemática",
+  "question": "Como fazer para piorar?",
+  "answer": "É só levar o π para a igreja."
+ },
+ {
+  "category": "Matemática",
+  "question": "O que faz um estudante religioso de cálculo?",
+  "answer": "Integra tudo na mão de Deus, pois é dele que tudo deriva e o céu não tem limite."
+ },
+ {
+  "category": "Matemática",
+  "question": "Com qual problema de matemática Jesus reprovou?",
+  "answer": "Você tem 2 pães e 3 peixes. Quantos alimentos tem no total?"
  },
  {
   "category": "Ciências Humanas",
@@ -241,6 +346,11 @@
  },
  {
   "category": "Ciências Humanas",
+  "question": "Qual era a banda favorita dos operários durante a Revolução Industrial?",
+  "answer": "Rage Against the Machine."
+ },
+ {
+  "category": "Ciências Humanas",
   "question": "Que atleta esteve mais vezes nos pódios das Olimpíadas?",
   "answer": "Ramos de Oliveira."
  },
@@ -288,6 +398,161 @@
   "category": "Ciências Humanas",
   "question": "Qual é o rio mais rápido do mundo?",
   "answer": "Rio Sena."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que é xiita?",
+  "answer": "É a maacaca do Taarzan."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Por que na Argentina as vacas vivem olhando para o céu?",
+  "answer": "Porque tem boi nos ares."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Ao vestir uma camisa, o marido da geógrafa pergunta: – Amor, onde está o botão? O que ela responde?",
+  "answer": "– Na Ásia!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Por que os EUA têm poucas chances de ganhar no xadrez?",
+  "answer": "Porque perderam as duas torres."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Quais são as três capitais brasileiras mais lembradas no fim do ano?",
+  "answer": "Natal, Salvador e Belém."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que está escrito na porta do Pavlov?",
+  "answer": "A menos que seja o entregador de ração, não toque a campainha!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Quantos psicólogos são necessários para trocar uma lâmpada?",
+  "answer": "Só um, mas a lâmpada precisa querer ser trocada."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual a banda de rock que mexe com a psique das pessoas?",
+  "answer": "Pink Freud."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que o ego faz quando não consegue vencer os impulsos do id?",
+  "answer": "Pede socorro ao superego."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual foi a reação do economista quando sua mulher grávida disse que a bolsa estourou?",
+  "answer": "Vende! Vende! Vende!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Três moças lutam contra ricos e opressores em Manchester no século XIX. Qual é o nome do filme?",
+  "answer": "Karlie’s Engels."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que o filósofo pede quando vai ao bar?",
+  "answer": "Um Schop e um cachorro Kant."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual é o jogo favorito do filósofo?",
+  "answer": "Nietzsche for Speed."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Como um filósofo chama o outro para briga?",
+  "answer": "Vamos para o estado de natureza segundo Hobbes?!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Quantos disputam o campeonato de natação filosofal?",
+  "answer": "Só sei que nadam seis."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual é a lei dos escultores?",
+  "answer": "Aleijadinho."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual é o barulho que a tinta faz quando cai numa tela no chão?",
+  "answer": "Pollock!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Quem foi o maior mestre renascentista?",
+  "answer": "Mestre Splinter. Afinal, foi ele quem treinou Leonardo, Rafael, Michelangelo e Donatello."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que é uma música mimosa?",
+  "answer": "É uma música famosa, meio tom abaixo."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que o maestro pediu quando foi à farmácia?",
+  "answer": "Um ré médio."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Do que o maestro precisa quando está com soluço?",
+  "answer": "De um sustenido."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que o porquinho assustado disse aos outros porquinhos quando voltou do concerto?",
+  "answer": "Vi lá lobos!"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual é o sujeito da frase -Proibido estacionar-?",
+  "answer": "Sujeito a guincho."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que todos nós viramos com a nova ortografia?",
+  "answer": "Ex-tremistas."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "O que não possui gosto na língua portuguesa?",
+  "answer": "Oração sabordinada."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "-Pobre menina, o pai de Ana morreu.- Qual a figura de linguagem?",
+  "answer": "Anacoluto."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Ana não atende a campainha. Ana não atende o celular. Ana não responde emails. Qual a figura de linguagem?",
+  "answer": "Anáfora."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Que autor o Harry Potter lê quando está doente?",
+  "answer": "Saramago."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Hamlet viu dois pontinhos voando. Um deles era uma abelha; o outro, ele não tinha certeza. O que ele indagou?",
+  "answer": "Two bee or not two bee?"
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual o time favorito do José de Alencar?",
+  "answer": "O Guarani."
+ },
+ {
+  "category": "Ciências Humanas",
+  "question": "Qual o time favorito do Gonçalves Dias?",
+  "answer": "Palmeiras."
  },
  {
   "category": "Química",
@@ -361,13 +626,183 @@
  },
  {
   "category": "Química",
+  "question": "Que arma pode ser feita com potássio, níquel e ferro?",
+  "answer": "KNiFe."
+ },
+ {
+  "category": "Química",
   "question": "Qual é o nome do hidrocarboneto mais desconhecido?",
   "answer": "Ciclano."
  },
  {
   "category": "Química",
+  "question": "Que fórmulas são estas: a) H2Oly; b) H2O51; c) H2O24?",
+  "answer": "a) Água benta; b) Aguardente; c) Água fresca."
+ },
+ {
+  "category": "Química",
   "question": "Por que o urso branco se dissolveu quando caiu na água?",
   "answer": "Porque era polar."
+ },
+ {
+  "category": "Química",
+  "question": "Qual é a música-tema da nitroglicerina?",
+  "answer": "Balançou, balançou, balançou; balançou e a galera explodiu..."
+ },
+ {
+  "category": "Química",
+  "question": "Cebolinha cai num buraco e encontra um carbono e três hidrogênios. O que ele grita?",
+  "answer": "Metila daqui!"
+ },
+ {
+  "category": "Química",
+  "question": "Um químico resolve pintar usando um nitrogênio e três hidrogênios. Qual é o nome do quadro?",
+  "answer": "Amônia Lisa."
+ },
+ {
+  "category": "Química",
+  "question": "Qual é o elemento mais bem informado da tabela periódica?",
+  "answer": "O frâncio, porque fica do lado do rádio."
+ },
+ {
+  "category": "Química",
+  "question": "Qual é o elemento que vive na sombra?",
+  "answer": "O índio, porque fica embaixo do gálio."
+ },
+ {
+  "category": "Química",
+  "question": "Por que o elemento índio não conversa com o vizinho?",
+  "answer": "Porque sua mãe o ensinou a nunca falar com estanhos."
+ },
+ {
+  "category": "Química",
+  "question": "Por que o hidrogênio foi ao show do Restart?",
+  "answer": "Porque ele estava em busca de uma família."
+ },
+ {
+  "category": "Química",
+  "question": "O que o carbono disse quando foi preso?",
+  "answer": "Eu tenho direito a quatro ligações, senão eu quebro esta cadeia!"
+ },
+ {
+  "category": "Química",
+  "question": "O que acontece quando se esfrega uma lâmpada debaixo d’água?",
+  "answer": "Surge um hidrogênio."
+ },
+ {
+  "category": "Química",
+  "question": "O que é halogênio?",
+  "answer": "Um cumprimento a alguém muito inteligente."
+ },
+ {
+  "category": "Química",
+  "question": "Como os EUA fazem para neutralizar uma base afegã?",
+  "answer": "Jogam ácido afegão."
+ },
+ {
+  "category": "Química",
+  "question": "Por que tomar água no meio da aula prejudica o aprendizado?",
+  "answer": "Porque diminui a concentração."
+ },
+ {
+  "category": "Química",
+  "question": "O que uma molécula disse para a outra ao se chocarem?",
+  "answer": "Foi mol!"
+ },
+ {
+  "category": "Química",
+  "question": "Como saber quando um químico morreu?",
+  "answer": "Quando ele parar de reagir."
+ },
+ {
+  "category": "Química",
+  "question": "O que a bolacha de água e sal era antes?",
+  "answer": "Bolacha de ácido e base."
+ },
+ {
+  "category": "Química",
+  "question": "Por que não se pode comer um elétron?",
+  "answer": "Porque tem spin."
+ },
+ {
+  "category": "Química",
+  "question": "Qual o doce favorito do átomo?",
+  "answer": "Pé de molécula."
+ },
+ {
+  "category": "Química",
+  "question": "Qual a comida mais calórica que existe?",
+  "answer": "O chocolate, pois tem muito kcal."
+ },
+ {
+  "category": "Química",
+  "question": "Por que a conta de telefone do hidrogênio é barata?",
+  "answer": "Porque ele só faz uma ligação. Não é para menos, ele não tem família..."
+ },
+ {
+  "category": "Química",
+  "question": "O que o hidróxido de sódio foi fazer na Fashion Week?",
+  "answer": "Mostrar seu pH básico."
+ },
+ {
+  "category": "Química",
+  "question": "Qual o método contraceptivo preferido dos químicos?",
+  "answer": "A tabelinha periódica."
+ },
+ {
+  "category": "Química",
+  "question": "Que nomes o professor de química escolheu para seus filhos?",
+  "answer": "Éster e Hélio."
+ },
+ {
+  "category": "Química",
+  "question": "Por que não se deve falar alto no laboratório?",
+  "answer": "Para não desconcentrar os reagentes."
+ },
+ {
+  "category": "Química",
+  "question": "Como Jesus Cristo conseguiu andar sobre as águas?",
+  "answer": "Pisando nas pontes de hidrogênio."
+ },
+ {
+  "category": "Química",
+  "question": "Um dirigível começa a vazar sem parar depois de sofrer um rasgo. Qual é o nome do filme?",
+  "answer": "Hidrogênio indomável."
+ },
+ {
+  "category": "Química",
+  "question": "Os pais de um garotinho viajam para Chernobyl e nunca mais voltam. Qual é o nome do filme?",
+  "answer": "Urânio em que meus pais saíram de férias."
+ },
+ {
+  "category": "Química",
+  "question": "Um pesquisador quer estudar o centro de um radical livre. Qual é o nome do filme?",
+  "answer": "Central do benzil."
+ },
+ {
+  "category": "Química",
+  "question": "Um grupo de formigas decide que vai viver apenas de pasta de dente. Qual é o nome do filme?",
+  "answer": "Fluormiguinhaz."
+ },
+ {
+  "category": "Química",
+  "question": "Chicó e João Grilo vão trabalhar numa metalúrgica. Qual é o nome do filme?",
+  "answer": "Cobalto da Compadecida."
+ },
+ {
+  "category": "Química",
+  "question": "Passarinhos precisam construir um ninho metálico. Qual é o nome do filme?",
+  "answer": "Um estanho no ninho."
+ },
+ {
+  "category": "Química",
+  "question": "Metais alcalinos invadem o Complexo do Alemão. Qual é o nome do filme?",
+  "answer": "Tropa de elítio."
+ },
+ {
+  "category": "Química",
+  "question": "Por que os Químicos preferem mulheres de seios grandes?",
+  "answer": "Para estudar a combustão."
  },
  {
   "category": "Física",
@@ -403,6 +838,11 @@
   "category": "Física",
   "question": "Por que as estrelas não fazem miau?",
   "answer": "Porque astro no mia."
+ },
+ {
+  "category": "Física",
+  "question": "O que a velocidade da equação da energia cinética falou para o raio da Terceira Lei de Kepler?",
+  "answer": "Ado, a-ado, cada um no seu quadrado."
  },
  {
   "category": "Física",
@@ -485,6 +925,116 @@
   "answer": "Antibiótico."
  },
  {
+  "category": "Física",
+  "question": "Heisenberg estava dirigindo quando um guarda o manda parar e pergunta:– Sabe a que velocidade estava? O que ele responde?",
+  "answer": "– Não, mas sei onde estou!"
+ },
+ {
+  "category": "Física",
+  "question": "O que é um buraco negro sem roupa?",
+  "answer": "É uma singularidade nua."
+ },
+ {
+  "category": "Física",
+  "question": "O que é distância focal?",
+  "answer": "É a distância que separa duas focas."
+ },
+ {
+  "category": "Física",
+  "question": "Quem toca no casamento das impedâncias?",
+  "answer": "A banda passante."
+ },
+ {
+  "category": "Física",
+  "question": "Quais são as partículas que não gostam de estudar?",
+  "answer": "As partículas de antimatéria."
+ },
+ {
+  "category": "Física",
+  "question": "Um químico e um físico pulam de um prédio. Quem chega primeiro ao chão?",
+  "answer": "O físico, pois ele despreza a resistência do ar."
+ },
+ {
+  "category": "Física",
+  "question": "Um engenheiro e um físico pulam de um prédio. Quem chega primeiro ao chão?",
+  "answer": "O engenheiro, porque ele aproxima a gravidade para 10 m/s²."
+ },
+ {
+  "category": "Física",
+  "question": "Por que o professor de física é o mais indicado para ser capitão do Bope?",
+  "answer": "Porque já conhece as Leis do Movimento."
+ },
+ {
+  "category": "Física",
+  "question": "Por que o físico liga para todo mundo quando está estressado?",
+  "answer": "Porque com ligação em série a tensão é dividida."
+ },
+ {
+  "category": "Física",
+  "question": "Quando um professor de física acha uma pizza “fraca”?",
+  "answer": "Quando tem pouca massa e demora para chegar. (força = massa x aceleração)"
+ },
+ {
+  "category": "Física",
+  "question": "Que região do corpo não tem ar?",
+  "answer": "O sovácuo."
+ },
+ {
+  "category": "Física",
+  "question": "Que nome se dá a um conjunto de elétrons músicos andando de ônibus?",
+  "answer": "Banda de condução."
+ },
+ {
+  "category": "Física",
+  "question": "Qual é a transformação termodinâmica que acontece no inferno?",
+  "answer": "Adiabática."
+ },
+ {
+  "category": "Física",
+  "question": "Como é conhecido o físico pop star?",
+  "answer": "Astrofísico."
+ },
+ {
+  "category": "Física",
+  "question": "O que o físico estuda quando vai para Hollywood?",
+  "answer": "Cinemática."
+ },
+ {
+  "category": "Física",
+  "question": "Considerando que um gato comum tem sete vidas, quantas vidas tem o gato de Schrödinger?",
+  "answer": "Em média 3,5 vidas."
+ },
+ {
+  "category": "Física",
+  "question": "Por que ninguém acredita quando a entropia conta a história do sistema?",
+  "answer": "Porque a entropia sempre aumenta."
+ },
+ {
+  "category": "Física",
+  "question": "Qual é o vetor que sempre anda na moda?",
+  "answer": "O vetor do momento."
+ },
+ {
+  "category": "Física",
+  "question": "O que acontece quando se armazena café com açúcar na garrafa térmica?",
+  "answer": "Cria-se um recipiente adiabético."
+ },
+ {
+  "category": "Física",
+  "question": "Onde fica o centro de massa do planeta Terra?",
+  "answer": "Na Itália."
+ },
+ {
+  "category": "Física",
+  "question": "Três resistores de 33 ohms cada estão ligados em paralelo a um cofre. Qual é o nome do filme?",
+  "answer": "11 ohms e um segredo."
+ },
+ {
+  "category": "Física",
+  "question": "Um físico resolve se matar por enforcamento. Qual é o nome do filme?",
+  "answer": "A tração fatal."
+ },
+ {
   "category": "Biologia",
   "question": "Por que a célula foi ao psicólogo?",
   "answer": "Porque ela tem complexo de Golgi."
@@ -493,6 +1043,16 @@
   "category": "Biologia",
   "question": "Como as hemácias se orientam no sangue?",
   "answer": "Seguindo as plaquetas."
+ },
+ {
+  "category": "Biologia",
+  "question": "O que o neurônio diz quando vai dormir?",
+  "answer": "Aaaaxônio..."
+ },
+ {
+  "category": "Biologia",
+  "question": "Onde o neurônio vai deitar quando quer dormir?",
+  "answer": "Na rede neural."
  },
  {
   "category": "Biologia",
@@ -556,8 +1116,138 @@
  },
  {
   "category": "Biologia",
+  "question": "Para um geneticista, qual é o sentido da vida?",
+  "answer": "5’ -> 3’"
+ },
+ {
+  "category": "Biologia",
+  "question": "Como um geneticista ri no MSN?",
+  "answer": "ATGCATGCATGCATGC!!"
+ },
+ {
+  "category": "Biologia",
   "question": "O que é um líquido amarelo dentro da célula?",
   "answer": "O yellowplasma."
+ },
+ {
+  "category": "Biologia",
+  "question": "Como o frango pode se vingar das pessoas no matadouro antes de morrer?",
+  "answer": "Atchim!"
+ },
+ {
+  "category": "Biologia",
+  "question": "Por que os celomados são o grupo animal mais melancólico?",
+  "answer": "Porque possuem um vazio interior."
+ },
+ {
+  "category": "Biologia",
+  "question": "Como um biólogo xinga um mau motorista?",
+  "answer": "Ei, presta atenção! Seu transmissor de Chagas!"
+ },
+ {
+  "category": "Biologia",
+  "question": "Como um biólogo xinga numa fila de banco?",
+  "answer": "Mas será possível que só tem quelônio nesta agência?"
+ },
+ {
+  "category": "Biologia",
+  "question": "O que Darwin disse ao ver o ornitorrinco?",
+  "answer": "É, de volta à estaca zero..."
+ },
+ {
+  "category": "Biologia",
+  "question": "O que uma célula ameboide canta no show do Beto Barbosa?",
+  "answer": "Fagocita, meu amor, fagocita."
+ },
+ {
+  "category": "Biologia",
+  "question": "Como as organelas saem para passear?",
+  "answer": "De motocôndria."
+ },
+ {
+  "category": "Biologia",
+  "question": "A mãe lula não deixa o filho fazer o que quer. O que o filho diz?",
+  "answer": "Ah, mãe! Mas cefalopode!"
+ },
+ {
+  "category": "Biologia",
+  "question": "O que o lisossomo faz quando tem uma dúvida?",
+  "answer": "Procura no Golgi."
+ },
+ {
+  "category": "Biologia",
+  "question": "Por que não se podem deixar doces ao lado da piscina?",
+  "answer": "Porque o cloro fila."
+ },
+ {
+  "category": "Biologia",
+  "question": "O que a uracila disse para a adenina?",
+  "answer": "É nós na fita, mano!"
+ },
+ {
+  "category": "Biologia",
+  "question": "Ana evolui para uma Power Ranger sem passar por estágios intermediários. Qual o nome do processo biológico?",
+  "answer": "Anamorfose."
+ },
+ {
+  "category": "Biologia",
+  "question": "Qual é o único artrópode com endoesqueleto?",
+  "answer": "O Homem-Aranha."
+ },
+ {
+  "category": "Biologia",
+  "question": "O que o filho do biólogo falou para o sr. Cabeça de Batata?",
+  "answer": "Oi, quer ser meu amido?"
+ },
+ {
+  "category": "Biologia",
+  "question": "O que é um vírus de calça boca de sino e cabelo black power?",
+  "answer": "Um retrôvírus."
+ },
+ {
+  "category": "Biologia",
+  "question": "O que um canibal vegetariano come?",
+  "answer": "A planta do pé, a batata da perna, a maçã do rosto, a raiz do cabelo e a aorta."
+ },
+ {
+  "category": "Biologia",
+  "question": "Por que o biólogo batizou apenas um de seus filhos gêmeos?",
+  "answer": "Porque quis manter o outro para controle."
+ },
+ {
+  "category": "Biologia",
+  "question": "Uma esponja, uma medusa e uma tênia estão brigando. Qual o nome do filme?",
+  "answer": "A guerra dos sem ânus."
+ },
+ {
+  "category": "Biologia",
+  "question": "Como saber se um paciente tem esquistossomose?",
+  "answer": "Ele fica esquissito."
+ },
+ {
+  "category": "Biologia",
+  "question": "Em que área da medicina mais se vê a inclusão digital?",
+  "answer": "Na proctologia."
+ },
+ {
+  "category": "Biologia",
+  "question": "A qual enfermo se deve pedir dinheiro?",
+  "answer": "A um doente de Chagas, pois ele tem coração grande!"
+ },
+ {
+  "category": "Biologia",
+  "question": "Qual é o carro que todo médico quer ter?",
+  "answer": "O Xsara."
+ },
+ {
+  "category": "Biologia",
+  "question": "Qual é a doença que te engravida?",
+  "answer": "Febre tifoide."
+ },
+ {
+  "category": "Biologia",
+  "question": "Qual é a doença que faz você gostar de gente triste?",
+  "answer": "Emofilia."
  },
  {
   "category": "Informática",
@@ -630,6 +1320,141 @@
   "answer": "DPL\/DPC (disquete pra lá\/disquete pra cá)."
  },
  {
+  "category": "Informática",
+  "question": "O que aconteceu com o pintinho binário que não tinha 1?",
+  "answer": "Foi compilar e explodiu!"
+ },
+ {
+  "category": "Informática",
+  "question": "Como se chama a webcam quando fica muito velha?",
+  "answer": "Hebecam."
+ },
+ {
+  "category": "Informática",
+  "question": "Como se chama a linguagem de programação no universo de Star Wars?",
+  "answer": "JabbaScript."
+ },
+ {
+  "category": "Informática",
+  "question": "Por que ninguém pisca quando Steve Jobs tira foto?",
+  "answer": "Porque ele não usa Flash."
+ },
+ {
+  "category": "Informática",
+  "question": "Por que Bill Gates só come lanche no Bob’s?",
+  "answer": "Porque ele tem medo de Big Mac."
+ },
+ {
+  "category": "Informática",
+  "question": "Como um webdesigner fecha a casa?",
+  "answer": "<\/home>."
+ },
+ {
+  "category": "Informática",
+  "question": "Como um webdesigner macumbeiro fecha o corpo?",
+  "answer": "<\/body>."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é a diferença entre um traficante e um microprocessador?",
+  "answer": "O traficante não decodifica, ele só busca e executa."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é a linguagem de programação usada no laptop da Xuxa?",
+  "answer": "Ruby, porque a Xuxa adora os do ends."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é a principal diferença entre o Batman e o Bill Gates?",
+  "answer": "É que o Batman consegue derrotar o Pinguim."
+ },
+ {
+  "category": "Informática",
+  "question": "Como o Latino cantaria se fosse nerd?",
+  "answer": "Hoje a party é no meu IP, pode aparecer, tem um slot pra você."
+ },
+ {
+  "category": "Informática",
+  "question": "Como fazer o Excel dançar o moonwalk?",
+  "answer": "Usando a macro Jackson."
+ },
+ {
+  "category": "Informática",
+  "question": "Por que o Linux usa o pinguim como mascote?",
+  "answer": "Porque não congela."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é o arquivo que não pode chegar perto de crianças?",
+  "answer": "Pdf.file."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é o uísque favorito dos nerds?",
+  "answer": "<label style=”color:#FF0000”> Keep Walking <\/label>."
+ },
+ {
+  "category": "Informática",
+  "question": "O que é laptopspirose?",
+  "answer": "É uma doença transmitida pela urina do mouse."
+ },
+ {
+  "category": "Informática",
+  "question": "Por que o bit se perdeu na floresta?",
+  "answer": "Porque não levou o bitmap."
+ },
+ {
+  "category": "Informática",
+  "question": "O que é smartphone?",
+  "answer": "É um telefone mais esperto que você."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é o DJ mais conhecido nas festas nerds?",
+  "answer": "O DJ Query."
+ },
+ {
+  "category": "Informática",
+  "question": "O que é um JPG?",
+  "answer": "Um GIF desanimado."
+ },
+ {
+  "category": "Informática",
+  "question": "Quantos programadores são necessários para trocar uma lâmpada?",
+  "answer": "Nenhum. É um problema de hardware."
+ },
+ {
+  "category": "Informática",
+  "question": "Qual é o filme favorito de Steve Jobs?",
+  "answer": "Kill Bill."
+ },
+ {
+  "category": "Informática",
+  "question": "Scarlet entrou em sites suspeitos e perdeu todo o HD. Qual é o nome do filme?",
+  "answer": "E o vírus levou."
+ },
+ {
+  "category": "Informática",
+  "question": "Uma mulher encomenda um computador novo, que chega com uma versão demo. Qual é o nome do filme?",
+  "answer": "O PC de Rosemary."
+ },
+ {
+  "category": "Informática",
+  "question": "O sujeito testa a última versão do DOS e sua casa fica alagada. Qual é o nome do filme?",
+  "answer": "O último DOS mói canos."
+ },
+ {
+  "category": "Informática",
+  "question": "int x = 10; int y = 10; int z = x+y; printf(“%d”,z); Qual é o nome do filme?",
+  "answer": "O código dá 20."
+ },
+ {
+  "category": "Informática",
+  "question": "Por que o estudante de cálculo numérico não afunda?",
+  "answer": "Porque ele usa ponto flutuante."
+ },
+ {
   "category": "Cultura Nerd",
   "question": "O que o Link disse para a Zelda quando ela estava presa?",
   "answer": "Try force."
@@ -681,6 +1506,11 @@
  },
  {
   "category": "Cultura Nerd",
+  "question": "Qual é o console favorito da banda Restart?",
+  "answer": "Game Boy Color."
+ },
+ {
+  "category": "Cultura Nerd",
   "question": "Qual é a bebida favorita dos zumbis?",
   "answer": "Johnnie Walking Dead."
  },
@@ -703,5 +1533,200 @@
   "category": "Cultura Nerd",
   "question": "O que o Vegeta disse quando engasgou com uma azeitona?",
   "answer": "Maldito kakaroço!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a revista mais lida pelos robôs mais ricos do mundo?",
+  "answer": "Trans-Forbes."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que a Hermione morreu de susto quando o Rony quebrou a varinha?",
+  "answer": "Porque ele apontou para ela e disse: -A vara kebrada!-"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que todo enxadrista é bom em Guitar Hero?",
+  "answer": "Porque já sabe fazer o roque."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que estava escrito na dedicatória do livro que deram à princesa de Alderaan?",
+  "answer": "À princesa, Leia."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Jedi falou para o Sith antes de matá-lo?",
+  "answer": "Sithdeu."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o C:\\Darth_Vader disse para o C:\\Darth_Vader\\Luke?",
+  "answer": "Luke, I’m your folder."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que um viciado em jogos MMORPG diz quando cantam sua namorada?",
+  "answer": "Ei! Sem KS, cara!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Beholder foi fazer no supermercado?",
+  "answer": "Comprar xampu para cabelos olhosos."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o ET assiste ao Big Brother?",
+  "answer": "Porque é um alienado. Deve ser por isso que ele só fala de telefone e de casa…"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é o estilo musical favorito do: a) Pikachu; b) Gyarados; c) Geodude?",
+  "answer": "a) Techno; b) New wave; c) Rock."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a banda favorita do: a) Luke Skywalker; b) Iron Man;c) Voldemort?",
+  "answer": "a) Rebelde; b) Iron Maiden; c) Inimigos do HP."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a banda mais tocada: a) na Corrida maluca; b) em Pandora; c) na Umbrella Corporation?",
+  "answer": "a) Barão Vermelho; b) Blue Man Group; c) Nação Zumbi."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a música favorita das peças de xadrez?",
+  "answer": "Ado, a-ado, cada um no seu quadrado."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Mario disse quando terminou com a princesa?",
+  "answer": "It’s not you. It’s me, Mario!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Mario disse quando perdeu um processo judicial para o Sonic?",
+  "answer": "É que eu Nintendo nada de leis. E a justiça é Sega!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Mario disse para a planta carnívora num dia de fúria?",
+  "answer": "Sua mãe é uma piranha e seu pai é uma florzinha!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a bebida preferida do Mario?",
+  "answer": "Sex on the Peach."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Mario assiste ao TV Fama?",
+  "answer": "Porque sonha em pegar as estrelas."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Mario foi ao psicólogo?",
+  "answer": "Porque estava passando por uma fase difícil."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Mario estava passando por uma fase difícil?",
+  "answer": "Porque entrou pelo cano!"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Ash encontra um cadáver na cidade de Vermillion. Qual é o nome do filme?",
+  "answer": "Mewtwo matou um cara."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Acaba a luz do cinema em Tron, o legado. O que o filme vira?",
+  "answer": "Troff, o deslegado."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Como se chamará o próximo filme do Hulk?",
+  "answer": "Hulk 2 – Vale a pena verde novo."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que a mulher do Hulk o largou?",
+  "answer": "Porque ela procurava alguém mais maduro."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Quem é o maior vilão do Flash?",
+  "answer": "Steve Jobs."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Coringa disse quando assistiu a TV a cabo?",
+  "answer": "Why so series?"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que a Lady Gaga cantou depois de sair com o Batman?",
+  "answer": "Oh-oh-oh-oh-oooh, caught in a Bat-romance."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Como o Batman dorme?",
+  "answer": "De Bruce."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Homem-Aranha não vai ao Xuxa Park?",
+  "answer": "Porque tem medo de encontrar duendes."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que a Hera Venenosa foi ao show do Ritchie?",
+  "answer": "Porque ela adora -Menina veneno-."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "O que o Flash disse para a Mulher Maravilha antes de dar uma rapidinha?",
+  "answer": "Vai ser bom, não foi?"
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Superman usa cueca por cima da calça?",
+  "answer": "É o que acontece quando você se troca numa cabine telefônica."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que a Lois Lane precisa chamar o Superman para resolver seus problemas?",
+  "answer": "Porque o Clark can’t."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual foi a partida de Jokenpo mais injusta do mundo dos super-heróis?",
+  "answer": "Wolverine vs. O Coisa."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Por que o Wolverine procura sempre se manter ocupado?",
+  "answer": "Para não ficar coçando o saco."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é o herói mais metal na veia?",
+  "answer": "Wolverine."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é a banda favorita do professor Xavier?",
+  "answer": "Os Mutantes."
+ },
+ {
+  "category": "Cultura Nerd",
+  "question": "Qual é o super-herói presente no corpo das mulheres?",
+  "answer": "O Hí-Men. Mas hoje em dia é difícil achar mulheres com super-heróis…"
+ },
+ {
+  "category": "Créditos",
+  "question": "Baroni, Ivan; Piadas Nerds [recurso eletrônico] / IvanBaroni, Luis Fernando Giolo, Paulo Pourrat; [Ilustrações Carlos Ruas]. - Campinas, SP: Versus, 2011. recurso digitqal : il.",
+  "answer": "Adaptação: Stênio V.M."
  }
 ]

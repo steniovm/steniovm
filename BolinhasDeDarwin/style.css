@@ -1,0 +1,216 @@
+@font-face {
+    font-family: Gorditas;
+    src: url("./assets/Gorditas-Regular.ttf") format("truetype"), url("./assets/Gorditas-Bold.ttf") format("truetype");
+  }
+body{
+    height: auto;
+    width: auto;
+    background-color: #888;
+    display: flex;
+    flex-wrap: wrap;
+}
+main{
+    background-color: #e5e5e5;
+    padding: 4px;
+    max-width: 18vw;
+}
+b{
+    font-weight: bold;
+    font-family: Gorditas;
+}
+i{
+    font-style: italic;
+}
+input, button{
+    max-width: 90%;
+    background: #bbb;
+    background-color: #bbb;
+    accent-color: #888;
+    border: none;
+    margin: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+input[type="range"]{
+    min-width: 50px;
+}
+input[type="number"]{
+    width: 30%;
+}
+#text{
+    max-height: 50vh;
+}
+#gamerconfig{
+    display: flex;
+    flex-direction: column;
+    top: 2vh;
+    left: 5%;
+    position: fixed;
+    z-index: 1;
+    background-color: #e5e5e5;
+    border: solid #444;
+    max-height: 100vh;
+    width: min-content;
+    max-width: 80vw;
+}
+#gamerplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#divmord{
+    display: flex;
+    background-image: linear-gradient(to right, red, yellow 20%, green);
+    justify-content: end;
+}
+#divpres{
+    display: flex;
+    background-image: linear-gradient(to right, red , blue 10%, red);
+    justify-content: end;
+}
+#NMordidas,#NPresas{
+    background-color: #e5e5e5;
+    padding: 0;
+    text-overflow: clip;
+}
+#divtime{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#divtime>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Iniciar, #bRestart{
+    max-width: 150px;
+    border-radius: 5px;
+    background-color: greenyellow;
+    color: blueviolet;
+    font-weight: bold;
+    border: solid black 2px;
+    border-color: black;
+    padding: 0 15px;
+    font-family: Gorditas;
+}
+textarea{
+    height:15vh;
+    width: 55vw;
+    resize: none;
+    font-size: large;
+    background-color: #e5e5e5;
+    border: none; 
+    scrollbar-width: thin;
+    scrollbar-color: #303030 #e5e5e5;
+}
+::-webkit-scrollbar {
+    width: 2px;
+}
+::-webkit-scrollbar-track {
+    background: #e5e5e5;
+}
+::-webkit-scrollbar-thumb {
+    background: #000000;
+  }
+label{
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px;
+    border: solid #222 1px ;
+    min-width: 33%;
+}
+canvas{
+    cursor:url(./assets/crosshair.cur), default;
+}
+.labelshow{
+    background-color: goldenrod;
+    min-width: 0;
+    width: 100%;
+}
+.labeltime{
+    background-color: #acacfc;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    padding: 10px 1px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+#textlog{
+    max-width: 98%;
+    background-color: goldenrod;
+    height: 39vh;
+    background-color: #fbfbfb;
+    border: solid 1px black;
+    resize: none;
+    font-size: x-small;
+    margin-top: 5px;
+    scrollbar-width: unset;
+    scrollbar-color: #444 #888;
+}
+#formconf{
+    display: flex;
+    flex-wrap: wrap;
+}
+#most{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:url(./assets/crosshair.cur), default;
+}
+#mostAmb{
+    display: flex;
+    border: solid 1px black;
+    padding: auto;
+    min-width: 10vw;
+    min-height: 10vw;
+    justify-content: center;
+    align-items: center;
+}
+#mostBol{
+    border-radius: 50%;
+}
+h1{
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    margin: 5px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: gold;
+    font-family: Gorditas;
+}
+h4{
+    background-color: #79be6b;
+    padding: 5px 0;
+    border-radius: 5px;
+    margin-top: 2px;
+    font-family: Gorditas;
+}
+footer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+span{
+    font-weight: bold;
+}
+.myimg{
+    height: 6vh;
+    min-height:60px;
+}
+.divinfo{
+    display: flex;
+    flex-direction: column;
+}
+.audio{
+    accent-color: #f3f300;
+}
