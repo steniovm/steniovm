@@ -3,11 +3,11 @@
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (19/12/2022)
+Ultima atualização (22/12/2022)
 contato: steniovm@gmail.com
 -->
 <html>
-    <header>
+    <head>
         <style>
 body{
     height: auto;
@@ -19,23 +19,33 @@ body{
 main{
     background-color: #e5e5e5;
     padding: 4px;
+    max-width: 23vw;
 }
 input, button{
-    max-width: 130px;
+    max-width: 90%;
     background: #bbb;
     background-color: #bbb;
     accent-color: #888;
     border: none;
     margin: 5px;
+    font-size: large;
+    font-weight: bold;
 }
 input[type="range"]{
     min-width: 50px;
 }
+input[type="number"]{
+    width: 30%;
+}
 #Iniciar, #bRestart{
+    max-width: 150px;
     border-radius: 5px;
     background-color: greenyellow;
     color: blueviolet;
     font-weight: bold;
+    border: solid black 2px;
+    border-color: black;
+    padding: 0 15px;
 }
 #text{
     max-height: 50vh;
@@ -44,7 +54,7 @@ input[type="range"]{
     display: flex;
     flex-direction: column;
     top: 2vh;
-    left: 10%;
+    left: 5%;
     position: fixed;
     z-index: 1;
     background-color: #e5e5e5;
@@ -54,13 +64,30 @@ input[type="range"]{
     max-width: 80vw;
 }
 #gamerplay{
-    display: none;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#gamerplay>div{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+#divmord{
+    display: flex;
+    background-image: linear-gradient(to right, red, yellow 20%, green);
+    justify-content: end;
+}
+#divpres{
+    display: flex;
+    background-image: linear-gradient(to right, red , blue 10%, red);
+    justify-content: end;
+}
+#divtime{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#divtime>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 textarea{
     height:15vh;
@@ -71,24 +98,51 @@ textarea{
     border: none; 
     scrollbar-color: #888;
     scrollbar-width: thin;
-    scrollbar-color: #444 #888;
+    scrollbar-color: #303030 #e5e5e5;
 }
 label{
     display: flex;
     flex-direction: column;
     padding: 0 4px;
     border: solid #222 1px ;
-    min-width: 15vw;
+    min-width: 33%;
 }
 canvas{
     cursor:all-scroll;
 }
 .labelshow{
     background-color: goldenrod;
+    min-width: 0;
+    width: 100%;
+}
+#NMordidas,#NPresas{
+    background-color: #e5e5e5;
+    padding: 0;
+    text-overflow: clip;
+}
+.labeltime{
+    background-color: #acacfc;
+    min-width: 0;
+    width: 40px;
+    height: 20px;
+    padding: 10px 1px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
 }
 #textlog{
     max-width: 98%;
-    background-color: goldenrod;
+    height: 22vh;
+    background-color: #fbfbfb;
+    border: solid 1px black;
+    resize: none;
+    font-size: x-small;
+    margin-top: 5px;
+    scrollbar-width: unset;
+    scrollbar-color: #444 #888;
 }
 #formconf{
     display: flex;
@@ -112,20 +166,49 @@ canvas{
 #mostBol{
     border-radius: 50%;
 }
-h4, pre{
+h1{
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    margin: 5px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: gold;
+}
+h4{
+    background-color: #79be6b;
+    padding: 1px 0;
+    border-radius: 5px;
+    margin-top: 1px;
+}
+pre{
     background-color: #acbe6b;
     padding: 2px;
     border-radius: 5px;
 }
+span{
+    font-weight: bold;
+}
+.myimg{
+    height: 6vh;
+    min-height:60px;
+}
+.divinfo{
+    display: flex;
+    flex-direction: column;
+}
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 2px;
 }
 ::-webkit-scrollbar-track {
   background: #e5e5e5;
 }
+::-webkit-scrollbar-thumb {
+    background: #000000;
+}
         </style>
         <title>Bolinhas de Darwin: Simulador de evolução natural</title>
-    </header>
+    </head>
     <body>
     <canvas width="800" height="600"></canvas>
     <section id="gamerconfig">
@@ -152,7 +235,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
         <div id="formconf">
             <label>
                 <b>Energia inicial:</b>
-                <i>Ataques (clicks) que o predador pode dar</i>
+                <i>Ataques (clicks) restantes</i>
                 <input id="NM" type="number" value="30" min="0" max="100"/>
             </label>
             <label>
@@ -173,7 +256,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
                 <b>Periodo de reprodução</b>
                 <i>tempo minimo (segundos)</i>
                 <i>entre uma reprodução e outra</i>
-                <input id="Itime" type="number" value="2" min="1" max="20"/>
+                <input id="Itime" type="number" value="5" min="1" max="20"/>
             </label>
             <label>
                 <b>Chance de reprodução</b>
@@ -198,28 +281,30 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
     <main>
         <h1>Bolinhas de Darwin</h1>
         <section id="gamerplay">
-            <div>
-                <b>Energia:</b>
-                <label id="NMordidas" class="labelshow"></label>
-                <b>População:</b>
-                <label id="NPresas" class="labelshow"></label>
-                <button id="bRestart">Reniciar</button>
+            <b>Energia:</b>
+            <div id="divmord"><label id="NMordidas" class="labelshow">0</label></div>
+            <b>População:</b>
+            <div id="divpres"><label id="NPresas" class="labelshow">0</label></div>
+            <div id="divtime">
+                <div>
+                    <b>Tempo de vida</b>
+                    <label id="ltime" class="labelshow labeltime">00</label>
+                </div>
+                <div>
+                    <b>Maior tempo</b>
+                    <label id="ltimemax" class="labelshow labeltime">00</label>
+                </div>
             </div>
-            <div>
-                <b>Tempo de vida:</b>
-                <label id="ltime" class="labelshow">00</label>
-                <b>Maior tempo:</b>
-                <label id="ltimemax" class="labelshow">00</label>
-            </div>
+            <div><button id="bRestart">Reniciar</button></div>
         </section>
         <b>log:</b>
-        <label id="textlog"></label>
+        <Textarea id="textlog" readonly></Textarea>
         <a href="mailto:steniovm@gmail.com">
 <pre>
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas arquivo unico
-Ultima atualização (19/12/2022)
+Ultima atualização (22/12/2022)
 contato: steniovm@gmail.com
 </pre></a>
         <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
@@ -230,6 +315,7 @@ contato: steniovm@gmail.com
         </a>
     </main>
     <script type="text/javascript">
+const bodypage = document.getElementById('bodypage');
 const textprint = document.getElementById('text');
 const nMordidas = document.getElementById('NMordidas');
 const nPresas = document.getElementById('NPresas');
@@ -257,8 +343,8 @@ let nbol = npres.value;
 let rbol = iraio.value;
 c.width = mycanvas.offsetWidth;
 c.height = mycanvas.offsetHeight;
-let bolinhas = vetorbol(nbol);
-let energy = nMordidas.value;
+let bolinhas = [];
+let energy = nmord.value;
 let timegame = 0;
 let timegamemax = 0;
 let repchance = (IChance.value)/100;
@@ -271,7 +357,7 @@ mostBol.style.width = (2*iraio.value)+'px';
 
 function setCookie() {
   const d = new Date();
-  d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+  d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
   document.cookie = 'timegame' + "=" + timegamemax + ";" + expires + ";path=/";
 }
@@ -352,6 +438,7 @@ function vetorbol(nb){
 function inicio(){
     if (paused) return;
     bolinhas = vetorbol(nbol);
+    nPresas.style.width = ((1 - nbol/maxbols)*100)+'%';
     for(i=0;i<nbol;i++){
         bolinhas[i].mostrar();
     }
@@ -372,10 +459,19 @@ function pinicio(){
     rbol = iraio.value;
     energy = nmord.value;
     nMordidas.innerHTML = energy;
+    nMordidas.style.width = (100-energy)+'%';
     maxbols = Number.parseInt(IMax.value);
     reptime = Itime.value;
     repchance = (IChance.value)/100;
     paused = false;
+    textlog.innerHTML = `Dados do jogo
+Energia inicial: ${energy} mordidas
+Raio das bolinhas: ${rbol} pixels
+População inicial: ${nbol} bolinhas
+População maxima: ${maxbols} bolinhas
+Periodo de reprodução: ${reptime} segundos
+Chance de reprodução: ${repchance*100}%
+Ambiente: ${mycanvas.style.backgroundColor}`;
 }
 
 function clicar(e){
@@ -388,16 +484,20 @@ function clicar(e){
         let dy = my-bolinhas[i].y;
         if (dy < 0 ) dy = - dy;
         if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
-            textlog.innerHTML = "Acertou: ("+mx+","+my+")"
+            textlog.innerHTML += "\nAcertou: ("+mx+","+my+")";
+            textlog.scrollTop = textlog.scrollHeight;
             if (energy<100) energy++;
-            nMordidas.innerHTML = energy
+            nMordidas.innerHTML = energy;
+            nMordidas.style.width = (100-energy)+'%';
             bolinhas.splice(i,1);
             nbol = bolinhas.length
             nPresas.innerHTML = nbol;
+            nPresas.style.width = ((1 - nbol/maxbols)*100)+'%';
             return;
         }else{
             if (i == 0) {
-                textlog.innerHTML = "Errou: ("+mx+","+my+")"
+                textlog.innerHTML += "\nErrou: ("+mx+","+my+")";
+                textlog.scrollTop = textlog.scrollHeight;
                 if (energy) energy--;
                 nMordidas.innerHTML = energy;
             }
@@ -421,6 +521,7 @@ function newbirth(n){
     bolinhas.push(new bolinha(x,y,rbol,r,g,b));
     nbol = bolinhas.length
     nPresas.innerHTML = nbol;
+    nPresas.style.width = ((1 - nbol/maxbols)*100)+'%';
 }
 
 async function pastime(){
@@ -432,7 +533,9 @@ async function pastime(){
         ltime.innerHTML = timegame;
         if (nbol>=maxbols){
             clearInterval(interval);
-            textlog.innerHTML = "As bolinhas dominaram o mundo e mataram os predadores!!!"
+            textlog.innerHTML += "\nAs bolinhas dominaram o mundo e mataram os predadores!!!";
+            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
@@ -441,7 +544,9 @@ async function pastime(){
             paused = true;
         }else if (nbol<=0){
             clearInterval(interval);
-            textlog.innerHTML = "As bolinhas foram extintas e os predadores morreram de fome!!!"
+            textlog.innerHTML += "\nAs bolinhas foram extintas e os predadores morreram de fome!!!";
+            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
@@ -450,7 +555,9 @@ async function pastime(){
             paused = true;
         }else if (energy <= 0){
             clearInterval(interval);
-            textlog.innerHTML = "Sua energia vital acabou e voce desfaleceu!!!"
+            textlog.innerHTML += "\nSua energia vital acabou e voce desfaleceu!!!";
+            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 setCookie();
@@ -462,6 +569,7 @@ async function pastime(){
             if (energy > 0) {
                 energy--;
                 nMordidas.innerHTML = energy;
+                nMordidas.style.width = (100-energy)+'%';
             }
             let s = 0
             for(let i=0;i<max;i++){
@@ -469,7 +577,6 @@ async function pastime(){
             console.log(nbol);
             if (s < repchance) {
                 newbirth(i);
-                console.log("reproduziu");
             }
             }
             timeciclo = 0;

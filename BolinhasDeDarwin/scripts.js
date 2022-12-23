@@ -164,7 +164,7 @@ População inicial: ${nbol} bolinhas
 População maxima: ${maxbols} bolinhas
 Periodo de reprodução: ${reptime} segundos
 Chance de reprodução: ${repchance*100}%
-Ambiente: ${mycanvas.style.backgroundColor}`
+Ambiente: ${mycanvas.style.backgroundColor}`;
 }
 
 function clicar(e){
