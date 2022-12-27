@@ -534,7 +534,7 @@ async function pastime(){
         if (nbol>=maxbols){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas dominaram o mundo e mataram os predadores!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
@@ -545,7 +545,7 @@ async function pastime(){
         }else if (nbol<=0){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas foram extintas e os predadores morreram de fome!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
@@ -556,7 +556,7 @@ async function pastime(){
         }else if (energy <= 0){
             clearInterval(interval);
             textlog.innerHTML += "\nSua energia vital acabou e voce desfaleceu!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;

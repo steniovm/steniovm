@@ -41,6 +41,7 @@ let timegamemax = 0;
 let repchance = (IChance.value)/100;
 let maxbols = Number.parseInt(IMax.value);
 let reptime = Itime.value;
+let contpresas = 0;
 mostAmb.style.height = (2*iraio.value + 4)+'px';
 mostAmb.style.width = (2*iraio.value + 4)+'px';
 mostBol.style.height = (2*iraio.value)+'px';
@@ -48,7 +49,7 @@ mostBol.style.width = (2*iraio.value)+'px';
 
 function setCookie() {
   const d = new Date();
-  d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+  d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
   document.cookie = 'boldarwintime' + "=" + timegamemax + ";" + expires + ";path=/";
 }
@@ -154,6 +155,7 @@ function pinicio(){
     maxbols = Number.parseInt(IMax.value);
     reptime = Itime.value;
     repchance = (IChance.value)/100;
+    contpresas = 0;
     paused = false;
     music.play();
     music.loop = true;
@@ -179,6 +181,7 @@ function clicar(e){
         if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
             efectsong.play();
             textlog.innerHTML += "\nAcertou: ("+mx+","+my+")";
+            contpresas++;
             textlog.scrollTop = textlog.scrollHeight;
             if (energy<100) energy++;
             nMordidas.innerHTML = energy;
@@ -229,7 +232,7 @@ async function pastime(){
         if (nbol>=maxbols){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas dominaram o mundo e mataram os predadores!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();
@@ -242,7 +245,7 @@ async function pastime(){
         }else if (nbol<=0){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas foram extintas e os predadores morreram de fome!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();
@@ -255,7 +258,7 @@ async function pastime(){
         }else if (energy <= 0){
             clearInterval(interval);
             textlog.innerHTML += "\nSua energia vital acabou e voce desfaleceu!!!";
-            textlog.innerHTML += "\nVoce sobrevivel por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();

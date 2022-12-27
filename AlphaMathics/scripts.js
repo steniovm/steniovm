@@ -36,7 +36,7 @@ let scores = [
 ]
 const players = []
 const d = new Date();
-d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
 let cookieexpires = "; expires="+d.toUTCString()+ ";path=/";
 
 //resgata scores nos cookies
