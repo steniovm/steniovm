@@ -181,8 +181,8 @@ function clicar(e){
         if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
             efectsong.play();
             textlog.innerHTML += "\nAcertou: ("+mx+","+my+")";
-            contpresas++;
             textlog.scrollTop = textlog.scrollHeight;
+            contpresas++;
             if (energy<100) energy++;
             nMordidas.innerHTML = energy;
             nMordidas.style.width = (100-energy)+'%';
@@ -334,7 +334,6 @@ Vefect.addEventListener('change', function(){
     oversong.volume = Vefect.value;
     efectsong.play();
 });
-
 
 changeColor();
 mycanvas.addEventListener('mouseup',clicar,true);
