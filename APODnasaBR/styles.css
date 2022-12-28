@@ -1,0 +1,92 @@
+@font-face {
+    font-family: Platinum;
+    src: url("./Platinum\ Sign.ttf") format("truetype"), url("./Platinum\ Sign\ Over.ttf") format("truetype"), url("./Platinum\ Sign\ Under.ttf") format("truetype");
+}
+body{
+    min-width: 50px;
+    background-image: url("Background.jpg");
+    background-position: center;
+    background-repeat: repeat-y;
+    align-items:center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(200, 200, 200, 0.8);
+    font-weight: bold;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 6vh;
+    min-height:60px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(174, 174, 174, 0.95);
+    /*margin: 1% 0 1% 0;*/
+    padding: 0 0 1% 0;
+}
+h1, h2{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color:#333;
+    text-decoration:underline dotted #222;
+    text-shadow: 2px 2px #999;
+    text-align: center;
+    margin: 1vh;
+}
+button{
+    height: 5vh;
+    width: auto;
+    font-size:large;
+    background-color: rgba(220, 220, 220, 0.8);
+    margin: 5px ;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    min-width: 385px;
+}
+#submain{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    min-width: 400px;
+}
+textarea{
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background-color: #d6d6bd;
+}
+#ngrups{
+    background-color: #d6d6bd;
+    width: 65px;
+    font-size: large;
+}
+#outputgrups{
+    min-height: 211px;
+}
+#instrucoes{
+    max-width: 820px;
+    font-size: x-small;
+    background-color: #aeaeae;
+    border: none;
+}
+#videoframe{
+    display: none;
+}
