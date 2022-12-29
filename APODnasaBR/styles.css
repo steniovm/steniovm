@@ -2,7 +2,8 @@ body{
     min-width: 50px;
     background-image: url("Background.jpg");
     background-position: center;
-    background-repeat: repeat-y;
+    background-size: cover;
+    background-repeat: repeat;
     align-items:center;
     margin: auto;
 }
@@ -30,9 +31,8 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(174, 174, 174, 0.95);
-    /*margin: 1% 0 1% 0;*/
-    padding: 0 0 1% 0;
+    background-color: rgba(174, 174, 174, 0.5);
+    padding: 0 1% 1% 1%;
 }
 h1, h2{
     font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
@@ -40,48 +40,27 @@ h1, h2{
     text-decoration:underline dotted #222;
     text-shadow: 2px 2px #999;
     text-align: center;
-    margin: 1vh;
-}
-button{
-    height: 5vh;
-    width: auto;
-    font-size:large;
-    background-color: rgba(220, 220, 220, 0.8);
-    margin: 5px ;
+    margin: 0.5vh;
+    border-radius: 5px;
+    background-color: rgba(174, 174, 200, 0.7);
 }
 fieldset, .divmodal{
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    min-width: 385px;
+    min-width: 70vw;
 }
-#submain{
+fieldset > label{
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    min-width: 60vw;
     align-items: center;
-    min-width: 400px;
+    text-align: center;
+    justify-content: center;
 }
-textarea{
-    width: 100%;
-    height: auto;
-    min-height: 100px;
-    background-color: #d6d6bd;
-}
-#ngrups{
-    background-color: #d6d6bd;
-    width: 65px;
-    font-size: large;
-}
-#outputgrups{
-    min-height: 211px;
-}
-#instrucoes{
-    max-width: 820px;
-    font-size: x-small;
-    background-color: #aeaeae;
-    border: none;
+#onedate > label{
+    min-width: 0;
 }
 #videoframe, #mvideoframe{
     display: none;
@@ -102,6 +81,11 @@ textarea{
     top: 2vh;
     left: 2vw;
     width: 94vw;
-    background-color: #999;
+    background-image: url("Background.jpg");
     border: #222 solid 2px;
+}
+.dataimg{
+    margin: 0.5vh 5%;
+    border-radius: 5px;
+    background-color: rgba(174, 174, 200, 0.7);
 }

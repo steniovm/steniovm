@@ -28,30 +28,30 @@
             <h1 id="title1">APOD Nasa BR</h1>
             <h2>Todo dia uma imagem astronômica supimpa diferente</h2>
             <fieldset id="onedate">
-                <label><strong>Foto do dia: </strong>
+                <label class="dataimg"><strong>Foto do dia: </strong>
                     <input type="date" id="datein" min="1995-06-16" />
                     <div id="google_translate_element"></div>
                 </label>
-                <h3 id="titleimage"></h3>
-                <i id="copyrightimage"></i>
+                <h3 id="titleimage" class="dataimg"></h3>
+                <i id="copyrightimage" class="dataimg"></i>
                 <img id="imagefigure"/>
                 <iframe id = "videoframe" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                <p id="explanationimage" ></p>
-                <a id="lowdownload" class="linksimage" download>baixar imagem em baixa resolução</a>
-                <a id="highdownload" class="linksimage" download>baixar imagem em alta resolução</a>
+                <p id="explanationimage" class="dataimg"></p>
+                <a id="lowdownload" class="linksimage dataimg" download>baixar imagem em baixa resolução</a>
+                <a id="highdownload" class="linksimage dataimg" download>baixar imagem em alta resolução</a>
             </fieldset>
             <fieldset id="interdates">
                 <label>
-                    <strong>Data Inicial:</strong>
+                    <strong class="dataimg">Data Inicial:</strong>
                     <input type="date" id="datestart" min="1995-06-16" />
-                    <strong>Data Final:</strong>
+                    <strong class="dataimg">Data Final:</strong>
                     <input type="date" id="dateend" min="1995-06-16" />
                     <input type="button" id="btsearch" value="buscar"/>
                 </label>
             </fieldset>
             <fieldset id="randons">
                 <label>
-                    <strong>Imagens aleatórias - número:</strong>
+                    <strong class="dataimg">Imagens aleatórias - número:</strong>
                     <input type="number" id="nrandom" min="1" placeholder="Número de imagens:"/>
                     <input type="button" id="btrand" value="buscar"/>
                 </label>
@@ -59,14 +59,14 @@
             <div id="mosaic"></div>
         </main>
         <div id="modalmosaic" class="divmodal">
-            <h3 id="mtitleimage"></h3>
-            <i id="mcopyrightimage"></i>
-            <p id="mdateimage"></p>
-            <img id="mimagefigure"/>
+            <h3 id="mtitleimage" class="dataimg"></h3>
+            <i id="mcopyrightimage" class="dataimg"></i>
+            <p id="mdateimage" class="dataimg"></p>
+            <img id="mimagefigure" class="dataimg"/>
             <iframe id = "mvideoframe" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-            <p id="mexplanationimage" ></p>
-            <a id="mlowdownload" class="linksimage" download>baixar imagem em baixa resolução</a>
-            <a id="mhighdownload" class="linksimage" download>baixar imagem em alta resolução</a>
+            <p id="mexplanationimage" class="dataimg"></p>
+            <a id="mlowdownload" class="linksimage dataimg" download>baixar imagem em baixa resolução</a>
+            <a id="mhighdownload" class="linksimage dataimg" download>baixar imagem em alta resolução</a>
         </div>
             <footer>
                 <span>Fonte: <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></span><br/>
