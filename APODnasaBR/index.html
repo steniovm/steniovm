@@ -14,13 +14,6 @@
         <meta property="og:locale" content="pt-br" />
     </head>
     <body id="bodypage">
-        <div id="google_translate_element"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <header>
             <div id="divinfo" class="divinfo">
                 <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
@@ -36,7 +29,8 @@ function googleTranslateElementInit() {
             <h2>Todo dia uma imagem astronômica supimpa diferente</h2>
             <fieldset id="onedate">
                 <label><strong>Foto do dia: </strong>
-                    <input type="date" id="datein" min="1995-06-16">
+                    <input type="date" id="datein" min="1995-06-16" />
+                    <div id="google_translate_element"></div>
                 </label>
                 <h3 id="titleimage"></h3>
                 <i id="copyrightimage"></i>
@@ -46,35 +40,46 @@ function googleTranslateElementInit() {
                 <a id="lowdownload" class="linksimage" download>baixar imagem em baixa resolução</a>
                 <a id="highdownload" class="linksimage" download>baixar imagem em alta resolução</a>
             </fieldset>
-<!--            <textarea id="instrucoes">
-Você pode agrupar itens aleatoriamente.
-Pode ser usado por exemplo para:
-    - Dividir alunos em grupos para fazer trabalhos.
-    - Fazer testes e provas com base em banco de questões.
-    - Formar times para jogos.
-    - Montar caixas de surpresas.
-    - Etc...
-            </textarea>
-            <div id="submain">
-                <fieldset>
-                    <h2>Lista</h2>
-                    <textarea id="inputgrups" placeholder="Digite a lista separando por linha"></textarea>
-                    <h2>Itens por grupo</h2>
-                    <input id="ngrups" type="number" value="5" min="1" />
-                    <button id="baction">Sortear</button>
-                </fieldset>
-                <fieldset>
-                    <h2>Grupos</h2>
-                    <textarea id="outputgrups" placeholder="Os grupos aparecerão aqui"></textarea>
-                </fieldset>
-            </div>
--->
+            <fieldset id="interdates">
+                <label>
+                    <strong>Data Inicial:</strong>
+                    <input type="date" id="datestart" min="1995-06-16" />
+                    <strong>Data Final:</strong>
+                    <input type="date" id="dateend" min="1995-06-16" />
+                    <input type="button" id="btsearch" value="buscar"/>
+                </label>
+            </fieldset>
+            <fieldset id="randons">
+                <label>
+                    <strong>Imagens aleatórias - número:</strong>
+                    <input type="number" id="nrandom" min="1" placeholder="Número de imagens:"/>
+                    <input type="button" id="btrand" value="buscar"/>
+                </label>
+            </fieldset>
+            <div id="mosaic"></div>
         </main>
+        <div id="modalmosaic" class="divmodal">
+            <h3 id="mtitleimage"></h3>
+            <i id="mcopyrightimage"></i>
+            <p id="mdateimage"></p>
+            <img id="mimagefigure"/>
+            <iframe id = "mvideoframe" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            <p id="mexplanationimage" ></p>
+            <a id="mlowdownload" class="linksimage" download>baixar imagem em baixa resolução</a>
+            <a id="mhighdownload" class="linksimage" download>baixar imagem em alta resolução</a>
+        </div>
             <footer>
+                <span>Fonte: <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></span><br/>
                 <span>Instituto Alpha Lumen</span><br/>
                 <span>Curso de Desenvolvimento FullStack - AlphaEdtech</span><br/>
                 <span>Projeto de Javascript</span><br/>
             </footer>
         <script type="text/javascript" src="scripts.js"></script>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </body>
 </html>
