@@ -21,6 +21,7 @@ const mosaic = document.getElementById('mosaic');
 const modalmosaic = document.getElementById('modalmosaic');
 const nrandom = document.getElementById('nrandom');
 const btrand = document.getElementById('btrand');
+const modalerrror = document.getElementById('modalerrror');
 const urlbase = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&"
 const dateobject = new Date();
 let dataday;
@@ -98,6 +99,9 @@ function consultapi(parans,cb){
   fetch(urlbase+parans).then(function(response){
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' + response.status);
+      if (response.status == 429) {
+        modalerrror.style.display = "flex";
+        }
       return;
     }
     response.json().then(function(data) {
@@ -143,4 +147,8 @@ btrand.addEventListener('click', function(){
 
 modalmosaic.addEventListener('click', function(){
   modalmosaic.style.display = "none";
+});
+
+modalerrror.addEventListener('click', function(){
+  modalerrror.style.display = "none";
 });
