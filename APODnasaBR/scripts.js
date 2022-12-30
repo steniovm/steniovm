@@ -116,6 +116,9 @@ function consultapi(parans,cb){
 }
 
 datein.value = formatDate(dateobject);
+datein.max =  formatDate(dateobject);
+datestart.max =  formatDate(dateobject);
+dateend.max =  formatDate(dateobject);
 consultapi("date="+datein.value, updateelementsod);
 
 datein.addEventListener('change',function(){
