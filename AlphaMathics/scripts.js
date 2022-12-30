@@ -1,19 +1,20 @@
 //elementos html
-let bStart = document.getElementById('bStart');
-let initPlay = document.getElementById('initPlay');
-let playername = document.getElementById('playername');
-let playertag = document.getElementById('playertag');
-let gameplay = document.getElementById('gameplay');
-let playershowname = document.getElementById('playershowname');
-let playershowtag = document.getElementById('playershowtag');
-let playershowdate = document.getElementById('playershowdate');
-let scoresvalues = document.querySelectorAll('.points');
-let operationprint = document.getElementById('operation');
-let showtimer = document.getElementById('showtimer');
-let applause = document.getElementById('applause');
-let emoji = document.getElementById('emoji');
-let defeat = document.getElementById('defeat');
-let bContinue = document.getElementById('bContinue');
+const bStart = document.getElementById('bStart');
+const initPlay = document.getElementById('initPlay');
+const playername = document.getElementById('playername');
+const playertag = document.getElementById('playertag');
+const gameplay = document.getElementById('gameplay');
+const playershowname = document.getElementById('playershowname');
+const playershowtag = document.getElementById('playershowtag');
+const playershowdate = document.getElementById('playershowdate');
+const scoresvalues = document.querySelectorAll('.points');
+const operationprint = document.getElementById('operation');
+const showtimer = document.getElementById('showtimer');
+const applause = document.getElementById('applause');
+const emoji = document.getElementById('emoji');
+const defeat = document.getElementById('defeat');
+const bContinue = document.getElementById('bContinue');
+const supermain = document.getElementById('supermain');
 let playercookie = {
     "name": "",
     "description": "",
