@@ -122,8 +122,7 @@ function printconsult(data){
     let img = thumbimg(urlimg);
     img.addEventListener('click', function(){
       modalmosaic.style.display = "flex";
-      infoimage.innerHTML = JSON.stringify(item,null,' ')
-      //.replaceAll('"',' ').replaceAll('{','').replaceAll('}',' ');
+      infoimage.innerHTML = JSON.stringify(item,null,' ');
       console.log(item);
       consultapi(item.href, reglist);
     });

@@ -91,6 +91,11 @@ textarea, #infoimage{
     background-color: rgb(204, 204, 204, 0.8);
     display: none;
 }
+pre{
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 .divmodal{
     display: none;
     position: absolute;
