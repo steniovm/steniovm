@@ -85,16 +85,21 @@ fieldset > label{
     height: 160px;
     border: solid 1px #222;
 }
-textarea, #infoimage{
+textarea{
     width: 50vw;
     min-height: 20vh;
     background-color: rgb(204, 204, 204, 0.8);
     display: none;
 }
 pre{
+    display: none;
+    width: 95vw;
+    min-height: 20vh;
+    background-color: rgb(204, 204, 204, 0.9);
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+    flex-direction: column;
 }
 .divmodal{
     display: none;
