@@ -26,54 +26,117 @@
         </header>
         <main>
             <h1 id="title1">Biblioteca de imagens e vídeos da NASA</h1>
-            <fieldset id="onedate">
-                <label class="dataimg"><strong>Foto do dia: </strong>
-                    <input type="date" id="datein" min="1995-06-16" />
-                    <div id="google_translate_element"></div>
-                </label>
-                <h3 id="titleimage" class="dataimg"></h3>
-                <i id="copyrightimage" class="dataimg"></i>
-                <img id="imagefigure"/>
-                <iframe id = "videoframe" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                <p id="explanationimage" class="dataimg"></p>
-                <a id="lowdownload" class="linksimage dataimg" download>baixar imagem em baixa resolução</a>
-                <a id="highdownload" class="linksimage dataimg" download>baixar imagem em alta resolução</a>
+            <div id="google_translate_element"></div>
+            <fieldset id="searchin">
+                <input type="text" id="intext" placeholder="Insira o texto para busca"/>
+                <input type="button" id="btsearch" value="Procurar"/>
+                <input type="button" id="btasearch" value="Busca avançada"/>
             </fieldset>
-            <fieldset id="interdates">
+            <fieldset id="asearchin">
                 <label>
-                    <strong class="dataimg">Data Inicial:</strong>
-                    <input type="date" id="datestart" min="1995-06-16" />
-                    <strong class="dataimg">Data Final:</strong>
-                    <input type="date" id="dateend" min="1995-06-16" />
-                    <input type="button" id="btsearch" value="buscar"/>
+                    <span>Texto livre</span>
+                    <input type="text" id="inq" placeholder="Insira o texto para busca"/>
                 </label>
-            </fieldset>
-            <fieldset id="randons">
                 <label>
-                    <strong class="dataimg">Imagens aleatórias - número:</strong>
-                    <input type="number" id="nrandom" min="1" placeholder="Número de imagens:"/>
-                    <input type="button" id="btrand" value="buscar"/>
+                    <span>Centro que publicou a midia</span>
+                    <input type="text" id="incenter" list="nasaceters" placeholder="Insira o nome do centro"/>
+                    <datalist id="nasaceters">
+                        <option value="ARC">ARC</option>
+                        <option value="DFRC">DFRC</option>
+                        <option value="GRC">GRC</option>
+                        <option value="GISS">GISS</option>
+                        <option value="GSFC">GSFC</option>
+                        <option value="JPL">JPL</option>
+                        <option value="JSC">JSC</option>
+                        <option value="KSC">KSC</option>
+                        <option value="LaRC">LaRC</option>
+                        <option value="MSFC">MSFC</option>
+                        <option value="MAF">MAF</option>
+                        <option value="HQ">HQ</option>
+                        <option value="PBS">PBS</option>
+                        <option value="IV&V">IV&V</option>
+                        <option value="SSC">SSC</option>
+                        <option value="WFF">WFF</option>
+                        <option value="WSTF">WSTF</option>
+                    </datalist>
+                </label>
+                <label>
+                    <span>Descrição</span>
+                    <input type="text" id="indescription" placeholder="Busca em descrição"/>
+                </label>
+                <label>
+                    <span>Descrição 508</span>
+                    <input type="text" id="indescription508" placeholder="Busca em descrição 508"/>
+                </label>
+                <label>
+                    <span>Palavras-chave</span>
+                    <input type="text" id="inkeywords" placeholder="Separadas por virgula"/>
+                </label>
+                <label>
+                    <span>Localização</span>
+                    <input type="text" id="inlocation" placeholder="localização para busca"/>
+                </label>
+                <label>
+                    <span>Tipo de media</span>
+                    <input type="text" id="inmediatype" list="mediatype" placeholder="Insira o texto para busca"/>
+                    <datalist id="mediatype">
+                        <option value="image">image</option>
+                        <option value="video">video</option>
+                    </datalist>
+                </label>
+                <label>
+                    <span>ID da media na NASA</span>
+                    <input type="text" id="innasaid" placeholder="Insira o nasa_id"/>
+                </label>
+                <label>
+                    <span>Página</span>
+                    <input type="number" id="inpage" min="1" placeholder="Página dos resultados"/>
+                </label>
+                <label>
+                    <span>Fotógrafo</span>
+                    <input type="text" id="inphotographer" placeholder="Insira o nome do fotógrafo"/>
+                </label>
+                <label>
+                    <span>Criador secundário</span>
+                    <input type="text" id="insecondarycreator" placeholder="Insira o nome do co-criador"/>
+                </label>
+                <label>
+                    <span>Titulo</span>
+                    <input type="text" id="intitle" placeholder="Termos no titulo"/>
+                </label>
+                <label>
+                    <span>Ano Inicial</span>
+                    <input type="number" id="inyearstart" min="1900" max="2100" placeholder="Ano"/>
+                </label>
+                <label>
+                    <span>Ano Final</span>
+                    <input type="number" id="inyearend" min="1900" max="2100" placeholder="Ano"/>
+                </label>
+                <label id="btsasearchin">
+                    <input type="button" id="abtsearch" value="Procurar"/>
+                    <input type="button" id="abtbsearch" value="Busca básica"/>
                 </label>
             </fieldset>
             <div id="mosaic"></div>
+            <fieldset>
+                <button id="pageprev" class="btlink"><img src="previ.png"/></button>
+                <span id="hitpage"></span>
+                <button id="pagenext" class="btlink"><img src="next.png"/></button>
+            </fieldset>
+            <!--<textarea id="showcode"></textarea>-->
         </main>
         <div id="modalmosaic" class="divmodal">
-            <h3 id="mtitleimage" class="dataimg"></h3>
-            <i id="mcopyrightimage" class="dataimg"></i>
-            <p id="mdateimage" class="dataimg"></p>
-            <img id="mimagefigure" class="dataimg"/>
-            <iframe id = "mvideoframe" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-            <p id="mexplanationimage" class="dataimg"></p>
-            <a id="mlowdownload" class="linksimage dataimg" download>baixar imagem em baixa resolução</a>
-            <a id="mhighdownload" class="linksimage dataimg" download>baixar imagem em alta resolução</a>
-        </div>
-        <div id="modalerrror" class="divmodal">
-            <h3>Limite de consultas excedido</h3>
-            <p>Os limites são:</p>
-            <ul>
-                <li>Limite por hora: 30 solicitações por endereço IP por hora</li>
-                <li>Limite diário: 50 solicitações por endereço IP por dia</li>
-            </ul>
+            <input type="button" id="modalmosaicclose" value="VOLTAR"/>
+            <img id="imagefigure" class="dataimg"/>
+            <iframe id = "videoframe" class="dataimg" width="960" height="540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            <a id="showurlimg" download></a>
+            <div>
+                <button id="imgprev" class="btlink imgtext"><img src="previ.png"/></button>
+                <span id="imgpage" class="imgtext"></span>
+                <button id="imgnext" class="btlink imgtext"><img src="next.png"/></button>
+            </div>
+            <input type="button" id="colectiondata" value="DADOS DA COLEÇÃO"/>
+            <textarea id="infoimage"></textarea>
         </div>
             <footer>
                 <span>Fonte: <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></span><br/>

@@ -46,10 +46,21 @@ h1, h2{
 }
 fieldset, .divmodal{
     display: flex;
-    flex-direction: column;
-    justify-content:space-around;
+    flex-direction: row;
+    justify-content:center;
     align-items: center;
-    min-width: 70vw;
+    border: none;
+}
+input, #hitpage{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: #ccc;
+    background-color: #444;
+    height: 40px;
+    margin: 5px;
+    padding: 0 15px;
+    border-radius: 20px;
+    border: none;
 }
 fieldset > label{
     display: flex;
@@ -59,35 +70,93 @@ fieldset > label{
     text-align: center;
     justify-content: center;
 }
-#onedate > label{
-    min-width: 0;
-}
+
 #videoframe, #mvideoframe{
     display: none;
 }
 #mosaic{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-between;
+    justify-content: space-between;
+    border: solid 1px #222;
+    background-color: #444;
 }
 .mosaicimg{
-    height: 100px;
-    width: 100px;
+    height: 160px;
+    border: solid 1px #222;
+}
+textarea{
+    width: 50vw;
+    min-height: 20vh;
+    background-color: rgb(204, 204, 204, 0.8);
+    display: none;
 }
 .divmodal{
     display: none;
     position: absolute;
-    top: 2vh;
-    left: 2vw;
-    width: 94vw;
-    background-image: url("Background.jpg");
-    border: #222 solid 2px;
+    justify-content: start;
+    top: 0px;
+    left: 0px;
+    height: 550vh;
+    width: 100%;
+    /*top: 2vh;*/
+    /*left: 2vw;*/
+    /*width: 94vw;*/
+    /*height: auto;*/
+    /*background-image: url("Background.jpg");*/
+    background-color: rgba(100, 100, 100, 0.8);
+    /*border: #222 solid 2px;*/
+    flex-direction: column;
+    /*padding: 0 10px;*/
 }
 .dataimg{
     margin: 0.5vh 5%;
     border-radius: 5px;
     background-color: rgba(174, 174, 200, 0.7);
+    max-width: 100%;
+    display: none;
+}
+
+.btlink{
+    padding: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.btlink>img{
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+}
+.btlink:hover{
+    background-color: rgba(218, 165, 32, 0.4);
+}
+#asearchin{
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(100, 100, 100, 0.8);
+    color: #ccc;
+    border-radius: 20px;
+    width: 80%;
+    min-width: 200px;
+}
+#asearchin>label{
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+}
+#asearchin>label>input{
+    height: unset;
+    min-width: 40%;
+}
+#btsasearchin{
+    display: flex;
+    flex-direction: row !important;
+}
+#hitpage{
+    height: 30px;
+    min-width: 50px;
+    text-align: center;
 }
 #modalerrror{
     color: red;
@@ -100,4 +169,7 @@ fieldset > label{
 }
 #modalerrror>h3,#modalerrror>p,#modalerrror>ul{
     margin: 0.5%;
+}
+.imgtext{
+    background-color: rgba(174, 174, 200, 0.4);
 }

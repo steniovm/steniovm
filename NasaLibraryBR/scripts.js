@@ -1,102 +1,89 @@
-const datein = document.getElementById('datein');
-const titleimage = document.getElementById('titleimage');
-const copyrightimage = document.getElementById('copyrightimage');
-const imagefigure = document.getElementById('imagefigure');
-const videoframe = document.getElementById('videoframe');
-const explanationimage = document.getElementById('explanationimage');
-const lowdownload = document.getElementById('lowdownload');
-const highdownload = document.getElementById('highdownload');
-const mtitleimage = document.getElementById('mtitleimage');
-const mcopyrightimage = document.getElementById('mcopyrightimage');
-const mdateimage = document.getElementById('mdateimage');
-const mimagefigure = document.getElementById('mimagefigure');
-const mvideoframe = document.getElementById('mvideoframe');
-const mexplanationimage = document.getElementById('mexplanationimage');
-const mlowdownload = document.getElementById('mlowdownload');
-const mhighdownload = document.getElementById('mhighdownload');
-const datestart = document.getElementById('datestart');
-const dateend = document.getElementById('dateend');
+//NASA Image and Video Library API documentation:
+//https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
+//const showcode = document.getElementById('showcode');
+const intext = document.getElementById('intext');
 const btsearch = document.getElementById('btsearch');
 const mosaic = document.getElementById('mosaic');
 const modalmosaic = document.getElementById('modalmosaic');
-const nrandom = document.getElementById('nrandom');
-const btrand = document.getElementById('btrand');
-const modalerrror = document.getElementById('modalerrror');
-const urlbase = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&"
-const dateobject = new Date();
-let dataday;
-console.log(formatDate(dateobject))
+const modalmosaicclose = document.getElementById('modalmosaicclose');
+const pageprev = document.getElementById('pageprev');
+const pagenext = document.getElementById('pagenext');
+const hitpage = document.getElementById('hitpage');
+const infoimage = document.getElementById('infoimage');
+const imagefigure = document.getElementById('imagefigure');
+const videoframe = document.getElementById('videoframe');
+const searchin = document.getElementById('searchin');
+const asearchin = document.getElementById('asearchin');
+const btasearch = document.getElementById('btasearch');
+const abtbsearch = document.getElementById('abtbsearch');
+const inq = document.getElementById('inq');
+const incenter = document.getElementById('incenter');
+const indescription = document.getElementById('indescription');
+const indescription508 = document.getElementById('indescription508');
+const inkeywords = document.getElementById('inkeywords');
+const inlocation = document.getElementById('inlocation');
+const inmediatype = document.getElementById('inmediatype');
+const innasaid = document.getElementById('innasaid');
+const inpage = document.getElementById('inpage');
+const inphotographer = document.getElementById('inphotographer');
+const insecondarycreator = document.getElementById('insecondarycreator');
+const intitle = document.getElementById('intitle');
+const inyearstart = document.getElementById('inyearstart');
+const inyearend = document.getElementById('inyearend');
+const abtsearch = document.getElementById('abtsearch');
+const imgpage = document.getElementById('imgpage');
+const imgprev = document.getElementById('imgprev');
+const imgnext = document.getElementById('imgnext');
+const colectiondata = document.getElementById('colectiondata');
+const showurlimg = document.getElementById('showurlimg');
+const urlbase = "https://images-api.nasa.gov/";
+let prevurl = null;
+let nexturl = null;
+let pagenumber = 0;
+let imgnumber = 0;
+let imglist =[];
 
-function formatDate(date) {
-  const map = {
-      mm: date.getMonth() + 1,
-      dd: date.getDate(),
-      aaaa: date.getFullYear()
+btasearch.addEventListener('click', function(){
+  searchin.style.display = "none";
+  asearchin.style.display = "flex";
+});
+abtbsearch.addEventListener('click', function(){
+  searchin.style.display = "flex";
+  asearchin.style.display = "none";
+});
+pageprev.addEventListener('click', function(){
+  if (prevurl){
+    pagenumber--;
+    mosaic.innerHTML = '';
+    consultapi(prevurl,printconsult);
+  }else{
+    hitpage.innerHTML = "Esta é a primeira pagina!"
   }
-  return `${map.aaaa}-${map.mm}-${map.dd}`
-}
-
-function updateelementsod(data){
-  titleimage.innerHTML = data.title;
-  copyrightimage.innerHTML = data.copyright;
-  if (data.media_type == "image") {
-    videoframe.style.display = "none"
-    imagefigure.src = data.url;
+});
+pagenext.addEventListener('click', function(){
+  if (nexturl){
+    pagenumber++;
+    mosaic.innerHTML = '';
+    consultapi(nexturl,printconsult);
+  }else{
+    hitpage.innerHTML = "Esta é a última pagina!"
   }
-  if (data.media_type == "video") {
-    videoframe.style.display = "unset"
-    imagefigure.src = data.thumbnail_url;
-    videoframe.src = data.url;
+});
+imgprev.addEventListener('click', function(){
+  if (imgnumber>0){
+    imgnumber--;
+    openimg(imglist);
   }
-  imagefigure.alt = data.title;
-  explanationimage.innerHTML = data.explanation;
-  lowdownload.href = data.url;
-  highdownload.href = data.hdurl;
-}
-
-function updateelementsld(data){
-  mosaic.innerHTML = '';
-  data.forEach((element, index) => {
-    let img = document.createElement('img');
-    img.classList.add("mosaicimg");
-    if (element.media_type == "image") {
-      img.src = element.url;
-    }
-    if (element.media_type == "video") {
-      img.src = element.thumbnail_url;
-    }
-    img.addEventListener('click',function(){
-      showmodal(index);
-      window.scrollTo(0, 0);
-    })
-    mosaic.append(img);
-  });
-}
-
-function showmodal(index){
-  console.log(dataday[index]);
-  modalmosaic.style.display = "flex";
-  mtitleimage.innerHTML = dataday[index].title;
-  mcopyrightimage.innerHTML = dataday[index].copyright;
-  mdateimage.innerHTML = dataday[index].date;
-  if (dataday[index].media_type == "image") {
-    mvideoframe.style.display = "none"
-    mimagefigure.src = dataday[index].url;
+});
+imgnext.addEventListener('click', function(){
+  if (imgnumber<(imglist.length-1)){
+    imgnumber++;
+    openimg(imglist);
   }
-  if (dataday[index].media_type == "video") {
-    mvideoframe.style.display = "unset"
-    mimagefigure.src = dataday[index].thumbnail_url;
-    mvideoframe.src = dataday[index].url;
-  }
-  mimagefigure.alt = dataday[index].title;
-  mexplanationimage.innerHTML = dataday[index].explanation;
-  mlowdownload.href = dataday[index].url;
-  mhighdownload.href = dataday[index].hdurl;
-}
-
-function consultapi(parans,cb){
-  console.log(urlbase+parans);
-  fetch(urlbase+parans).then(function(response){
+});
+function consultapi(fullurl,cb){
+  console.log(fullurl);
+  fetch(fullurl).then(function(response){
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' + response.status);
       if (response.status == 429) {
@@ -107,51 +94,117 @@ function consultapi(parans,cb){
     response.json().then(function(data) {
       dataday = data;
       cb(dataday);
-      console.log(JSON.stringify(data, null, " "))
-      console.log(dataday);
+      //console.log(JSON.stringify(data, null, " "))
+      //console.log(dataday);
     })
   }).catch(function(err) {
     console.log('Fetch Error :-S', err);
+  });
+}
+function printconsult(data){
+  //showcode.innerHTML = JSON.stringify(data, null, " ");
+  prevurl = null;
+  nexturl = null;
+  let hits = data.collection.metadata.total_hits;
+  let items = data.collection.items;
+  if (hits == 0){
+    hitpage.innerHTML = "Nenhuma midia encontrada!"
+  }else{
+    hitpage.innerHTML = `${((pagenumber-1)*100)+1}-${(hits<((pagenumber)*100))?hits:((pagenumber)*100)} de ${hits}`;
+  }
+  data.collection.links.forEach(function(it){
+    if (it.rel == "prev") prevurl = it.href;
+    if (it.rel == "next") nexturl = it.href;
+  });
+  mosaic.innerHTML = '';
+  items.forEach(function(item, index){
+    let urlimg = item.links[0].href;
+    let img = thumbimg(urlimg);
+    img.addEventListener('click', function(){
+      modalmosaic.style.display = "flex";
+      infoimage.innerHTML = JSON.stringify(item,null,' ');
+      console.log(item);
+      consultapi(item.href, reglist);
+    });
+    mosaic.append(img);
   })
 }
-
-datein.value = formatDate(dateobject);
-datein.max =  formatDate(dateobject);
-datestart.max =  formatDate(dateobject);
-dateend.max =  formatDate(dateobject);
-//consultapi("date="+datein.value, updateelementsod);
-
-datein.addEventListener('change',function(){
-  consultapi("date="+datein.value, updateelementsod);
-  console.log(datein.value);
-});
-
-btsearch.addEventListener('click', function(){
-  if(datestart.value && dateend.value){
-    if(datestart.value < dateend.value){
-      consultapi("start_date="+datestart.value+"&end_date="+dateend.value, updateelementsld);
-      console.log(datestart.value+" - "+dateend.value);
-    }else{
-      alert("A data de termino deve ser maior que a data de inicio!")
-    }
-  }else{
-    alert("As datas de inicio e termino da busca devem estar preenchidas!")
+function printaconsult(data){
+  if ((inpage.value > 0) && (data.collection.metadata.total_hits > 0)){
+    pagenumber = inpage.value;
+  }
+  pagenumber = 1;
+  printconsult(data);
+}
+function reglist(data){
+  imglist = data;
+  window.scrollTo(0, 0);
+  openimg(imglist);
+}
+function openimg(data){
+  showurlimg.innerHTML = data[imgnumber];
+  showurlimg.href = data[imgnumber];
+  if (data[imgnumber].endsWith('jpg')){
+    imagefigure.style.display = "flex";
+    videoframe.style.display = "none";
+    imagefigure.src = data[imgnumber];
+  }else if (data[imgnumber].endsWith('mp4') || data[imgnumber].endsWith('srt') || data[imgnumber].endsWith('json')){
+    imagefigure.style.display = "none";
+    videoframe.style.display = "flex";
+    videoframe.src = data[imgnumber];
+  }
+  imgpage.innerHTML = `${imgnumber+1} / ${data.length}`;
+}
+function thumbimg(urlimg){
+  let img = document.createElement('img');
+  img.classList.add("mosaicimg");
+  img.src = urlimg;
+  return img;
+}
+intext.addEventListener('keypress', function(e){
+  if(e.key === 'Enter') {
+    //showcode.innerHTML = intext.value;
+    let urlparam = `${urlbase}search?q=${intext.value}`;
+    pagenumber=1;
+    consultapi(urlparam,printconsult);
   }
 });
-
-btrand.addEventListener('click', function(){
-  if(nrandom.value){
-      consultapi("count="+nrandom.value, updateelementsld);
-      console.log(nrandom.value);
-  }else{
-    alert("Insira um numero de imagens!")
-  }
+btsearch.addEventListener('click',function(){
+  //showcode.innerHTML = intext.value;
+  let urlparam = `${urlbase}search?q=${intext.value}`;
+  pagenumber=1;
+  consultapi(urlparam,printconsult);
 });
-
-modalmosaic.addEventListener('click', function(){
+abtsearch.addEventListener('click', function(){
+  let parans = "";
+  if (inq.value) parans += ("q="+inq.value+"&");
+  if (incenter.value) parans += ("center="+incenter.value+"&");
+  if (indescription.value) parans += ("description="+indescription.value+"&");
+  if (indescription508.value) parans += ("description_508="+indescription508.value+"&");
+  if (inkeywords.value) parans += ("keywords="+inkeywords.value+"&");
+  if (inlocation.value) parans += ("location="+inlocation.value+"&");
+  if (inmediatype.value) parans += ("media_type="+inmediatype.value+"&");
+  if (innasaid.value) parans += ("nasa_id="+innasaid.value+"&");
+  if (inpage.value) parans += ("page="+inpage.value+"&");
+  if (inphotographer.value) parans += ("photographer="+inq.inphotographer+"&");
+  if (insecondarycreator.value) parans += ("secondary_creator="+insecondarycreator.value+"&");
+  if (intitle.value) parans += ("title="+intitle.value+"&");
+  if (inyearstart.value) parans += ("year_start="+inyearstart.value+"&");
+  if (inyearend.value) parans += ("year_end="+inyearend.value);
+  //showcode.innerHTML = intext.value;
+  mosaic.innerHTML = '';
+  intext.value = parans;
+  console.log(urlbase+"search?"+parans);
+  searchin.style.display = "flex";
+  asearchin.style.display = "none";
+  consultapi(urlbase+"search?"+parans,printaconsult);
+});
+modalmosaicclose.addEventListener('click', function(){
   modalmosaic.style.display = "none";
+  imagefigure.src = '';
+  videoframe.src = '';
+  infoimage.style.display = "none";
 });
-
-modalerrror.addEventListener('click', function(){
-  modalerrror.style.display = "none";
+colectiondata.addEventListener('click', function(){
+  infoimage.style.display = "flex";
 });
