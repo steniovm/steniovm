@@ -85,7 +85,7 @@ fieldset > label{
     height: 160px;
     border: solid 1px #222;
 }
-textarea{
+textarea, #infoimage{
     width: 50vw;
     min-height: 20vh;
     background-color: rgb(204, 204, 204, 0.8);
