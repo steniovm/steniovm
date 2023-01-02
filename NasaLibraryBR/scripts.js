@@ -117,10 +117,11 @@ function printconsult(data){
     if (it.rel == "next") nexturl = it.href;
   });
   mosaic.innerHTML = '';
-  items.forEach(function(item, index){
+  items.forEach(function(item){
     let urlimg = item.links[0].href;
     let img = thumbimg(urlimg);
     img.addEventListener('click', function(){
+      imgnumber = 0;
       modalmosaic.style.display = "flex";
       infoimage.innerHTML = JSON.stringify(item,null,' ');
       console.log(item);
