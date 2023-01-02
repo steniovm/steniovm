@@ -29,10 +29,11 @@ header, footer{
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     background-color: rgba(174, 174, 174, 0.5);
     padding: 0 1% 1% 1%;
+    min-height: 84vh;
 }
 h1, h2{
     font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
