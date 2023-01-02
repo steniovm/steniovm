@@ -123,7 +123,7 @@ function printconsult(data){
     img.addEventListener('click', function(){
       modalmosaic.style.display = "flex";
       infoimage.innerHTML = JSON.stringify(item,null,' ')
-      .replaceAll('"',' ').replaceAll('{','').replaceAll('}',' ');
+      //.replaceAll('"',' ').replaceAll('{','').replaceAll('}',' ');
       console.log(item);
       consultapi(item.href, reglist);
     });
