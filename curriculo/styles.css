@@ -45,12 +45,15 @@ h1{
     font-weight: bolder;
     color: #335;
 }
-h3{
+h3,h4{
     font-family: 'Lexend Exa', sans-serif;
     font-style: italic;
     text-decoration: underline;
     color: #335;
     text-align: center;
+}
+h4{
+    margin: 0.3em;
 }
 .bodymenu, nav{
     flex-direction: row;
@@ -118,9 +121,9 @@ a:active {
     min-width: 500px;
 }
 .divs > div{
-    text-align: center;;
+    text-align: justify;
     width:fit-content;
-    margin: 1%;
+    margin: 0 1%;
     font-size: large;
 }
 .divs > div >img{
@@ -128,24 +131,14 @@ a:active {
     width: 200px;
     border-radius: 5%;
 }
-.divs > div > a{
+/*.divs > div > a{
     font-size: medium;
-}
-#objetivosdiv{
-    justify-content:center;
-}
+}*/
 #resumodiv > div{
     text-align: justify;
 }
-#formacaodiv{
-    display: flex;
-    align-self: stretch;
-    text-align: column;
-    margin: auto;
-}
 #formacaodiv > div{
     text-align: start;
-    margin: 3%;
 }
 #certificadosdiv{
     justify-content:center;
@@ -185,16 +178,6 @@ a:active {
     margin: 1%;
     text-align: justify;
 }
-#contatosdiv{
-    display: flex;
-    align-self: stretch;
-    text-align: column;
-    margin: auto;
-}
-#contatosdiv > div{
-    text-align: start;
-    margin: 5%;
-}
 .sociais{
     display: flex;
     flex-wrap: wrap;
@@ -216,4 +199,8 @@ a:active {
 .icons:focus > img, .icons:hover >img{
     height:35px;
     width:35px;
+}
+.flink{
+    font-weight: bolder;
+    font-size: large;
 }
