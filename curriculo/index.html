@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>Stenio - curriculo profissional</title>
         <link href="styles.css" type="text/css" rel="stylesheet" media="not print">
-        <link href="stylesp.css" type="text/css" rel="stylesheet" media="print"/>
+        <link href="styleprint.css" type="text/css" rel="stylesheet" media="print"/>
         <meta property="og:title" content="Stenio - curriculo profissional">
         <meta property="og:description" content="Curriculo profissional de Stênio.">
         <meta property="og:url" content="https://steniovm.github.io/steniovm/curriculo/">
@@ -15,28 +15,47 @@
         <meta property="og:locale" content="pt-br" />
     </head>
     <body class="index">
-        <nav>
+        <nav class="notprint">
             <div>
                 <h1>Stênio Vinicios de Medeiros</h1>
                 <div class="linksmenu">
-                    <a href="corpo?#inicio" target="corpo">Inicio &nbsp</a>
-                    <a href="corpo?#objetivos" target="corpo">Objetivos &nbsp</a>
-                    <a href="corpo?#resumo" target="corpo">Resumo Profissional &nbsp</a>
-                    <a href="corpo?#formacao" target="corpo">Formação &nbsp</a>
-                    <a href="corpo?#certificados" target="corpo">Certificados &nbsp</a>
-                    <a href="corpo?#experiencia" target="corpo">Experiencia profissional &nbsp</a>
-                    <a href="corpo?#contatos" target="corpo">Contatos &nbsp</a>
+                    <a class="menulink" href="geral.html?#inicio" target="corpo">Inicio &nbsp</a>
+                    <a class="menulink" href="geral.html?#objetivos" target="corpo">Objetivos &nbsp</a>
+                    <a class="menulink" href="geral.html?#resumo" target="corpo">Resumo Profissional &nbsp</a>
+                    <a class="menulink" href="geral.html?#formacao" target="corpo">Formação &nbsp</a>
+                    <a class="menulink" href="geral.html?#certificados" target="corpo">Certificados &nbsp</a>
+                    <a class="menulink" href="geral.html?#experiencia" target="corpo">Experiencia profissional &nbsp</a>
+                    <a class="menulink" href="geral.html?#contatos" target="corpo">Contatos &nbsp</a>
                 </div>
             </div>
             <div id="alterntmenu">
-                <a href="geral.html" target="corpo">Geral</a>
-                <a href="educacao.html" target="corpo">Educação</a>
-                <a href="dev.html" target="corpo">Desenvolvimento</a>
+                <a id="gerallink" href="geral.html" target="corpo">Geral</a>
+                <a id="educacaolink" href="educacao.html" target="corpo">Educação</a>
+                <a id="devlink" href="dev.html" target="corpo">Desenvolvimento</a>
                 <a href="https://steniovm.github.io/steniovm/" target="corpo">Portfólio: https://steniovm.github.io/steniovm/</a>
             </div>
             <img class="fotomenu" src="pp.jpg" alt="minha foto"/>
         </nav>
         <!--<iframe class="framemenu" src="menu.html" name="menu"></iframe>-->
-        <iframe class="framecorpo" src="corpo.html" name="corpo"></iframe>       
+        <iframe class="framecorpo notprint" src="corpo.html" name="corpo"></iframe>       
     </body>
+<script type="text/javascript">
+let linksbuttons = document.querySelectorAll('.menulink');
+let inlinks = ["inicio","#objetivos","resumo","formacao","certificados","experiencia","contatos"];
+document.getElementById('gerallink').addEventListener('click', function(){
+    for(let i=0; i<inlinks.length; i++){
+        linksbuttons[i].href = "geral.html?#"+inlinks[i];
+    }
+});
+document.getElementById('educacaolink').addEventListener('click', function(){
+    for(let i=0; i<inlinks.length; i++){
+        linksbuttons[i].href = "educacao.html?#"+inlinks[i];
+    }
+});
+document.getElementById('devlink').addEventListener('click', function(){
+    for(let i=0; i<inlinks.length; i++){
+        linksbuttons[i].href = "dev.html?#"+inlinks[i];
+    }
+});
+</script>
 </html>
