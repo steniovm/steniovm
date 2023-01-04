@@ -134,8 +134,8 @@ a:active {
     font-size: large;
 }
 .divs > div >img{
-    height: 200px;
-    width: 200px;
+    height: 160px;
+    width: 120px;
     border-radius: 5%;
 }
 /*.divs > div > a{
