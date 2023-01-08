@@ -106,3 +106,8 @@ iframe{
     height:45px;
     width:45px;
 }
+.visitdiv{
+    display: flex;
+    justify-content: center;
+    display: none;
+}

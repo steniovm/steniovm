@@ -6,7 +6,8 @@ const textlog = document.getElementById('textlog');
 const mycanvas = document.querySelector('canvas');
 const gamerconfig = document.getElementById('gamerconfig');
 const gamerplay = document.getElementById('gamerplay');
-const biniciar = document.getElementById('Iniciar')
+const biniciar = document.getElementById('Iniciar');
+const Saveps = document.getElementById('Saveps');
 const nmord = document.getElementById('NM');
 const npres = document.getElementById('NP');
 const iraio = document.getElementById('IRaio');
@@ -42,24 +43,70 @@ let repchance = (IChance.value)/100;
 let maxbols = Number.parseInt(IMax.value);
 let reptime = Itime.value;
 let contpresas = 0;
+let preset = {
+    energ:0,
+    szbol:0,
+    popini:0,
+    popmax:0,
+    timerp:0,
+    repchc:0,
+    musicv:0,
+    efectv:0,
+    red:0,
+    green:0,
+    blue:0
+}
 mostAmb.style.height = (2*iraio.value + 4)+'px';
 mostAmb.style.width = (2*iraio.value + 4)+'px';
 mostBol.style.height = (2*iraio.value)+'px';
 mostBol.style.width = (2*iraio.value)+'px';
 
-function setCookie() {
+function setCookieTime() {
   const d = new Date();
   d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
   document.cookie = 'boldarwintime' + "=" + timegamemax + ";" + expires + ";path=/";
 }
-
 if (document.cookie.indexOf('boldarwintime')>=0){
     timegamemax = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('boldarwintime='))?.split("=")[1])
     ltimemax.innerHTML = timegamemax;
 }else{
-    setCookie();
+    setCookieTime();
 }
+if (document.cookie.indexOf('boldarwinpreset')>=0){
+    preset = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('boldarwinpreset='))?.split("=")[1])
+    nmord.value = preset.energ;
+    iraio.value = preset.szbol;
+    npres.value = preset.popini;
+    IMax.value = preset.popmax;
+    Itime.value = preset.timerp;
+    IChance.value = preset.repchc;
+    Vmusic.value = preset.musicv;
+    Vefect.value = preset.efectv;
+    colorrgb[0].value = preset.red;
+    colorrgb[1].value = preset.green;
+    colorrgb[2].value = preset.blue;
+}else{
+    changeColor();
+}
+Saveps.addEventListener('click', function(){
+  const d = new Date();
+  d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  preset.energ = nmord.value;
+  preset.szbol = iraio.value;
+  preset.popini = npres.value;
+  preset.popmax = IMax.value;
+  preset.timerp = Itime.value;
+  preset.repchc = IChance.value;
+  preset.musicv = Vmusic.value;
+  preset.efectv = Vefect.value;
+  preset.red = colorrgb[0].value;
+  preset.green = colorrgb[1].value;
+  preset.blue = colorrgb[2].value;
+  document.cookie = 'boldarwinpreset' + "=" + JSON.stringify(preset) + ";" + expires + ";path=/";
+})
+
 
 function changeColor(){
   let red = Math.floor(Math.random()*255);
@@ -239,7 +286,7 @@ async function pastime(){
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
-                setCookie();
+                setCookieTime();
             }
             paused = true;
         }else if (nbol<=0){
@@ -252,7 +299,7 @@ async function pastime(){
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
-                setCookie();
+                setCookieTime();
             }
             paused = true;
         }else if (energy <= 0){
@@ -264,7 +311,7 @@ async function pastime(){
             oversong.play();
             if (timegame > timegamemax){
                 timegamemax = timegame;
-                setCookie();
+                setCookieTime();
             }
             paused = true;
         }
@@ -335,5 +382,4 @@ Vefect.addEventListener('change', function(){
     efectsong.play();
 });
 
-changeColor();
 mycanvas.addEventListener('mouseup',clicar,true);
