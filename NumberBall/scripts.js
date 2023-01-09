@@ -21,7 +21,7 @@ let positions = {
 let bollvec = {dx:0,dy:0};
 let printok = true;
 let gameplay = false;
-let playac = 0;
+let playac = undefined;
 let direc = 0;
 let config = {
     valga:0,
@@ -32,6 +32,7 @@ let config = {
     vefec:0
 };
 let direcbt={up:"",left:"",down:"",right:""};
+let finterval = undefined;
 
 //funções
 function upconfig(){
@@ -101,11 +102,10 @@ function direcbtdef(){
     }
 }
 async function playing(){
-    let a = undefined;
     if (gameplay){
         let dx;
         let dy;
-        a = setInterval(function(){
+        finterval = setInterval(function(){
             if (positions.ball.x < LIMITS.left || positions.ball.x > LIMITS.rightb){
                 bollvec.dx *= -1;
             }
@@ -123,7 +123,7 @@ async function playing(){
                if (positions.cabec[i].y + dy >= LIMITS.top && positions.cabec[i].y + dy <= LIMITS.down ){
                 positions.cabec[i].y += dy;
                }
-               if (i!=playac){
+               if (playac && i!=playac){
                 if (positions.algar[i].x + dx >= LIMITS.left && positions.algar[i].x + dx <= LIMITS.right ){
                     positions.algar[i].x += dx;
                 }
@@ -134,7 +134,7 @@ async function playing(){
             }
             showplayers();
         },100*(1.1-config.veloc));
-    }else clearInterval(a);
+    }
 }
 
 //script inicial
@@ -162,6 +162,7 @@ Saveps.addEventListener('click',function(){
 bRestart.addEventListener('click',function(){
     gameplay = false;
     gamerconfig.style.display = 'flex';
+    clearInterval(finterval);
 })
 
 document.addEventListener('keydown',function(e){
@@ -178,30 +179,32 @@ document.addEventListener('keydown',function(e){
             case "7":
             case "8":
             case "9":
+                if (playac) algar[playac].classList.toggle('enf');
                 playac = Number.parseInt(key);
                 playactiv.innerHTML = key;
+                algar[playac].classList.toggle('enf');
             break;
             case direcbt.left:
             case direcbt.left.toUpperCase():
-                if (playac!=0 && positions.algar[playac].x>LIMITS.left){
+                if (playac && positions.algar[playac].x>LIMITS.left){
                     positions.algar[playac].x -= 1;
                 }
             break;
             case direcbt.right:
             case direcbt.right.toUpperCase():
-                if (playac!=0 && positions.algar[playac].x<LIMITS.right){
+                if (playac && positions.algar[playac].x<LIMITS.right){
                     positions.algar[playac].x += 1;
                 }
             break;
             case direcbt.up:
             case direcbt.up.toUpperCase():
-                if (playac!=0 && positions.algar[playac].y>LIMITS.top){
+                if (playac && positions.algar[playac].y>LIMITS.top){
                     positions.algar[playac].y -= 1;
                 }
             break;
             case direcbt.down:
             case direcbt.down.toUpperCase():
-                if (playac!=0 && positions.algar[playac].y<LIMITS.down){
+                if (playac && positions.algar[playac].y<LIMITS.down){
                     positions.algar[playac].y += 1;
                 }
             break;

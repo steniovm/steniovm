@@ -226,7 +226,14 @@ span{
     font-weight: bold;
     text-align: center;
     background-color: #ffff17;
+    max-width: 2em;
 }
+/*#playactiv{
+    font-weight: bold;
+    text-align: center;
+    background-color: #ffff17;
+    width: 2em;
+}*/
 #footer{
     display: flex;
     flex-direction: column;
@@ -239,6 +246,11 @@ span{
     /*superior esquerdo*/
     top: 0%;
     left: 0;
+}
+.enf{
+    border-radius: 40%;
+    background-color: #e90;
+    box-shadow: 0 0 3em #e90;
 }
 .ballgame{
     height: 4%;
