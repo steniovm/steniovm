@@ -53,7 +53,7 @@ function saveconf(){
 function showplayers(){
     ballgame.style.top = positions.ball.y+'%';
     ballgame.style.left = positions.ball.x+'%';
-    for (let i=0; i<9; i++){
+    for (let i=0; i<10; i++){
         cabec[i].style.top = positions.cabec[i].y+'%';
         cabec[i].style.left = positions.cabec[i].x+'%';
         algar[i].style.top = positions.algar[i].y+'%';
@@ -75,6 +75,11 @@ function positioninit(){
     showplayers();
     if (printok) console.log(positions);
 }
+function shownambers(){
+    for (let i=0;i<10;i++){
+        algar[i].src="./assets/"+alga[config.valga].value+i+".svg";
+    }
+}
 //script inicial
 if (document.cookie.indexOf('numberball')>=0){
     config = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('numberball='))?.split("=")[1])
@@ -85,6 +90,7 @@ positioninit();
 //eventos
 Iniciar.addEventListener('click',function(){
     upconfig();
+    shownambers();
     gamerconfig.style.display = 'none';
     gameplay = true;
 });
