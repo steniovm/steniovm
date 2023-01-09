@@ -11,7 +11,28 @@
     </head>
     <body id="bodypage">
     <!--<canvas width="800" height="600"></canvas>-->
-    <img id="Soccerfield" src="./assets/Soccer_field.svg"/>
+    <div id="field">
+        <img id="Soccerfield" src="./assets/Soccer_field.svg"/>
+        <img class="ballgame" src="./assets/Soccer_ball.svg"/>
+        <img class="cabec" src="./assets/cabecudosgol.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="cabec" src="./assets/cabecudos.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+        <img class="algar" src="./assets/numeros.svg"/>
+    </div>
     <section id="gamerconfig">
         <b>Instruções</b>
         <Textarea readonly>
@@ -25,7 +46,7 @@ Vence o time que tiver maior número de gols ao final do tempo da partida.
             <label>
                 <!--https://mundoeducacao.uol.com.br/matematica/sistema-numeracao.htm  ↑←↓→-->
                 <b>Algarismos:</b>
-                <label class="radioop"><input name="alga" type="radio" value="Arab"/>Indú-Arabíco</label>
+                <label class="radioop"><input name="alga" type="radio" value="Arab" checked/>Indú-Arabíco</label>
                 <label class="radioop"><input name="alga" type="radio" value="Roma"/>Romanos</label>
                 <label class="radioop"><input name="alga" type="radio" value="Cune"/>Cuneiformes</label>
                 <label class="radioop"><input name="alga" type="radio" value="Egip"/>Egípcio</label>
@@ -34,8 +55,8 @@ Vence o time que tiver maior número de gols ao final do tempo da partida.
             </label>
             <label>
                 <b>Direcionais:</b>
-                <label class="radioop"><input id="wasd" name="dire" type="radio" value="wasd"/><img src="./assets/WASD.png"></label>
-                <label class="radioop"><input id="arow" name="dire" type="radio" value="arow"/><img src="./assets/ARROWS.png"></label>
+                <label class="radioop"><input name="dire" type="radio" value="arow" checked/><img src="./assets/ARROWS.png"></label>
+                <label class="radioop"><input name="dire" type="radio" value="wasd"/><img src="./assets/WASD.png"></label>
             </label>
             <label>
                 <b>Tempo de jogo (segundos):</b>
@@ -52,7 +73,7 @@ Vence o time que tiver maior número de gols ao final do tempo da partida.
             </label>
         </div>
         <button id="Iniciar" tabindex="1" autofocus>Iniciar</button>
-        <button id="Saveps" tabindex="1">Gravar Configurações</button>
+        <button id="Saveps">Gravar Configurações</button>
     </section>
     <main>
         <h1>NumberBall</h1>

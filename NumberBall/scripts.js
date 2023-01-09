@@ -1,3 +1,99 @@
+const gamerconfig = document.getElementById('gamerconfig');
+const alga = document.getElementsByName('alga');
+const dire = document.getElementsByName('dire');
+const inTime = document.getElementById('inTime');
+const inVel = document.getElementById('inVel');
+const Vmusic = document.getElementById('Vmusic');
+const Vefect = document.getElementById('Vefect');
+const Iniciar = document.getElementById('Iniciar');
+const Saveps = document.getElementById('Saveps');
+const ballgame = document.querySelector('.ballgame');
+const cabec = document.querySelectorAll('.cabec');
+const algar = document.querySelectorAll('.algar');
+let positions = {
+    ball:{x:0,y:0},
+    cabec:[{x:0,y:0}],
+    algar:[{x:0,y:0}]
+};
+let printok = true;
+let gameplay = false;
+let config = {
+    valga:0,
+    vdire:0,
+    timeg:0,
+    veloc:0,
+    vmusi:0,
+    vefec:0
+};
+
+//funções
+function upconfig(){
+    alga.forEach(function(item,index){
+        if (item.checked){
+            config.valga = index;
+        }
+    });
+    dire.forEach(function(item,index){
+        if (item.checked){
+            config.vdire = index
+        }
+    });
+    config.timeg = inTime.value;
+    config.veloc = inVel.value;
+    config.vmusi = Vmusic.value;
+    config.vefec = Vefect.value;
+    if (printok) console.log(config);
+}
+function saveconf(){
+    const d = new Date();
+    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = 'numberball' + "=" + JSON.stringify(config) + ";" + expires + ";path=/";
+}
+function showplayers(){
+    ballgame.style.top = positions.ball.y+'%';
+    ballgame.style.left = positions.ball.x+'%';
+    for (let i=0; i<9; i++){
+        cabec[i].style.top = positions.cabec[i].y+'%';
+        cabec[i].style.left = positions.cabec[i].x+'%';
+        algar[i].style.top = positions.algar[i].y+'%';
+        algar[i].style.left = positions.algar[i].x+'%';
+    }
+}
+function positioninit(){
+    positions.ball = {x:47,y:48};
+    positions.cabec[0] = {x:44,y:2};
+    positions.algar[0] = {x:44,y:90};
+    for (let i=1;i<10;i++) {
+        let cy = Math.random()*42;
+        let cx = Math.random()*88;
+        let ny = Math.random()*42+50;
+        let nx = Math.random()*88;
+        positions.cabec.push({x:cx,y:cy});
+        positions.algar.push({x:nx,y:ny});
+    }
+    showplayers();
+    if (printok) console.log(positions);
+}
+//script inicial
+if (document.cookie.indexOf('numberball')>=0){
+    config = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('numberball='))?.split("=")[1])
+    upconfig();
+}
+positioninit();
+
+//eventos
+Iniciar.addEventListener('click',function(){
+    upconfig();
+    gamerconfig.style.display = 'none';
+    gameplay = true;
+});
+
+Saveps.addEventListener('click',function(){
+    upconfig();
+    saveconf()
+})
+/*
 const bodypage = document.getElementById('bodypage');
 const textprint = document.getElementById('text');
 const nMordidas = document.getElementById('NMordidas');
@@ -337,3 +433,4 @@ Vefect.addEventListener('change', function(){
 
 changeColor();
 mycanvas.addEventListener('mouseup',clicar,true);
+*/

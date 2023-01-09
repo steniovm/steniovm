@@ -86,6 +86,12 @@ if (document.cookie.indexOf('boldarwinpreset')>=0){
     colorrgb[0].value = preset.red;
     colorrgb[1].value = preset.green;
     colorrgb[2].value = preset.blue;
+    colorrgb[0].style.accentColor = "rgb("+preset.red+",0,0)";
+    colorrgb[1].style.accentColor = "rgb(0,"+preset.green+",0)";
+    colorrgb[2].style.accentColor = "rgb(0,0,"+preset.blue+")";
+    mycanvas.style.backgroundColor = 'rgb(' + preset.red + ',' + preset.green + ',' + preset.blue + ')';
+    mostAmb.style.backgroundColor = 'rgb(' + preset.red + ',' + preset.green + ',' + preset.blue + ')';
+    mostBol.style.backgroundColor = 'rgb(' + (255-preset.red) + ',' + (255-preset.green) + ',' + (255-preset.blue) + ')';
 }else{
     changeColor();
 }

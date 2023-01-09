@@ -15,7 +15,8 @@ main{
     border-radius: 10px;
     padding: 4px;
     box-shadow: 0 0 1em;
-    /*max-width: 18vw;*/
+    max-width: 18vw;
+    min-width: 245px;
 }
 main>*,main>*>*{
     margin-top: 10px;
@@ -47,9 +48,6 @@ input[type="number"]{
     background-color: #acacfc;
     text-align: center;
 }
-#text{
-    max-height: 50vh;
-}
 #gamerconfig{
     display: flex;
     flex-direction: column;
@@ -71,21 +69,6 @@ input[type="number"]{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-#divmord{
-    display: flex;
-    background-image: linear-gradient(to right, red, yellow 20%, green);
-    justify-content: end;
-}
-#divpres{
-    display: flex;
-    background-image: linear-gradient(to right, red , blue 10%, red);
-    justify-content: end;
-}
-#NMordidas,#NPresas{
-    background-color: #e5e5e5;
-    padding: 0;
-    text-overflow: clip;
 }
 #divtime{
     display: flex;
@@ -141,9 +124,9 @@ label{
     border: solid #222 1px ;
     min-width: 33%;
 }
-canvas{
+/*canvas{
     cursor:url(./assets/crosshair.cur), default;
-}
+}*/
 .labelshow{
     background-color: goldenrod;
     min-width: 0;
@@ -163,38 +146,9 @@ canvas{
     vertical-align: middle;
     box-shadow: 0.1em 0.2em 0.4em #333;
 }
-#textlog{
-    max-width: 98%;
-    height: 39vh;
-    background-color: #fbfbfb;
-    border: solid 1px black;
-    resize: none;
-    font-size: x-small;
-    margin-top: 5px;
-    scrollbar-width: unset;
-    scrollbar-color: #444 #888;
-}
 #formconf{
     display: flex;
     flex-wrap: wrap;
-}
-#most{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor:url(./assets/crosshair.cur), default;
-}
-#mostAmb{
-    display: flex;
-    border: solid 1px black;
-    padding: auto;
-    min-width: 10vw;
-    min-height: 10vw;
-    justify-content: center;
-    align-items: center;
-}
-#mostBol{
-    border-radius: 50%;
 }
 h1{
     font-size: xx-large;
@@ -214,13 +168,13 @@ h4{
     margin-top: 2px;
     font-family: Gorditas;
 }
-footer{
+/*footer{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+}*/
 span{
     font-weight: bold;
 }
@@ -248,10 +202,14 @@ span{
 .radioop>img{
     height: 13vh;
 }
-#Soccerfield{
+#field{
+    position: relative;
     height: 100vh;
     margin: auto;
     box-shadow: 0 0 1em;
+}
+#Soccerfield{
+    height: 100vh;
 }
 #divplac, #divactiv{
     display: flex;
@@ -273,4 +231,38 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.ballgame,.cabec,.algar{
+    display: block;
+    position: absolute;
+    height: 8%;
+    /*superior esquerdo*/
+    top: 0%;
+    left: 0;
+}
+.ballgame{
+    height: 4%;
+    /*meio campo*/
+    top: 48%;
+    left: 47%;
+    /*inferior direito
+    top: 96%;
+    left: 94%;*/
+}
+#pteste{
+    /*cabec centro direito
+    top: 42%;
+    left: 88%;*/
+    /*algar centro direito
+    top: 50%;
+    left: 88%;*/
+    /*inferior direito
+    top: 92%;
+    left: 88%;*/
+    /*gole cabs
+    top: 2%;
+    left: 44%;*/
+    /*gole numb
+    top: 90%;
+    left: 44%;*/
 }
