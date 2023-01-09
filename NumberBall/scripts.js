@@ -1,3 +1,4 @@
+const LIMITS = {top:0,left:0,down:92,right:88,downb:96,rightb:94};
 const gamerconfig = document.getElementById('gamerconfig');
 const alga = document.getElementsByName('alga');
 const dire = document.getElementsByName('dire');
@@ -6,17 +7,22 @@ const inVel = document.getElementById('inVel');
 const Vmusic = document.getElementById('Vmusic');
 const Vefect = document.getElementById('Vefect');
 const Iniciar = document.getElementById('Iniciar');
+const bRestart = document.getElementById('bRestart');
 const Saveps = document.getElementById('Saveps');
 const ballgame = document.querySelector('.ballgame');
 const cabec = document.querySelectorAll('.cabec');
 const algar = document.querySelectorAll('.algar');
+const playactiv = document.getElementById('playactiv');
 let positions = {
     ball:{x:0,y:0},
     cabec:[{x:0,y:0}],
     algar:[{x:0,y:0}]
 };
+let bollvec = {dx:0,dy:0};
 let printok = true;
 let gameplay = false;
+let playac = 0;
+let direc = 0;
 let config = {
     valga:0,
     vdire:0,
@@ -25,6 +31,7 @@ let config = {
     vmusi:0,
     vefec:0
 };
+let direcbt={up:"",left:"",down:"",right:""};
 
 //funções
 function upconfig(){
@@ -66,9 +73,9 @@ function positioninit(){
     positions.algar[0] = {x:44,y:90};
     for (let i=1;i<10;i++) {
         let cy = Math.random()*42;
-        let cx = Math.random()*88;
+        let cx = Math.random()*LIMITS.right;
         let ny = Math.random()*42+50;
-        let nx = Math.random()*88;
+        let nx = Math.random()*LIMITS.right;
         positions.cabec.push({x:cx,y:cy});
         positions.algar.push({x:nx,y:ny});
     }
@@ -80,6 +87,56 @@ function shownambers(){
         algar[i].src="./assets/"+alga[config.valga].value+i+".svg";
     }
 }
+function direcbtdef(){
+    if (config.vdire==0){
+        direcbt.up = "ArrowUp";
+        direcbt.left = "ArrowLeft";
+        direcbt.down = "ArrowDown";
+        direcbt.right = "ArrowRight";
+    }else if (config.vdire==1){
+        direcbt.up = "w";
+        direcbt.left = "a";
+        direcbt.down = "s";
+        direcbt.right = "d";
+    }
+}
+async function playing(){
+    let a = undefined;
+    if (gameplay){
+        let dx;
+        let dy;
+        a = setInterval(function(){
+            if (positions.ball.x < LIMITS.left || positions.ball.x > LIMITS.rightb){
+                bollvec.dx *= -1;
+            }
+            if (positions.ball.y < LIMITS.top || positions.ball.y > LIMITS.downb){
+                bollvec.dy *= -1;
+            }
+            positions.ball.x += bollvec.dx;
+            positions.ball.y += bollvec.dy;
+            for (let i=0; i<10; i++){
+               dx = Math.random()*2-1;
+               dy = Math.random()*2-1;
+               if (positions.cabec[i].x + dx >= LIMITS.left && positions.cabec[i].x + dx <= LIMITS.right ){
+                positions.cabec[i].x += dx;
+               }
+               if (positions.cabec[i].y + dy >= LIMITS.top && positions.cabec[i].y + dy <= LIMITS.down ){
+                positions.cabec[i].y += dy;
+               }
+               if (i!=playac){
+                if (positions.algar[i].x + dx >= LIMITS.left && positions.algar[i].x + dx <= LIMITS.right ){
+                    positions.algar[i].x += dx;
+                }
+                if (positions.algar[i].y + dy >= LIMITS.top && positions.algar[i].y + dy <= LIMITS.down ){
+                    positions.algar[i].y += dy;
+                }
+               } 
+            }
+            showplayers();
+        },100*(1.1-config.veloc));
+    }else clearInterval(a);
+}
+
 //script inicial
 if (document.cookie.indexOf('numberball')>=0){
     config = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('numberball='))?.split("=")[1])
@@ -91,13 +148,72 @@ positioninit();
 Iniciar.addEventListener('click',function(){
     upconfig();
     shownambers();
+    direcbtdef();
     gamerconfig.style.display = 'none';
     gameplay = true;
+    playing();
 });
 
 Saveps.addEventListener('click',function(){
     upconfig();
     saveconf()
+});
+
+bRestart.addEventListener('click',function(){
+    gameplay = false;
+    gamerconfig.style.display = 'flex';
+})
+
+document.addEventListener('keydown',function(e){
+    if (gameplay){
+        const key = e.key;
+        console.log(key)
+        switch (key){
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                playac = Number.parseInt(key);
+                playactiv.innerHTML = key;
+            break;
+            case direcbt.left:
+            case direcbt.left.toUpperCase():
+                if (playac!=0 && positions.algar[playac].x>LIMITS.left){
+                    positions.algar[playac].x -= 1;
+                }
+            break;
+            case direcbt.right:
+            case direcbt.right.toUpperCase():
+                if (playac!=0 && positions.algar[playac].x<LIMITS.right){
+                    positions.algar[playac].x += 1;
+                }
+            break;
+            case direcbt.up:
+            case direcbt.up.toUpperCase():
+                if (playac!=0 && positions.algar[playac].y>LIMITS.top){
+                    positions.algar[playac].y -= 1;
+                }
+            break;
+            case direcbt.down:
+            case direcbt.down.toUpperCase():
+                if (playac!=0 && positions.algar[playac].y<LIMITS.down){
+                    positions.algar[playac].y += 1;
+                }
+            break;
+            case "<":
+            case ",":
+            case ">":
+            case ".":
+                playactiv.innerHTML = key;
+            break;
+        }
+        console.log(e.key);
+    }
 })
 /*
 const bodypage = document.getElementById('bodypage');
