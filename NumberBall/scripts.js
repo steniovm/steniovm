@@ -4,6 +4,7 @@ const gamerconfig = document.getElementById('gamerconfig');
 const alga = document.getElementsByName('alga');
 const dire = document.getElementsByName('dire');
 const inTime = document.getElementById('inTime');
+const ltime = document.getElementById('ltime');
 const inVel = document.getElementById('inVel');
 const Vmusic = document.getElementById('Vmusic');
 const Vefect = document.getElementById('Vefect');
@@ -33,6 +34,7 @@ let printok = true;
 let gameplay = false;
 let playac = undefined;
 let direc = 0;
+let timergame = 0;
 let config = {
     valga:0,
     vdire:0,
@@ -44,6 +46,7 @@ let config = {
 let direcbt={up:"",left:"",down:"",right:""};
 let placar=[0,0];
 let finterval = undefined;
+let ginterval = undefined;
 
 //funções
 //carrega as configurações
@@ -145,6 +148,7 @@ async function playing(){
         setTimeout(function(){
             music.play();
         },1000);
+        //movimentos
         finterval = setInterval(function(){
             //detecta colisão bola parede lateral
             if (positions.ball.x < LIMITS.left || positions.ball.x > LIMITS.rightb){
@@ -209,6 +213,23 @@ async function playing(){
             //atualiza posição dos jogadores
             showplayers();
         },100*(1.1-config.veloc));//timer conforme velocidade configurada
+        //tempo de jogo
+        ginterval = setInterval(function(){
+            if (timergame<config.timeg){
+                timergame += 0.1;
+                ltime.innerHTML = Math.round(timergame*10)/10;
+            }else{
+                gameplay = false;
+                music.pause();
+                if (placar[1]>placar[0]) {
+                    winssong.play();
+                }else{
+                    oversong.play();
+                }
+                clearInterval(finterval);
+                clearInterval(ginterval);
+            }
+        },100)
     }
 }
 
@@ -241,12 +262,16 @@ bRestart.addEventListener('click',function(){
     gameplay = false;
     gamerconfig.style.display = 'flex';
     music.pause();
-    if (placar[1]>placar[0]) {
-        winssong.play();
-    }else{
-        oversong.play();
-    }
+    timergame = 0;
+    playac = undefined;
     clearInterval(finterval);
+    clearInterval(ginterval);
+    positions = {
+        ball:{x:0,y:0},
+        cabec:[{x:0,y:0}],
+        algar:[{x:0,y:0}]
+    };
+    positioninit();
 });
 //pressionar teclas
 document.addEventListener('keydown',function(e){
