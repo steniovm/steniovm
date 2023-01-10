@@ -1,4 +1,4 @@
-const LIMITS = {top:0,left:0,down:92,right:88,downb:96,rightb:94};
+const LIMITS = {top:0,left:0,down:92,right:88,downb:96,rightb:94,gleft:35,gright:57};
 const VELOCOM = 0.5;
 const gamerconfig = document.getElementById('gamerconfig');
 const alga = document.getElementsByName('alga');
@@ -15,6 +15,14 @@ const cabec = document.querySelectorAll('.cabec');
 const algar = document.querySelectorAll('.algar');
 const playactiv = document.getElementById('playactiv');
 const arrow = document.getElementById('arrow');
+const plc = document.getElementById('plc');
+const pla = document.getElementById('pla');
+const music = new Audio("./assets/jigsaw-puzzle-background.mp3");
+music.loop = true;
+const apitosong = new Audio("./assets/apitodefutebol.mp3");
+const oversong = new Audio("./assets/defeat-sound.mp3");
+const winssong = new Audio("./assets/applause_bbc.mp3");
+const goalsong = new Audio("./assets/goool.mp3");
 let positions = {
     ball:{x:0,y:0},
     cabec:[{x:0,y:0}],
@@ -34,6 +42,7 @@ let config = {
     vefec:0
 };
 let direcbt={up:"",left:"",down:"",right:""};
+let placar=[0,0];
 let finterval = undefined;
 
 //funções
@@ -53,6 +62,11 @@ function upconfig(){
     config.veloc = inVel.value;
     config.vmusi = Vmusic.value;
     config.vefec = Vefect.value;
+    music.volume = config.vmusi;
+    apitosong.volume = config.vefec;
+    oversong.volume = config.vefec;
+    winssong.volume = config.vefec;
+    goalsong.volume = config.vefec;
     if (printok) console.log(config);
 }
 //salva configurações em cookie
@@ -113,18 +127,38 @@ function direcbtdef(){
         direcbt.right = "d";
     }
 }
+//marca o gol. parametro: 0-cabeçudos 1-algarismos
+function newgool(team){
+    placar[team]++; //
+    plc.innerHTML = placar[0];
+    pla.innerHTML = placar[1];
+    positions.ball = {x:47,y:48};
+    goalsong.play();
+    showplayers();
+}
 //executa a partida dentro do tempo
 async function playing(){
     if (gameplay){
         let dx;
         let dy;
+        apitosong.play();
+        setTimeout(function(){
+            music.play();
+        },1000);
         finterval = setInterval(function(){
-            //detecta colisão bola parede
+            //detecta colisão bola parede lateral
             if (positions.ball.x < LIMITS.left || positions.ball.x > LIMITS.rightb){
                 bollvec.dx *= -1;
             }
+            //detecta colisão bola parede de gol
             if (positions.ball.y < LIMITS.top || positions.ball.y > LIMITS.downb){
-                bollvec.dy *= -1;
+                //detecta se foi gol
+                if (positions.ball.x >= LIMITS.gleft && positions.ball.x <= LIMITS.gright){
+                    if (positions.ball.y <= LIMITS.top) newgool(1);
+                    if (positions.ball.y >= LIMITS.downb) newgool(0);
+                }else{
+                    bollvec.dy *= -1;
+                }
             }
             //detecta colisão bola jogador
             for (let i=0;i<10;i++){
@@ -206,6 +240,12 @@ Saveps.addEventListener('click',function(){
 bRestart.addEventListener('click',function(){
     gameplay = false;
     gamerconfig.style.display = 'flex';
+    music.pause();
+    if (placar[1]>placar[0]) {
+        winssong.play();
+    }else{
+        oversong.play();
+    }
     clearInterval(finterval);
 });
 //pressionar teclas
