@@ -258,6 +258,13 @@ span{
     top: 48%;
     left: 47%;
 }
+#arrow{
+    position: absolute;
+    height: 12vh;
+    top:10%;
+    left: 70%;
+    transform: rotate(0deg);
+}
 #pteste{
     /*cabec centro direito
     top: 42%;
