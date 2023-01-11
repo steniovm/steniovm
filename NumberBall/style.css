@@ -260,7 +260,7 @@ span{
     background-color: transparent;
     border: solid 2px #00000080;
     border-radius: 50%;
-    /*display: none;*/
+    display: none;
 }
 .cellbox>div{
     display: flex;
