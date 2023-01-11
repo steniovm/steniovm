@@ -1,5 +1,6 @@
 const LIMITS = {top:0,left:0,down:92,right:88,downb:96,rightb:94,gleft:35,gright:57};
 const VELOCOM = 0.5;
+const screen = document.querySelector('html');
 const gamerconfig = document.getElementById('gamerconfig');
 const alga = document.getElementsByName('alga');
 const dire = document.getElementsByName('dire');
@@ -34,7 +35,7 @@ let positions = {
     algar:[{x:0,y:0}]
 };
 let bollvec = {dx:0,dy:0};
-let printok = true;
+let printok = false;
 let gameplay = false;
 let playac = undefined;
 let direc = 0;
@@ -284,6 +285,7 @@ async function playing(){
                 }
                 clearInterval(finterval);
                 clearInterval(ginterval);
+                document.exitFullscreen()
             }
         },100);
     }
@@ -307,6 +309,7 @@ Iniciar.addEventListener('click',function(){
     gamerconfig.style.display = 'none';
     gameplay = true;
     playing();
+    enterfullscreem();
 });
 //botão salvar configurações
 Saveps.addEventListener('click',function(){
@@ -328,6 +331,7 @@ bRestart.addEventListener('click',function(){
         algar:[{x:0,y:0}]
     };
     positioninit();
+    document.exitFullscreen()
 });
 //pressionar teclas
 document.addEventListener('keydown',function(e){
@@ -407,3 +411,14 @@ cellnum.forEach(function(item,index){
         clearInterval(numinterval);
     });
 });
+function enterfullscreem(){
+    if (screen.requestFullscreen){
+        screen.requestFullscreen();
+    }
+    else if (screen.msRequestFullscreen){
+        screen.msRequestFullscreen();
+    }
+    else if (screen.mozRequestFullScreen){
+        screen.mozRequestFullScreen();
+    }
+}

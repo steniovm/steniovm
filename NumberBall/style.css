@@ -282,3 +282,9 @@ span{
     top:20%;
     left:80%;
 }
+#cellboxexitfs{
+    border-radius: 5%;
+    top:5%;
+    left:5%;
+    height: 10vh;
+}
