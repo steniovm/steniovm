@@ -16,6 +16,8 @@ const cabec = document.querySelectorAll('.cabec');
 const algar = document.querySelectorAll('.algar');
 const cellbox = document.querySelectorAll('.cellbox');
 const celldir = document.querySelectorAll('.celldir');
+const cellgir = document.querySelectorAll('.cellgir');
+const cellnum = document.querySelectorAll('.cellnum');
 const playactiv = document.getElementById('playactiv');
 const arrow = document.getElementById('arrow');
 const plc = document.getElementById('plc');
@@ -140,25 +142,46 @@ function moveplayarrow(ar){
     switch(ar){
         case 0:
             if (playac && positions.algar[playac].y>LIMITS.top){
-                positions.algar[playac].y -= 1;
+                positions.algar[playac].y -= 2;
             }
         break;
         case 1:
             if (playac && positions.algar[playac].x>LIMITS.left){
-                positions.algar[playac].x -= 1;
+                positions.algar[playac].x -= 2;
             }
         break;
         case 2:
             if (playac && positions.algar[playac].x<LIMITS.right){
-                positions.algar[playac].x += 1;
+                positions.algar[playac].x += 2;
             }
         break;
         case 3:
             if (playac && positions.algar[playac].y<LIMITS.down){
-                positions.algar[playac].y += 1;
+                positions.algar[playac].y += 2;
             }
         break;
     }
+}
+//gira a direção do chute: 0-esquerda 1-direita
+function girarrow(se){
+    if (se==0){
+        if (direc > -90) {
+            direc -= 5;
+            arrow.style.transform = "rotate("+direc+"deg)";
+        }
+    }else if (se==1){
+        if (direc < 90) {
+            direc += 5;
+            arrow.style.transform = "rotate("+direc+"deg)";
+        }
+    }
+}
+//seleciona o jogador controlado
+function numselect(cr){
+    if (playac) algar[playac].classList.toggle('enf');
+    playac = cr;
+    playactiv.innerHTML = cr;
+    algar[playac].classList.toggle('enf');
 }
 //marca o gol. parametro: 0-cabeçudos 1-algarismos
 function newgool(team){
@@ -320,10 +343,7 @@ document.addEventListener('keydown',function(e){
             case "7":
             case "8":
             case "9":
-                if (playac) algar[playac].classList.toggle('enf');
-                playac = Number.parseInt(key);
-                playactiv.innerHTML = key;
-                algar[playac].classList.toggle('enf');
+                numselect(Number.parseInt(key));
             break;
             //se direcional move o jogador selecionado
             case direcbt.left:
@@ -345,21 +365,21 @@ document.addEventListener('keydown',function(e){
             //se < ou > rotaciona o vetor do chute
             case "<":
             case ",":
-                if (direc > -90) {
-                    direc -= 2;
-                    arrow.style.transform = "rotate("+direc+"deg)";
-                }
+                girarrow(0);
             break;
             case ">":
             case ".":
-                if (direc < 90) {
-                    direc += 2;
-                    arrow.style.transform = "rotate("+direc+"deg)";
-                }
+                girarrow(1);
             break;
         }
     }
 });
 celldir.forEach(function(item,index){
     item.addEventListener('click',function(){moveplayarrow(index)});
-})
+});
+cellgir.forEach(function(item,index){
+    item.addEventListener('click',function(){girarrow(index)});
+});
+cellnum.forEach(function(item,index){
+    item.addEventListener('click',function(){numselect(index+1)});
+});
