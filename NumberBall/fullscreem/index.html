@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        * {
+           /*** As propriedades padding e a border não serão atribuídas a largura do elemento. */
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
+        }
+        
+        body {
+           margin: 0;
+           padding: 0;
+        }
+        
+        #container {
+           position: relative;
+           top: 0;
+           left: 0;
+           bottom: 0;
+           right: 0;
+           overflow: auto;
+        }
+        
+        /*** A barra fica 100% da largura da tela. */
+        #fullScreenTools {
+           position: relative;
+           display: none;
+           width: 100%;
+           padding: 5px;
+           text-align: right;
+           background-color: #000000;
+           opacity:0.65;
+           -moz-opacity: 0.65;
+           filter: alpha(opacity=65);
+        
+        }
+        /*** Aqui a barra se torna um botão. */
+        #fullScreenTools.botao {
+           position: fixed;
+           top: 50px;
+           right: 50px;
+           height: 50px;
+           width: 50px;
+           padding: 0;
+           border: 1px solid #fff;
+           background-color: transparent;
+        }
+        #fullScreenTools.botao:hover {
+           width: 60px;
+           height: 60px;
+           top: 45px;
+           right: 45px;
+        }
+        #closer {
+           margin-right: 10px;
+           color: #fff;
+           border: none;
+           border: 1px solid #fff;
+           background-color: transparent;
+        }
+        #closer.icon {
+           width: 100%;
+           height: 100%;
+           margin-right: 0;
+           font-size: 23px;
+           color: #fff;
+           border: none;
+           background-color: transparent;
+        }
+        #closer.icon:hover {
+           font-size: 30px;
+        }
+        </style>
+   <title>fullscreen</title>
+</head>
+<body onload="docReady()">
+
+   <div id="container">
+      <div id="fullScreenTools" class="botao">
+         <input id="closer" class="icon" name="closer" type="button" value="X">
+      </div>
+      <img id="trigger" src="http://guiaviajarmelhor.com.br/wp-content/uploads/2015/05/Escocia-edimburgo.png" width="20%" alt="">
+   </div>
+
+</body>
+<script type="text/javascript">
+"use strict";
+//—- V A R I A V E I S
+var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+var fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled;
+var elem;
+var tools;
+var trigger;
+var isFull;
+var method;       // Se for o padrao, recebe uma string vazia. Se for webkit, ms ou moz, recebe o prefixo correspondente.
+var closer;       //  Elemento que quando clicado, sai da tela cheia.
+var trigger_w;
+
+//—- F U N C O E S
+var enterFullScreen;       // Funcao entra no modo tela cheia
+var exitFullScreen;        // Funcao sai do modo tela cheia
+var isFullScreen;
+/**
+*  Ativa modo fullscreen
+*/
+enterFullScreen = function(element,callBack) {
+
+isFull = false;
+method = null;
+
+element.style.position = "absolute";
+
+if (element.requestFullscreen) {
+   element.requestFullscreen();
+   isFull = true;
+   method = "";
+} else if (element.msRequestFullscreen) {
+   element.msRequestFullscreen();
+   isFull = true;
+   method = "ms";
+} else if (element.mozRequestFullScreen) {
+   element.mozRequestFullScreen();
+   isFull = true;
+   method = "moz";
+} else if (element.webkitRequestFullscreen) {
+   element.webkitRequestFullscreen();
+   isFull = true;
+   method = "webkit";
+}
+
+if(isFull) {
+   if(callBack!=undefined) callBack();
+}
+
+}
+
+/**
+*   Desativa modo fullscreen
+*/
+exitFullScreen = function(element, callBack) {
+
+element.style.position = "initial";
+
+if(document.exitFullscreen) {
+   document.exitFullscreen();
+   isFull = false;
+} else if(document.mozCancelFullScreen) {
+   document.mozCancelFullScreen();
+   isFull = false;
+} else if(document.webkitExitFullscreen) {
+   document.webkitExitFullscreen();
+   isFull = false;
+}
+
+if(isFull===false) {
+   if(callBack!=undefined) callBack();
+}
+}
+/**
+*  Determina se esta em modo tela cheia ou nao
+*/
+isFullScreen = function() {
+   return document.fullScreen ||
+          document.msFullScreen ||
+          document.mozFullScreen ||
+          document.webkitIsFullScreen;
+}
+// O elemento a ser exibido em fullscreen
+elem = document.getElementById("container");
+
+// Barra/botao exibido em fullscreen 
+tools = document.getElementById("fullScreenTools");
+
+// Elemento da página que ao ser clicado ativa o fullscreen
+trigger = document.getElementById("trigger");
+
+// Como no projeto o trigger é uma imagem, e a imagem está sendo exibida
+// de forma reduzida, guardo a largura com que ela esta sendo exibida para 
+// recuperar quando o modo fullscreen for desativado.
+trigger_w = trigger.width;
+
+// Elemento da página que ao ser clicado desativa o fullscreen
+closer = document.getElementById("closer");
+
+/**
+*   Adicionando sensor de evento ao elemento que ativam a tela cheia
+*/
+trigger.addEventListener("click", function() {
+   this.style.width = "100%";
+   enterFullScreen(elem, function() {
+      if( isFull ) {
+         tools.style.display = "block";
+      }
+   });
+});
+
+/**
+*   Adicionando sensor de evento ao botão que desativa a tela cheia
+*/
+closer.addEventListener("click", function() {
+   trigger.style.width = trigger_w + "px";    //"initial";
+   exitFullScreen(elem, function() {
+      if( !isFull ) {
+         tools.style.display = "none";
+      }
+   });
+
+});
+
+/*
+*  Entra em tela cheia
+*/
+enterFullScreen = function(element,callBack) {
+
+   isFull = false;
+   method = null;
+
+   element.style.position = "absolute";
+
+   if (element.requestFullscreen) {
+      element.requestFullscreen();
+      isFull = true;
+      method = "";
+   } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+      isFull = true;
+      method = "ms";
+   } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+      isFull = true;
+      method = "moz";
+   } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+      isFull = true;
+      method = "webkit";
+   }
+
+   if(isFull) {
+      if(callBack!=undefined) callBack();
+   }
+
+}
+
+/**
+*   Sai da tela cheia
+*/
+exitFullScreen = function(element, callBack) {
+
+element.style.position = "initial";
+
+if(document.exitFullscreen) {
+   document.exitFullscreen();
+   isFull = false;
+} else if(document.mozCancelFullScreen) {
+   document.mozCancelFullScreen();
+   isFull = false;
+} else if(document.webkitExitFullscreen) {
+   document.webkitExitFullscreen();
+   isFull = false;
+}
+
+if(isFull===false) {
+   if(callBack!=undefined) callBack();
+}
+
+}
+
+
+</script>
+</html>

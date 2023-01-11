@@ -51,6 +51,9 @@ let direcbt={up:"",left:"",down:"",right:""};
 let placar=[0,0];
 let finterval = undefined;
 let ginterval = undefined;
+let dirinterval = undefined;
+let girinterval = undefined;
+let numinterval = undefined;
 
 //funções
 //carrega as configurações
@@ -375,11 +378,32 @@ document.addEventListener('keydown',function(e){
     }
 });
 celldir.forEach(function(item,index){
-    item.addEventListener('click',function(){moveplayarrow(index)});
+    item.addEventListener('pointerdown',function(){
+        dirinterval = setInterval(function(){
+            moveplayarrow(index);
+        },50);
+    });
+    item.addEventListener('pointerup',function(){
+        clearInterval(dirinterval);
+    });
 });
 cellgir.forEach(function(item,index){
-    item.addEventListener('click',function(){girarrow(index)});
+    item.addEventListener('pointerdown',function(){
+        girinterval = setInterval(function(){
+            girarrow(index);
+        },50);    
+    });
+    item.addEventListener('pointerup',function(){
+        clearInterval(girinterval);
+    });
 });
 cellnum.forEach(function(item,index){
-    item.addEventListener('click',function(){numselect(index+1)});
+    item.addEventListener('pointerdown',function(){
+        numinterval = setInterval(function(){
+            numselect(index+1);
+        },50);
+    });
+    item.addEventListener('pointerup',function(){
+        clearInterval(numinterval);
+    });
 });
