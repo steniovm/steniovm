@@ -199,6 +199,12 @@ span{
     margin-top: 0;
     box-shadow: 0 0 1em;
 }
+#fieldprotect{
+    position: absolute;
+    height: 100vh;
+    width: 80vh;
+    margin: auto;
+}
 #Soccerfield{
     height: 100vh;
     max-width: 100vw;
@@ -288,4 +294,9 @@ span{
     top:5%;
     left:5%;
     height: 10vh;
+}
+.cellgir{
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
