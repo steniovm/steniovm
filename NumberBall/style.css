@@ -15,8 +15,9 @@ main{
     border-radius: 10px;
     padding: 4px;
     box-shadow: 0 0 1em;
-    max-width: 18vw;
-    min-width: 245px;
+    /*max-width: 18vw;*/
+    /*min-width: 245px;*/
+    font-size: xx-large;
 }
 main>*,main>*>*{
     margin-top: 10px;
@@ -51,8 +52,8 @@ input[type="number"]{
 #gamerconfig{
     display: flex;
     flex-direction: column;
-    top: 10vh;
-    left: 20%;
+    top: 2vh;
+    left: 5%;
     position: fixed;
     z-index: 1;
     background-color: #7458e4;
@@ -64,6 +65,7 @@ input[type="number"]{
     max-width: 80vw;
     box-shadow: 0 0 1em;
     /*display: none;*/
+    font-size: xx-large;
 }
 #gamerplay{
     display: flex;
@@ -82,7 +84,7 @@ input[type="number"]{
     align-items: center;
 }
 #Iniciar, #bRestart,#Saveps{
-    max-width: 150px;
+    max-width: 400px;
     border-radius: 5px;
     background-color: greenyellow;
     color: blueviolet;
@@ -92,10 +94,10 @@ input[type="number"]{
     padding: 0 15px;
     font-family: Gorditas;
     box-shadow: 0.2em 0.3em 0.4em #333;
+    font-size: xx-large;
 }
 #Saveps{
     background-color: #d92689;
-    font-size: small;
     color: #ebd602;
 }
 textarea{
@@ -129,14 +131,14 @@ label{
     min-width: 0;
 }
 .labeltime{
-    background-color: #acacfc;
+    background-color: #fcfcac;
     min-width: 0;
-    width: 40px;
-    height: 40px;
+    width: 65px;
+    height: 60px;
     padding: 10px 1px;
     border-radius: 50%;
     text-align: center;
-    font-size: large;
+    font-size: xx-large;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
@@ -144,7 +146,7 @@ label{
 }
 #formconf{
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
 }
 h1{
     font-size: xx-large;
@@ -194,6 +196,7 @@ span{
     position: relative;
     height: 100vh;
     margin: auto;
+    margin-top: 0;
     box-shadow: 0 0 1em;
 }
 #Soccerfield{
@@ -257,7 +260,7 @@ span{
     background-color: transparent;
     border: solid 2px #00000080;
     border-radius: 50%;
-    display: none;
+    /*display: none;*/
 }
 .cellbox>div{
     display: flex;
@@ -277,5 +280,5 @@ span{
 #cellcontrol{
     border-radius: 5%;
     top:20%;
-    left:65%;
+    left:80%;
 }
