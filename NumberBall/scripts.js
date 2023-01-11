@@ -14,6 +14,8 @@ const Saveps = document.getElementById('Saveps');
 const ballgame = document.querySelector('.ballgame');
 const cabec = document.querySelectorAll('.cabec');
 const algar = document.querySelectorAll('.algar');
+const cellbox = document.querySelectorAll('.cellbox');
+const celldir = document.querySelectorAll('.celldir');
 const playactiv = document.getElementById('playactiv');
 const arrow = document.getElementById('arrow');
 const plc = document.getElementById('plc');
@@ -58,7 +60,7 @@ function upconfig(){
     });
     dire.forEach(function(item,index){
         if (item.checked){
-            config.vdire = index
+            config.vdire = index;
         }
     });
     config.timeg = inTime.value;
@@ -128,6 +130,34 @@ function direcbtdef(){
         direcbt.left = "a";
         direcbt.down = "s";
         direcbt.right = "d";
+    }else if (config.vdire==2){
+        cellbox[0].style.display = "flex";
+        cellbox[1].style.display = "flex";
+    }
+}
+//move jogador selecionado
+function moveplayarrow(ar){
+    switch(ar){
+        case 0:
+            if (playac && positions.algar[playac].y>LIMITS.top){
+                positions.algar[playac].y -= 1;
+            }
+        break;
+        case 1:
+            if (playac && positions.algar[playac].x>LIMITS.left){
+                positions.algar[playac].x -= 1;
+            }
+        break;
+        case 2:
+            if (playac && positions.algar[playac].x<LIMITS.right){
+                positions.algar[playac].x += 1;
+            }
+        break;
+        case 3:
+            if (playac && positions.algar[playac].y<LIMITS.down){
+                positions.algar[playac].y += 1;
+            }
+        break;
     }
 }
 //marca o gol. parametro: 0-cabeçudos 1-algarismos
@@ -166,10 +196,10 @@ async function playing(){
             }
             //detecta colisão bola jogador
             for (let i=0;i<10;i++){
-                let ddx = (positions.ball.x)-(positions.cabec[i].x)-4;
-                let ddy = (positions.ball.y)-(positions.cabec[i].y)-4;
+                let ddx = (positions.ball.x+2)-(positions.cabec[i].x+4);
+                let ddy = (positions.ball.y+2)-(positions.cabec[i].y+4);
                 let dd = Math.sqrt(Math.pow(ddx,2)+Math.pow(ddy,2));
-                if (dd<=8){
+                if (dd<=6){
                     bollvec.dy = VELOCOM;
                     if (bollvec.dx >=0) {bollvec.dx = VELOCOM;}
                     else {bollvec.dx = -VELOCOM;}
@@ -229,7 +259,7 @@ async function playing(){
                 clearInterval(finterval);
                 clearInterval(ginterval);
             }
-        },100)
+        },100);
     }
 }
 
@@ -298,27 +328,19 @@ document.addEventListener('keydown',function(e){
             //se direcional move o jogador selecionado
             case direcbt.left:
             case direcbt.left.toUpperCase():
-                if (playac && positions.algar[playac].x>LIMITS.left){
-                    positions.algar[playac].x -= 1;
-                }
+                moveplayarrow(1);
             break;
             case direcbt.right:
             case direcbt.right.toUpperCase():
-                if (playac && positions.algar[playac].x<LIMITS.right){
-                    positions.algar[playac].x += 1;
-                }
+                moveplayarrow(2);
             break;
             case direcbt.up:
             case direcbt.up.toUpperCase():
-                if (playac && positions.algar[playac].y>LIMITS.top){
-                    positions.algar[playac].y -= 1;
-                }
+                moveplayarrow(0);
             break;
             case direcbt.down:
             case direcbt.down.toUpperCase():
-                if (playac && positions.algar[playac].y<LIMITS.down){
-                    positions.algar[playac].y += 1;
-                }
+                moveplayarrow(3);
             break;
             //se < ou > rotaciona o vetor do chute
             case "<":
@@ -338,3 +360,6 @@ document.addEventListener('keydown',function(e){
         }
     }
 });
+celldir.forEach(function(item,index){
+    item.addEventListener('click',function(){moveplayarrow(index)});
+})

@@ -36,6 +36,41 @@
         <img class="algar" src="./assets/numeros.svg"/>
         <img id="arrow" src="./assets/direction.svg"/>
     </div>
+    <div id="celldirec" class="cellbox">
+        <div>
+            <div class="cellbt celldir"><img id="cellbtup" src="./assets/dup.svg"/></div>
+        </div>
+        <div>
+            <div class="cellbt celldir"><img id="cellbtlf" src="./assets/dlf.svg"/></div>
+            <div class="cellbt"></div>
+            <div class="cellbt celldir"><img id="cellbtrg" src="./assets/drg.svg"/></div>
+        </div>
+        <div>
+            <div class="cellbt celldir"><img id="cellbtdw" src="./assets/ddw.svg"/></div>
+        </div>
+    </div>
+    <div id="cellcontrol" class="cellbox">
+        <div>
+            <div class="cellbt"><img id="cellbt1" src="./assets/Nbt1.svg"/></div>
+            <div class="cellbt"><img id="cellbt2" src="./assets/Nbt2.svg"/></div>
+            <div class="cellbt"><img id="cellbt3" src="./assets/Nbt3.svg"/></div>
+        </div>
+        <div>
+            <div class="cellbt"><img id="cellbt4" src="./assets/Nbt4.svg"/></div>
+            <div class="cellbt"><img id="cellbt5" src="./assets/Nbt5.svg"/></div>
+            <div class="cellbt"><img id="cellbt6" src="./assets/Nbt6.svg"/></div>
+        </div>
+        <div>
+            <div class="cellbt"><img id="cellbt7" src="./assets/Nbt7.svg"/></div>
+            <div class="cellbt"><img id="cellbt8" src="./assets/Nbt8.svg"/></div>
+            <div class="cellbt"><img id="cellbt9" src="./assets/Nbt9.svg"/></div>
+        </div>
+        <div>
+            <div class="cellbt"><img id="cellbtl" src="./assets/dlf.svg"/></div>
+            <div class="cellbt"></div>
+            <div class="cellbt"><img id="cellbtr" src="./assets/drg.svg"/></div>
+        </div>
+    </div>
     <section id="gamerconfig">
         <b>Instruções</b>
         <Textarea readonly>
@@ -56,11 +91,13 @@ Vence o time que tiver maior número de gols ao final do tempo da partida.
                 <label class="radioop"><input name="alga" type="radio" value="Egip"/>Egípcio</label>
                 <label class="radioop"><input name="alga" type="radio" value="Chin"/>Chinês</label>
                 <label class="radioop"><input name="alga" type="radio" value="Maia"/>Maia</label>
+                <label class="radioop"><input name="alga" type="radio" value="Bina"/>Binário</label>
             </label>
             <label>
                 <b>Direcionais:</b>
                 <label class="radioop"><input name="dire" type="radio" value="arow" checked/><img src="./assets/ARROWS.png"></label>
                 <label class="radioop"><input name="dire" type="radio" value="wasd"/><img src="./assets/WASD.png"></label>
+                <label class="radioop"><input name="dire" type="radio" value="touc"/><img src="./assets/touch-screen.svg"></label>
             </label>
             <label>
                 <b>Tempo de jogo (segundos):</b>

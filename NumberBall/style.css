@@ -51,8 +51,8 @@ input[type="number"]{
 #gamerconfig{
     display: flex;
     flex-direction: column;
-    top: 1vh;
-    left: 2%;
+    top: 10vh;
+    left: 20%;
     position: fixed;
     z-index: 1;
     background-color: #7458e4;
@@ -60,7 +60,7 @@ input[type="number"]{
     border-radius: 10px;
     padding: 5px;
     max-height: 100vh;
-    width: min-content;
+    /*width: min-content;*/
     max-width: 80vw;
     box-shadow: 0 0 1em;
     /*display: none;*/
@@ -100,7 +100,7 @@ input[type="number"]{
 }
 textarea{
     height:17vh;
-    width: 55vw;
+    /*width: 50vw;*/
     resize: none;
     font-size: large;
     background-color: #e5f5f5;
@@ -122,15 +122,11 @@ label{
     flex-direction: column;
     padding: 0 4px;
     border: solid #222 1px ;
-    min-width: 33%;
+    min-width: 25%;
 }
-/*canvas{
-    cursor:url(./assets/crosshair.cur), default;
-}*/
 .labelshow{
     background-color: goldenrod;
     min-width: 0;
-    /*width: 100%;*/
 }
 .labeltime{
     background-color: #acacfc;
@@ -168,18 +164,10 @@ h4{
     margin-top: 2px;
     font-family: Gorditas;
 }
-/*footer{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}*/
 span{
     font-weight: bold;
 }
 .myimg{
-    /*height: 6vh;*/
     min-height:60px;
 }
 .divinfo{
@@ -200,7 +188,7 @@ span{
     font-weight: bold;
 }
 .radioop>img{
-    height: 13vh;
+    height: 10vh;
 }
 #field{
     position: relative;
@@ -228,12 +216,6 @@ span{
     background-color: #ffff17;
     max-width: 2em;
 }
-/*#playactiv{
-    font-weight: bold;
-    text-align: center;
-    background-color: #ffff17;
-    width: 2em;
-}*/
 #footer{
     display: flex;
     flex-direction: column;
@@ -265,20 +247,37 @@ span{
     left: 70%;
     transform: rotate(0deg);
 }
-#pteste{
-    /*cabec centro direito
-    top: 42%;
-    left: 88%;*/
-    /*algar centro direito
-    top: 50%;
-    left: 88%;*/
-    /*inferior direito
-    top: 92%;
-    left: 88%;*/
-    /*gole cabs
-    top: 2%;
-    left: 44%;*/
-    /*gole numb
-    top: 90%;
-    left: 44%;*/
+.cellbox{
+    position: absolute;
+    top:60%;
+    left:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: solid 2px #00000080;
+    border-radius: 50%;
+    display: none;
+}
+.cellbox>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cellbt{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border: solid 2px #00000080;
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    padding: 5%;
+}
+#cellcontrol{
+    border-radius: 5%;
+    top:20%;
+    left:65%;
+}
+#cellbtl,#cellbtr{
 }
