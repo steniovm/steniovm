@@ -86,6 +86,7 @@ function saveconf(){
     d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
     document.cookie = 'numberball' + "=" + JSON.stringify(config) + ";" + expires + ";path=/";
+    console.log('save cookie: '+'numberball' + "=" + JSON.stringify(config) + ";" + expires + ";path=/");
 }
 //renderiza os jogadores nas suas posições atuais em campo
 function showplayers(){
@@ -314,7 +315,7 @@ Iniciar.addEventListener('click',function(){
 //botão salvar configurações
 Saveps.addEventListener('click',function(){
     upconfig();
-    saveconf()
+    saveconf();
 });
 //botão reiniciar jogo volta para tela de configurações
 bRestart.addEventListener('click',function(){
