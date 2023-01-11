@@ -201,6 +201,7 @@ span{
 }
 #Soccerfield{
     height: 100vh;
+    max-width: 100vw;
 }
 #divplac, #divactiv{
     display: flex;
