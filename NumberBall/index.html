@@ -14,7 +14,6 @@
     <!--<canvas width="800" height="600"></canvas>-->
     <div id="field">
         <img id="Soccerfield" src="./assets/Soccer_field.svg"/>
-        <img class="ballgame" src="./assets/Soccer_ball.svg"/>
         <img class="cabec" src="./assets/cabecudosgol.svg"/>
         <img class="cabec" src="./assets/cabecudos.svg"/>
         <img class="cabec" src="./assets/cabecudos.svg"/>
@@ -35,47 +34,52 @@
         <img class="algar" src="./assets/numeros.svg"/>
         <img class="algar" src="./assets/numeros.svg"/>
         <img class="algar" src="./assets/numeros.svg"/>
+        <img class="ballgame" src="./assets/Soccer_ball.svg"/>
         <img id="arrow" src="./assets/direction.svg"/>
+        <div id="fieldprotect"></div>
     </div>
-    <div id="fieldprotect"></div>
-    <div id="celldirec" class="cellbox">
-        <div>
-            <div id="cellbtup" class="cellbt celldir" style="background-image: url('./assets/dup.svg');"></div>
+    <div id="touchbox">
+        <div id="cellboxexitfs" class="cellbox">
+            <div>
+                <div id="cellexitfs" class="cellbt cellhead" style="background-image: url('./assets/exit-full-screen.svg');"></div>
+                <div id="cellplc" class="cellbt cellhead">00X00</div>
+                <div id="celltim" class="cellbt cellhead">00</div>
+            </div>
         </div>
-        <div>
-            <div id="cellbtlf" class="cellbt celldir" style="background-image: url('./assets/dlf.svg');"></div>
-            <div class="cellbt"></div>
-            <div id="cellbtrg" class="cellbt celldir" style="background-image: url('./assets/drg.svg');"></div>
+        <div id="cellcontrol" class="cellbox">
+            <div>
+                <div id="cellbt1" class="cellbt cellnum" style="background-image: url('./assets/Nbt1.svg');"></div>
+                <div id="cellbt2" class="cellbt cellnum" style="background-image: url('./assets/Nbt2.svg');"></div>
+                <div id="cellbt3" class="cellbt cellnum" style="background-image: url('./assets/Nbt3.svg');"></div>
+            </div>
+            <div>
+                <div id="cellbt4" class="cellbt cellnum" style="background-image: url('./assets/Nbt4.svg');"></div>
+                <div id="cellbt5" class="cellbt cellnum" style="background-image: url('./assets/Nbt5.svg');"></div>
+                <div id="cellbt6" class="cellbt cellnum" style="background-image: url('./assets/Nbt6.svg');"></div>
+            </div>
+            <div>
+                <div id="cellbt7" class="cellbt cellnum" style="background-image: url('./assets/Nbt7.svg');"></div>
+                <div id="cellbt8" class="cellbt cellnum" style="background-image: url('./assets/Nbt8.svg');"></div>
+                <div id="cellbt9" class="cellbt cellnum" style="background-image: url('./assets/Nbt9.svg');"></div>
+            </div>
+            <div>
+                <div id="cellbtl" class="cellbt cellgir" style="background-image: url('./assets/rotate-left.svg');"></div>
+                <div class="cellbt"></div>
+                <div id="cellbtr" class="cellbt cellgir" style="background-image: url('./assets/rotate-right.svg');"></div>
+            </div>
         </div>
-        <div>
-            <div id="cellbtdw" class="cellbt celldir" style="background-image: url('./assets/ddw.svg');"></div>
-        </div>
-    </div>
-    <div id="cellcontrol" class="cellbox">
-        <div>
-            <div id="cellbt1" class="cellbt cellnum" style="background-image: url('./assets/Nbt1.svg');"></div>
-            <div id="cellbt2" class="cellbt cellnum" style="background-image: url('./assets/Nbt2.svg');"></div>
-            <div id="cellbt3" class="cellbt cellnum" style="background-image: url('./assets/Nbt3.svg');"></div>
-        </div>
-        <div>
-            <div id="cellbt4" class="cellbt cellnum" style="background-image: url('./assets/Nbt4.svg');"></div>
-            <div id="cellbt5" class="cellbt cellnum" style="background-image: url('./assets/Nbt5.svg');"></div>
-            <div id="cellbt6" class="cellbt cellnum" style="background-image: url('./assets/Nbt6.svg');"></div>
-        </div>
-        <div>
-            <div id="cellbt7" class="cellbt cellnum" style="background-image: url('./assets/Nbt7.svg');"></div>
-            <div id="cellbt8" class="cellbt cellnum" style="background-image: url('./assets/Nbt8.svg');"></div>
-            <div id="cellbt9" class="cellbt cellnum" style="background-image: url('./assets/Nbt9.svg');"></div>
-        </div>
-        <div>
-            <div id="cellbtl" class="cellbt cellgir" style="background-image: url('./assets/rotate-left.svg');"></div>
-            <div class="cellbt"></div>
-            <div id="cellbtr" class="cellbt cellgir" style="background-image: url('./assets/rotate-right.svg');"></div>
-        </div>
-    </div>
-    <div id="cellboxexitfs" class="cellbox">
-        <div>
-            <div id="cellexitfs" class="cellbt" style="background-image: url('./assets/exit-full-screen.svg');"></div>
+        <div id="celldirec" class="cellbox">
+            <div>
+                <div id="cellbtup" class="cellbt celldir" style="background-image: url('./assets/dup.svg');"></div>
+            </div>
+            <div>
+                <div id="cellbtlf" class="cellbt celldir" style="background-image: url('./assets/dlf.svg');"></div>
+                <div class="cellbt"></div>
+                <div id="cellbtrg" class="cellbt celldir" style="background-image: url('./assets/drg.svg');"></div>
+            </div>
+            <div>
+                <div id="cellbtdw" class="cellbt celldir" style="background-image: url('./assets/ddw.svg');"></div>
+            </div>
         </div>
     </div>
     <section id="gamerconfig">
@@ -90,7 +94,6 @@ Vence o time que tiver maior número de gols ao final do tempo da partida.
         <b>Configurações</b>
         <div id="formconf">
             <label>
-                <!--https://mundoeducacao.uol.com.br/matematica/sistema-numeracao.htm  ↑←↓→-->
                 <b>Algarismos:</b>
                 <label class="radioop"><input name="alga" type="radio" value="Arab" checked/>Indú-Arabíco</label>
                 <label class="radioop"><input name="alga" type="radio" value="Roma"/>Romanos</label>

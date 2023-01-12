@@ -64,7 +64,7 @@ input[type="number"]{
     /*width: min-content;*/
     max-width: 80vw;
     box-shadow: 0 0 1em;
-    /*display: none;*/
+    /*display: none;/*voltar a desativado*/
     font-size: xx-large;
 }
 #gamerplay{
@@ -201,9 +201,8 @@ span{
 }
 #fieldprotect{
     position: absolute;
-    height: 100vh;
-    width: 80vh;
-    margin: auto;
+    height: 100%;
+    width: 100%;
 }
 #Soccerfield{
     height: 100vh;
@@ -257,17 +256,28 @@ span{
     left: 70%;
     transform: rotate(0deg);
 }
-.cellbox{
+#touchbox{
     position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+}
+.cellbox{
+    /*position: absolute;
     top:60%;
-    left:5%;
+    left:5%;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: transparent;
     border: solid 2px #00000080;
     border-radius: 50%;
-    display: none;
+    width: min-content;
+    /*display: none;*/
 }
 .cellbox>div{
     display: flex;
@@ -288,15 +298,30 @@ span{
     border-radius: 5%;
     top:20%;
     left:80%;
+    align-self: end;
 }
 #cellboxexitfs{
     border-radius: 5%;
     top:5%;
     left:5%;
     height: 10vh;
+    align-self: center;
 }
 .cellgir{
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
+}
+.cellhead{
+    background-size: cover;
+    border-radius: 5%;
+    color: #000000aa;
+    font-weight: bold;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+#cellplc{
+    width: 20vh;
 }

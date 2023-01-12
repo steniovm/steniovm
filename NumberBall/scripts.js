@@ -1,11 +1,13 @@
 const LIMITS = {top:0,left:0,down:92,right:88,downb:96,rightb:94,gleft:35,gright:57};
 const VELOCOM = 0.5;
 const screen = document.querySelector('html');
+const mainbox = document.querySelector('main');
 const gamerconfig = document.getElementById('gamerconfig');
 const alga = document.getElementsByName('alga');
 const dire = document.getElementsByName('dire');
 const inTime = document.getElementById('inTime');
 const ltime = document.getElementById('ltime');
+const celltim = document.getElementById('celltim');
 const inVel = document.getElementById('inVel');
 const Vmusic = document.getElementById('Vmusic');
 const Vefect = document.getElementById('Vefect');
@@ -16,6 +18,7 @@ const ballgame = document.querySelector('.ballgame');
 const cabec = document.querySelectorAll('.cabec');
 const algar = document.querySelectorAll('.algar');
 const cellbox = document.querySelectorAll('.cellbox');
+const touchbox = document.getElementById('touchbox');
 const celldir = document.querySelectorAll('.celldir');
 const cellgir = document.querySelectorAll('.cellgir');
 const cellnum = document.querySelectorAll('.cellnum');
@@ -23,6 +26,8 @@ const playactiv = document.getElementById('playactiv');
 const arrow = document.getElementById('arrow');
 const plc = document.getElementById('plc');
 const pla = document.getElementById('pla');
+const cellplc = document.getElementById('cellplc');
+const cellexitfs = document.getElementById('cellexitfs');
 const music = new Audio("./assets/jigsaw-puzzle-background.mp3");
 music.loop = true;
 const apitosong = new Audio("./assets/apitodefutebol.mp3");
@@ -138,8 +143,10 @@ function direcbtdef(){
         direcbt.down = "s";
         direcbt.right = "d";
     }else if (config.vdire==2){
-        cellbox[0].style.display = "flex";
-        cellbox[1].style.display = "flex";
+        touchbox.style.display = "flex";
+        mainbox.style.display = "none";
+        //cellbox[0].style.display = "flex";
+        //cellbox[1].style.display = "flex";
     }
 }
 //move jogador selecionado
@@ -193,6 +200,7 @@ function newgool(team){
     placar[team]++; //
     plc.innerHTML = placar[0];
     pla.innerHTML = placar[1];
+    cellplc.innerHTML = placar[0]+'X'+placar[1];
     positions.ball = {x:47,y:48};
     goalsong.play();
     showplayers();
@@ -276,6 +284,7 @@ async function playing(){
             if (timergame<config.timeg){
                 timergame += 0.1;
                 ltime.innerHTML = Math.round(timergame*10)/10;
+                celltim.innerHTML = Math.round(timergame*10)/10;
             }else{
                 gameplay = false;
                 music.pause();
@@ -287,8 +296,21 @@ async function playing(){
                 clearInterval(finterval);
                 clearInterval(ginterval);
                 document.exitFullscreen()
+                touchbox.style.display = "none";
+                mainbox.style.display = "unset";
             }
         },100);
+    }
+}
+function enterfullscreem(){
+    if (screen.requestFullscreen){
+        screen.requestFullscreen();
+    }
+    else if (screen.msRequestFullscreen){
+        screen.msRequestFullscreen();
+    }
+    else if (screen.mozRequestFullScreen){
+        screen.mozRequestFullScreen();
     }
 }
 
@@ -321,6 +343,8 @@ Saveps.addEventListener('click',function(){
 bRestart.addEventListener('click',function(){
     gameplay = false;
     gamerconfig.style.display = 'flex';
+    touchbox.style.display = "none";
+    mainbox.style.display = "unset";
     music.pause();
     timergame = 0;
     playac = undefined;
@@ -332,7 +356,7 @@ bRestart.addEventListener('click',function(){
         algar:[{x:0,y:0}]
     };
     positioninit();
-    document.exitFullscreen()
+    document.exitFullscreen();
 });
 //pressionar teclas
 document.addEventListener('keydown',function(e){
@@ -412,14 +436,6 @@ cellnum.forEach(function(item,index){
         clearInterval(numinterval);
     });
 });
-function enterfullscreem(){
-    if (screen.requestFullscreen){
-        screen.requestFullscreen();
-    }
-    else if (screen.msRequestFullscreen){
-        screen.msRequestFullscreen();
-    }
-    else if (screen.mozRequestFullScreen){
-        screen.mozRequestFullScreen();
-    }
-}
+cellexitfs.addEventListener('click',function(){
+    document.exitFullscreen();
+});
