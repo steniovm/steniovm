@@ -7,6 +7,7 @@ const mycanvas = document.querySelector('canvas');
 const gamerconfig = document.getElementById('gamerconfig');
 const gamerplay = document.getElementById('gamerplay');
 const biniciar = document.getElementById('Iniciar');
+const biniciarfs = document.getElementById('IniciarFS');
 const Saveps = document.getElementById('Saveps');
 const nmord = document.getElementById('NM');
 const npres = document.getElementById('NP');
@@ -112,7 +113,6 @@ Saveps.addEventListener('click', function(){
   preset.blue = colorrgb[2].value;
   document.cookie = 'boldarwinpreset' + "=" + JSON.stringify(preset) + ";" + expires + ";path=/";
 })
-
 
 function changeColor(){
   let red = Math.floor(Math.random()*255);
@@ -289,6 +289,7 @@ async function pastime(){
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();
+            document.exitFullscreen();
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
@@ -302,6 +303,7 @@ async function pastime(){
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();
+            document.exitFullscreen();
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 ltimemax.innerHTML = timegamemax;
@@ -315,6 +317,7 @@ async function pastime(){
             textlog.scrollTop = textlog.scrollHeight;
             music.pause();
             oversong.play();
+            document.exitFullscreen();
             if (timegame > timegamemax){
                 timegamemax = timegame;
                 setCookieTime();
@@ -339,8 +342,7 @@ async function pastime(){
         }
     },1000); 
 }
-
-biniciar.addEventListener("click", function(){
+function iniciargame(){
     gamerconfig.style.display = "none";
     gamerplay.style.display = "flex";
     pinicio();
@@ -349,6 +351,14 @@ biniciar.addEventListener("click", function(){
     pastime();
     changeNewColor();
     untouch();
+}
+biniciar.addEventListener("click", function(){
+    iniciargame();
+});
+biniciarfs.addEventListener("click", function(){
+    iniciargame();
+    enterfullscreem();
+    console.log('testeclick');
 });
 bRestart.addEventListener("click", function(){
     gamerconfig.style.display = "flex";
@@ -392,14 +402,25 @@ Vefect.addEventListener('change', function(){
 mycanvas.addEventListener('mouseup',clicar,true);
 
 function untouch() {
-    touchbox.addEventListener("touchstart", onTouch, false);
-    touchbox.addEventListener("touchend", onTouch, false);
-    touchbox.addEventListener("touchcancel", onTouch, false);
-    touchbox.addEventListener("touchleave", onTouch, false);
-    touchbox.addEventListener("touchmove", onTouch, false);
+    mycanvas.addEventListener("touchstart", onTouch, false);
+    mycanvas.addEventListener("touchend", onTouch, false);
+    mycanvas.addEventListener("touchcancel", onTouch, false);
+    mycanvas.addEventListener("touchleave", onTouch, false);
+    mycanvas.addEventListener("touchmove", onTouch, false);
   }
 function onTouch(evt) {
     evt.preventDefault();
     if (evt.touches.length > 1 || (evt.type == "touchend" && evt.touches.length > 0))
       return;
+}
+function enterfullscreem(){
+    if (bodypage.requestFullscreen){
+        bodypage.requestFullscreen();
+    }
+    else if (bodypage.msRequestFullscreen){
+        bodypage.msRequestFullscreen();
+    }
+    else if (bodypage.mozRequestFullScreen){
+        bodypage.mozRequestFullScreen();
+    }
 }

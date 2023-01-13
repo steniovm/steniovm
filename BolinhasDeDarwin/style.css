@@ -98,7 +98,7 @@ input[type="number"]{
     justify-content: center;
     align-items: center;
 }
-#Iniciar, #bRestart, #Saveps{
+#Iniciar, #bRestart, #Saveps, #IniciarFS{
     max-width: 150px;
     border-radius: 5px;
     background-color: greenyellow;
@@ -114,6 +114,9 @@ input[type="number"]{
     background-color: #d92689;
     font-size: small;
     color: #ebd602;
+}
+#IniciarFS{
+    font-size: small;
 }
 textarea{
     height:15vh;
