@@ -3,7 +3,7 @@
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas com atualização para arquivo unico
-Ultima atualização (22/12/2022)
+Ultima atualização (13/01/2023)
 contato: steniovm@gmail.com
 -->
 <html>
@@ -207,6 +207,7 @@ span{
     background: #000000;
 }
         </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Bolinhas de Darwin: Simulador de evolução natural</title>
     </head>
     <body>
@@ -304,7 +305,7 @@ Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflage
 Autor: Stênio Vinicios de Medeiros
 AlphaEdTech Turma Lovelace
 Exercicios sobre canvas arquivo unico
-Ultima atualização (22/12/2022)
+Ultima atualização (13/01/2023)
 contato: steniovm@gmail.com
 </pre></a>
         <a href="https://steniovm.github.io/steniovm/BolinhasDeDarwin.html">
@@ -350,6 +351,7 @@ let timegamemax = 0;
 let repchance = (IChance.value)/100;
 let maxbols = Number.parseInt(IMax.value);
 let reptime = Itime.value;
+let contpresas = 0;
 mostAmb.style.height = (2*iraio.value + 4)+'px';
 mostAmb.style.width = (2*iraio.value + 4)+'px';
 mostBol.style.height = (2*iraio.value)+'px';
@@ -463,6 +465,7 @@ function pinicio(){
     maxbols = Number.parseInt(IMax.value);
     reptime = Itime.value;
     repchance = (IChance.value)/100;
+    contpresas = 0;
     paused = false;
     textlog.innerHTML = `Dados do jogo
 Energia inicial: ${energy} mordidas
@@ -486,6 +489,7 @@ function clicar(e){
         if((dx<(bolinhas[i].ra)) && (dy<(bolinhas[i].ra))){
             textlog.innerHTML += "\nAcertou: ("+mx+","+my+")";
             textlog.scrollTop = textlog.scrollHeight;
+            contpresas++;
             if (energy<100) energy++;
             nMordidas.innerHTML = energy;
             nMordidas.style.width = (100-energy)+'%';
@@ -534,7 +538,7 @@ async function pastime(){
         if (nbol>=maxbols){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas dominaram o mundo e mataram os predadores!!!";
-            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
@@ -545,7 +549,7 @@ async function pastime(){
         }else if (nbol<=0){
             clearInterval(interval);
             textlog.innerHTML += "\nAs bolinhas foram extintas e os predadores morreram de fome!!!";
-            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
@@ -556,7 +560,7 @@ async function pastime(){
         }else if (energy <= 0){
             clearInterval(interval);
             textlog.innerHTML += "\nSua energia vital acabou e voce desfaleceu!!!";
-            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos!";
+            textlog.innerHTML += "\nVoce sobreviveu por "+timegame+" segundos e abateu "+contpresas+" presas!";
             textlog.scrollTop = textlog.scrollHeight;
             if (timegame > timegamemax){
                 timegamemax = timegame;
