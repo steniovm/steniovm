@@ -447,8 +447,8 @@ function untouch() {
     touchbox.addEventListener("touchleave", onTouch, false);
     touchbox.addEventListener("touchmove", onTouch, false);
   }
-  function onTouch(evt) {
+function onTouch(evt) {
     evt.preventDefault();
     if (evt.touches.length > 1 || (evt.type == "touchend" && evt.touches.length > 0))
       return;
-  }
+}

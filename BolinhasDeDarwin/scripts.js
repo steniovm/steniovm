@@ -348,6 +348,7 @@ biniciar.addEventListener("click", function(){
     mostrarbol();
     pastime();
     changeNewColor();
+    untouch();
 });
 bRestart.addEventListener("click", function(){
     gamerconfig.style.display = "flex";
@@ -389,3 +390,16 @@ Vefect.addEventListener('change', function(){
 });
 
 mycanvas.addEventListener('mouseup',clicar,true);
+
+function untouch() {
+    touchbox.addEventListener("touchstart", onTouch, false);
+    touchbox.addEventListener("touchend", onTouch, false);
+    touchbox.addEventListener("touchcancel", onTouch, false);
+    touchbox.addEventListener("touchleave", onTouch, false);
+    touchbox.addEventListener("touchmove", onTouch, false);
+  }
+function onTouch(evt) {
+    evt.preventDefault();
+    if (evt.touches.length > 1 || (evt.type == "touchend" && evt.touches.length > 0))
+      return;
+}
