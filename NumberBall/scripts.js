@@ -333,6 +333,7 @@ Iniciar.addEventListener('click',function(){
     gameplay = true;
     playing();
     enterfullscreem();
+    untouch();
 });
 //botão salvar configurações
 Saveps.addEventListener('click',function(){
@@ -439,3 +440,15 @@ cellnum.forEach(function(item,index){
 cellexitfs.addEventListener('click',function(){
     document.exitFullscreen();
 });
+function untouch() {
+    touchbox.addEventListener("touchstart", onTouch, false);
+    touchbox.addEventListener("touchend", onTouch, false);
+    touchbox.addEventListener("touchcancel", onTouch, false);
+    touchbox.addEventListener("touchleave", onTouch, false);
+    touchbox.addEventListener("touchmove", onTouch, false);
+  }
+  function onTouch(evt) {
+    evt.preventDefault();
+    if (evt.touches.length > 1 || (evt.type == "touchend" && evt.touches.length > 0))
+      return;
+  }
