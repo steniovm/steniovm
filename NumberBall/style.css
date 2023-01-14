@@ -322,6 +322,31 @@ span{
 #cellplc{
     width: 20vh;
 }
+#gircell{
+    background-color: #00000080;
+    border: solid 1px black;
+    border-radius: 10px;
+    display: none;
+    top: 20%;
+    left: 20%;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    width: auto;
+    max-width: 50%;
+
+}
+#gircell>*{
+    max-width: 50%;
+    font-size: large;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
 @media screen and (MAX-width: 950px) {
     main{
         border: solid 1px #F5EA14;
