@@ -1,5 +1,4 @@
 const bodypage = document.getElementById('bodypage');
-const textprint = document.getElementById('text');
 const nMordidas = document.getElementById('NMordidas');
 const nPresas = document.getElementById('NPresas');
 const textlog = document.getElementById('textlog');
@@ -29,7 +28,14 @@ const music = new Audio("./assets/jigsaw-puzzle-background.mp3");
 music.volume = Vmusic.value;
 efectsong.volume = Vefect.value;
 oversong.volume = Vefect.value;
-
+if (screen.width < 800 && screen.height < 800){
+    mycanvas.height = 360;
+    mycanvas.width = 640;
+}
+if (screen.height > screen.width) {
+    mycanvas.height = 640;
+    mycanvas.width = 360;
+}
 let c = mycanvas.getContext('2d');
 let paused = true;
 let nbol = npres.value;
@@ -68,6 +74,7 @@ function setCookieTime() {
   let expires = "expires="+d.toUTCString();
   document.cookie = 'boldarwintime' + "=" + timegamemax + ";" + expires + ";path=/";
 }
+
 if (document.cookie.indexOf('boldarwintime')>=0){
     timegamemax = JSON.parse(document.cookie.split("; ").find((row) => row.startsWith('boldarwintime='))?.split("=")[1])
     ltimemax.innerHTML = timegamemax;
@@ -356,9 +363,8 @@ biniciar.addEventListener("click", function(){
     iniciargame();
 });
 biniciarfs.addEventListener("click", function(){
-    iniciargame();
     enterfullscreem();
-    console.log('testeclick');
+    iniciargame();
 });
 bRestart.addEventListener("click", function(){
     gamerconfig.style.display = "flex";
@@ -401,26 +407,14 @@ Vefect.addEventListener('change', function(){
 
 mycanvas.addEventListener('mouseup',clicar,true);
 
-function untouch() {
-    mycanvas.addEventListener("touchstart", onTouch, false);
-    mycanvas.addEventListener("touchend", onTouch, false);
-    mycanvas.addEventListener("touchcancel", onTouch, false);
-    mycanvas.addEventListener("touchleave", onTouch, false);
-    mycanvas.addEventListener("touchmove", onTouch, false);
-  }
-function onTouch(evt) {
-    evt.preventDefault();
-    if (evt.touches.length > 1 || (evt.type == "touchend" && evt.touches.length > 0))
-      return;
-}
 function enterfullscreem(){
-    if (bodypage.requestFullscreen){
-        bodypage.requestFullscreen();
+    if (mycanvas.requestFullscreen){
+        mycanvas.requestFullscreen();
     }
-    else if (bodypage.msRequestFullscreen){
-        bodypage.msRequestFullscreen();
+    else if (mycanvas.msRequestFullscreen){
+        mycanvas.msRequestFullscreen();
     }
-    else if (bodypage.mozRequestFullScreen){
-        bodypage.mozRequestFullScreen();
+    else if (mycanvas.mozRequestFullScreen){
+        mycanvas.mozRequestFullScreen();
     }
 }
