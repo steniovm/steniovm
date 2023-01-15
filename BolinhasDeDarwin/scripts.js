@@ -357,7 +357,6 @@ function iniciargame(){
     mostrarbol();
     pastime();
     changeNewColor();
-    untouch();
 }
 biniciar.addEventListener("click", function(){
     iniciargame();
