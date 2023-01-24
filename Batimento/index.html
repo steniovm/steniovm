@@ -15,41 +15,42 @@
             <h1>Batimento de Ondas</h1>
         </div>
         <main>
-            <section>
+            <section id="wavev">
                 <h3>Volume</h3>
                 <input id="volume" type="range" min="0" max="1" value="0.5" step="0.001"/>
             </section>
             <div>
-                <section class="wavesec">
+                <section id="wave1" class="wavesec">
                     <h3>Onda de refêrencia</h3>
-                    <h4>Forma de onda</h4>
+                    <h4>Forma de onda / Oitava</h4>
                     <div class="waveform">
-                        <label>
-                            <input type="radio" name="formwave" value="sine" checked/>
-                            <img src="senoide.svg" alt="Senoide" class="imgwave"/>
-                        </label>
-                        <label>
-                            <input type="radio" name="formwave" value="square"/>
-                            <img src="quadrada.svg" alt="Quadrada" class="imgwave"/>
-                        </label>
-                        <label>
-                            <input type="radio" name="formwave" value="sawtooth"/>
-                            <img src="dente.svg" alt="Dente de serra" class="imgwave"/>
-                        </label>
-                    </div>
-                    <h4>Oitava</h4>
-                    <div class="waveform">
-                        <label><input type="radio" name="oitwave" value="oit0"/><span>EL</span></label>
-                        <label><input type="radio" name="oitwave" value="oit1"/><span>1ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit2"/><span>2ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit3"/><span>3ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit4" checked/><span>4ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit5"/><span>5ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit6"/><span>6ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit7"/><span>7ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit8"/><span>8ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit9"/><span>9ª</span></label>
-                        <label><input type="radio" name="oitwave" value="oit10"/><span>10ª</span></label>
+                        <div class="waveform">
+                            <label>
+                                <input type="radio" name="formwave" value="sine" checked/>
+                                <img src="senoide.svg" alt="Senoide" class="imgwave"/>
+                            </label>
+                            <label>
+                                <input type="radio" name="formwave" value="square"/>
+                                <img src="quadrada.svg" alt="Quadrada" class="imgwave"/>
+                            </label>
+                            <label>
+                                <input type="radio" name="formwave" value="sawtooth"/>
+                                <img src="dente.svg" alt="Dente de serra" class="imgwave"/>
+                            </label>
+                        </div>
+                        <div class="waveform">
+                            <label><input type="radio" name="oitwave" value="oit0"/><span>EL</span></label>
+                            <label><input type="radio" name="oitwave" value="oit1"/><span>1ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit2"/><span>2ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit3"/><span>3ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit4" checked/><span>4ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit5"/><span>5ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit6"/><span>6ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit7"/><span>7ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit8"/><span>8ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit9"/><span>9ª</span></label>
+                            <label><input type="radio" name="oitwave" value="oit10"/><span>10ª</span></label>
+                        </div>
                     </div>
                     <h4>Nota musica</h4>
                     <div id="teclado">
@@ -69,7 +70,7 @@
                     <button id="playref">Tocar</button>
                     <button id="stopbt">Parar</button>
                 </section>
-                <section class="wavesec">
+                <section id="wave2" class="wavesec">
                     <h3>Onda ajustada</h3>
                     <label>Frequência onda - Ajuste Grosso</label>
                     <input id="ajustfreq" type="range" min="20" max="20000" step="1" value="444"/>
