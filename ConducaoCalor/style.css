@@ -11,7 +11,6 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
 }
 h1,h2,h3{
     margin: 2px;
@@ -80,6 +79,7 @@ section>div{
 .subform{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 label{
     border: solid 1px #333;
