@@ -37,9 +37,16 @@ let timecond = 0;
 linksabas.forEach((item)=>{item.addEventListener('click',function(){
     document.querySelector('.initaba').classList.remove('initaba');
 });});
+document.querySelectorAll('input').forEach((item)=>{
+    item.addEventListener('change',()=>{
+        if(item.value < item.min) item.value=item.min;
+        if(item.value > item.max) item.value=item.max;
+    });
+});
 Array.from(document.getElementsByClassName('temper')).forEach((item, index)=>{
     item.addEventListener('change',()=>{
-        document.getElementsByClassName('convert')[index].innerHTML = '='+(item.value-273)+'°C='+Math.round(1.8*item.value-459.4)+"°F";
+    //if(item.value < 0){item.value=0}
+    document.getElementsByClassName('convert')[index].innerHTML = '='+(item.value-273)+'°C='+Math.round(1.8*item.value-459.4)+"°F";
     });
 });
 
