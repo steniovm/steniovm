@@ -31,22 +31,14 @@ let condparam = {
     coef:0,
     nblocks:0
 };
-//https://pt.wikipedia.org/wiki/Lei_do_resfriamento_de_Newton
 let intervalcond = 0;
 let timecond = 0;
 linksabas.forEach((item)=>{item.addEventListener('click',function(){
     document.querySelector('.initaba').classList.remove('initaba');
 });});
-document.querySelectorAll('input').forEach((item)=>{
-    item.addEventListener('change',()=>{
-        if(item.value < item.min) item.value=item.min;
-        if(item.value > item.max) item.value=item.max;
-    });
-});
 Array.from(document.getElementsByClassName('temper')).forEach((item, index)=>{
     item.addEventListener('change',()=>{
-    //if(item.value < 0){item.value=0}
-    document.getElementsByClassName('convert')[index].innerHTML = '='+(item.value-273)+'°C='+Math.round(1.8*item.value-459.4)+"°F";
+        document.getElementsByClassName('convert')[index].innerHTML = '='+(item.value-273)+'°C='+Math.round(1.8*item.value-459.4)+"°F";
     });
 });
 
@@ -54,7 +46,7 @@ function bodyfis(temper,mass,cal,color,x0,y0,x1,y1){
         this.ctx = ctxcond;
         this.temper = parseFloat(temper);//temperatura em K
         this.mass = mass;//massa em kg
-        this.cal = cal;//calor especifico em J/kg.K (https://www.preparaenem.com/fisica/calor-especifico-uma-substancia.htm)
+        this.cal = cal;//calor especifico em J/kg.K
         this.color = color;//cor (apenas para visualização)
         this.x0 = x0;//posição do canto superior esquerdo
         this.y0 = y0;//posição do canto superior esquerdo
