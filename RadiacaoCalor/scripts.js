@@ -137,8 +137,6 @@ function drawBorder(color, width, ctx,ctxg, canva,canvag){
 }
 drawBorder("#fafaaa",isolant,ctxrad,ctxgcv,canvasrad,canvasgcv);
 function creatBlocks(param){
-    //let bHeight = ((maxHeight*0.8)-(2*isolant))/(param.nblocks-2);
-    //let x0, y0;
     let block;
     blocks = [];
     block = new bodyfis(param.ff.temper,param.ff.mass,param.ff.cal,"#99f",(isolant+1),(isolant+1),(maxWidth-(2*isolant)-2),(maxHeight*0.1));
@@ -149,34 +147,6 @@ function creatBlocks(param){
     blocks.push(block);
     hfq.hf = (maxHeight*0.1)+isolant;
     hfq.hq = ((maxHeight*0.9)-isolant)-(isolant/2);
-    /*
-    for(let i=0; i<param.nblocks; i++){
-        let block;
-        if (i===0){
-            block = new bodyfis(param.ff.temper,param.ff.mass,param.ff.cal,"#99f",(isolant+1),(isolant+1),(maxWidth-(2*isolant)-2),(maxHeight*0.1));
-            hfq.hf = (maxHeight*0.1)+isolant;
-        }else if(i===(param.nblocks-1)){
-            block = new bodyfis(param.fq.temper,param.fq.mass,param.fq.cal,"#f99",(isolant+1),((maxHeight*0.9)-isolant),(maxWidth-(2*isolant)-2),(maxHeight*0.1));
-            hfq.hq = ((maxHeight*0.9)-isolant)-(isolant/2);
-        }else{
-            if ((i+1)<((param.nblocks)/2)){
-                y0 = 2*bHeight*(i)+3*isolant;
-            }else{
-                y0 = 2*bHeight*(i)+3*isolant-(maxHeight*0.7);
-            }
-            x0 = Math.random()*(maxWidth-2.5*isolant)+isolant;
-            block = new bodyfis(param.barra.temper,(param.barra.mass/(param.nblocks-2)),param.barra.cal,"#FF9",x0,y0,(isolant/2),(isolant/2));
-            block.partic();
-            if ((i+1)<((param.nblocks)/2)){
-                block.directer(false);
-            }else{
-                block.directer(true);
-            }
-        }
-        block.drawBlock();
-        blocks.push(block);
-    }
-    */
 }
 function refreshgrad(ctx,canva){
     ctx.fillStyle = "#33333380";
@@ -200,12 +170,12 @@ function blackBodyRadiation(temperature) {
     return {radiation,wavelength};
 }
 function colorfoton(wl){
-    if (wl > 700){
+    if (wl > 750){
         return "#666";
     }else if (wl < 400){
         return "#fff";
     }else{
-        return `hsl(${Math.round(((300-(wl-400))/300)*270)},100%,50%)`;
+        return `hsl(${Math.round(((350-(wl-400))/350)*270)},100%,50%)`;
     }
 }
 function animation(){
