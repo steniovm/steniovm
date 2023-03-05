@@ -158,7 +158,7 @@ function animation(){
             let yy;
             let xx;
             ctxconv.clearRect(isolant, isolant, canvasconv.width-(2*isolant), canvasconv.height-(2*isolant));
-            for(let i=1; i<(convparam.nblocks-2); i++){
+            for(let i=1; i<(convparam.nblocks-1); i++){
                 yy = blocks[i].move();
                 xx = Math.random()*((maxWidth/2)-1.5*isolant)
                 if (yy <= hfq.hf){
@@ -176,12 +176,12 @@ function animation(){
             for(let i=0; i<convparam.nblocks; i++) {
                 blocks[i].drawBlock();
                 timeconv++;
-                if (i===0 || i===(convparam.nblocks-1)) {
+                //if (i===0 || i===(convparam.nblocks-1)) {
                     if(timeconv >= grapResolution) {
                         refreshgconv(ctxgcv,canvasgcv);
                     }
                     drawgrapconv(i);
-                }
+                //}
             }
             if(Math.abs(blocks[0].temper-blocks[convparam.nblocks-1].temper)<0.01) {
                 clearInterval(intervalconv);
