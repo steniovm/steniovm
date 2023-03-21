@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta property="og:title" content="AlgoCards" />
+        <meta property="og:description" content="Cards para Desenvolvimento do Pensamento Computacional" />
+        <meta property="og:locale" content="pt-br" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="style.css" />
+        <title>AlgoCards - Cards para Desenvolvimento do Pensamento Computacional</title>
+<script>
+let countinstruct = 0;
+function dropCopy(ev){
+    ev.preventDefault();
+    console.log(ev.toElement.id)
+    if(ev.toElement.id=="algol"){
+        let id = ev.dataTransfer.getData("text");
+        let nodeCopy = document.getElementById(id).cloneNode(true);
+        nodeCopy.id = "intr"+countinstruct++;
+        ev.currentTarget.style.background = "transparent";
+        ev.target.appendChild(nodeCopy);
+    }
+}
+function deleteitem(itemid){
+    if(itemid.path[1].id == "algol"){
+        document.getElementById(itemid.path[0].id).remove()
+    }
+}
+function dragover_handler(ev) {
+ ev.currentTarget.style.background = "lightblue";
+ ev.preventDefault();
+}
+function dragstart_handler(ev) {
+ console.log("dragStart");
+ ev.currentTarget.style.border = "dashed 1px silver";
+ ev.dataTransfer.setData("text", ev.target.id); 
+}
+</script>
+    </head>
+    <body>
+        <img src="imgs/algocardsonline.png" alt="AlgoCards"/>
+        <main>
+            <section id="instructions">
+                <h3>Conjunto de Instruções</h3>
+                <div id="instructionslist">
+                    <div class="instruction" draggable="true" id="gireEsquerda" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/gireEsquerda.png');"></div>
+                    <div class="instruction" draggable="true" id="paraEsquerda" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/paraEsquerda.png');"></div>
+                    <div class="instruction" draggable="true" id="paraFrente" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/paraFrente.png');"></div>
+                    <div class="instruction" draggable="true" id="paraDireita" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/paraDireita.png');"></div>
+                    <div class="instruction" draggable="true" id="gireDireita" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/gireDireita.png');"></div>
+                    <div class="instruction" draggable="true" id="meiaVolta" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/meiaVolta.png');"></div>
+                    <div class="instruction" draggable="true" id="paraTras" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/paraTras.png');"></div>
+                    <div class="instruction" draggable="true" id="coringa" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/coringa.png');"></div>
+                    <div class="instruction" draggable="true" id="repita" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/repita.png');">
+                        <input type="number" class="param" min="1" value="1">
+                    </div>
+                    <div class="instruction" draggable="true" id="abreBloco" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/abreBloco.png');"></div>
+                    <div class="instruction" draggable="true" id="fechaBloco" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/fechaBloco.png');"></div>
+                    <div class="instruction liveact" draggable="true" id="girDireita" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/girDireita.png');">
+                        <input type="number" class="param pgir" min="1" value="90">
+                    </div>
+                    <div class="instruction liveact" draggable="true" id="girEsquerda" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/girEsquerda.png');">
+                        <input type="number" class="param pgir" min="1" value="90">
+                    </div>
+                    <div class="instruction liveact" draggable="true" id="acao" ondblclick="deleteitem(event)" ondragstart="dragstart_handler(event);" style="background-image: url('imgs/acao.png');">
+                        <input type="text" class="param ptext">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Algoritimo</h3>
+                <div id="algol" ondrop="dropCopy(event);"ondragover="dragover_handler(event);"></div>
+            </section>
+        </main>
+        <div>
+            <p>Arraste as intruções para o quadro do algoritimo na sequencia que devem ser executadas.</p>
+            <p>Para remover uma instrução do algoritimo dê um duplo click.</p>
+        </div>
+        <!--<canvas width="1000" height="200"></canvas>-->
+        <footer>
+            <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
+            <div id="divinfo" class="divinfo">
+                <span>Adaptação Web: Stênio Vinicios de Medeiros</span>
+                <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"  alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
+                <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+            </div>
+            <div id="divref">
+                <span><h3>Produção original</h3></span>
+                <span>BRACKMANN. Computacional: Educação em Computação. 2023.</span>
+                <span>Disponível em: <a href="https://www.computacional.com.br/" alt="computacional.com.br">https://www.computacional.com.br/</a> Acesso em: 20 03 2023.</span>
+            </div>
+        </footer>
+        <!--<script type="text/javascript" src="scripts.js"></script>-->
+    </body>
+</html>
