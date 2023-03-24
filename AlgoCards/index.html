@@ -43,8 +43,58 @@ AlgoMovimento - fazer um desenho
 AlgoRitimo - Coreografia
 Algozumbi - tiro e labirinto
 */
-function initgame(){
+function initgame(ev){
+    let typegame = ev.target.id
     document.getElementById('modalinit').style.display = "none";
+    let cards = document.getElementsByClassName('instruction')
+    switch (typegame){
+        case "btACF":
+            for( let i=0; i<cards.length; i++){
+                cards[i].classList.remove('notinst');
+            }
+        break;
+        case "btACL":
+            for( let i=0; i<cards.length; i++){
+                if (i==1||i==3||i==6||i==7||i==11||i==12||i==13){
+                    cards[i].classList.add('notinst');
+                }else{
+                    cards[i].classList.remove('notinst');
+                }
+            }
+        break;
+        case "btACM":
+            for( let i=0; i<cards.length; i++){
+                if (i==1||i==3||i==6||i==7||i==13){
+                    cards[i].classList.add('notinst');
+                }else{
+                    cards[i].classList.remove('notinst');
+                }
+            }
+        break;
+        case "btACR":
+            for( let i=0; i<cards.length; i++){
+                cards[i].classList.remove('notinst');
+            }
+        break;
+        case "btACZ":
+            for( let i=0; i<cards.length; i++){
+                if (i==1||i==3||i==6||i==7||i==11||i==12){
+                    cards[i].classList.add('notinst');
+                }else{
+                    cards[i].classList.remove('notinst');
+                }
+            }
+        break;
+        default:
+            for( let i=0; i<cards.length; i++){
+                if (i==1||i==3||i==6||i==7||i==11||i==12||i==13){
+                    cards[i].classList.add('notinst');
+                }else{
+                    cards[i].classList.remove('notinst');
+                }
+            }
+        break;
+    }
 }
 
 </script>
@@ -53,11 +103,11 @@ function initgame(){
         <img src="imgs/algocardsonline.png" alt="AlgoCards"/>
         <div id="modalinit">
             <h2>Escolha o jogo</h2>
-            <button id="btACF" class="modalbutton" onclick="initgame();">AlgoCards Free</button>
-            <button id="btACL" class="modalbutton" onclick="initgame();">AlgoLabirinto</button>
-            <button id="btACM" class="modalbutton" onclick="initgame();">AlgoMovimento</button>
-            <button id="btACR" class="modalbutton" onclick="initgame();">AlgoRitimo</button>
-            <button id="btACZ" class="modalbutton" onclick="initgame();">AlgoZumbi</button>
+            <button id="btACF" class="modalbutton" onclick="initgame(event);">AlgoCardsLivre</button>
+            <button id="btACL" class="modalbutton" onclick="initgame(event);">AlgoLabirinto</button>
+            <button id="btACM" class="modalbutton" onclick="initgame(event);">AlgoMovimento</button>
+            <button id="btACR" class="modalbutton" onclick="initgame(event);">AlgoRitimo</button>
+            <button id="btACZ" class="modalbutton" onclick="initgame(event);">AlgoZumbi</button>
         </div>
         <main>
             <section id="instructions">
