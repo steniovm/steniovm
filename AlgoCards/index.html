@@ -8,96 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="style.css" />
         <title>AlgoCards - Cards para Desenvolvimento do Pensamento Computacional</title>
-<script>
-let countinstruct = 0;
-function dropCopy(ev){
-    ev.preventDefault();
-    console.log(ev.toElement.id)
-    if(ev.toElement.id=="algol"){
-        let id = ev.dataTransfer.getData("text");
-        let nodeCopy = document.getElementById(id).cloneNode(true);
-        nodeCopy.id = "intr"+countinstruct++;
-        ev.currentTarget.style.background = "transparent";
-        ev.target.appendChild(nodeCopy);
-    }
-}
-function deleteitem(itemid){
-    if(itemid.path[1].id == "algol"){
-        document.getElementById(itemid.path[0].id).remove()
-    }
-}
-function dragoverhandler(ev) {
- ev.currentTarget.style.background = "lightblue";
- ev.preventDefault();
-}
-function dragstarthandler(ev) {
- console.log("dragStart");
- ev.currentTarget.style.border = "dashed 1px silver";
- ev.dataTransfer.setData("text", ev.target.id); 
-}
-
-/*
-as opções de jogo serão:
-AlgoLabirinto - percorrer um caminho
-AlgoMovimento - fazer um desenho
-AlgoRitimo - Coreografia
-Algozumbi - tiro e labirinto
-*/
-function initgame(ev){
-    let typegame = ev.target.id
-    document.getElementById('modalinit').style.display = "none";
-    let cards = document.getElementsByClassName('instruction')
-    switch (typegame){
-        case "btACF":
-            for( let i=0; i<cards.length; i++){
-                cards[i].classList.remove('notinst');
-            }
-        break;
-        case "btACL":
-            for( let i=0; i<cards.length; i++){
-                if (i==1||i==3||i==6||i==7||i==11||i==12||i==13){
-                    cards[i].classList.add('notinst');
-                }else{
-                    cards[i].classList.remove('notinst');
-                }
-            }
-        break;
-        case "btACM":
-            for( let i=0; i<cards.length; i++){
-                if (i==1||i==3||i==6||i==7||i==13){
-                    cards[i].classList.add('notinst');
-                }else{
-                    cards[i].classList.remove('notinst');
-                }
-            }
-        break;
-        case "btACR":
-            for( let i=0; i<cards.length; i++){
-                cards[i].classList.remove('notinst');
-            }
-        break;
-        case "btACZ":
-            for( let i=0; i<cards.length; i++){
-                if (i==1||i==3||i==6||i==7||i==11||i==12){
-                    cards[i].classList.add('notinst');
-                }else{
-                    cards[i].classList.remove('notinst');
-                }
-            }
-        break;
-        default:
-            for( let i=0; i<cards.length; i++){
-                if (i==1||i==3||i==6||i==7||i==11||i==12||i==13){
-                    cards[i].classList.add('notinst');
-                }else{
-                    cards[i].classList.remove('notinst');
-                }
-            }
-        break;
-    }
-}
-
-</script>
     </head>
     <body>
         <img src="imgs/algocardsonline.png" alt="AlgoCards"/>
@@ -141,12 +51,21 @@ function initgame(ev){
                 <h3>Algoritmo</h3>
                 <div id="algol" ondrop="dropCopy(event);"ondragover="dragoverhandler(event);"></div>
             </section>
+            <Button id="playalgo" onclick="playAlgo();">
+                <img id="playimg" src="imgs/playbutton.png"/>
+                <span>Executar</span>
+            </Button>
         </main>
         <div>
-            <p>Arraste as intruções para o quadro do algoritmo na sequencia que devem ser executadas.</p>
-            <p>Para remover uma instrução do algoritmo dê um duplo click.</p>
+            <ol>
+                <li>Arraste as instruções para o quadro do algoritmo na sequência que devem ser executadas.</li>
+                <li>Para remover uma instrução do algoritmo dê um duplo clique.</li>
+                <li>Terminado de criar a sequência clique no botão <i>Executar</i>.</li>
+            </ol>
         </div>
-        <!--<canvas width="500" height="500"></canvas>-->
+        <div id="modalplay">
+            <canvas width="300" height="300"></canvas>
+        </div>
         <footer>
             <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
             <div id="divinfo" class="divinfo">
@@ -160,6 +79,6 @@ function initgame(ev){
                 <span>Disponível em: <a href="https://www.computacional.com.br/" alt="computacional.com.br">https://www.computacional.com.br/</a> Acesso em: 20/03/2023.</span>
             </div>
         </footer>
-        <!--<script type="text/javascript" src="scripts.js"></script>-->
+        <script type="text/javascript" src="scripts.js"></script>
     </body>
 </html>
