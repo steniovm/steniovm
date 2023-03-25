@@ -1,13 +1,11 @@
-//variaveis globais
+//variaveis e constantes globais
+const board = document.getElementById("board");
+const ctx = board.getContext("2d");
+const cellSize = 30;
 let countinstruct = 0;
-let typegame = "";
+let typegame = "";//tipo de jogo escolhido
 let seqcards=[];//sequencia de instruções
-let person = {
-    px : 0,
-    py : 0,
-    dx : 0,
-    dy : 0
-}
+let person = {px:0,py:0,dx:0,dy:1};//personagem, posição e direção que está virado
 
 //funções referentes ao drag and drop
 function dropCopy(ev){
@@ -46,6 +44,7 @@ function initgame(ev){
             for( let i=0; i<cards.length; i++){
                 cards[i].classList.remove('notinst');
             }
+            document.getElementById('modalboard').classList.add('modalnone');
         break;
         case "btACL":
             for( let i=0; i<cards.length; i++){
@@ -69,6 +68,7 @@ function initgame(ev){
             for( let i=0; i<cards.length; i++){
                 cards[i].classList.remove('notinst');
             }
+            document.getElementById('modalboard').classList.add('modalnone');
         break;
         case "btACZ":
             for( let i=0; i<cards.length; i++){
@@ -91,6 +91,24 @@ function initgame(ev){
     }
 }
 
+//desenha grido no tabuleiro
+function drawGrid(){
+    // Desenha as linhas horizontais do grid
+  for (let y = 0; y <= board.height; y += cellSize) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(board.width, y);
+    ctx.stroke();
+  }
+    // Desenha as linhas verticais do grid
+  for (let x = 0; x <= board.width; x += cellSize) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, board.height);
+    ctx.stroke();
+  }
+}
+drawGrid();
 //funções de cada card
 function gireEsquerda(){
     const gx = -person.gy;
@@ -171,9 +189,43 @@ function fechaBloco(){
 
 // executa o algoritimo do usuario
 function playAlgo(){
-    document.getElementById('modalplay').style.display = "flex";
+    switch (typegame){
+        case "btACF":
+        case "btACR":
+            document.getElementById('modalboard').classList.add('modalimg');
+        break;
+        case "btACL":
+        case "btACM":
+        case "btACZ":
+            document.getElementById('modalboard').classList.add('modalplay');
+        break;
+        default:
+            document.getElementById('modalboard').classList.remove('modalplay');
+            document.getElementById('modalboard').classList.remove('modalimg');
+        break;
+    }
     //preencher o vetor seqcards
     //executar o seqcards
+}
+
+//função reiniciar
+function restart(){
+    countinstruct = 0;
+    typegame = "";
+    seqcards=[];
+    person = {px:0,py:0,dx:0,dy:1};
+    document.getElementById('modalinit').style.display = "flex";
+    document.getElementById('modalboard').classList.remove('modalnone');
+    let cards = document.getElementsByClassName('instruction')
+    for( let i=0; i<cards.length; i++){
+        cards[i].classList.remove('notinst');
+    }
+    document.getElementById('modalboard').classList.remove('modalplay');
+    document.getElementById('modalboard').classList.remove('modalimg');
+    let nodes = document.getElementById('algol').childNodes;
+    for(let i=0; i<nodes.length; i){
+        nodes[0].remove();
+    }
 }
 
 /*
@@ -181,6 +233,6 @@ as opções de jogo serão:
 btACF - livre - não mostra tabuleiro, somente sequencia
 btACL - AlgoLabirinto - percorrer um caminho
 btACM - AlgoMovimento - fazer um desenho
-btACR - AlgoRitimo - Coreografia
+btACR - AlgoRitmo - Coreografia
 btACZ - Algozumbi - tiro e labirinto
 */

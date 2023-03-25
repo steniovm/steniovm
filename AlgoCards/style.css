@@ -24,7 +24,10 @@ h1,h2,h3,h4{
     font-style: italic;
     color: var(--green-algo);
 }
-#modalinit, #modalplay{
+#currentAction{
+    display: none;
+}
+#modalinit, .modalplay,.modalimg{
     position: fixed;
     z-index: 1;
     left: auto;
@@ -37,10 +40,28 @@ h1,h2,h3,h4{
     flex-direction: column;
     align-items: center;
 }
-#modalplay{
+.modalnone{
     display: none;
+}
+.modalplay,.modalimg{
+    display: flex;
     top: unset;
     bottom: 2vh;
+}
+.modalplay>#currentAction{
+    display: flex;
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+}
+.modalimg>#currentAction{
+    display: flex;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+}
+.modalimg>#board{
+    display: none;
 }
 .modalbutton{
     font-size: x-large;
@@ -136,6 +157,13 @@ button{
 button:hover{
     color: black;
     background-color: var(--yellow-past);
+}
+#btrestart{
+    display: none;
+    padding: 0 10px;
+}
+.modalplay>#btrestart, .modalimg>#btrestart{
+    display: flex;
 }
 footer{
     width: 100%;

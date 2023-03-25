@@ -16,7 +16,7 @@
             <button id="btACF" class="modalbutton" onclick="initgame(event);">AlgoCardsLivre</button>
             <button id="btACL" class="modalbutton" onclick="initgame(event);">AlgoLabirinto</button>
             <button id="btACM" class="modalbutton" onclick="initgame(event);">AlgoMovimento</button>
-            <button id="btACR" class="modalbutton" onclick="initgame(event);">AlgoRitimo</button>
+            <button id="btACR" class="modalbutton" onclick="initgame(event);">AlgoRitmo</button>
             <button id="btACZ" class="modalbutton" onclick="initgame(event);">AlgoZumbi</button>
         </div>
         <main>
@@ -49,22 +49,24 @@
             </section>
             <section>
                 <h3>Algoritmo</h3>
-                <div id="algol" ondrop="dropCopy(event);"ondragover="dragoverhandler(event);"></div>
+                <div id="algol" ondrop="dropCopy(event);" ondragover="dragoverhandler(event);"></div>
             </section>
             <Button id="playalgo" onclick="playAlgo();">
                 <img id="playimg" src="imgs/playbutton.png"/>
                 <span>Executar</span>
             </Button>
         </main>
+        <div id="modalboard">
+            <button id="btrestart" onclick="restart();">Reiniciar</button>
+            <div id="currentAction"></div>
+            <canvas id="board" width="300" height="300"></canvas>
+        </div>
         <div>
             <ol>
                 <li>Arraste as instruções para o quadro do algoritmo na sequência que devem ser executadas.</li>
                 <li>Para remover uma instrução do algoritmo dê um duplo clique.</li>
                 <li>Terminado de criar a sequência clique no botão <i>Executar</i>.</li>
             </ol>
-        </div>
-        <div id="modalplay">
-            <canvas width="300" height="300"></canvas>
         </div>
         <footer>
             <img id="myimg" class="myimg" src="stenio.jpg" alt="Minha Foto"/>
