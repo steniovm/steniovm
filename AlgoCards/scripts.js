@@ -1,3 +1,5 @@
+let teste
+
 //variaveis e constantes globais
 const board = document.getElementById("board");
 const ctx = board.getContext("2d");
@@ -10,7 +12,6 @@ let person = {px:0,py:0,dx:0,dy:1};//personagem, posição e direção que está
 //funções referentes ao drag and drop
 function dropCopy(ev){
     ev.preventDefault();
-    console.log(ev.toElement.id)
     if(ev.toElement.id=="algol"){
         let id = ev.dataTransfer.getData("text");
         let nodeCopy = document.getElementById(id).cloneNode(true);
@@ -20,8 +21,8 @@ function dropCopy(ev){
     }
 }
 function deleteitem(itemid){
-    if(itemid.path[1].id == "algol"){
-        document.getElementById(itemid.path[0].id).remove()
+    if(itemid.composedPath()[1].id == "algol"){
+        document.getElementById(itemid.composedPath()[0].id).remove()
     }
 }
 function dragoverhandler(ev) {
@@ -29,7 +30,6 @@ function dragoverhandler(ev) {
  ev.preventDefault();
 }
 function dragstarthandler(ev) {
- console.log("dragStart");
  ev.currentTarget.style.border = "dashed 1px silver";
  ev.dataTransfer.setData("text", ev.target.id); 
 }
@@ -111,71 +111,105 @@ function drawGrid(){
 drawGrid();
 //funções de cada card
 function gireEsquerda(){
-    const gx = -person.gy;
-    const gy = person.gx;
-    person.gx = gx;
-    person.gy = gy;
+    this.img = "url('imgs/gireEsquerda.png');";
+    this.rum = function(per){
+        this.dx = -per.dy;
+        this.dy = per.dx;
+        per.dx = this.dx;
+        per.dy = this.dy;
+        return per
+    }
     return "Gire Esquerda"
 }
 function gireDireita(){
-    const gx = person.gy;
-    const gy = -person.gx;
-    person.gx = gx;
-    person.gy = gy;
+    this.img = "url('imgs/gireDireita.png');";
+    this.rum = function(per){
+        this.dx = per.dy;
+        this.dy = -per.dx;
+        per.dx = this.dx;
+        per.dy = this.dy;
+        return per
+    }
     return "Gire Direita"
 }
 function girDireita(angulo){
-    const radianos = angulo * Math.PI / 180;
-    const gx = person.gx * Math.cos(radianos) - person.gy * Math.sin(radianos);
-    const gy = person.gx * Math.sin(radianos) + person.gy * Math.cos(radianos);
-    person.gx = gx;
-    person.gy = gy;
+    this.radianos = angulo * Math.PI / 180;
+    this.rum = function (per){
+        this.dx = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
+        this.dy = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
+        per.dx = this.dx;
+        per.dy = this.dy;
+        return per
+    }
     return "Gire "+angulo+"graus para Direita"
 }
 function girEsquerda(angulo){
-    const radianos = angulo * Math.PI / 180;
-    const gy = person.gx * Math.cos(radianos) - person.gy * Math.sin(radianos);
-    const gx = person.gx * Math.sin(radianos) + person.gy * Math.cos(radianos);
-    person.gx = gx;
-    person.gy = gy;
+    this.radianos = angulo * Math.PI / 180;
+    this.rum = function (per){
+        this.dy = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
+        this.dx = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
+        per.dx = this.dx;
+        per.dy = this.dy;
+        return per;
+    }
     return "Gire "+angulo+"graus para Esquerda"
 }
 function meiaVolta(){
-    const gx = -person.gy;
-    const gy = -person.gx;
-    person.gx = gx;
-    person.gy = gy;
+    this.rum = function(per){
+        this.dx = -per.dx;
+        this.dy = -per.dy;
+        per.dx = this.dx;
+        per.dy = this.dy;
+        return per;
+    }
     return "Gire Direita"
 }
 function paraFrente(){
-    person.px += person.gx;
-    person.py += person.gy;
+    this.rum = function(per){
+        per.px += per.dx;
+        per.py += per.dy;
+        return per;
+    }
     return "Passo pra Frente"
 }
 function paraTras(){
-    person.px -= person.gx;
-    person.py -= person.gy;
+    this.rum = function(per){
+        per.px -= per.dx;
+        per.py -= per.dy;
+        return per;
+    }
     return "Passo pra Tras"
 }
 function paraEsquerda(){
-    const px = person.gy;
-    const py = person.gx;
-    person.px += px;
-    person.py += py;
+    this.rum = function(per){
+        per.px += per.dy;
+        per.py += per.dx;
+        return per;
+    }
     return "Passo pra Esquerda"
 }
 function paraDireita(){
-    const px = -person.gy;
-    const py = -person.gx;
-    person.px += person.gy;
-    person.py += person.gx;
+    this.rum = function(per){
+        per.px -= per.dy;
+        per.py -= per.dx;
+        return per;
+    }
     return "Passo pra Direita"
 }
 function coringa(){
+    this.rum = function(per){
+        alert("CORINGA");
+        return per;    
+    }
     return "CORINGA"
 }
 function acao(text){
-    return text.toUpperCase
+    this.text = text
+    this.rum = function(per){
+        alert(this.text.toUpperCase());
+        return per;    
+    }
+    return "AÇÂO"
 }
 function repita(){
     //a fazer
@@ -189,6 +223,7 @@ function fechaBloco(){
 
 // executa o algoritimo do usuario
 function playAlgo(){
+    //configura modals
     switch (typegame){
         case "btACF":
         case "btACR":
@@ -205,7 +240,19 @@ function playAlgo(){
         break;
     }
     //preencher o vetor seqcards
+    let nodes = document.getElementById('algol').childNodes;
+    for(let i=0; i<nodes.length; i++){
+        let param = nodes[i].children[0] ? nodes[i].children[0].value : "";
+        let inst = new (eval(nodes[i].attributes.name.nodeValue))(param);
+        seqcards.push(inst);
+    }
     //executar o seqcards
+    console.log(person)
+    seqcards.forEach((item) => {
+        person = item.rum(person);
+        console.log(person)
+    })
+
 }
 
 //função reiniciar
