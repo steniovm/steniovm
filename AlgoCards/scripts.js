@@ -111,7 +111,6 @@ function drawGrid(){
 drawGrid();
 //funções de cada card
 function gireEsquerda(){
-    this.img = "url('imgs/gireEsquerda.png');";
     this.rum = function(per){
         this.dx = -per.dy;
         this.dy = per.dx;
@@ -122,7 +121,6 @@ function gireEsquerda(){
     return "Gire Esquerda"
 }
 function gireDireita(){
-    this.img = "url('imgs/gireDireita.png');";
     this.rum = function(per){
         this.dx = per.dy;
         this.dy = -per.dx;
@@ -241,18 +239,74 @@ function playAlgo(){
     }
     //preencher o vetor seqcards
     let nodes = document.getElementById('algol').childNodes;
+    let nodeslist = [];
     for(let i=0; i<nodes.length; i++){
         let param = nodes[i].children[0] ? nodes[i].children[0].value : "";
-        let inst = new (eval(nodes[i].attributes.name.nodeValue))(param);
-        seqcards.push(inst);
+        nodeslist.push({func:nodes[i].attributes.name.nodeValue , param: param});
     }
+    //compila o seqcards
+    seqcards.push(...(writeInst(nodeslist,0)));
     //executar o seqcards
-    console.log(person)
-    seqcards.forEach((item) => {
-        person = item.rum(person);
-        console.log(person)
-    })
+    rumInst(seqcards);
+}
+//executa a sequencia de operações
+function rumInst(seq){
+    console.log(Array.isArray(seqcards));
+    console.log(typeof seq);
+    for(let i=0; i<seq.length; i++){
+        if(Array.isArray(seq[i])){
+            rumInst(seq[i]);
+        }else{
+            person = seq[i].rum(person);
+            console.log(teste++);
+        }
+    }
+}
 
+//compila a sequencia de operações
+function writeInst(nodeslist, start){
+    let position = start;
+    let repite = 0;
+    let listfunc = [];
+    while(nodeslist.length>position){
+        let ins = nodeslist[position]
+        switch(ins.func){
+            case "gireEsquerda":
+            case "paraEsquerda":
+            case "paraFrente":
+            case "paraDireita":
+            case "gireDireita":
+            case "meiaVolta":
+            case "paraTras":
+            case "coringa":
+            case "girDireita":
+            case "girEsquerda":
+            case "acao":
+                let inst = new (eval(ins.func))(ins.param);
+                listfunc.push(inst);
+                repite -= (repite>0)? 1 : 0;
+                position += (repite>0)? 0 : 1;
+            break;
+            case "repita":
+                position ++;
+                repite = ins.param;
+            break;
+            case "abreBloco":
+                let bl = writeInst(nodeslist,position+1);
+                listfunc.push(bl);
+                repite -= (repite>0)? 1 : 0;
+                position += (repite>0)? 0 : (bl.length + 2);
+            break;
+            case "fechaBloco":
+                return listfunc;
+            break;
+            default:
+                console.log("instrução invalida");
+                position++;
+            break;
+        }
+    }
+    return listfunc;
 }
 
 //função reiniciar
