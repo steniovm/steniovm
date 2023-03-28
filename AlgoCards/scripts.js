@@ -5,6 +5,8 @@ const board = document.getElementById("board");
 const ctx = board.getContext("2d");
 const cellSize = 30;
 let countinstruct = 0;
+let speed = document.getElementById("inspeed").value;
+let interval;
 let typegame = "";//tipo de jogo escolhido
 let seqcards=[];//sequencia de instruções
 let person = {px:0,py:0,dx:0,dy:1};//personagem, posição e direção que está virado
@@ -34,6 +36,10 @@ function dragstarthandler(ev) {
  ev.dataTransfer.setData("text", ev.target.id); 
 }
 
+//configura velocidade do jogo (somente quando se escolhe tipo ritimo)
+function changespeed(){
+    speed = document.getElementById("inspeed").value;
+}
 //configuração do tipo de jogo escolhido
 function initgame(ev){
     typegame = ev.target.id
@@ -69,6 +75,7 @@ function initgame(ev){
                 cards[i].classList.remove('notinst');
             }
             document.getElementById('modalboard').classList.add('modalnone');
+            document.getElementById("inspeed").classList.remove("inspeed");
         break;
         case "btACZ":
             for( let i=0; i<cards.length; i++){
@@ -91,7 +98,7 @@ function initgame(ev){
     }
 }
 
-//desenha grido no tabuleiro
+//desenha gride no tabuleiro
 function drawGrid(){
     // Desenha as linhas horizontais do grid
   for (let y = 0; y <= board.height; y += cellSize) {
@@ -116,7 +123,10 @@ function gireEsquerda(){
         this.dy = per.dx;
         per.dx = this.dx;
         per.dy = this.dy;
-        return per
+        return per;
+    }
+    this.imgcard = function(){
+         return 'imgs/gireEsquerda.png';
     }
     return "Gire Esquerda"
 }
@@ -127,6 +137,9 @@ function gireDireita(){
         per.dx = this.dx;
         per.dy = this.dy;
         return per
+    }
+    this.imgcard = function(){
+        return 'imgs/gireDireita.png';
     }
     return "Gire Direita"
 }
@@ -139,6 +152,10 @@ function girDireita(angulo){
         per.dy = this.dy;
         return per
     }
+    this.imgcard = function(){
+            document.getElementById("currentAction").innerHTML = angulo+"º¬>";
+        return 'imgs/girDireita.png';
+    }
     return "Gire "+angulo+"graus para Direita"
 }
 function girEsquerda(angulo){
@@ -150,6 +167,10 @@ function girEsquerda(angulo){
         per.dy = this.dy;
         return per;
     }
+    this.imgcard = function(){
+        document.getElementById("currentAction").innerHTML = "<¬"+angulo+"º";
+        return 'imgs/girEsquerda.png';
+    }
     return "Gire "+angulo+"graus para Esquerda"
 }
 function meiaVolta(){
@@ -160,6 +181,9 @@ function meiaVolta(){
         per.dy = this.dy;
         return per;
     }
+    this.imgcard = function(){
+        return 'imgs/meiaVolta.png';
+    }
     return "Gire Direita"
 }
 function paraFrente(){
@@ -167,6 +191,9 @@ function paraFrente(){
         per.px += per.dx;
         per.py += per.dy;
         return per;
+    }
+    this.imgcard = function(){
+        return 'imgs/paraFrente.png';
     }
     return "Passo pra Frente"
 }
@@ -176,6 +203,9 @@ function paraTras(){
         per.py -= per.dy;
         return per;
     }
+    this.imgcard = function(){
+        return 'imgs/paraTras.png';
+    }
     return "Passo pra Tras"
 }
 function paraEsquerda(){
@@ -183,6 +213,9 @@ function paraEsquerda(){
         per.px += per.dy;
         per.py += per.dx;
         return per;
+    }
+    this.imgcard = function(){
+        return 'imgs/paraEsquerda.png';
     }
     return "Passo pra Esquerda"
 }
@@ -192,12 +225,18 @@ function paraDireita(){
         per.py -= per.dx;
         return per;
     }
+    this.imgcard = function(){
+        return 'imgs/paraDireita.png';
+    }
     return "Passo pra Direita"
 }
 function coringa(){
     this.rum = function(per){
         alert("CORINGA");
         return per;    
+    }
+    this.imgcard = function(){
+        return 'imgs/coringa.png';
     }
     return "CORINGA"
 }
@@ -207,60 +246,70 @@ function acao(text){
         alert(this.text.toUpperCase());
         return per;    
     }
+    this.imgcard = function(){
+        return 'imgs/acao.png';
+    }
     return "AÇÂO"
-}
-function repita(){
-    //a fazer
-}
-function abreBloco(){
-    //a fazer
-}
-function fechaBloco(){
-    //a fazer
 }
 
 // executa o algoritimo do usuario
 function playAlgo(){
-    //configura modals
-    switch (typegame){
-        case "btACF":
-        case "btACR":
-            document.getElementById('modalboard').classList.add('modalimg');
-        break;
-        case "btACL":
-        case "btACM":
-        case "btACZ":
-            document.getElementById('modalboard').classList.add('modalplay');
-        break;
-        default:
-            document.getElementById('modalboard').classList.remove('modalplay');
-            document.getElementById('modalboard').classList.remove('modalimg');
-        break;
-    }
     //preencher o vetor seqcards
     let nodes = document.getElementById('algol').childNodes;
     let nodeslist = [];
+    let opemclouseBlock = 0
     for(let i=0; i<nodes.length; i++){
         let param = nodes[i].children[0] ? nodes[i].children[0].value : "";
+        if (nodes[i].attributes.name.nodeValue == "abreBloco") {
+            opemclouseBlock++;
+        }else if(nodes[i].attributes.name.nodeValue == "fechaBloco") {
+            opemclouseBlock--;
+        }
+        if (opemclouseBlock < 0){
+            alert('Não é possivel fechar ")" um bloco de codigo não aberto "("');
+            restart();
+            return;
+        }
         nodeslist.push({func:nodes[i].attributes.name.nodeValue , param: param});
+    }
+    if (opemclouseBlock != 0){
+        alert('Todos os blocos de codigo aberto "(" devem ser fechados ")"');
+        restart();
+        return;
     }
     //compila o seqcards
     seqcards.push(...(writeInst(nodeslist,0)));
-    //executar o seqcards
-    rumInst(seqcards);
-}
-//executa a sequencia de operações
-function rumInst(seq){
-    console.log(Array.isArray(seqcards));
-    console.log(typeof seq);
-    for(let i=0; i<seq.length; i++){
-        if(Array.isArray(seq[i])){
-            rumInst(seq[i]);
-        }else{
-            person = seq[i].rum(person);
-            console.log(teste++);
+    //configura modals e executar o seqcards
+    countinstruct = 0;
+        switch (typegame){
+            case "btACF":
+                document.getElementById('modalboard').classList.add('modalimg');
+                document.getElementById("btnext").addEventListener('click',rumInstFF);
+                seqcards = rumInstF(seqcards);
+                countinstruct = 0;
+                rumInstFF();
+            break;
+            case "btACL":
+                document.getElementById('modalboard').classList.add('modalplay');
+            break;
+            case "btACM":
+                document.getElementById('modalboard').classList.add('modalplay');
+            break;
+            case "btACR":
+                document.getElementById('modalboard').classList.add('modalimg');
+                document.getElementById("btnext").addEventListener('click',rumInstFF);
+                seqcards = rumInstF(seqcards);
+                countinstruct = 0;
+                interval = setInterval(rumInstFF,2000);
+            break;
+            case "btACZ":
+                document.getElementById('modalboard').classList.add('modalplay');
+            break;
+            default:
+                document.getElementById('modalboard').classList.remove('modalplay');
+                document.getElementById('modalboard').classList.remove('modalimg');
+            break;
         }
-    }
 }
 
 //compila a sequencia de operações
@@ -317,6 +366,8 @@ function restart(){
     person = {px:0,py:0,dx:0,dy:1};
     document.getElementById('modalinit').style.display = "flex";
     document.getElementById('modalboard').classList.remove('modalnone');
+    document.getElementById("inspeed").classList.add("inspeed");
+    clearInterval(interval);
     let cards = document.getElementsByClassName('instruction')
     for( let i=0; i<cards.length; i++){
         cards[i].classList.remove('notinst');
@@ -329,6 +380,65 @@ function restart(){
     }
 }
 
+//executa a sequencia de operações
+//btACF - livre - não mostra tabuleiro, somente sequencia de imagens
+//btACR - AlgoRitmo - Coreografia
+function rumInstF(seq){
+    let sq = [];
+    for(let i=0; i<seq.length; i++){
+        if(Array.isArray(seq[i])){
+            sq.push(...rumInstF(seq[i]));
+        }else{
+            sq.push(seq[i]);
+        }
+    }
+    return sq;
+}
+function rumInstFF(){
+    document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
+    countinstruct = (countinstruct+1)%seqcards.length;
+}
+//function rumInstF(seq){
+//   document.getElementById("btnext").addEventListener('click',function(){rumInstFF(seq,countinstruct++)});
+//    rumInstFF(seq,countinstruct++)
+    /*for(let i=0; i<seq.length; i++){
+        if(Array.isArray(seq[i])){
+            rumInst(seq[i]);
+        }else{
+            //rumInstGame(seq[i]);
+            person = seq[i].rum(person);
+            //console.log(teste++);
+        }
+    }*/
+//}
+//function rumInstFF(seq,n){
+//    if(Array.isArray(seq[n])){
+//        rumInstFF(seq[n],0);
+//    }else{
+        //rumInstGame(seq[i]);
+        //person = seq[i].rum(person);
+        //console.log(teste++);
+//    }
+//    n++;
+//}
+
+/*function rumInstGame(seq){
+    switch (typegame){
+        case "btACF":
+        case "btACR":
+            document.getElementById('modalboard').classList.add('modalimg');
+        break;
+        case "btACL":
+        case "btACM":
+        case "btACZ":
+            document.getElementById('modalboard').classList.add('modalplay');
+        break;
+        default:
+            document.getElementById('modalboard').classList.remove('modalplay');
+            document.getElementById('modalboard').classList.remove('modalimg');
+        break;
+    }
+}
 /*
 as opções de jogo serão:
 btACF - livre - não mostra tabuleiro, somente sequencia
