@@ -60,6 +60,7 @@ function initgame(ev){
                     cards[i].classList.remove('notinst');
                 }
             }
+            document.getElementById('modalboard').classList.remove('modalnone');
         break;
         case "btACM":
             for( let i=0; i<cards.length; i++){
@@ -69,6 +70,7 @@ function initgame(ev){
                     cards[i].classList.remove('notinst');
                 }
             }
+            document.getElementById('modalboard').classList.remove('modalnone');
         break;
         case "btACR":
             for( let i=0; i<cards.length; i++){
@@ -85,6 +87,7 @@ function initgame(ev){
                     cards[i].classList.remove('notinst');
                 }
             }
+            document.getElementById('modalboard').classList.remove('modalnone');
         break;
         default:
             for( let i=0; i<cards.length; i++){
@@ -94,6 +97,7 @@ function initgame(ev){
                     cards[i].classList.remove('notinst');
                 }
             }
+            document.getElementById('modalboard').classList.remove('modalnone');
         break;
     }
 }
@@ -144,7 +148,8 @@ function gireDireita(){
     return "Gire Direita"
 }
 function girDireita(angulo){
-    this.radianos = angulo * Math.PI / 180;
+    this.angulo = angulo;
+    this.radianos = this.angulo * Math.PI / 180;
     this.rum = function (per){
         this.dx = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
         this.dy = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
@@ -153,13 +158,14 @@ function girDireita(angulo){
         return per
     }
     this.imgcard = function(){
-            document.getElementById("currentAction").innerHTML = angulo+"º¬>";
+            document.getElementById("currentAction").innerHTML = this.angulo+"º¬>";
         return 'imgs/girDireita.png';
     }
     return "Gire "+angulo+"graus para Direita"
 }
 function girEsquerda(angulo){
-    this.radianos = angulo * Math.PI / 180;
+    this.angulo = angulo;
+    this.radianos = this.angulo * Math.PI / 180;
     this.rum = function (per){
         this.dy = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
         this.dx = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
@@ -168,7 +174,7 @@ function girEsquerda(angulo){
         return per;
     }
     this.imgcard = function(){
-        document.getElementById("currentAction").innerHTML = "<¬"+angulo+"º";
+        document.getElementById("currentAction").innerHTML = "<¬"+this.angulo+"º";
         return 'imgs/girEsquerda.png';
     }
     return "Gire "+angulo+"graus para Esquerda"
@@ -247,6 +253,7 @@ function acao(text){
         return per;    
     }
     this.imgcard = function(){
+        document.getElementById("currentAction").innerHTML = this.text;
         return 'imgs/acao.png';
     }
     return "AÇÂO"
@@ -365,7 +372,7 @@ function restart(){
     seqcards=[];
     person = {px:0,py:0,dx:0,dy:1};
     document.getElementById('modalinit').style.display = "flex";
-    document.getElementById('modalboard').classList.remove('modalnone');
+    document.getElementById('modalboard').classList.add('modalnone');
     document.getElementById("inspeed").classList.add("inspeed");
     clearInterval(interval);
     let cards = document.getElementsByClassName('instruction')
@@ -395,6 +402,7 @@ function rumInstF(seq){
     return sq;
 }
 function rumInstFF(){
+    document.getElementById("currentAction").innerHTML = "";
     document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
     countinstruct = (countinstruct+1)%seqcards.length;
 }
