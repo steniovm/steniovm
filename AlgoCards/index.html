@@ -10,6 +10,12 @@
         <title>AlgoCards - Cards para Desenvolvimento do Pensamento Computacional</title>
     </head>
     <body>
+        <div id="music-control">
+            <div class="audiobtn" id="mute-audio"></div>
+            <div class="audiobtn" id="down-audio"></div>
+            <div class="audiobtn" id="up-audio"></div>
+            <div class="audiobtn" id="max-audio"></div>
+        </div>
         <img src="imgs/algocardsonline.png" alt="AlgoCards"/>
         <div id="modalinit">
             <h2>Escolha o jogo</h2>
@@ -55,12 +61,13 @@
                 <img id="playimg" src="imgs/playbutton.png"/>
                 <span>Executar</span>
             </Button>
-            <input type="range" id="inspeed" class="inspeed" min="10" max="5000" value="500" step="10" onchange="changespeed()"/>
+            <input type="range" id="inspeed" class="inspeed" min="0" max="2500" value="800" step="10" onchange="changespeed()"/>
         </main>
         <div id="modalboard" class="modalnone">
             <div id="currentAction"></div>
             <canvas id="board" width="330" height="330"></canvas>
             <button id="btnext">Proximo</button>
+            <img src="imgs/algocardsonline.png" alt="AlgoCards"/>
             <button id="btrestart" onclick="restart();">Reiniciar</button>
         </div>
         <div>

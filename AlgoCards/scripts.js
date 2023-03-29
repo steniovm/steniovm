@@ -4,12 +4,39 @@ let teste
 const board = document.getElementById("board");
 const ctx = board.getContext("2d");
 const cellSize = 30;
+const dropsong = new Audio("songs/drop.wav");
+const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");
+const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");
+bgmusic.loop = true;
+bgmusic.volume = 0.5;
 let countinstruct = 0;
-let speed = document.getElementById("inspeed").value;
+let speed = (document.getElementById("inspeed").max - document.getElementById("inspeed").value +200);
 let interval;
 let typegame = "";//tipo de jogo escolhido
 let seqcards=[];//sequencia de instruções
 let person = {px:0,py:0,dx:0,dy:1};//personagem, posição e direção que está virado
+
+//controles de volume
+document.getElementById('mute-audio').addEventListener('click',()=>{
+    dropsong.volume = 0;
+    bgmusic.volume = 0;
+    stepsong.volume = 0;
+});
+document.getElementById('down-audio').addEventListener('click',()=>{
+    if (dropsong.volume > 0) dropsong.volume -= 0.1;
+    if (bgmusic.volume > 0) bgmusic.volume -= 0.1;
+    if (stepsong.volume > 0) stepsong.volume -= 0.1;
+});
+document.getElementById('up-audio').addEventListener('click',()=>{
+    if (dropsong.volume < 1) dropsong.volume += 0.1;
+    if (bgmusic.volume < 1) bgmusic.volume += 0.1;
+    if (stepsong.volume < 1) stepsong.volume += 0.1;
+});
+document.getElementById('max-audio').addEventListener('click',()=>{
+    dropsong.volume = 1;
+    bgmusic.volume = 1;
+    stepsong.volume = 1;
+});
 
 //funções referentes ao drag and drop
 function dropCopy(ev){
@@ -20,11 +47,13 @@ function dropCopy(ev){
         nodeCopy.id = "intr"+countinstruct++;
         ev.currentTarget.style.background = "transparent";
         ev.target.appendChild(nodeCopy);
+        dropsong.play();
     }
 }
 function deleteitem(itemid){
     if(itemid.composedPath()[1].id == "algol"){
-        document.getElementById(itemid.composedPath()[0].id).remove()
+        document.getElementById(itemid.composedPath()[0].id).remove();
+        dropsong.play();
     }
 }
 function dragoverhandler(ev) {
@@ -38,7 +67,7 @@ function dragstarthandler(ev) {
 
 //configura velocidade do jogo (somente quando se escolhe tipo ritimo)
 function changespeed(){
-    speed = document.getElementById("inspeed").value;
+    speed = (document.getElementById("inspeed").max - document.getElementById("inspeed").value +200);
 }
 //configuração do tipo de jogo escolhido
 function initgame(ev){
@@ -100,6 +129,7 @@ function initgame(ev){
             document.getElementById('modalboard').classList.remove('modalnone');
         break;
     }
+    bgmusic.play();
 }
 
 //desenha gride no tabuleiro
@@ -307,7 +337,10 @@ function playAlgo(){
                 document.getElementById("btnext").addEventListener('click',rumInstFF);
                 seqcards = rumInstF(seqcards);
                 countinstruct = 0;
-                interval = setInterval(rumInstFF,2000);
+                document.getElementById("currentAction").innerHTML = "Preparar";
+                document.getElementById("currentAction").style = `background-image: none;`;
+                console.log(speed);
+                interval = setInterval(rumInstFF,speed);
             break;
             case "btACZ":
                 document.getElementById('modalboard').classList.add('modalplay');
@@ -375,7 +408,8 @@ function restart(){
     document.getElementById('modalboard').classList.add('modalnone');
     document.getElementById("inspeed").classList.add("inspeed");
     clearInterval(interval);
-    let cards = document.getElementsByClassName('instruction')
+    let cards = document.getElementsByClassName('instruction');
+    bgmusic.pause();
     for( let i=0; i<cards.length; i++){
         cards[i].classList.remove('notinst');
     }
@@ -404,6 +438,7 @@ function rumInstF(seq){
 function rumInstFF(){
     document.getElementById("currentAction").innerHTML = "";
     document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
+    stepsong.play();
     countinstruct = (countinstruct+1)%seqcards.length;
 }
 //function rumInstF(seq){
