@@ -43,6 +43,12 @@ h1,h2,h3,h4{
     padding: 10px;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+.modalshow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .modalnone{
     display: none;
@@ -162,11 +168,14 @@ button:hover{
     color: black;
     background-color: var(--yellow-past);
 }
-#btrestart{
+#btrestart, #btnext{
     display: none;
     padding: 0 10px;
 }
 .modalplay>#btrestart, .modalimg>#btrestart{
+    display: flex;
+}
+.modalplay>#btnext, .modalimg>#btnext{
     display: flex;
 }
 footer{
@@ -214,39 +223,39 @@ span, p{
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
-  .audiobtn{
+}
+.audiobtn{
     background-color: transparent;
     width: 30px;
     height: 30px;
-  }
-  .audiobtn:hover{
+}
+.audiobtn:hover{
     cursor: pointer;
-  }
-  .audiobtn:active{
+}
+.audiobtn:active{
     filter: invert(98%) sepia(2%) saturate(9%) hue-rotate(61deg) brightness(103%) contrast(103%);
-  }
-  #mute-audio{
+}
+#mute-audio{
     background-image: url("imgs/mute-vol.svg");
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
-  }
-  #down-audio{
+}
+#down-audio{
     background-image: url("imgs/down-vol.svg");
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
-  }
-  #up-audio{
+}
+#up-audio{
     background-image: url("imgs/up-vol.svg");
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
-  }
-  #max-audio{
+}
+#max-audio{
     background-image: url("imgs/max-vol.svg");
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
-  }
+}

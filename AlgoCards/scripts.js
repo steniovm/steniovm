@@ -3,10 +3,12 @@ let teste
 //variaveis e constantes globais
 const board = document.getElementById("board");
 const ctx = board.getContext("2d");
-const cellSize = 30;
+const cellSize = board.width/11;
 const dropsong = new Audio("songs/drop.wav");
 const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");
 const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");
+const personimg = document.createElement('img');
+personimg.src="imgs/person.png";
 bgmusic.loop = true;
 bgmusic.volume = 0.5;
 let countinstruct = 0;
@@ -14,7 +16,7 @@ let speed = (document.getElementById("inspeed").max - document.getElementById("i
 let interval;
 let typegame = "";//tipo de jogo escolhido
 let seqcards=[];//sequencia de instruções
-let person = {px:0,py:0,dx:0,dy:1};//personagem, posição e direção que está virado
+let person = {px:0,py:0,dx:0,dy:1,ag:0};//personagem, posição e direção que está virado
 
 //controles de volume
 document.getElementById('mute-audio').addEventListener('click',()=>{
@@ -80,6 +82,7 @@ function initgame(ev){
                 cards[i].classList.remove('notinst');
             }
             document.getElementById('modalboard').classList.add('modalnone');
+            document.getElementById('modalboard').classList.remove('modalshow');
         break;
         case "btACL":
             for( let i=0; i<cards.length; i++){
@@ -90,6 +93,7 @@ function initgame(ev){
                 }
             }
             document.getElementById('modalboard').classList.remove('modalnone');
+            document.getElementById('modalboard').classList.add('modalshow');
         break;
         case "btACM":
             for( let i=0; i<cards.length; i++){
@@ -100,6 +104,7 @@ function initgame(ev){
                 }
             }
             document.getElementById('modalboard').classList.remove('modalnone');
+            document.getElementById('modalboard').classList.add('modalshow');
         break;
         case "btACR":
             for( let i=0; i<cards.length; i++){
@@ -107,6 +112,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.add('modalnone');
             document.getElementById("inspeed").classList.remove("inspeed");
+            document.getElementById('modalboard').classList.remove('modalshow');
         break;
         case "btACZ":
             for( let i=0; i<cards.length; i++){
@@ -117,6 +123,7 @@ function initgame(ev){
                 }
             }
             document.getElementById('modalboard').classList.remove('modalnone');
+            document.getElementById('modalboard').classList.add('modalshow');
         break;
         default:
             for( let i=0; i<cards.length; i++){
@@ -149,7 +156,27 @@ function drawGrid(){
     ctx.stroke();
   }
 }
+//apaga celula do tabuleiro
+function clearCell(){
+    const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
+    const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
+    ctx.fillStyle = "white";
+    ctx.fillRect(px+1, py+1, cellSize-2, cellSize-2);
+    return {px,py};
+}
+//imprime personagem no tabuleiro
+function drawPerson(){
+    const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
+    const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
+    ctx.translate(px,py);
+    ctx.rotate(person.ag);
+    ctx.drawImage(personimg,0,0);
+    ctx.rotate(-person.ag);
+    ctx.translate(-px,-py);
+    return {px,py};
+}
 drawGrid();
+//drawPerson();
 //funções de cada card
 function gireEsquerda(){
     this.rum = function(per){
@@ -157,6 +184,7 @@ function gireEsquerda(){
         this.dy = per.dx;
         per.dx = this.dx;
         per.dy = this.dy;
+        per.ag -= Math.PI/2;
         return per;
     }
     this.imgcard = function(){
@@ -170,6 +198,7 @@ function gireDireita(){
         this.dy = -per.dx;
         per.dx = this.dx;
         per.dy = this.dy;
+        per.ag += Math.PI/2;
         return per
     }
     this.imgcard = function(){
@@ -185,6 +214,7 @@ function girDireita(angulo){
         this.dy = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
         per.dx = this.dx;
         per.dy = this.dy;
+        per.ag += this.radianos/2;
         return per
     }
     this.imgcard = function(){
@@ -201,6 +231,7 @@ function girEsquerda(angulo){
         this.dx = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
         per.dx = this.dx;
         per.dy = this.dy;
+        per.ag -= this.radianos/2;
         return per;
     }
     this.imgcard = function(){
@@ -215,6 +246,7 @@ function meiaVolta(){
         this.dy = -per.dy;
         per.dx = this.dx;
         per.dy = this.dy;
+        per.ag += Math.PI;
         return per;
     }
     this.imgcard = function(){
@@ -317,13 +349,12 @@ function playAlgo(){
     //compila o seqcards
     seqcards.push(...(writeInst(nodeslist,0)));
     //configura modals e executar o seqcards
+    seqcards = rumInstF(seqcards);
     countinstruct = 0;
         switch (typegame){
             case "btACF":
                 document.getElementById('modalboard').classList.add('modalimg');
                 document.getElementById("btnext").addEventListener('click',rumInstFF);
-                seqcards = rumInstF(seqcards);
-                countinstruct = 0;
                 rumInstFF();
             break;
             case "btACL":
@@ -331,15 +362,16 @@ function playAlgo(){
             break;
             case "btACM":
                 document.getElementById('modalboard').classList.add('modalplay');
+                clearCell();
+                drawPerson();
+                document.getElementById("btnext").addEventListener('click',rumInstM);
+                rumInstM();
             break;
             case "btACR":
                 document.getElementById('modalboard').classList.add('modalimg');
                 document.getElementById("btnext").addEventListener('click',rumInstFF);
-                seqcards = rumInstF(seqcards);
-                countinstruct = 0;
                 document.getElementById("currentAction").innerHTML = "Preparar";
                 document.getElementById("currentAction").style = `background-image: none;`;
-                console.log(speed);
                 interval = setInterval(rumInstFF,speed);
             break;
             case "btACZ":
@@ -403,7 +435,7 @@ function restart(){
     countinstruct = 0;
     typegame = "";
     seqcards=[];
-    person = {px:0,py:0,dx:0,dy:1};
+    person = {px:0,py:0,dx:0,dy:1,ag:0};
     document.getElementById('modalinit').style.display = "flex";
     document.getElementById('modalboard').classList.add('modalnone');
     document.getElementById("inspeed").classList.add("inspeed");
@@ -415,6 +447,7 @@ function restart(){
     }
     document.getElementById('modalboard').classList.remove('modalplay');
     document.getElementById('modalboard').classList.remove('modalimg');
+    document.getElementById('modalboard').classList.remove('modalshow');
     let nodes = document.getElementById('algol').childNodes;
     for(let i=0; i<nodes.length; i){
         nodes[0].remove();
@@ -440,6 +473,13 @@ function rumInstFF(){
     document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
     stepsong.play();
     countinstruct = (countinstruct+1)%seqcards.length;
+}
+//btACM - AlgoMovimento - fazer um desenho
+function rumInstM(){
+    clearCell();
+    person = seqcards[countinstruct].rum(person);
+    drawPerson();
+    rumInstFF();
 }
 //function rumInstF(seq){
 //   document.getElementById("btnext").addEventListener('click',function(){rumInstFF(seq,countinstruct++)});
