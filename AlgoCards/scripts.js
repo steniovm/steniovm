@@ -160,19 +160,24 @@ function drawGrid(){
 function clearCell(){
     const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
     const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#f5f5f5a0";
     ctx.fillRect(px+1, py+1, cellSize-2, cellSize-2);
     return {px,py};
 }
 //imprime personagem no tabuleiro
 function drawPerson(){
+    console.log(person);
     const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
     const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
-    ctx.translate(px,py);
+    const cx = (board.width/2)+(cellSize*person.px);
+    const cy = (board.height/2)-(cellSize*person.py);
+    ctx.translate(cx,cy);
     ctx.rotate(person.ag);
-    ctx.drawImage(personimg,0,0);
+    ctx.translate(-cx,-cy);
+    ctx.drawImage(personimg,px,py);
+    ctx.translate(cx,cy);
     ctx.rotate(-person.ag);
-    ctx.translate(-px,-py);
+    ctx.translate(-cx,-cy);
     return {px,py};
 }
 drawGrid();
@@ -208,13 +213,14 @@ function gireDireita(){
 }
 function girDireita(angulo){
     this.angulo = angulo;
-    this.radianos = this.angulo * Math.PI / 180;
+    this.radianos = (this.angulo * Math.PI / 180);
+    console.log(this.radianos);
     this.rum = function (per){
-        this.dx = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
-        this.dy = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
+        this.dx = (per.dx * Math.cos(this.radianos) + per.dy * Math.sin(this.radianos));
+        this.dy = -(per.dx * Math.sin(this.radianos) - per.dy * Math.cos(this.radianos));
         per.dx = this.dx;
         per.dy = this.dy;
-        per.ag += this.radianos/2;
+        per.ag += this.radianos;
         return per
     }
     this.imgcard = function(){
@@ -225,13 +231,13 @@ function girDireita(angulo){
 }
 function girEsquerda(angulo){
     this.angulo = angulo;
-    this.radianos = this.angulo * Math.PI / 180;
+    this.radianos = -(this.angulo * Math.PI / 180);
     this.rum = function (per){
-        this.dy = per.dx * Math.cos(this.radianos) - per.dy * Math.sin(this.radianos);
-        this.dx = per.dx * Math.sin(this.radianos) + per.dy * Math.cos(this.radianos);
+        this.dx = (per.dx * Math.cos(this.radianos) + per.dy * Math.sin(this.radianos));
+        this.dy = -(per.dx * Math.sin(this.radianos) - per.dy * Math.cos(this.radianos));
         per.dx = this.dx;
         per.dy = this.dy;
-        per.ag -= this.radianos/2;
+        per.ag += this.radianos;
         return per;
     }
     this.imgcard = function(){
@@ -365,7 +371,7 @@ function playAlgo(){
                 clearCell();
                 drawPerson();
                 document.getElementById("btnext").addEventListener('click',rumInstM);
-                rumInstM();
+                //rumInstM();
             break;
             case "btACR":
                 document.getElementById('modalboard').classList.add('modalimg');
