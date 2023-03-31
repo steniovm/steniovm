@@ -141,6 +141,8 @@ function initgame(ev){
 
 //desenha gride no tabuleiro
 function drawGrid(){
+    ctx.fillStyle = "#f5f5f5";
+    ctx.fillRect(0, 0, board.width, board.height);
     // Desenha as linhas horizontais do grid
   for (let y = 0; y <= board.height; y += cellSize) {
     ctx.beginPath();
@@ -160,7 +162,7 @@ function drawGrid(){
 function clearCell(){
     const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
     const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
-    ctx.fillStyle = "#f5f5f5a0";
+    ctx.fillStyle = "#f5f5f5b0";
     ctx.fillRect(px+1, py+1, cellSize-2, cellSize-2);
     return {px,py};
 }
@@ -365,13 +367,17 @@ function playAlgo(){
             break;
             case "btACL":
                 document.getElementById('modalboard').classList.add('modalplay');
+                clearCell();
+                drawPerson();
+                document.getElementById("btnext").addEventListener('click',rumInstM);
+                interval = setInterval(rumInstM,1000);
             break;
             case "btACM":
                 document.getElementById('modalboard').classList.add('modalplay');
                 clearCell();
                 drawPerson();
                 document.getElementById("btnext").addEventListener('click',rumInstM);
-                //rumInstM();
+                interval = setInterval(rumInstM,1000);
             break;
             case "btACR":
                 document.getElementById('modalboard').classList.add('modalimg');
@@ -382,6 +388,10 @@ function playAlgo(){
             break;
             case "btACZ":
                 document.getElementById('modalboard').classList.add('modalplay');
+                clearCell();
+                drawPerson();
+                document.getElementById("btnext").addEventListener('click',rumInstM);
+                interval = setInterval(rumInstM,1000);
             break;
             default:
                 document.getElementById('modalboard').classList.remove('modalplay');
@@ -442,6 +452,7 @@ function restart(){
     typegame = "";
     seqcards=[];
     person = {px:0,py:0,dx:0,dy:1,ag:0};
+    drawGrid();
     document.getElementById('modalinit').style.display = "flex";
     document.getElementById('modalboard').classList.add('modalnone');
     document.getElementById("inspeed").classList.add("inspeed");
