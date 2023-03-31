@@ -105,6 +105,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            drawInCanva();
         break;
         case "btACR":
             for( let i=0; i<cards.length; i++){
@@ -143,6 +144,8 @@ function initgame(ev){
 function drawGrid(){
     ctx.fillStyle = "#f5f5f5";
     ctx.fillRect(0, 0, board.width, board.height);
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 1;
     // Desenha as linhas horizontais do grid
   for (let y = 0; y <= board.height; y += cellSize) {
     ctx.beginPath();
@@ -498,47 +501,118 @@ function rumInstM(){
     drawPerson();
     rumInstFF();
 }
-//function rumInstF(seq){
-//   document.getElementById("btnext").addEventListener('click',function(){rumInstFF(seq,countinstruct++)});
-//    rumInstFF(seq,countinstruct++)
-    /*for(let i=0; i<seq.length; i++){
-        if(Array.isArray(seq[i])){
-            rumInst(seq[i]);
-        }else{
-            //rumInstGame(seq[i]);
-            person = seq[i].rum(person);
-            //console.log(teste++);
-        }
-    }*/
-//}
-//function rumInstFF(seq,n){
-//    if(Array.isArray(seq[n])){
-//        rumInstFF(seq[n],0);
-//    }else{
-        //rumInstGame(seq[i]);
-        //person = seq[i].rum(person);
-        //console.log(teste++);
-//    }
-//    n++;
-//}
-
-/*function rumInstGame(seq){
-    switch (typegame){
-        case "btACF":
-        case "btACR":
-            document.getElementById('modalboard').classList.add('modalimg');
-        break;
-        case "btACL":
-        case "btACM":
-        case "btACZ":
-            document.getElementById('modalboard').classList.add('modalplay');
-        break;
-        default:
-            document.getElementById('modalboard').classList.remove('modalplay');
-            document.getElementById('modalboard').classList.remove('modalimg');
-        break;
+//funções de desenhar no tabuleiro
+function drawInCanva(){
+    const n = Math.ceil(Math.random()*7);
+    switch (n){
+        case 1: drawCircle(); break;
+        case 2: drawSquare(); break;
+        case 3: drawTriangle(); break;
+        case 4: drawRectTriangle(); break;
+        case 5: drawLozenge(); break;
+        case 6: drawHexagono(); break;
+        case 7: drawLadder(); break;
     }
 }
+function drawCircle(){
+    // Desenha um círculo
+    ctx.beginPath();
+    ctx.arc(165, 165, 120, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();  
+  }
+function drawSquare(){
+    // Desenha um quadrado
+    ctx.beginPath();
+    ctx.moveTo(75, 75);
+    ctx.lineTo(255, 75);
+    ctx.lineTo(255, 255);
+    ctx.lineTo(75, 255);
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+function drawTriangle(){
+    // Desenha um Triâgulo Equilátero
+    ctx.beginPath();
+    ctx.moveTo(165, 45);
+    ctx.lineTo(285, 255);
+    ctx.lineTo(45, 255);
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+function drawRectTriangle(){
+    // Desenha um Triâgulo Retângulo
+    ctx.beginPath();
+    ctx.moveTo(15, 15);
+    ctx.lineTo(315, 15);
+    ctx.lineTo(15, 315);
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+function drawLozenge(){
+    // Desenha um losângulo
+    ctx.beginPath();
+    ctx.moveTo(165, 15);
+    ctx.lineTo(255, 165);
+    ctx.lineTo(165, 315);
+    ctx.lineTo(75, 165);
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+function drawHexagono(){
+    // Desenha um hexágono
+    const x = 165;
+    const y = 165;
+    const size = 120;
+    ctx.beginPath();
+    ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+    for (let i = 1; i <= 6; i++) {
+      ctx.lineTo(x + size * Math.cos(i * 2 * Math.PI / 6), y + size * Math.sin(i * 2 * Math.PI / 6));
+    }
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+function drawLadder(){
+    // Desenha um losângulo
+    ctx.beginPath();
+    ctx.moveTo(165, 165);
+    ctx.lineTo(195, 165);
+    ctx.lineTo(195, 195);
+    ctx.lineTo(225, 195);
+    ctx.lineTo(225, 225);
+    ctx.lineTo(255, 225);
+    ctx.lineTo(255, 255);
+    ctx.lineTo(285, 255);
+    ctx.lineTo(285, 285);
+    ctx.lineTo(315, 285);
+    ctx.lineTo(315, 315);
+    ctx.lineTo(15, 315);
+    ctx.lineTo(15, 15);
+    ctx.lineTo(45, 15);
+    ctx.lineTo(45, 45);
+    ctx.lineTo(75, 45);
+    ctx.lineTo(75, 75);
+    ctx.lineTo(105, 75);
+    ctx.lineTo(105, 105);
+    ctx.lineTo(135, 105);
+    ctx.lineTo(135, 135);
+    ctx.lineTo(165, 135);
+    ctx.closePath();
+    ctx.strokeStyle = "#505050";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
 /*
 as opções de jogo serão:
 btACF - livre - não mostra tabuleiro, somente sequencia
