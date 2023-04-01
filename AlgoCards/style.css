@@ -35,7 +35,7 @@ h1,h2,h3,h4{
     position: fixed;
     z-index: 1;
     left: auto;
-    top: 10vh;
+    top: 15vh;
     background-color: var(--neutral-green);
     border: solid 2px black;
     border-radius: 10px;
@@ -121,6 +121,7 @@ section{
     min-height: 60px;
     justify-content: center;
     align-items:center;
+    cursor:grab;
 }
 .instimg{
     width: 7vw;
@@ -168,14 +169,14 @@ button:hover{
     color: black;
     background-color: var(--yellow-past);
 }
-#btrestart, #btnext{
+#btrestart, #btnext, #btprevi{
     display: none;
     padding: 0 10px;
 }
 .modalplay>#btrestart, .modalimg>#btrestart{
     display: flex;
 }
-.modalplay>#btnext, .modalimg>#btnext{
+.modalplay>#btnext, .modalimg>#btnext, .modalplay>#btprevi, .modalimg>#btprevi{
     display: flex;
 }
 footer{
@@ -197,6 +198,11 @@ span, p{
     font-weight: bold;
     overflow-wrap: break-word;
 }
+#btACZ {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
+}
 .myimg{
     height: 6vh;
     min-height:60px;
@@ -210,15 +216,15 @@ span, p{
 }
 /*controle de audio*/
 #music-control{
-    border: #000 solid 5px;
+    border: #000 solid 2px;
     border-radius: 12px;
-    min-width: 145px;
-    min-height: 45px;
-    height: 6%;
-    width: 12%;
+    min-width: 130px;
+    min-height: 30px;
+    height: 3%;
+    width: 6%;
     background-color: var(--beige-bg);
     position: absolute;
-    top: 7%;
+    top: 9%;
     left: 10px;
     display: flex;
     justify-content: space-around;
@@ -226,8 +232,8 @@ span, p{
 }
 .audiobtn{
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 .audiobtn:hover{
     cursor: pointer;

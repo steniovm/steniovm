@@ -1,22 +1,129 @@
-let teste
-
 //variaveis e constantes globais
-const board = document.getElementById("board");
-const ctx = board.getContext("2d");
-const cellSize = board.width/11;
-const dropsong = new Audio("songs/drop.wav");
-const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");
-const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");
-const personimg = document.createElement('img');
-personimg.src="imgs/person.png";
-bgmusic.loop = true;
-bgmusic.volume = 0.5;
-let countinstruct = 0;
-let speed = (document.getElementById("inspeed").max - document.getElementById("inspeed").value +200);
-let interval;
+const board = document.getElementById("board");//tabuleiro do movimento
+const ctx = board.getContext("2d");//contexto de plotagem no tabuleiro
+const cellSize = board.width/11;//tamanho do quadriculado
+const dropsong = new Audio("songs/drop.wav");//som ao arrastar os cards
+const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");//musica de fundo
+const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");//som ao executar cada card
+const personimg = document.createElement('img');//imagem que representa o personagem na tabuleiro
+personimg.src="imgs/person.png";//imagem que representa o personagem na tabuleiro
+bgmusic.loop = true;//musica tocada em loop
+bgmusic.volume = 0.2;//volume inicial da musica baixo
+let countinstruct = 0;//conta o numero de instruções executadas
+let speed = (document.getElementById("inspeed").max - document.getElementById("inspeed").value +200);//velocidade de execução automatica das instruções
+let tracing;//numero do traçada a ser desenhado (somente para o modo movimento)
+let mazeing=-1;//numero do labirinto a ser desenhado (somente para o modo movimento)
+let interval;//rotulo do setInterval
 let typegame = "";//tipo de jogo escolhido
 let seqcards=[];//sequencia de instruções
 let person = {px:0,py:0,dx:0,dy:1,ag:0};//personagem, posição e direção que está virado
+//labirintos - 0 "#f5f5f5" pista - 1 "#202020" parede - 2 "#f5f520" chegada
+const mazes = [
+    [
+      [1,2,1,0,0,0,0,0,1,0,1],
+      [0,0,0,1,0,1,1,0,0,0,0],
+      [0,1,0,1,0,1,0,0,1,1,1],
+      [0,0,1,1,0,0,0,1,0,0,0],
+      [1,0,1,0,0,0,1,0,0,1,0],
+      [1,0,1,0,1,0,1,1,0,1,0],
+      [0,0,1,0,1,0,0,1,0,1,0],
+      [0,1,0,0,1,1,1,1,0,1,0],
+      [0,0,1,0,0,0,0,0,0,1,0],
+      [1,0,1,1,1,1,1,1,1,1,0],
+      [1,0,0,0,0,0,0,0,0,0,0]
+    ],
+    [
+      [0,1,0,0,0,1,1,1,1,1,1],
+      [0,1,0,1,0,1,0,0,0,0,1],
+      [0,0,0,1,0,0,0,1,1,0,1],
+      [0,1,1,0,1,1,1,0,1,0,1],
+      [0,0,1,0,0,0,1,0,0,0,2],
+      [1,0,0,1,0,0,0,1,1,0,1],
+      [0,1,0,1,0,1,0,0,1,0,0],
+      [0,1,0,1,0,1,0,1,0,1,0],
+      [0,1,0,1,1,1,0,0,0,1,0],
+      [0,0,0,0,0,0,0,1,1,1,0],
+      [0,1,1,1,0,1,1,0,0,0,0]
+    ],
+    [
+      [0,0,0,0,1,0,0,0,0,0,0],
+      [0,1,1,0,1,0,1,1,1,1,0],
+      [0,1,1,0,1,0,1,0,2,1,0],
+      [0,1,1,0,1,0,1,0,1,1,0],
+      [0,1,1,0,1,0,1,0,1,1,0],
+      [0,1,1,0,1,0,1,0,1,1,0],
+      [0,1,1,0,1,1,1,0,1,1,0],
+      [0,1,1,0,0,0,0,0,1,1,0],
+      [0,1,1,1,1,1,1,1,1,1,0],
+      [0,1,1,1,1,1,1,1,1,1,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
+    ],
+    [
+      [0,2,1,0,0,0,1,0,0,0,0],
+      [0,1,1,0,1,0,1,0,1,1,0],
+      [0,0,1,0,1,0,1,0,1,0,0],
+      [1,0,1,0,1,0,1,0,1,0,1],
+      [0,0,1,0,1,0,1,0,1,0,0],
+      [0,1,1,0,1,0,1,0,1,1,0],
+      [0,0,1,0,1,1,1,0,1,0,0],
+      [1,0,1,0,0,0,0,0,1,0,1],
+      [0,0,1,1,1,1,1,1,1,0,0],
+      [0,1,0,0,0,1,0,0,0,1,0],
+      [0,0,0,1,0,0,0,1,0,0,0]
+    ],
+    [
+      [1,1,1,1,1,1,1,1,1,1,2],
+      [1,0,0,0,0,0,0,0,0,1,0],
+      [1,0,1,1,1,1,1,1,0,1,0],
+      [1,0,1,0,0,0,0,1,0,1,0],
+      [1,0,1,0,1,1,0,1,0,1,0],
+      [1,0,1,0,1,0,0,1,0,1,0],
+      [1,0,1,0,1,1,1,1,0,1,0],
+      [1,0,1,0,0,0,0,0,0,1,0],
+      [1,0,1,1,1,1,1,1,1,1,0],
+      [1,0,0,0,0,0,0,0,0,0,0],
+      [1,1,1,1,1,1,1,1,1,1,1]
+    ],
+    [
+      [0,0,0,0,0,1,0,0,0,0,0],
+      [0,1,0,0,1,0,0,1,0,0,1],
+      [1,0,0,1,0,0,1,0,0,1,0],
+      [0,0,1,0,0,1,0,0,1,0,0],
+      [0,1,0,0,1,0,0,1,0,0,0],
+      [0,0,0,1,0,0,1,0,0,1,0],
+      [0,0,1,0,1,1,2,0,1,0,0],
+      [0,1,0,0,0,0,1,1,0,0,0],
+      [0,0,0,1,0,1,1,0,0,1,0],
+      [0,1,1,0,0,1,0,0,1,0,0],
+      [0,1,0,0,0,0,0,1,0,0,1]
+    ],
+    [
+      [0,0,1,0,0,0,0,0,0,0,0],
+      [0,1,1,0,1,0,1,1,1,1,0],
+      [0,1,1,0,1,0,1,1,1,1,1],
+      [0,1,1,0,1,0,0,0,0,0,0],
+      [0,1,1,0,1,1,1,1,1,1,0],
+      [0,0,0,0,1,0,1,0,0,0,0],
+      [0,1,1,1,1,0,1,0,1,1,0],
+      [0,0,0,0,1,0,1,0,1,1,0],
+      [1,1,1,0,1,0,1,0,1,1,0],
+      [2,1,1,0,1,0,1,0,1,1,0],
+      [0,0,0,0,1,0,0,0,1,0,0]
+    ],
+    [
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,1,1,1,1,1,1,1,0,0],
+      [0,1,0,0,0,0,0,0,0,1,0],
+      [0,1,0,1,0,1,0,1,0,1,0],
+      [0,1,0,1,1,0,1,1,0,1,0],
+      [2,1,0,0,0,0,1,0,0,0,0],
+      [0,1,0,1,0,1,0,1,0,1,0],
+      [0,1,0,1,1,0,1,1,0,1,0],
+      [0,1,0,0,0,0,0,0,0,1,0],
+      [0,0,1,1,1,1,1,1,1,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
+    ]
+  ]
 
 //controles de volume
 document.getElementById('mute-audio').addEventListener('click',()=>{
@@ -94,6 +201,8 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            drawMaze();
+            drawPerson();
         break;
         case "btACM":
             for( let i=0; i<cards.length; i++){
@@ -106,6 +215,7 @@ function initgame(ev){
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
             drawInCanva();
+            drawPerson();
         break;
         case "btACR":
             for( let i=0; i<cards.length; i++){
@@ -125,6 +235,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            drawPerson();
         break;
         default:
             for( let i=0; i<cards.length; i++){
@@ -142,8 +253,10 @@ function initgame(ev){
 
 //desenha gride no tabuleiro
 function drawGrid(){
+    //limpa toda a tela
     ctx.fillStyle = "#f5f5f5";
     ctx.fillRect(0, 0, board.width, board.height);
+    //estiliza a linha do gride
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 1;
     // Desenha as linhas horizontais do grid
@@ -171,7 +284,6 @@ function clearCell(){
 }
 //imprime personagem no tabuleiro
 function drawPerson(){
-    console.log(person);
     const px = (board.width/2)+(cellSize*person.px)-(personimg.width/2);
     const py = (board.height/2)-(cellSize*person.py)-(personimg.height/2);
     const cx = (board.width/2)+(cellSize*person.px);
@@ -473,6 +585,21 @@ function restart(){
         nodes[0].remove();
     }
 }
+//função retornar para a tela de edição do algoritimo
+function previous(){
+    countinstruct = 0;
+    person = {px:0,py:0,dx:0,dy:1,ag:0};
+    drawGrid();
+    document.getElementById('modalboard').classList.remove('modalplay');
+    document.getElementById('modalboard').classList.remove('modalimg');
+    if(typegame=="btACL" || typegame=="btACM" || typegame=="btACZ") 
+        document.getElementById('modalboard').classList.add('modalshow');
+    if(typegame=="btACR") document.getElementById("inspeed").classList.remove("inspeed");
+    if(typegame=="btACM") drawInCanva(tracing);
+    if(typegame=="btACL") drawMaze(mazeing);
+    clearInterval(interval);
+    seqcards=[];
+}    
 
 //executa a sequencia de operações
 //btACF - livre - não mostra tabuleiro, somente sequencia de imagens
@@ -494,6 +621,21 @@ function rumInstFF(){
     stepsong.play();
     countinstruct = (countinstruct+1)%seqcards.length;
 }
+//btACL - AlgoLabirinto - percorrer um caminho
+//função para desenhar um labirinto
+function drawMaze(m=-1){
+    mazeing = (m<0) ? Math.ceil(Math.random()*(mazes.length-1)) : m;
+    // Muda a cor da célula correspondente
+   mazes[mazeing].forEach((element, row) => {
+        element.forEach((elem, col) => {
+            if (elem === 0) ctx.fillStyle = "#f5f5f5";//pista
+            if (elem === 1) ctx.fillStyle = "#202020";//parede
+            if (elem === 2) ctx.fillStyle = "#f5f520";//chegada
+            ctx.fillRect(col*cellSize+1, row*cellSize+1, cellSize-2, cellSize-2);
+            console.log(elem)
+        });
+    });
+}
 //btACM - AlgoMovimento - fazer um desenho
 function rumInstM(){
     clearCell();
@@ -502,9 +644,9 @@ function rumInstM(){
     rumInstFF();
 }
 //funções de desenhar no tabuleiro
-function drawInCanva(){
-    const n = Math.ceil(Math.random()*7);
-    switch (n){
+function drawInCanva(m=undefined){
+    tracing = (!m) ? Math.ceil(Math.random()*7) : m;
+    switch (tracing){
         case 1: drawCircle(); break;
         case 2: drawSquare(); break;
         case 3: drawTriangle(); break;
@@ -512,6 +654,7 @@ function drawInCanva(){
         case 5: drawLozenge(); break;
         case 6: drawHexagono(); break;
         case 7: drawLadder(); break;
+        default: drawInCanva(); break;
     }
 }
 function drawCircle(){
