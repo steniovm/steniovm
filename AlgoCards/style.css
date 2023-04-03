@@ -265,3 +265,12 @@ span, p{
     background-size: contain;
     color: transparent;
 }
+/*somente no AlgoZumbi*/
+.nightmare{
+    background: url("./imgs/HalloweenBackground.jpg");
+    background-repeat: repeat-x;
+    background-color: black;
+}
+.nightmare>footer{
+    background-color: #8b00009f;
+}

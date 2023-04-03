@@ -1,12 +1,17 @@
 //variaveis e constantes globais
 const board = document.getElementById("board");//tabuleiro do movimento
 const ctx = board.getContext("2d");//contexto de plotagem no tabuleiro
-const cellSize = board.width/11;//tamanho do quadriculado
+const nrowcol = 11;//numero de linhas e colunas
+const cellSize = board.width/nrowcol;//tamanho do quadriculado
 const dropsong = new Audio("songs/drop.wav");//som ao arrastar os cards
 const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");//musica de fundo
 const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");//som ao executar cada card
 const personimg = document.createElement('img');//imagem que representa o personagem na tabuleiro
 personimg.src="imgs/person.png";//imagem que representa o personagem na tabuleiro
+const atiradorimg = document.createElement('img');//imagem que representa o personagem na tabuleiro
+atiradorimg.src="imgs/atirador.png";//imagem que representa o personagem na tabuleiro
+const zumbimg = document.createElement('img');
+zumbimg.src="imgs/zumbi.png";
 bgmusic.loop = true;//musica tocada em loop
 bgmusic.volume = 0.2;//volume inicial da musica baixo
 let countinstruct = 0;//conta o numero de instruções executadas
@@ -226,8 +231,13 @@ function initgame(ev){
             document.getElementById('modalboard').classList.remove('modalshow');
         break;
         case "btACZ":
+            document.querySelector('body').classList.add('nightmare');
+            document.getElementById('modalboard').classList.add('nightmare');
+            bgmusic.src = "songs/BlackMas-BrianBolger.mp3";
+            personimg.src = atiradorimg.src;
+            drawPerson();
             for( let i=0; i<cards.length; i++){
-                if (i==1||i==3||i==6||i==7||i==11||i==12){
+                if (i==1||i==3||i==6||i==11||i==12){
                     cards[i].classList.add('notinst');
                 }else{
                     cards[i].classList.remove('notinst');
@@ -235,6 +245,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            drawZumbi();
             drawPerson();
         break;
         default:
@@ -298,7 +309,6 @@ function drawPerson(){
     return {px,py};
 }
 drawGrid();
-//drawPerson();
 //funções de cada card
 function gireEsquerda(){
     this.rum = function(per){
@@ -331,7 +341,6 @@ function gireDireita(){
 function girDireita(angulo){
     this.angulo = angulo;
     this.radianos = (this.angulo * Math.PI / 180);
-    console.log(this.radianos);
     this.rum = function (per){
         this.dx = (per.dx * Math.cos(this.radianos) + per.dy * Math.sin(this.radianos));
         this.dy = -(per.dx * Math.sin(this.radianos) - per.dy * Math.cos(this.radianos));
@@ -422,6 +431,7 @@ function paraDireita(){
     return "Passo pra Direita"
 }
 function coringa(){
+    this.card = "CORINGA";
     this.rum = function(per){
         alert("CORINGA");
         return per;    
@@ -505,8 +515,8 @@ function playAlgo(){
                 document.getElementById('modalboard').classList.add('modalplay');
                 clearCell();
                 drawPerson();
-                document.getElementById("btnext").addEventListener('click',rumInstM);
-                interval = setInterval(rumInstM,1000);
+                document.getElementById("btnext").addEventListener('click',rumInstZ);
+                interval = setInterval(rumInstZ,1000);
             break;
             default:
                 document.getElementById('modalboard').classList.remove('modalplay');
@@ -599,6 +609,7 @@ function previous(){
     if(typegame=="btACL") drawMaze(mazeing);
     clearInterval(interval);
     seqcards=[];
+    drawPerson();
 }    
 
 //executa a sequencia de operações
@@ -617,7 +628,8 @@ function rumInstF(seq){
 }
 function rumInstFF(){
     document.getElementById("currentAction").innerHTML = "";
-    document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
+    if (seqcards.length>0)
+        document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
     stepsong.play();
     countinstruct = (countinstruct+1)%seqcards.length;
 }
@@ -632,14 +644,13 @@ function drawMaze(m=-1){
             if (elem === 1) ctx.fillStyle = "#202020";//parede
             if (elem === 2) ctx.fillStyle = "#f5f520";//chegada
             ctx.fillRect(col*cellSize+1, row*cellSize+1, cellSize-2, cellSize-2);
-            console.log(elem)
         });
     });
 }
 //btACM - AlgoMovimento - fazer um desenho
 function rumInstM(){
     clearCell();
-    person = seqcards[countinstruct].rum(person);
+    if (seqcards.length>0) person = seqcards[countinstruct].rum(person);
     drawPerson();
     rumInstFF();
 }
@@ -664,7 +675,7 @@ function drawCircle(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();  
-  }
+}
 function drawSquare(){
     // Desenha um quadrado
     ctx.beginPath();
@@ -676,7 +687,7 @@ function drawSquare(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
 function drawTriangle(){
     // Desenha um Triâgulo Equilátero
     ctx.beginPath();
@@ -687,7 +698,7 @@ function drawTriangle(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
 function drawRectTriangle(){
     // Desenha um Triâgulo Retângulo
     ctx.beginPath();
@@ -698,7 +709,7 @@ function drawRectTriangle(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
 function drawLozenge(){
     // Desenha um losângulo
     ctx.beginPath();
@@ -710,7 +721,7 @@ function drawLozenge(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
 function drawHexagono(){
     // Desenha um hexágono
     const x = 165;
@@ -725,7 +736,7 @@ function drawHexagono(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
 function drawLadder(){
     // Desenha um losângulo
     ctx.beginPath();
@@ -755,7 +766,51 @@ function drawLadder(){
     ctx.strokeStyle = "#505050";
     ctx.lineWidth = 5;
     ctx.stroke();
-  }
+}
+//btACZ - Algozumbi - tiro e labirinto
+//função para plotar os zumbis na tela
+function drawZumbi(){
+    const n = Math.ceil(Math.random()*10);//sorteia o numero de zumbis
+    let col, row, dire, px, py, cx, cy;
+    for(let i=0;i<n;i++){
+        col = Math.ceil(Math.random()*nrowcol)-6;
+        row = Math.ceil(Math.random()*nrowcol)-6;
+        if (col != person.px || row != person.py){
+            dire = (Math.PI/2)*Math.round(Math.random()*3);
+            px = (board.width/2)+(cellSize*col)-(zumbimg.width/2);
+            py = (board.height/2)-(cellSize*row)-(zumbimg.height/2);
+            cx = (board.width/2)+(cellSize*col);
+            cy = (board.height/2)-(cellSize*row);
+            ctx.translate(cx,cy);
+            ctx.rotate(dire);
+            ctx.translate(-cx,-cy);
+            ctx.drawImage(zumbimg,px,py);
+            ctx.translate(cx,cy);
+            ctx.rotate(-dire);
+            ctx.translate(-cx,-cy);
+        }
+    }
+}
+function rumInstZ(){
+    const px = (board.width/2)+(cellSize*person.px);
+    const py = (board.height/2)-(cellSize*person.py);
+    const dx = 3*cellSize*person.dx;
+    const dy = -3*cellSize*person.dy;
+    clearCell();
+    if (seqcards[countinstruct].card == "CORINGA"){
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px+dx, py+dy);
+        ctx.closePath();
+        ctx.strokeStyle = "#a050ff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }else{
+        if (seqcards.length>0) person = seqcards[countinstruct].rum(person);
+    }
+    drawPerson();
+    rumInstFF();
+}
 /*
 as opções de jogo serão:
 btACF - livre - não mostra tabuleiro, somente sequencia
