@@ -6,6 +6,7 @@ const cellSize = board.width/nrowcol;//tamanho do quadriculado
 const dropsong = new Audio("songs/drop.wav");//som ao arrastar os cards
 const bgmusic = new Audio("songs/jigsaw-puzzle-background.mp3");//musica de fundo
 const stepsong = new Audio("songs/plasterbrain__ui-cute-select-major-6th.flac");//som ao executar cada card
+const gunsong = new Audio("songs/gun-firing-single-shot.mp3");//som ao atirar no modo zumbi
 const personimg = document.createElement('img');//imagem que representa o personagem na tabuleiro
 personimg.src="imgs/person.png";//imagem que representa o personagem na tabuleiro
 const atiradorimg = document.createElement('img');//imagem que representa o personagem na tabuleiro
@@ -187,6 +188,11 @@ function changespeed(){
 function initgame(ev){
     typegame = ev.target.id
     document.getElementById('modalinit').style.display = "none";
+    document.getElementById('modaltutorial').classList.remove("modalnone");
+    document.getElementById('modaltutorial').classList.add("modaltutorial");
+    document.querySelectorAll('tut').forEach(item=>{
+        item.classList.add('tutnone');
+    })
     let cards = document.getElementsByClassName('instruction')
     switch (typegame){
         case "btACF":
@@ -195,6 +201,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.add('modalnone');
             document.getElementById('modalboard').classList.remove('modalshow');
+            document.getElementById('tutF').classList.remove("tutnone");
         break;
         case "btACL":
             for( let i=0; i<cards.length; i++){
@@ -206,6 +213,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            document.getElementById('tutL').classList.remove("tutnone");
             drawMaze();
             drawPerson();
         break;
@@ -219,6 +227,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            document.getElementById('tutM').classList.remove("tutnone");
             drawInCanva();
             drawPerson();
         break;
@@ -229,6 +238,7 @@ function initgame(ev){
             document.getElementById('modalboard').classList.add('modalnone');
             document.getElementById("inspeed").classList.remove("inspeed");
             document.getElementById('modalboard').classList.remove('modalshow');
+            document.getElementById('tutR').classList.remove("tutnone");
         break;
         case "btACZ":
             document.querySelector('body').classList.add('nightmare');
@@ -245,6 +255,7 @@ function initgame(ev){
             }
             document.getElementById('modalboard').classList.remove('modalnone');
             document.getElementById('modalboard').classList.add('modalshow');
+            document.getElementById('tutZ').classList.remove("tutnone");
             drawZumbi();
             drawPerson();
         break;
@@ -261,7 +272,10 @@ function initgame(ev){
     }
     bgmusic.play();
 }
-
+function clouseTutorial(){
+    document.getElementById('modaltutorial').classList.remove("modaltutorial");
+    document.getElementById('modaltutorial').classList.add("modalnone");
+}
 //desenha gride no tabuleiro
 function drawGrid(){
     //limpa toda a tela
@@ -311,6 +325,7 @@ function drawPerson(){
 drawGrid();
 //funções de cada card
 function gireEsquerda(){
+    this.card = "Gire Esquerda";
     this.rum = function(per){
         this.dx = -per.dy;
         this.dy = per.dx;
@@ -325,6 +340,7 @@ function gireEsquerda(){
     return "Gire Esquerda"
 }
 function gireDireita(){
+    this.card = "Gire Direita";
     this.rum = function(per){
         this.dx = per.dy;
         this.dy = -per.dx;
@@ -339,6 +355,7 @@ function gireDireita(){
     return "Gire Direita"
 }
 function girDireita(angulo){
+    this.card = "Gire Direita";
     this.angulo = angulo;
     this.radianos = (this.angulo * Math.PI / 180);
     this.rum = function (per){
@@ -356,6 +373,7 @@ function girDireita(angulo){
     return "Gire "+angulo+"graus para Direita"
 }
 function girEsquerda(angulo){
+    this.card = "Gire Esquerda";
     this.angulo = angulo;
     this.radianos = -(this.angulo * Math.PI / 180);
     this.rum = function (per){
@@ -373,6 +391,7 @@ function girEsquerda(angulo){
     return "Gire "+angulo+"graus para Esquerda"
 }
 function meiaVolta(){
+    this.card = "Meia Volta";
     this.rum = function(per){
         this.dx = -per.dx;
         this.dy = -per.dy;
@@ -384,9 +403,10 @@ function meiaVolta(){
     this.imgcard = function(){
         return 'imgs/meiaVolta.png';
     }
-    return "Gire Direita"
+    return "Meia Volta"
 }
 function paraFrente(){
+    this.card = "Para Frente";
     this.rum = function(per){
         per.px += per.dx;
         per.py += per.dy;
@@ -395,9 +415,10 @@ function paraFrente(){
     this.imgcard = function(){
         return 'imgs/paraFrente.png';
     }
-    return "Passo pra Frente"
+    return "Passo para Frente"
 }
 function paraTras(){
+    this.card = "Para Tras";
     this.rum = function(per){
         per.px -= per.dx;
         per.py -= per.dy;
@@ -406,9 +427,10 @@ function paraTras(){
     this.imgcard = function(){
         return 'imgs/paraTras.png';
     }
-    return "Passo pra Tras"
+    return "Passo para Tras"
 }
 function paraEsquerda(){
+    this.card = "Para Esquerda";
     this.rum = function(per){
         per.px += per.dy;
         per.py += per.dx;
@@ -417,9 +439,10 @@ function paraEsquerda(){
     this.imgcard = function(){
         return 'imgs/paraEsquerda.png';
     }
-    return "Passo pra Esquerda"
+    return "Passo para Esquerda"
 }
 function paraDireita(){
+    this.card = "Para Direita";
     this.rum = function(per){
         per.px -= per.dy;
         per.py -= per.dx;
@@ -428,7 +451,7 @@ function paraDireita(){
     this.imgcard = function(){
         return 'imgs/paraDireita.png';
     }
-    return "Passo pra Direita"
+    return "Passo para Direita"
 }
 function coringa(){
     this.card = "CORINGA";
@@ -442,6 +465,7 @@ function coringa(){
     return "CORINGA"
 }
 function acao(text){
+    this.card = "Acao";
     this.text = text
     this.rum = function(per){
         alert(this.text.toUpperCase());
@@ -607,14 +631,14 @@ function previous(){
     if(typegame=="btACR") document.getElementById("inspeed").classList.remove("inspeed");
     if(typegame=="btACM") drawInCanva(tracing);
     if(typegame=="btACL") drawMaze(mazeing);
+    document.getElementById("currentAction").innerHTML = "";
+    document.getElementById("currentAction").style = "background-image: none;";
     clearInterval(interval);
     seqcards=[];
     drawPerson();
 }    
 
 //executa a sequencia de operações
-//btACF - livre - não mostra tabuleiro, somente sequencia de imagens
-//btACR - AlgoRitmo - Coreografia
 function rumInstF(seq){
     let sq = [];
     for(let i=0; i<seq.length; i++){
@@ -626,12 +650,22 @@ function rumInstF(seq){
     }
     return sq;
 }
+//btACF - livre - não mostra tabuleiro, somente sequencia de imagens
+//btACR - AlgoRitmo - Coreografia
 function rumInstFF(){
     document.getElementById("currentAction").innerHTML = "";
-    if (seqcards.length>0)
+    if (seqcards.length>0 && countinstruct<seqcards.length)
         document.getElementById("currentAction").style = `background-image: url('${seqcards[countinstruct].imgcard()}');`
     stepsong.play();
-    countinstruct = (countinstruct+1)%seqcards.length;
+    if (typegame=="btACF"||typegame=="btACR"){
+        countinstruct = (countinstruct+1)%seqcards.length;
+    }else{
+        if (countinstruct<seqcards.length){
+            countinstruct++;
+        }else{
+            clearInterval(interval);
+        }
+    }
 }
 //btACL - AlgoLabirinto - percorrer um caminho
 //função para desenhar um labirinto
@@ -650,8 +684,10 @@ function drawMaze(m=-1){
 //btACM - AlgoMovimento - fazer um desenho
 function rumInstM(){
     clearCell();
-    if (seqcards.length>0) person = seqcards[countinstruct].rum(person);
-    drawPerson();
+    if (seqcards.length>0 && countinstruct < seqcards.length){
+        person = seqcards[countinstruct].rum(person);
+        drawPerson();
+    }
     rumInstFF();
 }
 //funções de desenhar no tabuleiro
@@ -797,16 +833,19 @@ function rumInstZ(){
     const dx = 3*cellSize*person.dx;
     const dy = -3*cellSize*person.dy;
     clearCell();
-    if (seqcards[countinstruct].card == "CORINGA"){
-        ctx.beginPath();
-        ctx.moveTo(px, py);
-        ctx.lineTo(px+dx, py+dy);
-        ctx.closePath();
-        ctx.strokeStyle = "#a050ff";
-        ctx.lineWidth = 2;
-        ctx.stroke();
-    }else{
-        if (seqcards.length>0) person = seqcards[countinstruct].rum(person);
+    if (seqcards.length>0 && countinstruct < seqcards.length){
+        if (seqcards[countinstruct].card == "CORINGA"){
+            gunsong.play();
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px+dx, py+dy);
+            ctx.closePath();
+            ctx.strokeStyle = "#a050ff";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }else{
+            person = seqcards[countinstruct].rum(person);
+        }
     }
     drawPerson();
     rumInstFF();
