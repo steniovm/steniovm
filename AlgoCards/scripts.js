@@ -190,9 +190,11 @@ function initgame(ev){
     document.getElementById('modalinit').style.display = "none";
     document.getElementById('modaltutorial').classList.remove("modalnone");
     document.getElementById('modaltutorial').classList.add("modaltutorial");
-    document.querySelectorAll('tut').forEach(item=>{
-        item.classList.add('tutnone');
-    })
+    document.getElementById('tutF').classList.add("tutnone");
+    document.getElementById('tutL').classList.add("tutnone");
+    document.getElementById('tutM').classList.add("tutnone");
+    document.getElementById('tutR').classList.add("tutnone");
+    document.getElementById('tutZ').classList.add("tutnone");
     let cards = document.getElementsByClassName('instruction')
     switch (typegame){
         case "btACF":
