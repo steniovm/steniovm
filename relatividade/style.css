@@ -1,0 +1,256 @@
+:root {
+    --neutral-green: #9FCFBF;
+    --light-grey: #bdbdbd;
+    --yellow-transp: #bdbd004d;
+    --red-transp: #bd00004d;
+    --blue-transp: #0000bd4d;
+  }
+body {
+    background-color: var(--neutral-green);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h1,h2,h3{
+    margin: 2px;
+    text-align: center;
+}
+button{
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+    min-width: 70px;
+    background-color: #9da;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+section{
+    border:solid black 1px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+label{
+    /*border: solid 1px #33333317;*/
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    min-width: 220px;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: large;
+    padding: 2px 0;
+}
+.equations{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    min-width: none;
+}
+.equation{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-width: 100px;
+}
+.equation>img{
+    height: fit-content;
+    max-width: 100px;
+}
+footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.creditos{
+    display: flex;
+    flex-direction: row;
+}
+span{
+    font-weight: bold;
+    white-space: nowrap;
+}
+.equation>span{
+    align-self: flex-start;
+}
+.myimg{
+    height: 6vh;
+    min-height:60px;
+}
+.divinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+canvas{
+    cursor:all-scroll;
+    border:1px solid #000000;
+    background-color: #111;
+}
+section>div{
+    display: flex;
+    flex-direction: row;
+}
+.param{
+    display: flex;
+    flex-direction: column;
+}
+.paramen{
+    width: 1170px;
+    height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.paramen>div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.boxbuttons{
+    display: flex;
+    justify-content: space-around;
+}
+#condform{
+    display: flex;
+    flex-direction: column;
+    /*background-color: #bbc;*/
+    align-items: center;
+}
+.subform{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+input, select{
+    width: 50px;
+    border-radius: 20px;
+    background-color: #eeb;
+    border: none;
+    text-align: end;
+    flex-direction: row;
+}
+.ff{
+    background-color: #99f;
+}
+.barra{
+    background-color: #ff9;
+}
+.fq{
+    background-color: #f99;
+}
+.indata{
+    border: solid 1px rgba(51, 51, 51, 0.2);
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    white-space: nowrap;
+    padding: 0 4px;
+}
+.abas{
+    position: relative;
+    margin: 0;
+}
+.aba{
+    display: inline;
+}
+.aba > a {
+    float: left;
+    padding: 0.5em 1em;
+    background: linear-gradient(var(--neutral-green),#7A9);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCC #CCC #FFF;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.aba:not(:target) a {
+    border-bottom: 0 none;
+}
+.aba:target > a, a:hover {
+    background: linear-gradient(#CFE,var(--neutral-green));
+}
+.conteudo {
+    position: absolute;
+    top: calc(2em + 4px); /* altura do link + bordas */
+    z-index: -2;
+    background-color: var(--neutral-green);
+}
+.conteudo>div{
+    display: flex;
+    flex-direction: row;
+    border: none;
+}
+.aba:target .conteudo {
+    z-index: -1;
+}
+.initaba{
+    z-index: -1;
+}
+iframe{
+    display: block;
+    width: 1170px;
+    height: 565px;
+}
+.svgs{
+    min-height: 60px;
+}
+td{
+    border: 1px solid #000000;
+}
+td>p{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: small;
+}
+input[type="radio"]{
+    accent-color: #333;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width:200px;
+    min-width: 120px;
+    border-radius: 20px;
+}
+ul>li {
+    position: relative;
+    display: block;
+    background-color: #bdbdbd4d;
+    min-width: fit-content;
+    min-height: 50px;
+    text-align: initial;
+    width: fit-content;
+    min-width: 120px;
+    padding: 0;
+}
+ul:hover>li{
+    display: block;
+}
+li>label{
+    display: inline;
+}
+label>img{
+    max-height: 50px;
+    max-width: 50px;
+}
+@media screen and (MAX-width: 800px){
+}
