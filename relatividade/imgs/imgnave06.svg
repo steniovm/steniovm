@@ -20,7 +20,7 @@
     <radialGradient id="b" cx="132.89" cy="900.58" r="110.28" gradientTransform="matrix(.79488 -1.431e-7 1.1855e-7 .65853 27.259 307.52)" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
     <radialGradient id="a" cx="132.89" cy="900.58" r="110.28" gradientTransform="matrix(1 -1.736e-7 1.7071e-7 .98341 -.00013492 14.941)" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
   </defs>
-  <path d="m115.33 283.72h579.9v568.38h-579.9z" fill="url(#f)"/>
+  <path d="m115.33 283.72h579.9v568.38h-579.9z" fill="url(#f)" style="fill-opacity: 0.5; paint-order: fill;"/>
   <g transform="matrix(.60559 0 0 .62036 159.73 317.62)" stroke="#383534" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".66049" stroke-width=".9">
     <path d="m400 376.65a82.857 78.571 0 1 1 -0.01883 -1.6751" fill="#4bac8f"/>
     <path d="m400 376.65a82.857 78.571 0 1 1 -0.01883 -1.6751" fill="url(#d)"/>

@@ -19,10 +19,10 @@ const imgnaves = document.querySelectorAll('.imgnave');
 const imgplanets = document.querySelectorAll('.imgplanet');
 const titlescreen = document.querySelectorAll('.titlescreen');
 const result = document.querySelectorAll('.result');
-if (screen.width < 600){
-    canvasrefnave.width = screen.width;
-    canvasrefplaneta.width = screen.width;
-}
+//if (screen.width < 600){
+    canvasrefnave.width = screen.width*0.9;
+    canvasrefplaneta.width = screen.width*0.9;
+//}
 const maxWidth = canvasrefnave.width;
 const maxHeight = canvasrefnave.height;
 const numberstarts = 200;
@@ -34,6 +34,9 @@ let owntime = 1;
 let owndistance = 0.5;
 let imgnave = imgnaves[0];
 let imgplanet = imgplanets[0];
+let counttime = 0;
+let intravel = false;
+let timeinterval;
 //estruturas das estrelas
 function star(){
     this.x = Math.random()*maxWidth;
@@ -106,25 +109,39 @@ function showresults(){
 calcparam();
 plotScreens();
 //simula a viagem
-function playTravel(){
-    let count = 0;
+//play
+function playTravel(){  
     let l, t;
-    let timeinterval = setInterval(()=>{
-        count += 0.01;
-        plotScreens(count);
-        l = (dist.value*du*count).toPrecision(4);
-        t = (owntime*count).toPrecision(4);
-        titlescreen[0].innerHTML = `Referencial do Planeta: L  = ${l} m ; t' = ${t} s`;
-        l = ((dist.value*du/lorentzf)*count).toPrecision(4);
-        t = (timetravel*count).toPrecision(4);
-        titlescreen[1].innerHTML = `Referencial da Nave: L'  = ${l} m ; t = ${t} s`;
-        if (count >= 1){
-            clearInterval(timeinterval);
-            count = 0;
-        }
-    },50);
+    if (!intravel){
+        intravel = true;
+        timeinterval = setInterval(()=>{
+            counttime += 0.01;
+            plotScreens(counttime);
+            l = (dist.value*du*counttime).toPrecision(4);
+            t = (owntime*counttime).toPrecision(4);
+            titlescreen[0].innerHTML = `Referencial do Planeta: L  = ${l} m ; t' = ${t} s`;
+            l = ((dist.value*du/lorentzf)*counttime).toPrecision(4);
+            t = (timetravel*counttime).toPrecision(4);
+            titlescreen[1].innerHTML = `Referencial da Nave: L'  = ${l} m ; t = ${t} s`;
+            if (counttime >= 1){
+                clearInterval(timeinterval);
+                counttime = 0;
+                intravel = false;
+            }
+        },50);
+    }
 }
-
+//pause
+function pauseTravel(){
+    if(intravel){
+        clearInterval(timeinterval);
+        intravel = false;
+        pausecond.innerHTML = "Continuar";
+    }else{
+        playTravel();
+        pausecond.innerHTML = "Parar";
+    }
+}
 //eventos
 massa.addEventListener('click',calcparam);
 veloc.addEventListener('click',calcparam);
@@ -148,3 +165,4 @@ planets.forEach((item,index)=>{
     });
 });
 startcond.addEventListener('click',playTravel);
+pausecond.addEventListener('click',pauseTravel);
