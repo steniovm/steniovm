@@ -19,10 +19,8 @@ const imgnaves = document.querySelectorAll('.imgnave');
 const imgplanets = document.querySelectorAll('.imgplanet');
 const titlescreen = document.querySelectorAll('.titlescreen');
 const result = document.querySelectorAll('.result');
-//if (screen.width < 600){
-    canvasrefnave.width = screen.width*0.9;
-    canvasrefplaneta.width = screen.width*0.9;
-//}
+canvasrefnave.width = screen.width*0.9;
+canvasrefplaneta.width = screen.width*0.9;
 const maxWidth = canvasrefnave.width;
 const maxHeight = canvasrefnave.height;
 const numberstarts = 200;
@@ -144,7 +142,11 @@ function pauseTravel(){
 }
 //eventos
 massa.addEventListener('click',calcparam);
-veloc.addEventListener('click',calcparam);
+veloc.addEventListener('change',function(){
+    if (veloc.value < 0) veloc.value = 0;
+    else if (veloc.value >= 1) veloc.value = 0.999;
+    calcparam();
+});
 distunit.addEventListener('change',function(){
     if (distunit.value == "UA") du = UA;
     else if (distunit.value == "ly") du = LY;
