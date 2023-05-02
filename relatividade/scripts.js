@@ -1,5 +1,5 @@
 //constantes e variaveis universais
-const C = 299792458E0; // m/s
+let C = 299792458E0; // m/s
 const UA = 1495978707E2; // m
 const LY = 94607304725808E2; // m
 const PC = 30856775814913673E0; // m
@@ -11,14 +11,25 @@ const massa = document.getElementById('massa');
 const veloc = document.getElementById('veloc');
 const distunit = document.getElementById('distunit');
 const dist = document.getElementById('dist');
+const disreal = document.getElementById('disreal');
+const dislent = document.getElementById('dislent');
 const startcond = document.getElementById('startcond');
 const pausecond = document.getElementById('pausecond');
+const altermod = document.getElementById('altermod');
+const velocC = document.getElementById('velocC');
+const titlemode = document.getElementById('titlemode');
+const optional = document.getElementById('optional');
+const veic = document.getElementById('veic');
+const veicC = document.getElementById('veicC');
+const dest = document.getElementById('dest');
 const naves = document.getElementsByName('imgnave');
 const planets = document.getElementsByName('imgplanet');
 const imgnaves = document.querySelectorAll('.imgnave');
 const imgplanets = document.querySelectorAll('.imgplanet');
 const titlescreen = document.querySelectorAll('.titlescreen');
 const result = document.querySelectorAll('.result');
+const pistaimg = document.getElementById('pistaimg');
+const houseimg = document.getElementById('houseimg');
 canvasrefnave.width = screen.width*0.9;
 canvasrefplaneta.width = screen.width*0.9;
 const maxWidth = canvasrefnave.width;
@@ -35,6 +46,7 @@ let imgplanet = imgplanets[0];
 let counttime = 0;
 let intravel = false;
 let timeinterval;
+let mod = 'R'; //R = real L = lento
 //estruturas das estrelas
 function star(){
     this.x = Math.random()*maxWidth;
@@ -74,17 +86,23 @@ function plotstars(n,ctx,d){
 function plotBackground(){
     ctxplaneta.clearRect(0,0,maxWidth,maxHeight);
     ctxnave.clearRect(0,0,maxWidth,maxHeight);
-    for(let i=0; i<numberstarts; i++){
-        plotstars(i,ctxplaneta,1);
-        plotstars(i,ctxnave,(1/lorentzf));
+    if (mod ==='R'){
+        for(let i=0; i<numberstarts; i++){
+            plotstars(i,ctxplaneta,1);
+            plotstars(i,ctxnave,(1/lorentzf));
+        }
+    }else if(mod ==='L'){
+        ctxplaneta.drawImage(pistaimg,0,0,maxWidth,maxHeight);
+        ctxnave.drawImage(pistaimg,0,0,maxWidth/lorentzf,maxHeight);
     }
 }
 //plota a nave e o planeta de destino
 function plotAstros(pnave,pplanet){
-    ctxplaneta.drawImage(imgplanet,(pplanet-(maxHeight/2)),0,maxHeight, maxHeight);
-    ctxplaneta.drawImage(imgnave,(pnave*(maxWidth*0.95)),((maxHeight/2)-25),50,50);
-    ctxnave.drawImage(imgplanet,((pplanet-(maxHeight/2))*(1/lorentzf)),0,(maxHeight*(1/lorentzf)), maxHeight);
-    ctxnave.drawImage(imgnave,(pnave*(maxWidth*0.95)*(1/lorentzf)),((maxHeight/2)-25),(50*(1/lorentzf)),50);
+    const imgdest = (mod==='R') ?  imgplanet : houseimg;
+    ctxplaneta.drawImage(imgdest,(pplanet-(maxHeight/2)),0,maxHeight, maxHeight);
+    ctxnave.drawImage(imgdest,((pplanet-(maxHeight/2))*(1/lorentzf)),0,(maxHeight*(1/lorentzf)), maxHeight);
+    ctxplaneta.drawImage(imgnave,(pnave*(maxWidth*0.95)),((maxHeight/2)-50),100,100);    
+    ctxnave.drawImage(imgnave,(pnave*(maxWidth*0.95)*(1/lorentzf)),((maxHeight/2)-50),(100*(1/lorentzf)),100);
 }
 //plota as telas
 function plotScreens(nave=0,planeta=maxWidth){
@@ -126,7 +144,7 @@ function playTravel(){
                 counttime = 0;
                 intravel = false;
             }
-        },50);
+        },100);
     }
 }
 //pause
@@ -140,6 +158,12 @@ function pauseTravel(){
         pausecond.innerHTML = "Parar";
     }
 }
+function setdistunit(){
+    if (distunit.value == "UA") du = UA;
+    else if (distunit.value == "ly") du = LY;
+    else if (distunit.value == "pc") du = PC;
+    calcparam();
+}
 //eventos
 massa.addEventListener('click',calcparam);
 veloc.addEventListener('change',function(){
@@ -147,12 +171,7 @@ veloc.addEventListener('change',function(){
     else if (veloc.value >= 1) veloc.value = 0.999;
     calcparam();
 });
-distunit.addEventListener('change',function(){
-    if (distunit.value == "UA") du = UA;
-    else if (distunit.value == "ly") du = LY;
-    else if (distunit.value == "pc") du = PC;
-    calcparam();
-});
+distunit.addEventListener('change',setdistunit);
 dist.addEventListener('click',calcparam);
 naves.forEach((item,index)=>{
     item.addEventListener('click',function(){
@@ -168,3 +187,29 @@ planets.forEach((item,index)=>{
 });
 startcond.addEventListener('click',playTravel);
 pausecond.addEventListener('click',pauseTravel);
+altermod.addEventListener('click',function(){
+    if(mod==='R'){
+        mod = 'L';
+        optional.classList.remove('hidemode');
+        disreal.classList.add('hidemode');
+        dislent.classList.remove('hidemode');
+        veic.classList.add('hidemode');
+        veicC.classList.remove('hidemode');
+        dest.classList.add('hidemode');
+        titlemode.innerHTML = 'Modo de simulação: Lento';
+        du = 1;
+        C = velocC.value;
+        calcparam();
+    }else if(mod==='L'){
+        mod = 'R';
+        optional.classList.add('hidemode');
+        disreal.classList.remove('hidemode');
+        dislent.classList.add('hidemode');
+        veic.classList.remove('hidemode');
+        veicC.classList.add('hidemode');
+        dest.classList.remove('hidemode');
+        titlemode.innerHTML = 'Modo de simulação: Real';
+        C = 299792458E0;
+        setdistunit();
+    }
+});
