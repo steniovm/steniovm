@@ -173,6 +173,10 @@ veloc.addEventListener('change',function(){
 });
 distunit.addEventListener('change',setdistunit);
 dist.addEventListener('click',calcparam);
+velocC.addEventListener('change',function (){
+    C = velocC.value;
+    calcparam();
+});
 naves.forEach((item,index)=>{
     item.addEventListener('click',function(){
         imgnave = imgnaves[index];
