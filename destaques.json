@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Cinemática Relativística",
+        "descript": "Simulador de viagem em velocidade relativística, pode-se controlar a velocidade da Luz e vários outros parâmetros.",
+        "url": "https://steniovm.github.io/steniovm/relatividade/index.html",
+        "thumb": "https://steniovm.github.io/steniovm/relatividade/screenshot.png",
+        "categorys": [
+         "Física",
+         "Relatividade",
+         "Cinemática"
+        ],
+        "author": "Steniovm"
+    },
+    {
+        "name": "AlgoCards",
+        "descript": "Faça Algorítimos para danças, sair de labirintos, desenhar, etc.",
+        "url": "https://steniovm.github.io/steniovm/AlgoCards/index.html",
+        "thumb": "https://steniovm.github.io/steniovm/AlgoCards/screenshot.png",
+        "categorys": [
+         "Algorítimo",
+         "Jogo"
+        ],
+        "author": "Steniovm"
+    },
+    {
+        "name": "Batimento de Ondas",
+        "descript": "Ondas sonoras interferindo, demostrando o o fenômeno de batimento, usado para afinação de instrumentos musicais.",
+        "url": "https://steniovm.github.io/steniovm/Batimento/index.html",
+        "thumb": "https://steniovm.github.io/steniovm/Batimento/screenshot.png",
+        "categorys": [
+         "Física",
+         "Ondas",
+         "Acústica"
+        ],
+        "author": "Steniovm"
+    },
+    {
+        "name": "Bolinhas De Darwin",
+        "descript": "Você é um predador e as bolinhas são as presas. Observe a evolução natural das bolinhas que com o tempo melhoram sua camuflagem e enganam o predador.",
+        "url": "https://steniovm.github.io/steniovm/BolinhasDeDarwin/index.html",
+        "thumb": "https://steniovm.github.io/steniovm/BolinhasDeDarwin/screenshot.png",
+        "categorys": [
+         "Biologia",
+         "Evolução natural",
+         "Jogo"
+        ],
+        "author": "Steniovm"
+    }
+]
