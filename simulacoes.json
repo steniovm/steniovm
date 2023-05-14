@@ -116,5 +116,98 @@
    "Radiação"
   ],
   "author": "Steniovm"
+ },
+ {
+  "name": "Pensamento Compuacional",
+  "descript": "Faça um algorítimos para ajudar o personagem a devolver seu VHS para a locadora.",
+  "url": "https://avamec.mec.gov.br/ava-mec-ws/instituicao/seb/conteudo/modulo/1421/mini-games/Algoritmos/index.html",
+  "thumb": "https://steniovm.github.io/steniovm/avamecalgoritimos.png",
+  "categorys": [
+   "Algorítimo",
+   "Jogo"
+  ],
+  "author": "AvaMec"
+ },
+ {
+  "name": "Gráfico de Cálculo",
+  "descript": "Dada uma função, prever as curvas da integral, ou da primeira ou da segunda derivada.",
+  "url": "https://phet.colorado.edu/sims/html/calculus-grapher/latest/calculus-grapher_all.html?locale=pt_BR",
+  "thumb": "https://phet.colorado.edu/sims/html/calculus-grapher/latest/calculus-grapher-900.png",
+  "categorys": [
+   "Matemática",
+   "Física",
+   "Gráfico"
+  ],
+  "author": "Phet"
+ },
+ {
+  "name": "Meu Sistema Solar",
+  "descript": "Insera massa, velocidade e distância dos astros para que faça simular uma órbita.",
+  "url": "https://phet.colorado.edu/sims/html/my-solar-system/latest/my-solar-system_all.html?locale=pt_BR",
+  "thumb": "https://phet.colorado.edu/sims/html/my-solar-system/latest/my-solar-system-900.png",
+  "categorys": [
+   "Astronomia",
+   "Física",
+   "Gravitação"
+  ],
+  "author": "Phet"
+ },
+ {
+  "name": "Óptica Geométrica",
+  "descript": "Explica como uma imagem é formada por lentes ou espelhos, convergentes ou divergentes, utilizando diagramas de raios.",
+  "url": "https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_all.html?locale=pt_BR",
+  "thumb": "https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics-900.png",
+  "categorys": [
+   "Óptica",
+   "Física"
+  ],
+  "author": "Phet"
+ },
+ {
+  "name": "Energia na Pista de Skate",
+  "descript": "Explicar o conceito de Conservação de Energia Mecânica usando energias cinética, potencial gravitacional e térmica.",
+  "url": "https://phet.colorado.edu/sims/html/energy-skate-park/latest/energy-skate-park_all.html?locale=pt_BR",
+  "thumb": "https://phet.colorado.edu/sims/html/energy-skate-park/latest/energy-skate-park-900.png",
+  "categorys": [
+   "Energia",
+   "Física"
+  ],
+  "author": "Phet"
+ },
+ {
+  "name": "Movimento com Aceleração Constante",
+  "descript": "Mostra um carro movendo-se com aceleração constante, pode-se alterar a posição inicial, velocidade inicial e aceleração. e assim construir os gráficos.",
+  "url": "https://www.walter-fendt.de/html5/phpt/acceleration_pt.htm",
+  "thumb": "",
+  "categorys": [
+   "Física",
+   "Cinemática",
+   "Gráfico"
+  ],
+  "author": "walter-fendt"
+ },
+ {
+  "name": "Onda electromagnética",
+  "descript": "Mostra uma onda eletromagnética num plano de polarização, que se propaga no eixo x com representação dos vetores campo elétrico e campo magnético.",
+  "url": "https://www.walter-fendt.de/html5/phpt/electromagneticwave_pt.htm",
+  "thumb": "",
+  "categorys": [
+   "Física",
+   "Ondas",
+   "Óptica",
+   "Gráfico"
+  ],
+  "author": "walter-fendt"
+ },
+ {
+  "name": "Referencial",
+  "descript": "Acompanha o movimento de um ponto de uma bicicleta do ponto de vista de dois referênciais diferentes.",
+  "url": "https://www.vascak.cz/data/android/physicsatschool/template.php?s=mech_kolo&l=pt",
+  "thumb": "https://www.vascak.cz/data/android/physicsatschool/physics/mech_kolo.png",
+  "categorys": [
+   "Física",
+   "Cinemática"
+  ],
+  "author": "Vascak"
  }
 ]
