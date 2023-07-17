@@ -1,0 +1,123 @@
+body{
+    min-width: 50px;
+    background-image: url("Background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    align-items:center;
+    margin: auto;
+}
+header, footer{
+    height: 10%;
+    width: auto;
+    background-color: rgba(200, 200, 200, 0.8);
+    font-weight: bold;
+}
+.divinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.myimg{
+    height: 6vh;
+    min-height:60px;
+}
+.divinfo2{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(174, 174, 174, 0.5);
+    padding: 0 1% 1% 1%;
+}
+h1, h2{
+    font-family: 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif;
+    color:#333;
+    text-decoration:underline dotted #222;
+    text-shadow: 2px 2px #999;
+    text-align: center;
+    margin: 0.5vh;
+    border-radius: 5px;
+    background-color: rgba(174, 174, 200, 0.7);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+nav>div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: fit-content;
+    min-width: 360px;
+}
+nav>div>div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    border: #222 solid 2px;
+    border-radius: 3px;
+    width: fit-content;
+    max-width: 200px;
+}
+button{
+    background-color: #111;
+    color: #f8f8ff;
+    border-radius: 10px;
+}
+textarea{
+    width: 300px;
+    height: 100px;
+    overflow: auto;
+    background-color: #111111bb;
+    color: #f8f8ff;
+}
+#resulttext{
+    width: 60vw;
+    height: 65vh;
+    max-width: 70%;
+    min-width: 160px;
+    display: none;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    min-width: 360px;
+    height: fit-content;
+    overflow: auto;
+    background-color: #333333bb;
+    color: #f8f8ff;
+    border: #222 solid 2px;
+    border-radius: 3px;
+}
+#showfinal{
+    width: 55vw;
+    max-width: 70%;
+    min-width: 160px;
+}
+.listatr{
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 5px;
+}
+.listatr>label{
+    flex-direction: row;
+}
+.hiddemelement{
+    visibility: hidden;
+}
