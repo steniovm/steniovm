@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="Gerador de Goblins" />
+    <meta property="og:description" content='Gera Goblins para o RPG "Malditos Goblins"' />
+    <meta property="og:locale" content="pt-br" />
+    <meta property="description"
+        content='Gera Goblins para o RPG "Malditos Goblins" sistema disponivel para download em https://coisinhaverde.com.br/jogos/portfolio/malditos-goblins/' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Gera Goblins para o RPG "Malditos Goblins"</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Gerador de Goblins para o RPG "Malditos Goblins"</h1>
+    <div id="supermain">
+        <main>
+            <section class="entree">
+                <label>Jogador</label>
+                <input type="text" id="playername" placeholder="Nome do jogador" value="Jogador" />
+                <label>Última coisa que comeu</label>
+                <input type="text" id="foodname" placeholder="Nome da comida" value="comida" />
+            </section>
+            <section class="entree">
+                <label>Role dados</label>
+                <button id="Rollbt">Rolar (6d6)</button>
+            </section>
+            <section class="entree">
+                <div id="showdices">
+                    <div class="dice"></div>
+                    <div class="dice"></div>
+                    <hr />
+                    <div class="dice"></div>
+                    <div class="dice"></div>
+                    <hr />
+                    <div class="dice"></div>
+                    <div class="dice"></div>
+                </div>
+            </section>
+        </main>
+        <div id="sheet">
+            <h3 id="hsheet" class="emphasis">FICHA DO GOBLIN</h3>
+            <div id="divname">
+                <span>Nome:</span>
+                <span id="shname" class="shdata"></span>
+            </div>
+            <div id="divlevel">
+                <span>Nível:</span>
+                <span id="shlevel" class="shdata"></span>
+            </div>
+            <div id="divoccup">
+                <span>Ocupação:</span>
+                <span id="shoccup" class="shdata"></span>
+            </div>
+            <div id="divchart">
+                <span>Característica:</span>
+                <span id="shchart" class="shdata"></span>
+            </div>
+            <div id="divcomb">
+                <span class="emphasis">Combate:</span>
+                <span id="shcomb" class="shdata"></span>
+            </div>
+            <div id="divabilt">
+                <span class="emphasis">Habilidade:</span>
+                <span id="shabilt" class="shdata"></span>
+            </div>
+            <div id="divnotion">
+                <span class="emphasis">Noção:</span>
+                <span id="shnotion" class="shdata"></span>
+            </div>
+            <div id="divvital">
+                <span class="emphasis">Vitalidade:</span>
+                <span id="shvital" class="shdata"></span>
+            </div>
+            <div id="divinjur">
+                <span>Ferimentos:</span>
+                <span id="shinjur" class="shdata"></span>
+            </div>
+            <div id="divequip">
+                <span>Equipamentos:</span>
+                <span id="shequip" class="shdata"></span>
+            </div>
+            <div id="divspells">
+                <span>Magias:</span>
+                <span id="shspells" class="shdata"></span>
+            </div>
+        </div>
+    </div>
+    <section id="sectables">
+        <h3>Nome do Goblin</h3>
+        <table id="tablename">
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+            </tr>
+            <tr>
+                <th>1</th>
+            </tr>
+            <tr>
+                <th>2</th>
+            </tr>
+            <tr>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>4</th>
+            </tr>
+            <tr>
+                <th>5</th>
+            </tr>
+            <tr>
+                <th>6</th>
+            </tr>
+        </table>
+        <h3>Ocupação do Goblin</h3>
+        <table id="tableoccup">
+            <tr>
+                <th></th>
+                <th>OCUPAÇÃO</th>
+                <th>DESCRITOR</th>
+            </tr>
+            <tr>
+                <th>1</th>
+            </tr>
+            <tr>
+                <th>2</th>
+            </tr>
+            <tr>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>4</th>
+            </tr>
+            <tr>
+                <th>5</th>
+            </tr>
+            <tr>
+                <th>6</th>
+            </tr>
+        </table>
+        <h3>Característica do Goblin</h3>
+        <table id="tablecharac">
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+            </tr>
+            <tr>
+                <th>1</th>
+            </tr>
+            <tr>
+                <th>2</th>
+            </tr>
+            <tr>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>4</th>
+            </tr>
+            <tr>
+                <th>5</th>
+            </tr>
+            <tr>
+                <th>6</th>
+            </tr>
+        </table>
+    </section>
+    <a href="./Gerador-Goblin.html" download="" target="_blank" alt="Gerador-Goblin em arquivo unico">
+        <h4>Fique a vontade para baixar a versão em arquivo unico</h4>
+    </a>
+    <div style="margin: auto;">
+        Referente a publicação <a href="https://coisinhaverde.com.br/jogos/portfolio/malditos-goblins/"><em>Malditos
+                Goblins</em></a> de <a href="https://coisinhaverde.com.br"><em>Coisinha Verde RPGs</em></a>
+    </div>
+    <a href="https://coisinhaverde.com.br"><img
+            src="https://coisinhaverde.com.br/jogos/wp-content/uploads/2019/01/cropped-cropped-logo-1.png"
+            alt="logo coisinha verde" /></a>
+    <footer>
+        <div id="divinfo" class="divinfo">
+            <span>Autor:</span>
+            <span>Stênio Vinicios de Medeiros</span>
+            <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"
+                    alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
+            <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+        </div>
+    </footer>
+    <div id="links">
+        <img src="https://scisimulab.com.br/logo.svg" alt="logo SciSimuLab" style="height: 60px;" />
+        Conheça também:
+        <a href="https://guaxinimonline.onrender.com/" target="_blank">
+            <i>Guaxinins & Gambiarras</i>
+        </a>
+        <a href="https://historias-incriveis.onrender.com/" target="_blank">
+            <i>Histórias Incríveis</i>
+        </a>
+        <a href="https://scisimulab.com.br/" target="_blank">
+            <i>Sci Simu Lab</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/" target="_blank">
+            <i>Outras produções minhas</i>
+        </a>
+    </div>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+
+</html>

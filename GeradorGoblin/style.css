@@ -1,0 +1,205 @@
+body {
+    background-color: #9FCFBF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+h1 {
+    align-self: center;
+}
+
+#supermain {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+b {
+    font-size: xx-large;
+}
+
+footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+span {
+    font-weight: bold;
+    white-space: normal;
+    padding: 0 2px;
+}
+
+.myimg {
+    height: 12vh;
+    min-height: 60px;
+    padding: 1vh;
+    ;
+}
+
+.divinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.entree {
+    font-size: large;
+    font-weight: bold;
+}
+
+input,
+button {
+    min-width: 200px;
+    border-radius: 20px;
+    background-color: #eeb;
+    text-align: center;
+    width: fit-content;
+}
+
+#showdices {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 175px;
+}
+
+.dice {
+    background-color: #DDFFFF;
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 50%;
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    background-color: black;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+td {
+    background-color: #eee;
+    color: black;
+    text-align: center;
+    max-width: 100px;
+}
+
+.tdselected {
+    background-color: #afa;
+}
+
+#links {
+    height: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#sheet {
+    display: grid;
+    width: 360px;
+    height: 230px;
+    background-color: #efe;
+    top: 70px;
+    right: 5px;
+    grid-template: repeat(11, 1fr)/repeat(4, 1fr);
+    /*https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area*/
+}
+
+#sheet>div {
+    border: 1px solid black;
+    display: flex;
+}
+
+#hsheet {
+    grid-area: 1/1/1/5;
+    text-align: center;
+}
+
+#divname {
+    grid-area: 2/1/2/4;
+}
+
+#divlevel {
+    grid-area: 2/4/2/5;
+}
+
+#divoccup {
+    grid-area: 3/1/3/5;
+}
+
+#divchart {
+    grid-area: 4/1/4/5;
+}
+
+#divcomb {
+    grid-area: 5/1/5/3;
+}
+
+#divabilt {
+    grid-area: 6/1/6/3;
+}
+
+#divnotion {
+    grid-area: 7/1/7/3;
+}
+
+#divvital {
+    grid-area: 8/1/8/3;
+}
+
+#divinjur {
+    grid-area: 9/1/11/3;
+}
+
+#divequip {
+    grid-area: 5/3/11/5;
+    flex-direction: column;
+}
+
+#divspells {
+    grid-area: 11/1/11/5;
+}
+
+.emphasis {
+    background-color: black;
+    height: 100%;
+    color: #eee;
+    margin: 0;
+}
+
+.shdata {
+    font-weight: normal;
+}
+
+hr {
+    width: 2px;
+    height: 0.5em;
+    margin: auto;
+    background-color: black;
+}
