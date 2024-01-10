@@ -191,6 +191,7 @@ td {
     height: 100%;
     color: #eee;
     margin: 0;
+    min-width: 50%;
 }
 
 .shdata {
