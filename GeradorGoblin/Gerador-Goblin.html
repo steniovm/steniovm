@@ -446,7 +446,7 @@
         const tableoccups = document.querySelectorAll('#tableoccup tr');
         const tablecharac = document.querySelectorAll('#tablecharac tr');
         //variaveis globais
-        const goblin = { name: "", level: 1, occup: "", chart: "", combat: 2, ability: 2, notion: 2, vitality: 2, injuries: "", equip: "", spells: "" };
+        const goblin = { name: "", level: 1, occup: "", descriptors: "", chart: "", combat: 2, ability: 2, notion: 2, vitality: 2, injuries: "", equip: "", spells: "" };
         let pname = "";
         let fname = "";
         dicerolls = [0, , , , , , ,];
@@ -717,7 +717,7 @@
         function showgoblin() {
             document.getElementById("shname").innerHTML = goblin.name;
             document.getElementById("shlevel").innerHTML = goblin.level;
-            document.getElementById("shoccup").innerHTML = goblin.occup;
+            document.getElementById("shoccup").innerHTML = goblin.occup + " (" + goblin.descriptors + ")";
             document.getElementById("shchart").innerHTML = goblin.chart;
             document.getElementById("shcomb").innerHTML = goblin.combat;
             document.getElementById("shabilt").innerHTML = goblin.ability;

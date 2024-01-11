@@ -100,6 +100,7 @@ const goblin = {
   name: "",
   level: 1,
   occup: "",
+  descriptors: "",
   chart: "",
   combat: 2,
   ability: 2,
@@ -393,7 +394,8 @@ function gchartRoll(colt, rowt, clear = true) {
 function showgoblin() {
   document.getElementById("shname").innerHTML = goblin.name;
   document.getElementById("shlevel").innerHTML = goblin.level;
-  document.getElementById("shoccup").innerHTML = goblin.occup;
+  document.getElementById("shoccup").innerHTML =
+    goblin.occup + " (" + goblin.descriptors + ")";
   document.getElementById("shchart").innerHTML = goblin.chart;
   document.getElementById("shcomb").innerHTML = goblin.combat;
   document.getElementById("shabilt").innerHTML = goblin.ability;
