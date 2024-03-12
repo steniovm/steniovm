@@ -189,6 +189,7 @@
   </nav>
   <hr>
   <button id="qrcreate">Criar</button>
+  <span>Após gerado, click sobre o QRcode para baixá-lo.</span>
   <hr>
   <canvas id="output" width="21" height="21"></canvas>
   <hr>
@@ -595,6 +596,13 @@
         output.getContext('2d').fillRect(0, 0, output.width, output.height);
         output.getContext('2d').fillStyle = document.getElementById('qrForeColor').value;// Set the foreground color of the canvas to black.
         matrix.draw(output, 0, 0);// Draw the QR code into the canvas; at position 0 (left), 0 (top).
+        //converter o qrcode numa imagem png
+        output.toBlob(function (blob) {
+          linkqr.href = URL.createObjectURL(blob);
+        }, 'image/png');
+        output.addEventListener('click', () => {
+          linkqr.click();
+        });
       }
     };
   </script>
