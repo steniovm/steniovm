@@ -574,6 +574,8 @@
     const code = new qr.Code();// Initialize a new Code object.
     const input = new qr.Input();// Initialize a new Input object.
     const output = document.getElementById('output');// Canvas element
+    const linkqr = document.createElement("a");//elemento para download do qrcode
+    linkqr.download = "QRcode.png";
     document.getElementById('qrcreate').addEventListener('click', createQRcode);
     function createQRcode() {
       if (document.getElementById('qrtext').value === "") {
