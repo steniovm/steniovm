@@ -70,6 +70,19 @@ const songs = [
       "Goblin_Surprise_05.wav",
     ],
   },
+  {
+    cat: "Natureza",
+    cates: [
+      {
+        cat: "humanos",
+        songs: ["Surprise_01.wav", "Surprise_02.wav", "Surprise_03.wav"],
+      },
+      {
+        cat: "dragões",
+        songs: ["Surprise_01.wav", "Surprise_02.wav", "Surprise_03.wav"],
+      },
+    ],
+  },
 ];
 const translats = {
   Attack: "Ataque",
@@ -83,20 +96,44 @@ const translats = {
 //Elementos HTML
 const categorys = document.getElementById("cats");
 var audio = new Audio();
+songs.forEach((cate) => createCategory(cate, categorys));
 
-songs.forEach((cate) => {
-  const div = document.createElement("div");
-  categorys.appendChild(div);
+function createCategory(cate, locale) {
+  const div1 = document.createElement("div");
+  locale.appendChild(div1);
   const h3 = document.createElement("h3");
-  div.appendChild(h3);
+  div1.appendChild(h3);
   h3.innerText = translats[cate.cat] || cate.cat;
-  cate.songs.forEach((song, index) => {
+  const div2 = document.createElement("div");
+  div1.appendChild(div2);
+  if (cate.cates) {
+    cate.cates.forEach((cate) => createCategory(cate, div1));
+  }
+  if (cate.songs) {
+    const select = document.createElement("select");
+    div2.appendChild(select);
     const button = document.createElement("button");
-    div.appendChild(button);
-    button.innerHTML = (translats[cate.cat] || cate.cat) + " " + (index + 1);
-    button.addEventListener("click", () => {
-      audio.src = "./Songs/" + cate.cat + "/" + song;
-      audio.play();
+    div2.appendChild(button);
+    button.innerHTML = "Tocar";
+    const optrand = document.createElement("option");
+    optrand.value = "rand";
+    optrand.innerHTML = "Aleatório";
+    optrand.selected = true;
+    select.appendChild(optrand);
+    cate.songs.forEach((song, index) => {
+      const opt = document.createElement("option");
+      opt.value = (translats[cate.cat] || cate.cat) + " " + (index + 1);
+      opt.innerHTML = (translats[cate.cat] || cate.cat) + " " + (index + 1);
+      select.appendChild(opt);
     });
-  });
-});
+    /*    cate.songs.forEach((song, index) => {
+      const button = document.createElement("button");
+      div2.appendChild(button);
+      button.innerHTML = (translats[cate.cat] || cate.cat) + " " + (index + 1);
+      button.addEventListener("click", () => {
+        audio.src = "./Songs/" + cate.cat + "/" + song;
+        audio.play();
+      });
+    });*/
+  }
+}
