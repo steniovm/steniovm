@@ -196,6 +196,14 @@ td {
 
 .shdata {
     font-weight: normal;
+    text-align: justify;
+    border: none;
+    border-radius: inherit;
+    background-color: transparent;
+    width: 100%;
+    min-width: unset;
+    padding: 0;
+    resize: none;
 }
 
 hr {
@@ -203,4 +211,62 @@ hr {
     height: 0.5em;
     margin: auto;
     background-color: black;
+}
+
+#helpsection{
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 175px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#helpsection>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.man {
+    min-width: unset;
+    padding: 0;
+    min-width: 1.2rem;
+    border-width: 1px;
+}
+.modalclass{
+    display: none; /* invisivel por padrão */
+    position: fixed;
+    z-index: 1; /* inicialmente acima */
+    left: auto;
+    top: 10px;
+    overflow: auto; /*ativa rolagem quando necessario */
+    border: 1px solid;
+    border-radius: 20px;
+    width: min-content;
+    background-color: #9fcfbfe6;
+    max-height: 96vh;
+}
+fieldset{
+    border-radius: 20px;
+}
+.manbox{
+    display: none;
+}
+.showman{
+    display: unset;
+}
+.showmanfs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.showmanfs>iframe{
+    width: 90vw;
+    height: 90vh;
+}
+#closemodal{
+    width: 100%;
+    background-color: cadetblue;
+    min-width: 0;
 }

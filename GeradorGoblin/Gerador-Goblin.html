@@ -209,6 +209,14 @@
 
         .shdata {
             font-weight: normal;
+            text-align: justify;
+            border: none;
+            border-radius: inherit;
+            background-color: transparent;
+            width: 100%;
+            min-width: unset;
+            padding: 0;
+            resize: none;
         }
 
         hr {
@@ -251,47 +259,47 @@
             <h3 id="hsheet" class="emphasis">FICHA DO GOBLIN</h3>
             <div id="divname">
                 <span>Nome:</span>
-                <span id="shname" class="shdata"></span>
+                <input id="shname" class="shdata" />
             </div>
             <div id="divlevel">
                 <span>Nível:</span>
-                <span id="shlevel" class="shdata"></span>
+                <input id="shlevel" class="shdata" />
             </div>
             <div id="divoccup">
                 <span>Ocupação:</span>
-                <span id="shoccup" class="shdata"></span>
+                <input id="shoccup" class="shdata" />
             </div>
             <div id="divchart">
                 <span>Característica:</span>
-                <span id="shchart" class="shdata"></span>
+                <input id="shchart" class="shdata" />
             </div>
             <div id="divcomb">
                 <span class="emphasis">Combate:</span>
-                <span id="shcomb" class="shdata"></span>
+                <input id="shcomb" class="shdata" />
             </div>
             <div id="divabilt">
                 <span class="emphasis">Habilidade:</span>
-                <span id="shabilt" class="shdata"></span>
+                <input id="shabilt" class="shdata" />
             </div>
             <div id="divnotion">
                 <span class="emphasis">Noção:</span>
-                <span id="shnotion" class="shdata"></span>
+                <input id="shnotion" class="shdata" />
             </div>
             <div id="divvital">
                 <span class="emphasis">Vitalidade:</span>
-                <span id="shvital" class="shdata"></span>
+                <input id="shvital" class="shdata" />
             </div>
             <div id="divinjur">
                 <span>Ferimentos:</span>
-                <span id="shinjur" class="shdata"></span>
+                <input id="shinjur" class="shdata" />
             </div>
             <div id="divequip">
                 <span>Equipamentos:</span>
-                <span id="shequip" class="shdata"></span>
+                <textarea id="shequip" class="shdata" rows="7"></textarea>
             </div>
             <div id="divspells">
                 <span>Magias:</span>
-                <span id="shspells" class="shdata"></span>
+                <input id="shspells" class="shdata" />
             </div>
         </div>
     </div>
@@ -402,6 +410,9 @@
     <div id="links">
         <img src="https://scisimulab.com.br/logo.svg" alt="logo SciSimuLab" style="height: 60px;" />
         Conheça também:
+        <a href="https://steniovm.github.io/steniovm/GoblinSongs/index.html" target="_blank">
+            <i>Sons de Goblins</i>
+        </a>
         <a href="https://guaxinimonline.onrender.com/" target="_blank">
             <i>Guaxinins & Gambiarras</i>
         </a>
@@ -715,17 +726,17 @@
             tablecharac[rowt].children[colt].classList.add('tdselected');
         }
         function showgoblin() {
-            document.getElementById("shname").innerHTML = goblin.name;
-            document.getElementById("shlevel").innerHTML = goblin.level;
-            document.getElementById("shoccup").innerHTML = goblin.occup + " (" + goblin.descriptors + ")";
-            document.getElementById("shchart").innerHTML = goblin.chart;
-            document.getElementById("shcomb").innerHTML = goblin.combat;
-            document.getElementById("shabilt").innerHTML = goblin.ability;
-            document.getElementById("shnotion").innerHTML = goblin.notion;
-            document.getElementById("shvital").innerHTML = goblin.vitality;
-            document.getElementById("shinjur").innerHTML = goblin.injuries;
-            document.getElementById("shequip").innerHTML = goblin.equip;
-            document.getElementById("shspells").innerHTML = goblin.spells;
+            document.getElementById("shname").value = goblin.name;
+            document.getElementById("shlevel").value = goblin.level;
+            document.getElementById("shoccup").value = goblin.occup + " (" + goblin.descriptors + ")";
+            document.getElementById("shchart").value = goblin.chart;
+            document.getElementById("shcomb").value = goblin.combat;
+            document.getElementById("shabilt").value = goblin.ability;
+            document.getElementById("shnotion").value = goblin.notion;
+            document.getElementById("shvital").value = goblin.vitality;
+            document.getElementById("shinjur").value = goblin.injuries;
+            document.getElementById("shequip").value = goblin.equip;
+            document.getElementById("shspells").value = goblin.spells;
         }
     </script>
 </body>

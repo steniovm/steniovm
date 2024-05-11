@@ -95,6 +95,10 @@ const dicesshow = document.getElementsByClassName("dice");
 const tablenames = document.querySelectorAll("#tablename tr");
 const tableoccups = document.querySelectorAll("#tableoccup tr");
 const tablecharac = document.querySelectorAll("#tablecharac tr");
+const modal = document.getElementById("modal");
+const manbts = document.getElementsByClassName("man");
+const manbox = document.getElementsByClassName("manbox");
+const closemodal = document.getElementById("closemodal");
 //variaveis globais
 const goblin = {
   name: "",
@@ -392,16 +396,33 @@ function gchartRoll(colt, rowt, clear = true) {
   tablecharac[rowt].children[colt].classList.add("tdselected");
 }
 function showgoblin() {
-  document.getElementById("shname").innerHTML = goblin.name;
-  document.getElementById("shlevel").innerHTML = goblin.level;
-  document.getElementById("shoccup").innerHTML =
+  document.getElementById("shname").value = goblin.name;
+  document.getElementById("shlevel").value = goblin.level;
+  document.getElementById("shoccup").value =
     goblin.occup + " (" + goblin.descriptors + ")";
-  document.getElementById("shchart").innerHTML = goblin.chart;
-  document.getElementById("shcomb").innerHTML = goblin.combat;
-  document.getElementById("shabilt").innerHTML = goblin.ability;
-  document.getElementById("shnotion").innerHTML = goblin.notion;
-  document.getElementById("shvital").innerHTML = goblin.vitality;
-  document.getElementById("shinjur").innerHTML = goblin.injuries;
-  document.getElementById("shequip").innerHTML = goblin.equip;
-  document.getElementById("shspells").innerHTML = goblin.spells;
+  document.getElementById("shchart").value = goblin.chart;
+  document.getElementById("shcomb").value = goblin.combat;
+  document.getElementById("shabilt").value = goblin.ability;
+  document.getElementById("shnotion").value = goblin.notion;
+  document.getElementById("shvital").value = goblin.vitality;
+  document.getElementById("shinjur").value = goblin.injuries;
+  document.getElementById("shequip").value = goblin.equip;
+  document.getElementById("shspells").value = goblin.spells;
 }
+
+for (let i = 0; i < manbts.length; i++) {
+  manbts[i].addEventListener("click", () => {
+    modal.classList.add("showman");
+    for (let j = 0; j < manbox.length; j++) {
+      if (i == j) {
+        manbox[j].classList.add("showmanfs");
+      } else {
+        manbox[j].classList.remove("showmanfs");
+      }
+    }
+  });
+}
+
+closemodal.addEventListener("click", () => {
+  modal.classList.remove("showman");
+});

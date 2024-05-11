@@ -39,52 +39,64 @@
                     <div class="dice"></div>
                 </div>
             </section>
+            <section id="helpsection">
+                <label>Help</label>
+                <div>
+                    <button class="man" id="btoc" title="Ocupação">O</button>
+                    <button class="man" id="btde" title="Descritor">D</button>
+                    <button class="man" id="btat" title="Atributos">A</button>
+                    <button class="man" id="btca" title="Caracteristica">C</button>
+                    <button class="man" id="bteq" title="Equipamentos">E</button>
+                    <button class="man" id="btmg" title="Magias">M</button>
+                    <button class="man" id="btmg" title="Livro">Livro</button>
+                </div>
+            </section>
         </main>
         <div id="sheet">
             <h3 id="hsheet" class="emphasis">FICHA DO GOBLIN</h3>
             <div id="divname">
                 <span>Nome:</span>
-                <span id="shname" class="shdata"></span>
+                <input id="shname" class="shdata" />
             </div>
             <div id="divlevel">
                 <span>Nível:</span>
-                <span id="shlevel" class="shdata"></span>
+                <input id="shlevel" class="shdata" />
             </div>
             <div id="divoccup">
                 <span>Ocupação:</span>
-                <span id="shoccup" class="shdata"></span>
+                <input id="shoccup" class="shdata" />
             </div>
             <div id="divchart">
                 <span>Característica:</span>
-                <span id="shchart" class="shdata"></span>
+                <input id="shchart" class="shdata" />
             </div>
             <div id="divcomb">
                 <span class="emphasis">Combate:</span>
-                <span id="shcomb" class="shdata"></span>
+                <input id="shcomb" class="shdata" />
             </div>
             <div id="divabilt">
                 <span class="emphasis">Habilidade:</span>
-                <span id="shabilt" class="shdata"></span>
+                <input id="shabilt" class="shdata" />
             </div>
             <div id="divnotion">
                 <span class="emphasis">Noção:</span>
-                <span id="shnotion" class="shdata"></span>
+                <input id="shnotion" class="shdata" />
             </div>
             <div id="divvital">
                 <span class="emphasis">Vitalidade:</span>
-                <span id="shvital" class="shdata"></span>
+                <input id="shvital" class="shdata" />
             </div>
             <div id="divinjur">
                 <span>Ferimentos:</span>
-                <span id="shinjur" class="shdata"></span>
+                <input id="shinjur" class="shdata" />
             </div>
             <div id="divequip">
                 <span>Equipamentos:</span>
-                <span id="shequip" class="shdata"></span>
+                <textarea id="shequip" class="shdata" rows="7"></textarea>
             </div>
             <div id="divspells">
                 <span>Magias:</span>
-                <span id="shspells" class="shdata"></span>
+                <input id="shspells" class="shdata" />
             </div>
         </div>
     </div>
@@ -198,6 +210,9 @@
     <div id="links">
         <img src="https://scisimulab.com.br/logo.svg" alt="logo SciSimuLab" style="height: 60px;" />
         Conheça também:
+        <a href="https://steniovm.github.io/steniovm/GoblinSongs/index.html" target="_blank">
+            <i>Sons de Goblins</i>
+        </a>
         <a href="https://guaxinimonline.onrender.com/" target="_blank">
             <i>Guaxinins & Gambiarras</i>
         </a>
@@ -210,6 +225,41 @@
         <a href="https://steniovm.github.io/steniovm/" target="_blank">
             <i>Outras produções minhas</i>
         </a>
+    </div>
+    <div id="modal" class="modalclass">
+        <button id="closemodal">FECHAR</button>
+        <fieldset class="manbox">
+            <img src="./imgs/ocupacao.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <img src="./imgs/descritor.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <img src="./imgs/Atributos.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <img src="./imgs/caracteristica.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <img src="./imgs/Eq1.png" />
+            <img src="./imgs/Eq2.png" />
+            <img src="./imgs/Eq3.png" />
+            <img src="./imgs/Eq4.png" />
+            <img src="./imgs/Eq5.png" />
+            <img src="./imgs/Eq6.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <img src="./imgs/Mg1.png" />
+            <img src="./imgs/Mg2.png" />
+            <img src="./imgs/Mg3.png" />
+            <img src="./imgs/Mg4.png" />
+            <img src="./imgs/Mg5.png" />
+            <img src="./imgs/Mg6.png" />
+            <img src="./imgs/Mg7.png" />
+        </fieldset>
+        <fieldset class="manbox">
+            <iframe src="./Malditos_Goblins_3e_digital.pdf"></iframe>
+        </fieldset>
     </div>
     <script type="text/javascript" src="scripts.js"></script>
 </body>
