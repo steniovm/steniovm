@@ -1,12 +1,11 @@
 //Elementos HTML
 const categorys = document.getElementById("cats");
 const canva = document.getElementById("graph");
+const stopbt = document.getElementById("stopbt");
 const audioContext = new AudioContext();
-console.log(audioContext.state);
 // Obtenha o contexto 2D da tela
 const canvaContext = canva.getContext("2d");
-//Variaveis Globais
-let playing = false;
+let sourceNode = undefined;
 
 //cria categorias e botões tocadores
 songs.forEach((cate) => createCategory(cate, categorys));
@@ -44,47 +43,40 @@ function createCategory(cate, locale) {
       select.appendChild(opt);
     });
     button.addEventListener("click", () => {
-      if (!playing) {
-        let audiourl;
-        if (select.value == "rand") {
-          const ind = Math.floor(Math.random() * cate.songs.length);
-          audiourl = "./Songs/" + cate.cat + "/" + cate.songs[ind];
-        } else {
-          audiourl = "./Songs/" + cate.cat + "/" + select.value;
-        }
-        plotgraph(audiourl);
+      let audiourl;
+      if (select.value == "rand") {
+        const ind = Math.floor(Math.random() * cate.songs.length);
+        audiourl = "./Songs/" + cate.cat + "/" + cate.songs[ind];
+      } else {
+        audiourl = "./Songs/" + cate.cat + "/" + select.value;
       }
+      plotgraph(audiourl);
     });
   }
 }
 function plotgraph(audiourl) {
   fetch(audiourl)
     .then((response) => {
-      console.log(response);
       return response.arrayBuffer();
     })
     .then((downloadedBuffer) => {
-      console.log(downloadedBuffer);
       return audioContext.decodeAudioData(downloadedBuffer);
     })
     .then((decodedBuffer) => {
       // configuraAudioBufferSourceNode
-      const sourceNode = new AudioBufferSourceNode(audioContext, {
+      if (sourceNode) sourceNode.stop();
+      sourceNode = new AudioBufferSourceNode(audioContext, {
         buffer: decodedBuffer,
         loop: false,
       });
-      console.log(audioContext.state);
       // configura audio analyser e javascript node
       const analyserNode = new AnalyserNode(audioContext);
       const javascriptNode = audioContext.createScriptProcessor(1024, 1, 1);
-      console.log(audioContext.state);
       // Conecta os nodes juntos
       sourceNode.connect(audioContext.destination);
-      console.log(audioContext.state);
       sourceNode.connect(analyserNode);
       analyserNode.connect(javascriptNode);
       javascriptNode.connect(audioContext.destination);
-      console.log(audioContext.state);
       // Toca audio
       sourceNode.start(0);
       // Configure o manipulador de eventos que é acionado sempre que amostras suficientes são coletadas
@@ -94,14 +86,13 @@ function plotgraph(audiourl) {
         const amplitudeArray = new Uint8Array(analyserNode.frequencyBinCount);
         // Obtem os dados no domínio do tempo para esta amostra
         analyserNode.getByteTimeDomainData(amplitudeArray);
-        console.log(amplitudeArray.length);
         // Desenhe a tela quando o áudio estiver sendo reproduzido
         if (audioContext.state === "running") {
           // Desenhe o domínio do tempo na tela
           requestAnimationFrame(() => {
             // Limpe a tela
             //canvaContext.clearRect(0, 0, canva.width, canva.height);
-            canvaContext.fillStyle = "#22222210";
+            canvaContext.fillStyle = "#22222201";
             canvaContext.fillRect(0, 0, canva.width, canva.height);
             // Desenhe a amplitude dentro da tela
             for (let i = 0; i < amplitudeArray.length; i++) {
@@ -116,14 +107,12 @@ function plotgraph(audiourl) {
           canvaContext.clearRect(0, 0, canva.width, canva.height);
         }
       };
-      //setTimeout(() => {
-      //audioContext.close();
-      //console.log(audioContext);
-      //audioContext.suspend();
-      //console.log(audioContext);
-      //}, 1000);
     })
     .catch((e) => {
       console.error(`Error: ${e}`);
     });
 }
+
+stopbt.addEventListener("click", () => {
+  if (sourceNode) sourceNode.stop();
+});
