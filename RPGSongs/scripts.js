@@ -9,19 +9,20 @@ audio.autoplay = true;
 // Obtenha o contexto 2D da tela
 const canvaContext = canva.getContext("2d");
 //let sourceNode = undefined;
-let savedoptions = [];
+//let savedoptions = [];
 let analyser, source, context, amplitudeArray;
 let init = true;
 //let savedoptions = localStorage.getItem(opts) || [];
 
 //cria categorias e botões tocadores
 songs.forEach((cate) => {
-  const newcat = { cat: cate.cat, cates: [] };
-  savedoptions.push(newcat);
-  createCategory(cate, categorys, newcat);
+  //const newcat = { cat: cate.cat, cates: [] };
+  //savedoptions.push(newcat);
+  createCategory(cate, categorys); //, newcat);
 });
 //cria categorias e botões tocadores
-function createCategory(cate, locale, savcat) {
+function createCategory(cate, locale) {
+  //, savcat) {
   const div1 = document.createElement("div");
   locale.appendChild(div1);
   const h3 = document.createElement("h3");
@@ -31,9 +32,9 @@ function createCategory(cate, locale, savcat) {
   div1.appendChild(div2);
   if (cate.cates) {
     cate.cates.forEach((ca) => {
-      const newcat = { cat: ca.cat, cates: [] };
-      savcat.cates.push(newcat);
-      createCategory(ca, div1, newcat);
+      //const newcat = { cat: ca.cat, cates: [] };
+      //savecat.cates.push(newcat);
+      createCategory(ca, div1); //, newcat);
     });
   }
   if (cate.songs) {
@@ -51,17 +52,17 @@ function createCategory(cate, locale, savcat) {
     optrand.innerHTML = "Aleatório";
     optrand.selected = true;
     select.appendChild(optrand);
-    savcat.opt = select.value;
+    //savcat.opt = select.value;
     cate.songs.forEach((song, index) => {
       const opt = document.createElement("option");
       opt.value = song;
       opt.innerHTML = (translats[cate.cat] || cate.cat) + " " + (index + 1);
       select.appendChild(opt);
     });
-    select.addEventListener("change", () => {
-      savcat.opt = select.value;
-      console.log(savcat);
-    });
+    //select.addEventListener("change", () => {
+    //savcat.opt = select.value;
+    //console.log(savcat);
+    //});
     button.addEventListener("click", () => {
       let audiourl;
       if (select.value == "rand") {
@@ -126,7 +127,7 @@ loopbt.addEventListener("click", () => {
 
 volctr.addEventListener("change", () => {
   audio.volume = volctr.value;
-  console.log(audio.volume);
+  //console.log(audio.volume);
 });
 /*
 Save Data to Local Storage
