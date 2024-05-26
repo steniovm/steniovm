@@ -7,6 +7,7 @@
     <meta property="og:description" content='Reproduz sons para serem usados em mesas RPG e contação de Histórias' />
     <meta property="og:locale" content="pt-br" />
     <meta property="description" content='Reproduz sons para serem usados em mesas RPG e contação de Histórias' />
+    <link rel="shortcut icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Sons para jogos de RPG e contação de Histórias</title>
     <link rel="stylesheet" href="style.css" />
@@ -18,8 +19,19 @@
         <h2>Categorias</h2>
         <section id="cats"></section>
     </main>
-    <canvas id="graph" width="360" height="128"></canvas>
-    <button id="stopbt"><img src="./img/sondoff.svg" />Stop</button>
+    <canvas id="graph" width="360" height="64"></canvas>
+    <div id="divctr">
+        <button id="stopbt" class="btcontrol btactived"><img src="./img/sondoff.svg" />Stop</button>
+        <div class="dictrs">
+            <input id="volctr" type="range" list="ticks" value="1" min="0" max="1" step="0.05" />
+            <datalist id="ticks">
+                <option value="0" label="min"></option>
+                <option value="0.5" label="VOL"></option>
+                <option value="1" label="max"></option>
+            </datalist>
+        </div>
+        <button id="loopbt" class="btcontrol"><img src="./img/loop.svg" />Loop</button>
+    </div>
     <footer>
         <div id="divinfo" class="divinfo">
             <span>Autor:</span>
@@ -27,12 +39,14 @@
             <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"
                     alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
             <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+            <hr />
             <span>Sons:</span>
             <a target="_blank" href="http://www.youtube.com/@danilosfx">Danilo Battistini
                 <em>(Contador de Historias)</em></a>
             <a target="_blank" href="https://pixabay.com/pt/sound-effects/">pixabay sound-effects</a>
             <span>Icones:</span>
             <a target="_blank" href="https://icons8.com">Icons8</a>
+            <a target="_blank" href="https://iconscout.com/icons">Iconscout</a>
         </div>
     </footer>
     <div id="links">
