@@ -813,4 +813,6 @@ const translats = {
   Duck: "Pato",
   BattleCamp: "Campo",
   Environments: "Ambientes",
+  Wolf: "Lobo",
+  Toys: "Brinquedos",
 };
