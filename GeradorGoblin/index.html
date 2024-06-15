@@ -6,6 +6,7 @@
     <meta property="og:title" content="Gerador de Goblins" />
     <meta property="og:description" content='Gera Goblins para o RPG "Malditos Goblins"' />
     <meta property="og:locale" content="pt-br" />
+    <link rel="shortcut icon" href="favicon.ico">
     <meta property="description"
         content='Gera Goblins para o RPG "Malditos Goblins" sistema disponivel para download em https://coisinhaverde.com.br/jogos/portfolio/malditos-goblins/' />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -52,51 +53,61 @@
                 </div>
             </section>
         </main>
-        <div id="sheet">
-            <h3 id="hsheet" class="emphasis">FICHA DO GOBLIN</h3>
-            <div id="divname">
-                <span>Nome:</span>
-                <input id="shname" class="shdata" />
+        <div>
+            <div id="sheet">
+                <h3 id="hsheet" class="emphasis">FICHA DO GOBLIN</h3>
+                <div id="divname">
+                    <span>Nome:</span>
+                    <input id="shname" class="shdata" />
+                </div>
+                <div id="divlevel">
+                    <span>Nível:</span>
+                    <input id="shlevel" class="shdata" />
+                </div>
+                <div id="divoccup">
+                    <span>Ocupação:</span>
+                    <input id="shoccup" class="shdata" />
+                </div>
+                <div id="divchart">
+                    <span>Característica:</span>
+                    <input id="shchart" class="shdata" />
+                </div>
+                <div id="divcomb">
+                    <span class="emphasis">Combate:</span>
+                    <input id="shcomb" class="shdata" />
+                </div>
+                <div id="divabilt">
+                    <span class="emphasis">Habilidade:</span>
+                    <input id="shabilt" class="shdata" />
+                </div>
+                <div id="divnotion">
+                    <span class="emphasis">Noção:</span>
+                    <input id="shnotion" class="shdata" />
+                </div>
+                <div id="divvital">
+                    <span class="emphasis">Vitalidade:</span>
+                    <input id="shvital" class="shdata" />
+                </div>
+                <div id="divinjur">
+                    <span>Ferimentos:</span>
+                    <input id="shinjur" class="shdata" />
+                </div>
+                <div id="divequip">
+                    <span>Equipamentos:</span>
+                    <textarea id="shequip" class="shdata" rows="7"></textarea>
+                </div>
+                <div id="divspells">
+                    <span>Magias:</span>
+                    <input id="shspells" class="shdata" />
+                </div>
             </div>
-            <div id="divlevel">
-                <span>Nível:</span>
-                <input id="shlevel" class="shdata" />
-            </div>
-            <div id="divoccup">
-                <span>Ocupação:</span>
-                <input id="shoccup" class="shdata" />
-            </div>
-            <div id="divchart">
-                <span>Característica:</span>
-                <input id="shchart" class="shdata" />
-            </div>
-            <div id="divcomb">
-                <span class="emphasis">Combate:</span>
-                <input id="shcomb" class="shdata" />
-            </div>
-            <div id="divabilt">
-                <span class="emphasis">Habilidade:</span>
-                <input id="shabilt" class="shdata" />
-            </div>
-            <div id="divnotion">
-                <span class="emphasis">Noção:</span>
-                <input id="shnotion" class="shdata" />
-            </div>
-            <div id="divvital">
-                <span class="emphasis">Vitalidade:</span>
-                <input id="shvital" class="shdata" />
-            </div>
-            <div id="divinjur">
-                <span>Ferimentos:</span>
-                <input id="shinjur" class="shdata" />
-            </div>
-            <div id="divequip">
-                <span>Equipamentos:</span>
-                <textarea id="shequip" class="shdata" rows="7"></textarea>
-            </div>
-            <div id="divspells">
-                <span>Magias:</span>
-                <input id="shspells" class="shdata" />
+            <div id="divexport">
+                <select id="selectformat" placeholder="formato">
+                    <option value="SVG">SVG</option>
+                    <option value="PNG">PNG</option>
+                    <option value="JPEG">JPEG</option>
+                </select>
+                <button id="btexport">Exportar</button>
             </div>
         </div>
     </div>
@@ -262,6 +273,48 @@
         </fieldset>
     </div>
     <script type="text/javascript" src="scripts.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"
+        integrity="sha512-zPMZ/3MBK+R1rv6KcBFcf7rGwLnKS+xtB2OnWkAxgC6anqxlDhl/wMWtDbiYI4rgi/NrCJdXrmNGB8pIq+slJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <script type="text/javascript" src="html-to-image.js"></script>
+    <script type="text/javascript">
+        const sheetpr = document.getElementById("sheet");
+        const shname = document.getElementById("shname");
+        const formatopt = document.getElementById("selectformat");
+        const btexport = document.getElementById("btexport");
+        btexport.addEventListener("click", () => {
+            let imgtype = formatopt.value;
+            let link = document.createElement('a');
+            switch (imgtype) {
+                case "SVG":
+                    htmlToImage.toSvg(sheetpr)
+                        .then(function (dataUrl) {
+                            link.download = shname.value + '.svg';
+                            link.href = dataUrl;
+                            link.click();
+                        });
+                    break;
+                case "PNG":
+                    htmlToImage.toPng(sheetpr)
+                        .then(function (dataUrl) {
+                            link.download = shname.value + '.png';
+                            link.href = dataUrl;
+                            link.click();
+                        });
+                    break;
+                case "JPEG":
+                    htmlToImage.toJpeg(sheetpr)
+                        .then(function (dataUrl) {
+                            link.download = shname.value + '.jpeg';
+                            link.href = dataUrl;
+                            link.click();
+                        });
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
 </body>
 
 </html>

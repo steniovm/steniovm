@@ -69,12 +69,16 @@ span {
 }
 
 input,
-button {
+button,
+select {
     min-width: 200px;
     border-radius: 20px;
     background-color: #eeb;
     text-align: center;
     width: fit-content;
+}
+select{
+    min-width: 150px;
 }
 
 #showdices {
