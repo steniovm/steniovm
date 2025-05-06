@@ -1,0 +1,326 @@
+@font-face {
+  font-family: Grobold;
+  src: url("./fonts/GROBOLD.ttf") format("truetype");
+}
+@font-face {
+  font-family: Lexend;
+  src: url("./fonts/Lexend-VariableFont_wght.ttf") format("truetype");
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: #d8cdb7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 710px;
+  margin: 4px 1px;
+  padding: 20vh 0 0 0;
+  font-family: Lexend, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  min-height: auto;
+  overflow-y: scroll;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  width: 100%;
+  max-width: 710px;
+  background-color: #c5b09b88;
+  position: fixed;
+  top: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+h1 {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  margin: auto;
+}
+
+h2 {
+  margin: 0;
+  text-align: center;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+  background-color: #d8cdb7cc;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 710px;
+  min-height: 20vh;
+  max-height: 100vh;
+  position: fixed;
+  top: 13vh;
+  overflow-y: auto;
+}
+
+input,
+button {
+  min-width: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+#fechalistas {
+  width: 360px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100px;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: auto;
+  top: 75px;
+  overflow: auto;
+  border-radius: 5px;
+  justify-items: center;
+}
+#divmessages {
+  display: block;
+  position: fixed;
+  z-index: 2;
+  left: auto;
+  top: auto;
+  overflow: auto;
+  border-radius: 5px;
+  justify-items: center;
+  width: 100%;
+  max-width: 710px;
+  background-color: #dd11ddb0;
+}
+
+fieldset {
+  border-radius: 10px;
+  padding: 1px;
+  margin: 0;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+}
+
+.hiddendiv {
+  display: none !important;
+}
+
+table {
+  background-color: #ddd;
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+}
+
+table input[type="text"] {
+  width: 100px;
+}
+td {
+  margin: auto;
+  background-color: #ffffff;
+  max-width: 108px;
+}
+tr {
+  font-size: small;
+}
+
+th {
+  background-color: #a9a9a9;
+  font-weight: bold;
+}
+
+footer {
+  min-width: 90%;
+  background-color: #c5b09bcc;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+  font-weight: bold;
+  flex-wrap: wrap-reverse;
+  line-height: 1.5em;
+  position: relative;
+  top: 100vh;
+}
+
+.divinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  max-width: 360px;
+}
+
+#sitelinks {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: #c5b09b88;
+  position: fixed;
+  top: 5.2vh;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 710px;
+  display: flex;
+  justify-content: space-between;
+}
+nav * {
+  margin: 0;
+  padding: 0;
+  font-family: Lexend, arial, helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#disqus_thread {
+  width: 100vw;
+  max-width: 710px;
+}
+
+* ::-webkit-scrollbar-track {
+  background-color: #ddf2813b;
+}
+* ::-webkit-scrollbar {
+  width: 6px;
+}
+* ::-webkit-scrollbar-thumb {
+  background: #cf7f2f99;
+  border-radius: 3px;
+}
+
+#dlmode > img {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.emphasis {
+  animation-duration: 0.5s;
+  animation-name: faderepte;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes faderepte {
+  from {
+    text-shadow: 2px 2px 0 #fff;
+  }
+  to {
+    text-shadow: 6px 6px 5px #ff5555, -6px -6px 5px #ff5555,
+      -6px 6px 5px #ff5555, 6px -6px 5px #ff5555;
+  }
+}
+
+.mini {
+  width: 32px;
+}
+.med {
+  width: 120px;
+}
+#btlistas {
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+}
+#divcaos > label {
+  width: 20px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #555;
+  border-radius: 0 8px 8px 0;
+}
+#divfcaos {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+}
+#divfcaos > label {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #555;
+}
+#fcmais {
+  border-radius: 0 8px 8px 0;
+  font-size: x-large;
+}
+#fcmenos {
+  border-radius: 8px 0 0 8px;
+  font-size: x-large;
+}
+#fcaos {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+#divinfos label:hover {
+  background-color: #fa49fa;
+}
+.card {
+  width: 256px;
+  position: relative;
+}
+.cardm {
+  width: 120px;
+  position: relative;
+}
+.targe {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  height: 50%;
+  background-color: #000000cc;
+}
+.invert {
+  transform: rotate(180deg);
+}
+#numberlist {
+  display: flex;
+  width: 256px;
+  height: 100%;
+  color: white;
+  position: relative;
+  top: -245px;
+  font-size: 6em;
+  justify-content: center;
+  font-weight: bold;
+}
+#desclist {
+  display: flex;
+  width: 256px;
+  background-color: #ccc;
+  position: relative;
+  top: -122px;
+  justify-content: center;
+}
+#colormode {
+  width: 16px;
+}

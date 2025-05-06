@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="Mythic Card - Emulador de Mestre - RPG" />
+    <meta property="og:description" content='Cards para emular mestre de RPG' />
+    <meta property="og:locale" content="pt-br" />
+    <meta property="og:image" itemprop="image" content="imgs/CartasDoMythic.jpg" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:alt" content="Imagem do Mythic" />
+    <link rel="shortcut icon" href="imgs/favicon.ico">
+    <meta property="description" content='Emulador de Mestre - Mythic Card RPG' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>MythicCard - Emulador de Mestre - RPG</title>
+    <link rel="stylesheet" href="style.css" />
+    <link id="darkmode" rel="stylesheet" href="stylebl.css" disabled />
+    <style id="stylefomat"></style>
+</head>
+
+<body>
+    <header>
+        <h1>MythicCard Emulador de Mestre - RPG</h1>
+    </header>
+    <nav>
+        <img id="btcardmythic" src="./imgs/CartasDoMythic.jpg" class="mini" alt="verso Cartas do Mythic"
+            title="Cartas Do Mythic" />
+        <img id="btembaralhar" src="./imgs/cardrandom.svg" class="mini" alt="Embaralhar Cartas do Mythic"
+            title="Embaralhar Cartas Do Mythic" />
+        <img id="btlisttrama" src="./imgs/CartasDeListas.jpg" class="mini" alt="verso Cartas de Listas"
+            title="Cartas De listas de Tramas" />
+        <img id="btlistperson" src="./imgs/CartasDeListas.jpg" class="mini" alt="verso Cartas de Listas"
+            title="Cartas De listas de Personagens" />
+        <img id="btlistas" src="./imgs/listaicon.png" class="mini" alt="Listas" title="Editar listas" />
+        <img id="fccard" src="./imgs/CartasDeReferencia.jpg" class="mini" alt="verso Cartas de Referência"
+            title="Cartas De Referência" />
+        <img id="pdcard" src="./imgs/CartasDeReferencia.jpg" class="mini" alt="verso Cartas de Referência"
+            title="Cartas De Referência" />
+        <div id="divfcaos">
+            <label id="fcmenos">-</label>
+            <label id="fcaos">FC 5</label>
+            <label id="fcmais">+</label>
+        </div>
+        <img id="colormode" src="./imgs/darkligth.svg" class="mini" alt="sombra luz" title="Color Mode" />
+    </nav>
+    <main id="mesa">
+    </main>
+    <div id="divcaos" class="modal hiddendiv">
+        <img src="./imgs/FatorCaos.jpg" class="card" alt="Carta Como Usar o Fator de Caos"
+            title="Como usar o Fator Caos" />
+    </div>
+    <div id="divperg" class="modal hiddendiv">
+        <img src="./imgs/PerguntaDestino.jpg" class="card" alt="Carta Como fazer Perguntas do Destino"
+            title="Como fazer Perguntas do Destino" />
+    </div>
+    <div id="divonelist" class="modal hiddendiv">
+        <img src="./imgs/CartasDeListasfrente.jpg" class="card" alt="Carta Como fazer Perguntas do Destino"
+            title="Como fazer Perguntas do Destino" />
+        <span id="numberlist"></span>
+        <span id="desclist"></span>
+    </div>
+    <div id="divcardythic" class="modal hiddendiv">
+        <img id="cardg" src="./imgs/MYTHIC_0.jpg" class="card" alt="Carta do Mythic sacada" title="Carta sacada" />
+        <div id="divtarge" class="targe"></div>
+    </div>
+    <div id="divlists" class="modal hiddendiv">
+        <button id="fechalistas">Fechar</button>
+        <fieldset>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Trama</th>
+                        <th>+/-</th>
+                    </tr>
+                </thead>
+                <tbody id="ltramas"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>novo</td>
+                        <td><input type="text" id="novtrama" placeholder="Nova trama" /></td>
+                        <td><button id="btnovtrama">+</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Personagem</th>
+                        <th>+/-</th>
+                    </tr>
+                </thead>
+                <tbody id="lperson"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>novo</td>
+                        <td><input type="text" id="novperson" placeholder="Novo personagem" /></td>
+                        <td><button id="btnovperson">+</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+    </div>
+    <div id="divmessages" class="hiddendiv">
+        <h2 id="messages">menssagens</h2>
+    </div>
+    <footer>
+        <div id="divinfo" class="divinfo">
+            <span>Desenvolvido por: Stênio Vinicios de Medeiros</span>
+            <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"
+                    alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
+            <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+        </div>
+        <div id="sitelinks">
+            Conheça também:
+            <a href="https://dominusrpg.vercel.app/" target="_blank">
+                <i>Dominus - RPG Solo com Multiplos Cenários</i>
+            </a>
+            <a href="https://dominusrpg.vercel.app/scenariocreate.html" target="_blank">
+                <i>Gerador de cenário para DominusRPG WEB</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/dndbook/index.html" target="_blank">
+                <i>Dungeons & Dragons 5ª Edição - SRD - enciclopédia</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/GeradorGoblin/index.html" target="_blank">
+                <i>Gerador Goblin</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/RPGSongs/index.html" target="_blank">
+                <i>RPG Songs</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/GoblinSongs/index.html" target="_blank">
+                <i>Sons de Goblins</i>
+            </a>
+            <a href="https://guaxinimonline.onrender.com/" target="_blank">
+                <i>Guaxinins & Gambiarras</i>
+            </a>
+            <a href="https://historias-incriveis.onrender.com/" target="_blank">
+                <i>Histórias Incríveis</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/DicesRools/DicesRools.html" target="_blank">
+                <i>Rolagem de Dados</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/DiceProbability/index.html" target="_blank"><i>Probabilidade em
+                    Dados</i></a>
+            <a href="https://scisimulab.com.br/" target="_blank">
+                <i>Sci Simu Lab</i>
+            </a>
+            <a href="https://steniovm.github.io/steniovm/" target="_blank">
+                <i>Outras produções minhas</i>
+            </a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+
+</html>

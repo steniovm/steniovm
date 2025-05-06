@@ -1,0 +1,64 @@
+body {
+  background-color: #332e44;
+  color: #ddd;
+}
+a:link {
+  color: #2ecaca;
+}
+a:visited {
+  color: #a83bc9;
+}
+header {
+  background-color: #7c618a88;
+}
+
+input,
+button {
+  background-color: #cccccccc;
+  border: dashed 1px #555555;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+  background-color: #88aa88cc;
+}
+
+.modal {
+  background-color: #7c618a68;
+}
+#divmessages {
+  background-color: #ddaaddb0;
+  color: #eee;
+}
+
+table {
+  background-color: #ffffff33;
+}
+
+td {
+  background-color: #ffffff33;
+}
+
+th {
+  background-color: #494949;
+}
+
+footer {
+  background-color: #7c618acc;
+  color: #ddd;
+}
+
+nav {
+  background-color: #7c618acc;
+}
+
+* ::-webkit-scrollbar-track {
+  background-color: #5e7201d6;
+}
+* ::-webkit-scrollbar-thumb {
+  background: #5f1f0f;
+}
+
+#dlmode > img {
+  background-color: #ffffff;
+}
