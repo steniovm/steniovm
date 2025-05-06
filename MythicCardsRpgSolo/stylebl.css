@@ -14,12 +14,13 @@ header {
 
 input,
 button {
-  background-color: #cccccccc;
+  background-color: #ccccccdd;
   border: dashed 1px #555555;
 }
 
 input[type="text"]:hover,
-input[type="text"]:focus {
+input[type="text"]:focus,
+button:hover {
   background-color: #88aa88cc;
 }
 
@@ -32,11 +33,11 @@ input[type="text"]:focus {
 }
 
 table {
-  background-color: #ffffff33;
+  background-color: #ffffff99;
 }
 
 td {
-  background-color: #ffffff33;
+  background-color: #220033dd;
 }
 
 th {

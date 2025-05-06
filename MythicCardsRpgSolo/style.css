@@ -53,8 +53,9 @@ h2 {
 }
 
 input[type="text"]:hover,
-input[type="text"]:focus {
-  background-color: #d8cdb7cc;
+input[type="text"]:focus,
+button:hover {
+  background-color: #d8cdb7ee;
 }
 
 main {
