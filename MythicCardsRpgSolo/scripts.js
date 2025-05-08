@@ -1,3 +1,4 @@
+//global variables and constants
 //variaveis e constantes globais
 const FCN = [
   "#FFFFFF",
@@ -11,17 +12,59 @@ const FCN = [
   "#D64532",
   "#DB5C4D",
 ];
-const baralho = [];
-let descarte = [];
 const tramalist = [];
 const personlist = [];
 const NCMYTHIC = 100;
 const TEMPMS = 3000;
-const cimgs = "./imgs/";
+const cimgs = "/cards/";
+const texts = {
+  "pt-BR": {
+    FatorCaos: "Fator de caos",
+    ListaTramaVazia: "Lista de tramas vazia",
+    ListaPersonVazia: "Lista de personagens vazia",
+    Reembaralhe: "baralho vazio - reembaralhe",
+    DigiteTrama: "Digite a trama",
+    DigitePersonagem: "Digite o personagem",
+  },
+  en: {
+    FatorCaos: "Chaos Factor",
+    ListaTramaVazia: "Empty plot list",
+    ListaPersonVazia: "Empty character list",
+    Reembaralhe: "empty deck - reshuffle",
+    DigiteTrama: "Enter the plot",
+    DigitePersonagem: "Enter Character",
+  },
+};
+let language = "pt-BR";
+let baralho = [];
+let descarte = [];
 let fc = 5;
 let nlist = 0;
 
+//Functions
 //Funções
+
+function languageDetect() {
+  const lang = navigator.language;
+  language = lang == "pt-BR" || lang == "pt" ? "pt-BR" : "en";
+  if (lang === "en") {
+    btcardmythic.title = "Mythic Cards";
+    btembaralhar.title = "Shuffle Mythic Cards";
+    btlisttrama.title = "Plot List Cards";
+    btlistperson.title = "Character List Cards";
+    btlistas.title = "Edit Lists";
+    fccard.title = "Reference Cards";
+    pdcard.title = "Reference Cards";
+    divfcaos.title = "Chaos Factor";
+    colormode.title = "Color Mode";
+    caosinstruction.title = "How to use the Chaos Factor";
+    perginstruction.title = "How to Ask Destiny Questions";
+    cardnumber.title = "Numbered List Cart";
+    cardg.title = "Card drawn";
+  }
+}
+
+//open and save data
 //abrir e salvar dados
 function saveData() {
   data = JSON.stringify({
@@ -37,7 +80,9 @@ function saveData() {
 }
 function getSaveData() {
   const data = JSON.parse(localStorage.getItem("mythic"));
-  if (data.baralho.length) baralho.push(...data.baralho);
+  if (data.baralho.length) {
+    baralho.push(...data.baralho);
+  }
   if (data.descarte.length) {
     descarte.push(...data.descarte);
     data.descarte.forEach((el) => showcard(el));
@@ -54,9 +99,11 @@ function getSaveData() {
   if (data.nlist) nlist = data.nlist;
   darkmode.disabled = data.dkmode;
 }
+//shuffles Mythic cards
 //embaralha cartas do Mythic
 function embaralhar() {
   let bar = [];
+  baralho = [];
   for (i = 0; i <= NCMYTHIC; i++) {
     const card = {
       imgs: "MYTHIC_" + i + ".jpg",
@@ -70,10 +117,12 @@ function embaralhar() {
   }
   descarte = [];
 }
+//draws lots to see whether the card will be turned over or not
 //sorteia se a carta será virada ou não
 function randreverse() {
   return Math.random() < 0.5;
 }
+//call function to shuffle
 //chama função para embaralhar
 function randomcards() {
   hiddenmodals();
@@ -81,11 +130,12 @@ function randomcards() {
   embaralhar();
   saveData();
 }
+//set the chaos factor
 //seta o fator de caos
 function setFC(n) {
   fc = n;
   fcaos.innerHTML = "FC " + n;
-  fcaos.title = "Fator de caos: " + n;
+  fcaos.title = texts[language].FatorCaos + ": " + n;
   fcaos.style.background = FCN[n];
 }
 function upFC() {
@@ -96,6 +146,7 @@ function downFC() {
   if (fc > 1) setFC(fc - 1);
   saveData();
 }
+//shows and hides modals
 //mostra e esconde os modals
 function hiddenmodals() {
   divcaos.classList.add("hiddendiv");
@@ -117,13 +168,14 @@ function showperg() {
 function showlists() {
   showmodal(divlists);
 }
-//exibe na mesa as cartas sorteadas
+//displays the cards drawn on the table
+//exibe na mesa as cartas sacadas
 function showcard(card) {
   const divel = document.createElement("div");
   const imgel = document.createElement("img");
   divel.classList.add("cardm");
   imgel.classList.add("med");
-  imgel.src = "./imgs/" + card.imgs;
+  imgel.src = "." + cimgs + card.imgs;
   if (card.reverse) imgel.classList.add("invert");
   divel.appendChild(imgel);
   if (card.imgs != "MYTHIC_0.jpg") {
@@ -134,7 +186,7 @@ function showcard(card) {
   divel.addEventListener("click", (ev) => {
     const cardnode = ev.target.parentElement;
     const card = {
-      imgs: cardnode.childNodes[0].src.split("imgs/")[1],
+      imgs: cardnode.childNodes[0].src.split(cimgs)[1],
       reverse: cardnode.childNodes[0].classList.contains("invert"),
     };
     showcardg(card);
@@ -143,7 +195,7 @@ function showcard(card) {
 }
 function showcardg(card) {
   showmodal(divcardythic);
-  cardg.src = "./imgs/" + card.imgs;
+  cardg.src = "." + cimgs + card.imgs;
   if (card.reverse) cardg.classList.add("invert");
   else cardg.classList.remove("invert");
   if (card.imgs == "MYTHIC_0.jpg") {
@@ -161,7 +213,7 @@ function showcardtrama() {
     removetrama(tramalist[n].n);
     saveData();
   } else {
-    printmenssage("Lista de tramas vazia");
+    printmenssage(texts[language].ListaTramaVazia);
   }
 }
 function showcardperson() {
@@ -173,9 +225,10 @@ function showcardperson() {
     removeperson(personlist[n].n);
     saveData();
   } else {
-    printmenssage("Lista de personagens vazia");
+    printmenssage(texts[language].ListaPersonVazia);
   }
 }
+//draws a card from the Mythic deck
 //saca uma carta do baralho do Mythic
 function saccard() {
   if (baralho.length > 0) {
@@ -185,14 +238,14 @@ function saccard() {
     descarte.push(card);
     setTimeout(() => {
       mesa.scrollTop = -mesa.scrollHeight;
-      console.log(-mesa.scrollHeight);
     }, 10);
     saveData();
   } else {
-    printmenssage("baralho vazio - reembaralhe");
+    printmenssage(texts[language].Reembaralhe);
   }
 }
-//adciona e remove itens das listas
+//adds and removes items from lists
+//adiciona e remove itens das listas
 function removetrama(nt) {
   let i = -1;
   document.getElementById("tlist" + nt).remove();
@@ -234,7 +287,7 @@ function addtrama() {
     addtramatable(trama);
     saveData();
   } else {
-    printmenssage("Digite a trama");
+    printmenssage(texts[language].DigiteTrama);
   }
 }
 function removeperson(np) {
@@ -278,10 +331,11 @@ function addperson() {
     addpersontable(person);
     saveData();
   } else {
-    printmenssage("Digite o personagem");
+    printmenssage(texts[language].DigitePersonagem);
   }
 }
-//imprime menssagem
+//print message
+//imprime mensagem
 function printmenssage(text) {
   divmessages.classList.remove("hiddendiv");
   messages.innerHTML = text;
@@ -289,12 +343,13 @@ function printmenssage(text) {
     divmessages.classList.add("hiddendiv");
   }, TEMPMS);
 }
-//troca esquema de corer
+//change color scheme
+//troca esquema de cores
 function colormodetoggle() {
   darkmode.disabled = !darkmode.disabled;
   saveData();
 }
-
+//initialization
 //inicialização
 fcmais.addEventListener("click", upFC);
 fcmenos.addEventListener("click", downFC);

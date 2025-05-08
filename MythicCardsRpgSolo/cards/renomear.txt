@@ -1,0 +1,76 @@
+bat
+
+@echo off
+setlocal
+set "pasta=%~dp0"  
+set "prefixo=NovoNome_"  
+for %%i in ("*.txt") do (
+  set "nome_completo=%%~fi"
+  set "nome_sem_ext=%%~ni"
+  set "novo_nome=%prefixo%_%nome_sem_ext%%~xi"
+  ren "%nome_completo%" "%novo_nome%"
+)
+endlocal
+
+
+
+
+
+Um script Bash para renomear arquivos em lote usa o comando mv dentro de um loop para processar múltiplos arquivos. Para renomear um arquivo, você usa mv antigo_nome novo_nome. Para várias alterações, você pode iterar por uma lista de arquivos ou usar padrões para selecionar arquivos.
+Exemplo de Script:
+Código
+
+#!/bin/bash
+
+# Defina o diretório onde os arquivos estão
+diretorio="/caminho/para/o/seu/diretorio"
+
+# Defina o padrão para selecionar arquivos (ex: arquivos .txt)
+padrao="*.txt"
+
+# Defina a regra para renomear os arquivos
+# Neste exemplo, adiciona "copia_" ao início do nome
+nova_regra="copia_$1"
+
+# Loop para renomear todos os arquivos
+for arquivo in "$diretorio/$padrao"; do
+  # Extrai o nome do arquivo sem a extensão
+  nome_sem_ext=$(basename "$arquivo" .txt)
+
+  # Constrói o novo nome do arquivo
+  novo_nome="$nova_regra.$nome_sem_ext.txt"
+
+  # Renomeia o arquivo
+  mv "$arquivo" "$novo_nome"
+done
+
+echo "Arquivos renomeados com sucesso!"
+Como usar:
+Salve o script: Salve o código acima como um arquivo, por exemplo, renomear_arquivos.sh.
+Torne-o executável: No terminal, use chmod +x renomear_arquivos.sh.
+Execute o script: No terminal, execute o script com ./renomear_arquivos.sh.
+Verifique as alterações: Confirme que os arquivos foram renomeados como esperado.
+Explicação:
+#!/bin/bash: Indica que o script deve ser executado com o Bash.
+diretorio, padrao, nova_regra: Variáveis para definir o caminho, padrão de arquivos e regra de renomeação.
+for arquivo in "$diretorio/$padrao": Itera por todos os arquivos que correspondem ao padrão no diretório.
+nome_sem_ext=$(basename "$arquivo" .txt): Extrai o nome do arquivo sem a extensão.
+novo_nome="$nova_regra.$nome_sem_ext.txt": Constrói o novo nome com a regra definida.
+mv "$arquivo" "$novo_nome": Renomeia o arquivo usando o comando mv.
+echo "Arquivos renomeados com sucesso!": Mostra uma mensagem de sucesso.
+Adapte para suas necessidades:
+Mudar o padrão: Altere o padrao para arquivos com outras extensões ou padrões.
+Alterar a regra: Modifique nova_regra para aplicar a regra de renomeação desejada.
+Adicionar validação: Adicione verificações para lidar com erros ou casos especiais.
+Usar rename: Para padrões mais complexos, você pode usar o comando rename (se disponível) que permite usar expressões regulares na renomeação.
+Exemplo com rename:
+Código
+
+# Suponha que você tenha arquivos como "foto_1_2023.jpg", "foto_2_2023.jpg"
+# e que você queira remover "foto_" e adicionar "nova_"
+# Use o comando rename:
+# rename "s/foto_//g" "s/ /nova_/g"  "foto_1_2023.jpg" "foto_2_2023.jpg"
+
+# Se quiser renomear todos os arquivos com esse padrão no diretório atual:
+# rename "s/foto_//g" "s/ /nova_/g" *.jpg
+Lembre-se que o comando rename pode não estar disponível em todas as distribuições Linux. Se não estiver, você pode instalá-lo com sudo apt-get install rename.
