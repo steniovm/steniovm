@@ -372,4 +372,5 @@ colormode.addEventListener("click", colormodetoggle);
 
 embaralhar();
 setFC(5);
+languageDetect();
 getSaveData();
