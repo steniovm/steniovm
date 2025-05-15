@@ -57,7 +57,45 @@ input[type="text"]:focus,
 button:hover {
   background-color: #d8cdb7ee;
 }
+/* em teste */
+/*
+input[type="checkbox"] {
+  background-color: #d8cdb7ee;
+  size: 10px;
+}
+input[type="checkbox"]:checked:before {
+  background-color: #220033;
+  color: #d8cdb7;
+  border-color: #000;
+}
 
+input[type="checkbox"]:before {
+  content: "\2714";
+  border: 0.13em solid #000;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  font-size: 16px;
+  padding: 0 2px;
+  align-items: center;
+}
+
+input[type="checkbox"]:active:before {
+  transform: scale(0);
+}
+
+input[type="checkbox"]:disabled:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type="checkbox"]:checked:disabled:before {
+  transform: scale(1);
+  background-color: #bfb;
+  border-color: #bfb;
+}
+*/
+/* fim do teste */
 main {
   display: flex;
   flex-direction: row;
@@ -80,7 +118,8 @@ button {
   width: fit-content;
   cursor: pointer;
 }
-#fechalistas {
+#fechalistas,
+#fechasetings {
   width: 360px;
 }
 
@@ -98,6 +137,10 @@ input[type="file"] {
   overflow: auto;
   border-radius: 5px;
   justify-items: center;
+  background-color: #d8cdb7;
+}
+#divonelist {
+  background-color: transparent;
 }
 #divmessages {
   display: block;
@@ -282,6 +325,10 @@ nav * {
   justify-content: center;
   color: #fff;
 }
+#divsetings > fieldset {
+  display: flex;
+  justify-content: space-between;
+}
 #divinfos label:hover {
   background-color: #fa49fa;
 }
@@ -322,6 +369,6 @@ nav * {
   top: -122px;
   justify-content: center;
 }
-#colormode {
+#colormode > img {
   width: 16px;
 }

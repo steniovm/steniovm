@@ -1,3 +1,32 @@
+/*
+Developed by: Stênio V. Medeiros
+https://steniovm.github.io/steniovm/
+Official repository
+https://github.com/steniovm/MythicCardsRpgSolo
+License: GNU GENERAL PUBLIC LICENSE Version 3
+The code for this software is completely free, but the Mythic images belong to wordmillgames.
+Mythic is a GM emulator for tabletop RPGs. It can also be used as a GM assistant.
+The standard version of Mythic consists of a rulebook that uses 2d10 as a random element. The Card version is a simplified version but still quite rich.
+In Brazil, Mythic has been translated and is being distributed by the publisher Retropunk ( https://retropunk.com.br/editora ).
+The book can be purchased at the publisher's store, https://loja.retropunk.com.br/index.php?id_product=841&rewrite=mythic-emulador-de-mestre-de-jogo-pdf&controller=product .
+The deck of cards can also be purchased ( https://loja.retropunk.com.br/index.php?id_product=844&rewrite=mythic-baralho-de-narrativas-mythicas-jpg&controller=product ) in jpg with a pdf manual, and in a physical version.
+The software was written entirely in vanilla html, css and javascript, so it can be run directly in the browser without the need to install any dependency packages.
+Because it uses local storage, the user must continue their adventure on the same device, same browser and same browser user profile. In addition, in some browsers it may be necessary for the user to authorize the use of Cookies.
+
+Desenvolvido por: Stênio V. Medeiros
+https://steniovm.github.io/steniovm/
+Repositório oficial
+https://github.com/steniovm/MythicCardsRpgSolo
+Licença: GNU GENERAL PUBLIC LICENSE Version 3
+O codigo deste software é totalmente livre, porém as imagens do Mythic pertencem à wordmillgames.
+O Mythic é um emulador de mestre para RPGs de mesa. Também pode ser usado como auxiliar de mestre.
+A versão padrão do Mythic consiste em um livro de regras que utilizam 2d10 como elemento de aleatóriedade. A versão em Cartas é uma versão simplificada porém ainda bastante rica.
+No Brasil o Mythic foi traduzido e está sendo distribuido pela editora Retropunk ( https://retropunk.com.br/editora ).
+A livro pode ser comprado na loja da editora, https://loja.retropunk.com.br/index.php?id_product=841&rewrite=mythic-emulador-de-mestre-de-jogo-pdf&controller=product .
+O baralho também pode pode ser adquirido ( https://loja.retropunk.com.br/index.php?id_product=844&rewrite=mythic-baralho-de-narrativas-mythicas-jpg&controller=product ) em jpg com manual em pdf, e na versão física.
+O software foi todo escrito em html, css e javascript vanilla, de forma que pode ser executado direto no navegador sem necessidade de instalar qualquer pacote de dependências.
+Por usar o local storage o usuário deve continuar sua aventura no mesmo dispositivo, mesmo navegador e mesmo perfil de usuário do navegador. Além disso, em alguns navegadores pode ser necessário que o usuário autorize a utilização de Cookies.
+*/
 //global variables and constants
 //variaveis e constantes globais
 const FCN = [
@@ -25,6 +54,13 @@ const texts = {
     Reembaralhe: "baralho vazio - reembaralhe",
     DigiteTrama: "Digite a trama",
     DigitePersonagem: "Digite o personagem",
+    Visualização: "Visualização",
+    ClaroEscuro: "Claro/Escuro",
+    Regras: "Regras",
+    Autoremocao: "Autoremoção das listas",
+    TamanhoCartas: "Tamanho das cartas",
+    Destaque: "Em destaque",
+    NaMesa: "Na mesa",
   },
   en: {
     FatorCaos: "Chaos Factor",
@@ -33,6 +69,13 @@ const texts = {
     Reembaralhe: "empty deck - reshuffle",
     DigiteTrama: "Enter the plot",
     DigitePersonagem: "Enter Character",
+    Visualização: "View",
+    ClaroEscuro: "Light/Dark",
+    Regras: "Rules",
+    Autoremocao: "Auto-remove from lists",
+    TamanhoCartas: "Card size",
+    Destaque: "Highlight",
+    NaMesa: "On table",
   },
 };
 let language = "pt-BR";
@@ -40,10 +83,14 @@ let baralho = [];
 let descarte = [];
 let fc = 5;
 let nlist = 0;
+let autreli = true;
+let sizes = { menu: 32, cardg: 256, cardm: 120 };
 
 //Functions
 //Funções
 
+//Detect language
+//Detecta idioma
 function languageDetect() {
   const lang = navigator.language;
   language = lang == "pt-BR" || lang == "pt" ? "pt-BR" : "en";
@@ -75,6 +122,10 @@ function saveData() {
     fc: fc,
     nlist: nlist,
     dkmode: darkmode.disabled,
+    autreli: autreli,
+    sizem: sizes.menu,
+    sizecm: sizes.cardm,
+    sizecg: sizes.cardg,
   });
   localStorage.setItem("mythic", data);
 }
@@ -98,6 +149,23 @@ function getSaveData() {
   if (data.fc) setFC(data.fc);
   if (data.nlist) nlist = data.nlist;
   darkmode.disabled = data.dkmode;
+  if (data.autreli != undefined) {
+    btaremove.checked = data.autreli;
+    autreli = data.autreli;
+  }
+  if (data.sizem) {
+    insizemenu.value = data.sizem;
+    sizes.menu = data.sizem;
+  }
+  if (data.sizecm) {
+    insizemini.value = data.sizecm;
+    sizes.cardm = data.sizecm;
+  }
+  if (data.sizecg) {
+    insizecard.value = data.sizecg;
+    sizes.cardg = data.sizecg;
+  }
+  if (data.sizem || data.sizecm || data.sizecg) setsizes();
 }
 //shuffles Mythic cards
 //embaralha cartas do Mythic
@@ -154,6 +222,7 @@ function hiddenmodals() {
   divonelist.classList.add("hiddendiv");
   divcardythic.classList.add("hiddendiv");
   divlists.classList.add("hiddendiv");
+  divsetings.classList.add("hiddendiv");
 }
 function showmodal(modal) {
   hiddenmodals();
@@ -167,6 +236,9 @@ function showperg() {
 }
 function showlists() {
   showmodal(divlists);
+}
+function showsetings() {
+  showmodal(divsetings);
 }
 //displays the cards drawn on the table
 //exibe na mesa as cartas sacadas
@@ -210,7 +282,7 @@ function showcardtrama() {
     showmodal(divonelist);
     numberlist.innerHTML = tramalist[n].n;
     desclist.innerHTML = tramalist[n].desc;
-    removetrama(tramalist[n].n);
+    if (autreli) removetrama(tramalist[n].n);
     saveData();
   } else {
     printmenssage(texts[language].ListaTramaVazia);
@@ -222,7 +294,7 @@ function showcardperson() {
     showmodal(divonelist);
     numberlist.innerHTML = personlist[n].n;
     desclist.innerHTML = personlist[n].desc;
-    removeperson(personlist[n].n);
+    if (autreli) removeperson(personlist[n].n);
     saveData();
   } else {
     printmenssage(texts[language].ListaPersonVazia);
@@ -334,6 +406,10 @@ function addperson() {
     printmenssage(texts[language].DigitePersonagem);
   }
 }
+function autoremove() {
+  autreli = btaremove.checked;
+  saveData();
+}
 //print message
 //imprime mensagem
 function printmenssage(text) {
@@ -349,6 +425,32 @@ function colormodetoggle() {
   darkmode.disabled = !darkmode.disabled;
   saveData();
 }
+//set element sizes
+//seta tamanhos dos elementos
+function setsizes() {
+  stylefomat.innerHTML = `
+  .mini { width: ${sizes.menu}px;}
+  .cardm { width: ${sizes.cardm}px;}
+  .med { width: ${sizes.cardm}px;}
+  .card { width: ${sizes.cardg}px;}
+  main { top: ${sizes.menu * 1.38 + 32}px;}
+  `;
+}
+function setsizemenu() {
+  sizes.menu = insizemenu.value;
+  setsizes();
+  saveData();
+}
+function setsizecardg() {
+  sizes.cardg = insizecard.value;
+  setsizes();
+  saveData();
+}
+function setsizecardm() {
+  sizes.cardm = insizemini.value;
+  setsizes();
+  saveData();
+}
 //initialization
 //inicialização
 fcmais.addEventListener("click", upFC);
@@ -361,14 +463,20 @@ pdcard.addEventListener("click", showperg);
 btcardmythic.addEventListener("click", saccard);
 btlistas.addEventListener("click", showlists);
 fechalistas.addEventListener("click", hiddenmodals);
+fechasetings.addEventListener("click", hiddenmodals);
 btnovtrama.addEventListener("click", addtrama);
 btnovperson.addEventListener("click", addperson);
 btlisttrama.addEventListener("click", showcardtrama);
 btlistperson.addEventListener("click", showcardperson);
+btconfig.addEventListener("click", showsetings);
 divonelist.addEventListener("click", hiddenmodals);
 divcardythic.addEventListener("click", hiddenmodals);
 btembaralhar.addEventListener("click", randomcards);
 colormode.addEventListener("click", colormodetoggle);
+btaremove.addEventListener("change", autoremove);
+insizemenu.addEventListener("change", setsizemenu);
+insizecard.addEventListener("change", setsizecardg);
+insizemini.addEventListener("change", setsizecardm);
 
 embaralhar();
 setFC(5);

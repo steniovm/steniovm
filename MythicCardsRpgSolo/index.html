@@ -15,7 +15,27 @@
     <title>MythicCard - Emulador de Mestre - RPG</title>
     <link rel="stylesheet" href="style.css" />
     <link id="darkmode" rel="stylesheet" href="stylebl.css" disabled />
-    <style id="stylefomat"></style>
+    <style id="stylefomat">
+        .mini {
+            /*menu*/
+            width: 32px;
+        }
+
+        .cardm {
+            /*carta da mesa*/
+            width: 120px;
+        }
+
+        .med {
+            /*carta da mesa*/
+            width: 120px;
+        }
+
+        .card {
+            /*carta destaque*/
+            width: 256px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +61,7 @@
             <label id="fcaos">FC 5</label>
             <label id="fcmais">+</label>
         </div>
-        <img id="colormode" src="./imgs/darkligth.svg" class="mini" alt="sombra luz" title="Color Mode" />
+        <img id="btconfig" src="./imgs/configs.svg" class="mini" alt="Configurações" title="Configurações" />
     </nav>
     <main id="mesa">
     </main>
@@ -102,6 +122,32 @@
             </table>
         </fieldset>
     </div>
+    <div id="divsetings" class="modal hiddendiv">
+        <button id="fechasetings">Fechar</button>
+        <h2>Visualização</h2>
+        <fieldset id="colormode">
+            <label>Claro/Escuro</label>
+            <img src="./imgs/darkligth.svg" class="mini" alt="sombra luz" title="Color Mode" />
+        </fieldset>
+        <fieldset>
+            <label>Menu</label>
+            <input type="range" id="insizemenu" min="30" max="90" value="32" />
+        </fieldset>
+        <h2>Regras</h2>
+        <fieldset>
+            <label for="btaremove">Autoremoção das listas</label>
+            <input type="checkbox" id="btaremove" checked />
+        </fieldset>
+        <h2>Tamanho das cartas</h2>
+        <fieldset>
+            <label>Em destaque</label>
+            <input type="range" id="insizecard" min="60" max="710" value="256" />
+        </fieldset>
+        <fieldset>
+            <label>Na mesa</label>
+            <input type="range" id="insizemini" min="60" max="710" value="120" />
+        </fieldset>
+    </div>
     <div id="divmessages" class="hiddendiv">
         <h2 id="messages">menssagens</h2>
     </div>
@@ -148,6 +194,12 @@
             </a>
             <a href="https://steniovm.github.io/steniovm/" target="_blank">
                 <i>Outras produções minhas</i>
+            </a>
+        </div>
+        <div>
+            O baralho do Mithic (fisico ou digital para imprimir) pode ser adquirido na loja da
+            <a href="https://loja.retropunk.com.br" target="_blank">
+                <i>Editora Retropuck</i>
             </a>
         </div>
     </footer>

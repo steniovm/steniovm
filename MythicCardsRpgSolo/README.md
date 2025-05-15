@@ -2,6 +2,15 @@
 
 MythicCards - emulador de mestre para RPG de mesa
 
+<h2>instalação</h2>
+<p>Antes de instalar o software voce precisa adquirir o <a href="https://loja.retropunk.com.br/index.php?id_product=841&rewrite=mythic-emulador-de-mestre-de-jogo-pdf&controller=product">Mythic: Baralho de Narrativas Mythicas (JPG)</a></p>
+<ol>
+<li>Baixe e descompacte o repositorio ou clone-o em sua máquina</li>
+<li>Descompacte o arquivo MYTHIC_-_RPWMG-M003e_-_BARALHODENARRATIVASMYTHICAS.zip adquirido pela loja da Retropunk dentro da pasta "cards"</li>
+<li>Execute o script "rename(Win).bat" caso esteja em uma máquina windows ou "rename(Mac-Linux).sh" caso esteja em uma máquina Mac ou Linux</li>
+<li>A instalação está concluida, abra o arquivo "index.html" no seu navegador preferido e divirta-se.</li>
+</ol>
+
 <p>
 O <strong>Mythic</strong> é um emulador de mestre para RPGs de mesa. Também pode ser usado como auxiliar de mestre.
 </p>
