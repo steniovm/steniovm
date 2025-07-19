@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="RPG solo" />
+    <meta property="og:description" content='Permite jogar e registrar sua aventura de RPG Solo' />
+    <meta property="og:locale" content="pt-br" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta property="description" content='Permite jogar e registrar sua aventura de RPG Solo' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Solo RPG - Jogue e registre sua aventura"</title>
+    <style>
+        body {
+            background-color: #9FCFBF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0;
+        }
+
+        textarea {
+            width: 98%;
+            min-width: 300px;
+            margin: auto;
+            resize: vertical;
+            border-radius: 5px;
+            background-color: #EEE;
+        }
+
+        #texthistory {
+            height: 30vh;
+            min-height: 200px;
+        }
+
+        #textaction {
+            height: 5vh;
+            min-height: 50px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            align-self: center;
+            margin: auto 0;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        #supermain {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap-reverse;
+            width: 100%;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #linkstexts {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        b {
+            font-size: xx-large;
+        }
+
+        footer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        span {
+            font-weight: bold;
+            white-space: normal;
+            padding: 0 2px;
+        }
+
+        .myimg {
+            height: 12vh;
+            min-height: 60px;
+            padding: 1vh;
+            ;
+        }
+
+        .divinfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .entree {
+            font-size: large;
+            font-weight: bold;
+            margin: 10px 50px;
+        }
+
+        input,
+        button {
+            border-radius: 20px;
+            background-color: #abc;
+            text-align: center;
+            width: 30px;
+            border: solid 1px #999;
+        }
+
+        input {
+            background-color: #f0f0f0;
+        }
+
+        button:hover {
+            background-color: #9999ff;
+        }
+
+        button:active {
+            background-color: #e26a4268;
+            box-shadow: inset #97a968 2px 2px 2px;
+        }
+
+        #Rollbt {
+            width: 50px;
+        }
+
+        table {
+            margin: auto;
+            border-spacing: unset;
+        }
+
+        th {
+            font-size: x-small;
+            font-weight: 100;
+        }
+
+        td {
+            color: black;
+            text-align: center;
+            padding: 0;
+            border: none;
+            width: 60px;
+        }
+
+        #links {
+            height: 20px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intebt {
+            height: 0;
+            width: 0;
+            align-self: center;
+            cursor: pointer;
+            border-radius: 20%;
+            position: relative;
+            top: -45px;
+            left: 90%;
+        }
+
+        .intebt:hover {
+            background-color: #9999ff;
+        }
+
+        .intebt>svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .intebt>svg:hover {
+            background-color: #9999ff;
+        }
+
+        #btsactions {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .btpress {
+            min-width: auto;
+            border: none;
+            box-shadow: #578978 2px 2px 2px;
+            background-color: #9fbfbf;
+            font-weight: bold;
+            width: 30%;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .btpress:active {
+            background-color: #e26a4268;
+            box-shadow: inset #97a968 2px 2px 2px;
+        }
+
+        .btpress:hover {
+            background-color: #e26a42;
+        }
+
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 1;
+            left: auto;
+            top: 35px;
+            overflow: auto;
+            border-radius: 5px;
+            border: solid 1px black;
+            width: auto;
+            background-color: #aabbaa;
+            padding: 5px;
+            margin: 2px;
+        }
+
+        .modal>* {
+            margin: 5px 0;
+        }
+
+        #modalconfig>input {
+            width: 98%;
+        }
+
+        .modalhidden {
+            display: none;
+        }
+
+        .btst {
+            width: 50%;
+            margin: auto;
+            font-size: large;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SoloRPG - Criador de Histórias</h1>
+    <div id="supermain">
+        <main>
+            <section class="entree">
+                <textarea id="texthistory"></textarea>
+                <div>
+                    <h3>Narração</h3>
+                    <div class="intext">
+                        <textarea id="textaction" class="textrama inte"
+                            placeholder="O que voce (PC) ou outro personagem (NPC) faz ou fala ou o que acontece..."
+                            rows="1"></textarea>
+                        <div class="intebt">
+                            <svg id="bttranscript" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256"
+                                viewBox="0 0 256 256" xml:space="preserve">
+
+                                <defs>
+                                </defs>
+                                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                                    transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                    <path
+                                        d="M 45 70.968 c -16.013 0 -29.042 -13.028 -29.042 -29.042 c 0 -1.712 1.388 -3.099 3.099 -3.099 c 1.712 0 3.099 1.388 3.099 3.099 C 22.157 54.522 32.404 64.77 45 64.77 c 12.595 0 22.843 -10.248 22.843 -22.843 c 0 -1.712 1.387 -3.099 3.099 -3.099 s 3.099 1.388 3.099 3.099 C 74.042 57.94 61.013 70.968 45 70.968 z"
+                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                    <path
+                                        d="M 45 60.738 L 45 60.738 c -10.285 0 -18.7 -8.415 -18.7 -18.7 V 18.7 C 26.3 8.415 34.715 0 45 0 h 0 c 10.285 0 18.7 8.415 18.7 18.7 v 23.337 C 63.7 52.322 55.285 60.738 45 60.738 z"
+                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                    <path
+                                        d="M 45 89.213 c -1.712 0 -3.099 -1.387 -3.099 -3.099 V 68.655 c 0 -1.712 1.388 -3.099 3.099 -3.099 c 1.712 0 3.099 1.387 3.099 3.099 v 17.459 C 48.099 87.826 46.712 89.213 45 89.213 z"
+                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                    <path
+                                        d="M 55.451 90 H 34.549 c -1.712 0 -3.099 -1.387 -3.099 -3.099 s 1.388 -3.099 3.099 -3.099 h 20.901 c 1.712 0 3.099 1.387 3.099 3.099 S 57.163 90 55.451 90 z"
+                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="btsactions">
+                        <button id="bpcaction" class="baction btpress">PC</button>
+                        <button id="bnpcaction" class="baction btpress">NPC</button>
+                        <button id="bnaraction" class="baction btpress">Narrador</button>
+                    </div>
+                </div>
+                <h2>Dados</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nº dados</th>
+                            <th>Nº faces</th>
+                            <th>Modificador</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tdices">
+                        <tr>
+                            <td><input type="number" id="ndices" value="3" step="1" min="0" /></td>
+                            <td>d<input type="number" id="nfaces" value="6" step="1" min="2" /></td>
+                            <td>+<input type="number" id="nnumber" value="0" step="1" /></td>
+                            <td><button id="Rollbt">Rolar</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </section>
+            <section class="entree">
+                <h2>Consultas</h2>
+                <div id="linkstexts">
+                    <a class="linktexts" target="_blank"><button class="btcon">1</button></a>
+                    <a class="linktexts" target="_blank"><button class="btcon">2</button></a>
+                    <a class="linktexts" target="_blank"><button class="btcon">3</button></a>
+                    <a class="linktexts" target="_blank"><button class="btcon">4</button></a>
+                    <a class="linktexts" target="_blank"><button class="btcon">5</button></a>
+                    <a class="linktexts" target="_blank"><button class="btcon">6</button></a>
+                </div>
+            </section>
+            <section id="modalconfig" class="modal">
+                <h2>Sua história...</h2>
+                <label>Você se chamará:</label>
+                <input type="text" id="carctername" placeholder="Seu nome" />
+                <label>Você será:</label>
+                <input type="text" id="carcterdesc" placeholder="Sua descrição" />
+                <label>Referências de jogo:</label>
+                <input type="url" id="linktext1" class="linktext" placeholder="URL dos textos de referência" />
+                <input type="url" id="linktext2" class="linktext" placeholder="URL dos textos de referência" />
+                <input type="url" id="linktext3" class="linktext" placeholder="URL dos textos de referência" />
+                <input type="url" id="linktext4" class="linktext" placeholder="URL dos textos de referência" />
+                <input type="url" id="linktext5" class="linktext" placeholder="URL dos textos de referência" />
+                <input type="url" id="linktext6" class="linktext" placeholder="URL dos textos de referência" />
+                <br />
+                <button id="btstart" class="btst">INICIAR</button>
+            </section>
+            <button id="btrestart" class="btst">REINICIAR</button>
+            <button id="btexport" class="btst">EXPORTAR</button>
+        </main>
+    </div>
+    <footer>
+        <div id="divinfo" class="divinfo">
+            <span>Autor:</span>
+            <span>Stênio Vinicios de Medeiros</span>
+            <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"
+                    alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
+            <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+        </div>
+    </footer>
+    <div id="links">
+        <img src="https://scisimulab.com.br/logo.svg" alt="logo SciSimuLab" style="height: 60px;" />
+        Conheça também:
+        <a href="https://dominusrpg.vercel.app/" target="_blank">
+            <i>RPG Dominus WEB (solo)</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/MythicCardsRpgSolo/index.html" target="_blank">
+            <i>Simulador de Mestre Mythic Cards</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/RPGSongs/index.html" target="_blank">
+            <i>Sons para o seu RPG</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/GeradorGoblin/index.html" target="_blank">
+            <i>Gerador de Goblins para o RPG Malditos Goblins</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/GoblinSongs/index.html" target="_blank">
+            <i>Sons de Goblins</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/DiceProbability/index.html" target="_blank">
+            <i>Probabilidades em rolagem de dados</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/DicesRools/DicesRools.html" target="_blank">
+            <i>Role dados</i>
+        </a>
+        <a href="https://guaxinimonline.onrender.com/" target="_blank">
+            <i>Guaxinins & Gambiarras</i>
+        </a>
+        <a href="https://historias-incriveis.onrender.com/" target="_blank">
+            <i>Histórias Incríveis</i>
+        </a>
+        <a href="https://scisimulab.com.br/" target="_blank">
+            <i>Sci Simu Lab</i>
+        </a>
+        <a href="https://steniovm.github.io/steniovm/" target="_blank">
+            <i>Outras produções minhas</i>
+        </a>
+    </div>
+    <script type="text/javascript">
+        //Variaveis globais
+        const linktext = document.getElementsByClassName('linktext');
+        const linktexts = document.getElementsByClassName('linktexts');
+        //const opemtranscript = false;
+        let datagame = {
+            caractername: "PC",
+            caracterdesc: "padrão",
+            reflinks: [
+                "https://dominusrpg.vercel.app/",
+                "https://dominusrpg.vercel.app/catalog.html",
+                "https://dominusrpg.vercel.app/scenariocreate.html",
+                "https://steniovm.github.io/steniovm/MythicCardsRpgSolo/index.html",
+                "https://steniovm.github.io/steniovm/DiceProbability/index.html",
+                "https://steniovm.github.io/steniovm/RPGSongs/index.html"
+            ]
+        }
+        //eventos html
+        Rollbt.addEventListener('click', execRolls);
+        btstart.addEventListener('click', startgame);
+        btrestart.addEventListener('click', restartgame);
+        bpcaction.addEventListener('click', pcaction);
+        bnpcaction.addEventListener('click', npcaction);
+        bnaraction.addEventListener('click', naraction);
+        btexport.addEventListener('click', savefile);
+        //executa programa
+        function startgame() {
+            datagame.caractername = carctername.value;
+            datagame.caracterdesc = carcterdesc.value;
+            for (let i = 0; i < 6; i++) {
+                if (linktext[i].value) {
+                    datagame.reflinks[i] = linktext[i].value;
+                }
+                linktexts[i].href = datagame.reflinks[i];
+            }
+            addText("Olá " + datagame.caractername + "!\nVocê é " + datagame.caracterdesc + " e aqui começa sua história.\nBoa aventura!");
+            modalconfig.classList.add("modalhidden");
+        }
+        function restartgame() {
+            const resp = confirm("Isso apagará toda sua história. Tem certeza que deseja continuar?");
+            if (resp) resetgame();
+        }
+        function resetgame() {
+            texthistory.innerHTML = "";
+            carctername.value = datagame.caractername;
+            carcterdesc.value = datagame.caracterdesc;
+            for (let i = 0; i < 6; i++) {
+                linktext[i].value = datagame.reflinks[i];
+                linktext[i].value = linktexts[i].href;
+                modalconfig.classList.remove("modalhidden");
+            }
+        }
+        function pcaction() {
+            addText(datagame.caractername + ": " + textaction.value);
+
+        }
+        function npcaction() {
+            addText("NPC: " + textaction.value);
+        }
+        function naraction() {
+            addText("  " + textaction.value);
+        }
+        async function savefile() {
+            let fulltext = texthistory.innerHTML + '\n\n\nReferências:\n' + datagame.reflinks.join('\n');
+            console.log(fulltext);
+            let data = new Blob([fulltext]);
+            let namestring = datagame.caractername + ".txt";
+            let downloadLink = document.getElementById("aDownloadTxt");
+            if (downloadLink == null) {
+                downloadLink = document.createElement('a');
+                downloadLink.setAttribute('id', 'aDownloadTxt');
+                document.body.appendChild(downloadLink);
+            }
+            downloadLink.setAttribute('download', namestring);
+            downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+            downloadLink.href = URL.createObjectURL(data);
+            downloadLink.style.display = 'none';
+            downloadLink.click();
+            alert("História salva como: " + namestring);
+
+        }
+        function execRolls() {
+            let nd = parseInt(ndices.value);
+            let nf = parseInt(nfaces.value);
+            let ad = parseInt(nnumber.value);
+            let results = roolDices(nf, nd);
+            results.push(ad);
+            addText(results.join('+') + '=' + results.reduce((accum, curr) => accum + curr), false);
+        }
+        //rolagem de dados
+        function roolDices(nf, nd) {
+            const dices = [];
+            for (let i = 0; i < nd; i++) {
+                dices.push(roolDice(nf));
+            }
+            return dices;
+        }
+        function roolDice(nf) {
+            return Math.ceil(Math.random() * nf);
+        }
+        //Adicionar texto
+        function addText(text, nl = true) {
+            texthistory.innerHTML += '-----------\n' + text + '\n';
+            if (nl) textaction.value = "";
+            savedata();
+        }
+        //Salvar dados
+        function savedata() {
+            let data = datagame;
+            data.history = texthistory.innerHTML;
+            localStorage.setItem("solorpg", JSON.stringify(data));
+        }
+        //Resgatar dados
+        function getdata() {
+            const data = JSON.parse(localStorage.getItem("solorpg"));
+            if (data.history) {
+                texthistory.innerHTML = data.history;
+                modalconfig.classList.add("modalhidden");
+            }
+            if (data.caractername) {
+                datagame.caractername = data.caractername;
+            }
+            if (data.caracterdesc) {
+                datagame.caracterdesc = data.caracterdesc;
+            }
+            if (data.reflinks) {
+                datagame.reflinks = data.reflinks;
+            }
+        }
+        getdata();
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            recognition.lang = 'pt-BR'; // Define o idioma para português
+            recognition.continuous = true; // Captura contínua (reiniciada no evento 'onend')
+            recognition.interimResults = false; // Exibe apenas resultados finais
+
+            let isListening = false;
+
+            const stopRecognition = () => {
+                if (isListening) {
+                    recognition.stop();
+                    isListening = false;
+                }
+            };
+
+            const startRecognition = () => {
+                isListening = true;
+                try {
+                    recognition.start();
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = Array.from(event.results)
+                    .map(result => result[0].transcript)
+                    .join('\n');
+                textaction.value += transcript;
+                stopRecognition();
+            };
+
+            recognition.onerror = (event) => {
+                textaction.value += `Erro: ${event.error}`;
+                stopRecognition();
+            };
+
+            recognition.onend = () => {
+                if (isListening) {
+                    recognition.start(); // Reinicia automaticamente após o tempo limite da API
+                }
+            };
+
+            bttranscript.addEventListener('mousedown', transcriptstart);
+            bttranscript.addEventListener('touchstart', transcriptstart);
+            bttranscript.addEventListener('mouseup', transcriptend);
+            bttranscript.addEventListener('touchend', transcriptend);
+            function transcriptstart(ev) {
+                ev.preventDefault();
+                startRecognition();
+            }
+            function transcriptend(ev) {
+                ev.preventDefault();
+                stopRecognition();
+            }
+        } else {
+            alert('API de reconhecimento de voz não suportada neste navegador.');
+        }
+    </script>
+</body>
+
+</html>
