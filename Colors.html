@@ -10,6 +10,7 @@
   <meta property="og:image" itemprop="image" content="https://steniovm.github.io/steniovm/RGB_CMYK.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:image:alt" content="Imagem Cores RGB_CMYK" />
+  <link rel="shortcut icon" href="https://steniovm.github.io/steniovm/rgb.ico">
   <meta property="description" content='Trabalho sistema de cores aditivas e subtrativas' />
   <style>
     body {
@@ -51,6 +52,11 @@
       display: flex;
       justify-content: space-between;
       flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    #inout>div {
+      min-width: 184px;
     }
 
     .colorbutton,
@@ -90,7 +96,7 @@
       border: 1px solid #ccc;
       margin-top: 20px;
       width: 100%;
-      height: 400px;
+      height: 350px;
       background-color: rgb(127, 127, 127);
     }
 
@@ -106,8 +112,31 @@
       height: 100%;
     }
 
+    #outColors {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+
     #printimage {
       width: 50vw;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    #divinfo,
+    #sitelinks {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
   </style>
   <style id="dynamicStyles">
@@ -135,8 +164,12 @@
     </div>
   </header>
   <div id="inout">
-    <div>
-      <h2 id="exaCode">Code: #7f7f7f</h2>
+    <div id="outColors">
+      <span id="exaCode">Code Exadecimal: #7f7f7f</span>
+      <span id="outRGB">RGB: (127, 127, 127)</span>
+      <span id="outCMY">CMY: (128, 128, 128)</span>
+      <span id="outCMYK">CMYK: (0, 0, 0, 50)</span>
+      <span id="outHSL">HSL: (0, 0%, 50%)</span>
     </div>
     <div>
       <button class="colorbutton" style="background-color: red;"></button>
@@ -153,7 +186,6 @@
   </div>
   <main>
     <div id="colorDisplay">
-      <!--<img src="RGB_CMYK.svg" />-->
       <div>
         <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -280,7 +312,8 @@
       <li>Deslize as barras de cores para mostrar como compor as cores primárias e secundárias do sistema aditivo (RGB),
         mostre que ao igualar o fundo com a cor de cada parte da imagem as bordas ficam invisiveis, parecendo que a
         imagem tem uma bola a menos, fale um pouco sobre cores complementáres, etc...</li>
-      <li>(opcional) aproveite para explicar o código de cores hexadecimal #rrggbb </li>
+      <li>(opcional) aproveite para explicar o código de cores hexadecimal #rrggbb e o sistema de cores HSL (Matiz(Hue),
+        Saturação e Luminosidade).</li>
       <li>Coloque os componentes no maximo, formando a cor branca, ou desative a projeção</li>
       <li>Pregue na quadro ou tela a imagem impressa no local onde será projetado o retângulo vazio</li>
       <li>Peça aos alunos adivinharem de que cor cada número será visível quando ajustar os componentes para exibir a
@@ -294,6 +327,23 @@
       </li>
     </ol>
   </details>
+  <footer>
+    <div id="divinfo" class="divinfo">
+      <span>Desenvolvido por: Stênio Vinicios de Medeiros</span>
+      <span>Portifolio: <a href="https://steniovm.github.io/steniovm/"
+          alt="Meu portifolio de projetos">https://steniovm.github.io/steniovm/</a></span>
+      <span>Email: <a href="mailto:steniovm@gmail.com" alt="Meu email">steniovm@gmail.com</a></span>
+    </div>
+    <div id="sitelinks">
+      Conheça também:
+      <a href="https://scisimulab.com.br/" target="_blank">
+        <i>Sci Simu Lab</i>
+      </a>
+      <a href="https://steniovm.github.io/steniovm/" target="_blank">
+        <i>Outras produções minhas</i>
+      </a>
+    </div>
+  </footer>
   <script>
     const redInput = document.getElementById('redInput');
     const greenInput = document.getElementById('greenInput');
@@ -306,7 +356,47 @@
     const dynamicStyles = document.getElementById('dynamicStyles');
     const buttons = document.querySelectorAll('.colorbutton');
     const randCbt = document.getElementById('randColorbt');
+    const outRGB = document.getElementById('outRGB');
+    const outCMY = document.getElementById('outCMY');
+    const outCMYK = document.getElementById('outCMYK');
+    const outHSL = document.getElementById('outHSL');
     const colors = [[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 0], [0, 255, 255], [255, 0, 255], [0, 0, 0], [255, 255, 255]];
+
+    function componentToHex(c) {
+      const hex = parseInt(c).toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+    function rgbTocmyk(r, g, b) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      const k = Math.min(1 - r, 1 - g, 1 - b);
+      const c = (1 - r - k) / (1 - k) || 0;
+      const m = (1 - g - k) / (1 - k) || 0;
+      const y = (1 - b - k) / (1 - k) || 0;
+      return [Math.round(c * 100), Math.round(m * 100), Math.round(y * 100), Math.round(k * 100)];
+    }
+    function rgbTohsl(r, g, b) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      let h, s, l = (max + min) / 2;
+      if (max == min) {
+        h = s = 0; // achromatic
+      } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+      return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+    }
 
     function updateColor() {
       const red = redInput.value;
@@ -322,7 +412,13 @@
           background-color: rgb(${red}, ${green}, ${blue});
         }
       `;
-      exaCode.textContent = `Code: #${parseInt(red).toString(16)}${parseInt(green).toString(16)}${parseInt(blue).toString(16)}`;
+      exaCode.textContent = `Code Exadecimal: #${componentToHex(red)}${componentToHex(green)}${componentToHex(blue)}`;
+      const [c, m, y, k] = rgbTocmyk(red, green, blue);
+      const [h, s, l] = rgbTohsl(red, green, blue);
+      outRGB.textContent = `RGB: (${red}, ${green}, ${blue})`;
+      outCMY.textContent = `CMY: (${255 - red}, ${255 - green}, ${255 - blue})`;
+      outCMYK.textContent = `CMYK: (${c}, ${m}, ${y}, ${k})`;
+      outHSL.textContent = `HSL: (${h}, ${s}%, ${l}%)`;
     }
 
     function setColor(r, g, b) {
