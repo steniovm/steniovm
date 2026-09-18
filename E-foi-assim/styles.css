@@ -1,0 +1,529 @@
+/* CSS Variables exemplo: color: var(--dark-turquoise);*/
+:root {
+  --background-img: url("./assets/imgs/fundo.png");
+  --cover-v: url("./assets/imgs/capa-v.png");
+  --cover-h: url("./assets/imgs/capa-h.png");
+  --cover-title: url("./assets/imgs/headers02.png");
+  --box-shadow: inset 0px 1px 0px 0px #a6827e;
+  --box-shadowd: inset 0px 0px 0px 1px #a6827e;
+  --background-bt: linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+  --background-clr: #7d5d3b;
+  --border-clr: #54381e;
+  --light-clr: #ffffff;
+  --text-shadow-clr: #4d3534;
+  --background-img-hover: linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+  ---background-clr-hover: #634b30;
+  --input-background-clr: #e9d9c3;
+  --input-background-clr-checked: #2d1a00;
+  --text-dark-clr: #280404;
+  --background-color-soft: #fbedd5;
+}
+
+@font-face {
+  font-family: rans;
+  src: url("./assets/fonts/rans__.ttf");
+}
+@font-face {
+  font-family: veteran;
+  src: url("./assets/fonts/veteran\ typewriter.ttf");
+}
+@font-face {
+  font-family: vintage;
+  src: url("./assets/fonts/Vintage\ Typewriter.ttf");
+}
+
+body {
+  background-image: var(--background-img);
+  background-repeat: repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: end;
+  height: 99vh;
+  width: 99vw;
+  min-width: 320px;
+  background-image: var(--cover-h);
+  background-size: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 160px;
+  height: 40px;
+  opacity: 1;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  border: 1px solid var(--border-clr);
+  cursor: pointer;
+  color: var(--light-clr);
+  font-weight: bold;
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+}
+button:hover {
+  background: var(--background-img-hover);
+  background-color: var(--background-clr-hover);
+}
+button:active {
+  position: relative;
+  top: 2px;
+}
+h1 {
+  font-family: rans;
+  text-align: center;
+  margin: 0;
+}
+
+h3 {
+  color: var(--text-dark-clr);
+  font-family: Datatype;
+  font-weight: 900;
+}
+
+h4 {
+  color: var(--text-dark-clr);
+  font-family: Datatype;
+  font-weight: 900;
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+  display: inline-flex;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  height: 99vh;
+  width: 99vw;
+  min-width: 430px;
+  background-image: var(--background-img);
+  background-size: cover;
+}
+.titleimg {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+form {
+  width: 50%;
+  min-width: 350px;
+}
+
+.form-group-h {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Datatype;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-dark-clr);
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.optionsradio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowarp;
+}
+.form-group-v {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Datatype;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-dark-clr);
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+input[type="radio"] {
+  accent-color: var(--input-background-clr);
+}
+input[type="radio"]:hover + label {
+  accent-color: var(--background-clr-hover);
+  border: 1px solid transparent;
+  box-shadow: var(--box-shadow), var(--box-shadowd);
+}
+input[type="radio"]:checked {
+  accent-color: var(--input-background-clr-checked);
+  color: var(--light-clr);
+  border: 1px solid var(--border-clr);
+  box-shadow: var(--box-shadow);
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  background: var(--input-background-clr);
+  background-color: var(--input-background-clr);
+  border: 1px solid var(--border-clr);
+  color: var(--text-dark-clr);
+  font-size: medium;
+  font-weight: bold;
+}
+textarea {
+  height: 30px;
+  resize: vertical;
+}
+
+.functionButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 10px 0 0 0;
+}
+
+.functionButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  cursor: pointer;
+  color: var(--light-clr);
+  font-weight: bold;
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deleteButtonContainer {
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 2px;
+}
+.arrowbuttons,
+.deletebuttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  padding: 0;
+}
+.marcoBox {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) 25px;
+  grid-template-rows: auto;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+}
+.marcoExBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 25px;
+  grid-template-rows: auto;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+}
+.marcoInputBox,
+.marcoExInputBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.marcoInput,
+.marcoExInput {
+  box-sizing: border-box;
+  min-height: 30px;
+}
+.upArrow,
+.downArrow {
+  width: 20px;
+  height: 20px;
+  box-shadow: var(--box-shadow);
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  cursor: pointer;
+  color: var(--light-clr);
+  font-weight: bold;
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upArrow {
+  border-radius: 50% 50% 0 0;
+}
+.downArrow {
+  border-radius: 0 0 50% 50%;
+}
+.numberOrder {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border-clr);
+  font-family: Datatype;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--text-dark-clr);
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+/* Estilo aplicado quando a tela tiver no máximo 768px de largura */
+@media (max-width: 450px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    height: 699px;
+    width: 323px;
+    background-image: var(--cover-v);
+  }
+  fieldset {
+    height: 99vh;
+    width: 99vw;
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 5vh;
+  left: auto;
+  width: 650px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#closeModal {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 5px 10px;
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  color: var(--light-clr);
+  font-family: Datatype;
+  font-weight: 900;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-clr);
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+}
+#closeModal:hover,
+#closeModal:active {
+  background: var(--background-img-hover);
+  background-color: var(--background-clr-hover);
+}
+
+#adventureOutput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-soft);
+  border: 4px solid var(--border-clr);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--text-dark-clr);
+  padding: 12px;
+  overflow: auto;
+  gap: 24px;
+}
+
+.marcobullet {
+  height: 12px;
+}
+.marcobulletstar {
+  height: 18px;
+}
+
+.lineInModal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 25px;
+}
+
+#showTitlebox {
+  transform: rotate(-10deg);
+  white-space: nowrap;
+  min-width: 30%;
+}
+#showTitlebox::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: var(--cover-title);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(190deg) translate(0, -15%) scale(1.4);
+  z-index: -1;
+}
+
+#showCientistName {
+  margin: 10px 10px 0 0;
+  font-family: rans;
+  font-weight: 900;
+  color: var(--text-dark-clr);
+}
+
+#showdiscoveryName {
+  margin: 0;
+  margin: 0 0 10px 0;
+  text-wrap: auto;
+}
+
+#showMarcosbox {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+  gap: 5px;
+  width: 100%;
+}
+
+#showMarcosList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2px;
+  width: 100%;
+}
+
+#showMarcosExbox {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-around;
+  gap: 5px;
+}
+
+#showMarcosExList {
+  display: flex;
+  flex-direction: column;
+  max-height: 6rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  column-gap: 30px;
+  width: 100%;
+}
+
+.checkbox {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 4px solid var(--border-clr);
+  margin: 0 8px 0 0;
+}
+
+.marcopoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(12px);
+}
+
+.marcostart {
+  transform: translateY(-8px);
+}
+.marcostart h4 {
+  margin: 0;
+}
+
+nav {
+  border-radius: 5px;
+}
+nav * {
+  margin: 0;
+  padding: 0;
+  font-family: Lexend, arial, helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+.menu {
+  list-style: none;
+  border-radius: 5px;
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+.menu li {
+  position: relative;
+  float: left;
+}
+
+.menu li ul {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+.menu li button {
+  display: block;
+  width: 80px;
+  height: 1.5rem;
+  font-size: 11px;
+}
+.menu ul > button {
+  width: 110px;
+}
+.menu li button:hover {
+  color: #fff;
+  text-shadow: 0px 0px 5px #fff;
+}
+.menu li:hover ul {
+  display: block;
+}
+.hidden {
+  display: none;
+}

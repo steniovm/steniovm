@@ -1,0 +1,24 @@
+{
+  "scale": "long",
+  "title": "E foi assim...",
+  "scientist": "Stênio",
+  "objective": "Criar um RPG educacional para o ensino de Ciências.",
+  "detailing": "O jogo é baseado em um RPG de mesa, onde os jogadores assumem o papel de cientistas e exploram diferentes áreas da ciência. O objetivo é aprender conceitos científicos de forma divertida e interativa.",
+  "eventsmain": [
+    "começa a escrever",
+    "monta uma equipe",
+    "elabora regras",
+    "joga um teste",
+    "finaliza a arte",
+    "lança o jogo"
+  ],
+  "eventsextra": [
+    "escreve a história",
+    "define personagens",
+    "cria desafios",
+    "testa mecânicas",
+    "desenvolve gráficos"
+  ],
+  "author": "Stênio",
+  "date": "2024-06-10"
+}

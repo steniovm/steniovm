@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 67 14">
+  <defs>
+    <style>
+      .st0 {
+        fill: #91b631;
+      }
+
+      .st1 {
+        fill: none;
+        stroke: #91b631;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <line class="st1" x1="0.481" y1="6.952" x2="56.091" y2="6.952"/>
+  <circle class="st0" cx="60.051" cy="6.952" r="6.13"/>
+</svg>

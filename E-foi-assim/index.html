@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E foi assim... gerador de aventuras</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1 class="hidden">E foi assim...<br />gerador de aventuras</h1>
+  <main id="startscreem" class="">
+    <div id="buttonContainer">
+      <button type="button" id="newfich">Nova Ficha</button>
+      <button type="button" id="loadfich">Carregar Ficha</button>
+      <button type="button" id="findfich">Pesquisar Ficha</button>
+      <button type="button" class="hidden" id="continuefich">Continuar Ficha</button>
+    </div>
+    <input type="file" id="fileInput" accept=".json" class="hidden" />
+  </main>
+  <fieldset id="setupfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+    <nav>
+      <ul class="menu">
+        <li><button type="button" id="backbutton" class="backButton">Voltar</button></li>
+        <li><button type="button" id="viewbutton">Visualizar</button></li>
+        <li><button type="button" id="savebutton">Salvar</button></li>
+        <li>
+          <button type="button">Exportar</button>
+          <ul>
+            <button type="button" id="exportbuttonSVG">Exportar SVG</button>
+            <button type="button" id="exportbuttonPNG">Exportar PNG</button>
+            <button type="button" id="exportbuttonJPG">Exportar JPG</button>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <form id="datafich">
+      <div class="form-group-h">
+        <div class="optionsradio">
+          <input type="radio" id="avcurto" class="dataunic" name="scale" value="short" required />
+          <label for="avcurto">Aventura Curta</label>
+        </div>
+        <div class="optionsradio">
+          <input type="radio" id="avlongo" class="dataunic" name="scale" value="long" required />
+          <label for="avlongo">Aventura Longa</label>
+        </div>
+      </div>
+      <h3>Nome da aventura</h3>
+      <input type="text" id="adventureName" class="dataunic" name="title"
+        placeholder="Faça referencia ao pesquisador ou à descoberta da aventura." required />
+      <h3>Pesquisador</h3>
+      <input type="text" id="cientistName" class="dataunic" name="scientist"
+        placeholder="Nome do pesquisador central da aventura." required />
+      <h3>Objetivo - Descoberta/Invenção</h3>
+      <input type="text" id="discoveryName" class="dataunic" name="objective"
+        placeholder="Remete à descoberta ou invenção a ser induzida ao pesquisador." required />
+      <h3>Detalhamento</h3>
+      <textarea id="detailedDescription" class="dataunic" name="detailing"
+        placeholder="Descreva detalhes que achar relevantes à aventura, seus objetivos e desafios." required></textarea>
+      <h3>Marcos principais</h3>
+      <div id="marcoContainer" class="form-group-v">
+      </div>
+      <div class="functionButtonContainer">
+        <button type="button" id="addMarcoP" class="functionButton">+</button>
+      </div>
+      <h3>Marcos extras</h3>
+      <div id="marcoExContainer" class="form-group-v">
+      </div>
+      <div class="functionButtonContainer">
+        <button type="button" id="addMarcoE" class="functionButton">+</button>
+      </div>
+      <h3>Autor</h3>
+      <input type="text" id="authorName" class="dataunic" name="author"
+        placeholder="Seu nome, ou como gostária de ser reconhecido." required />
+      <!--<button type="button" id="savebutton">Salvar (JSON)</button>-->
+      <!--ver se dá pra colocar os três botões de exportação em um menu flutuante-->
+      <!--
+      <button type="button" id="exportbuttonSVG">Exportar (SVG)</button>
+      <button type="button" id="exportbuttonPNG">Exportar (PNG)</button>
+      <button type="button" id="exportbuttonJPG">Exportar (JPG)</button>
+      <button type="button" id="viewbutton">Visualizar (HTML)</button>
+      <button type="button" id="backbutton" class="backButton">Voltar (Inicio)</button>
+      -->
+    </form>
+  </fieldset>
+  <fieldset id="loaderfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+  </fieldset>
+  <fieldset id="searchfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+  </fieldset>
+  <div id="modalfich" class="modal hidden">
+    <h3 id="closeModal">FECHAR</h3>
+    <div id="adventureOutput">
+      <div class="lineInModal">
+        <div id="showTitlebox">
+          <h2 id="showCientistName"></h2>
+          <p id="showdiscoveryName"></p>
+        </div>
+        <div id="showDescriptionbox">
+          <p id="showDetailedDescription"></p>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showMarcosbox">
+          <div id="showMarcosList"></div>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showMarcosExbox">
+          <h4>Extras</h4>
+          <div id="showMarcosExList"></div>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showAuthorbox">
+          <p id="showAuthorName"></p>
+        </div>
+        <div id="showdatemade">
+          <p id="showDateMade"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="html-to-image.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
