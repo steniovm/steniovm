@@ -1,3 +1,5 @@
+const urlbd =
+  "https://script.google.com/macros/s/AKfycbyyP4I0BxNDe7nWbweIL0sG_5kW73uX1Xlxga1Ai6-YVAQMFy_8r51loH3hVMQekwsL/exec"; //url da api
 const startscreem = document.getElementById("startscreem");
 const loaderfich = document.getElementById("loaderfich");
 const searchfich = document.getElementById("searchfich");
@@ -10,6 +12,7 @@ const continuefich = document.getElementById("continuefich");
 const backButton = document.getElementsByClassName("backButton");
 const viewbutton = document.getElementById("viewbutton");
 const savebutton = document.getElementById("savebutton");
+const sendbutton = document.getElementById("sendbutton");
 const fileInput = document.getElementById("fileInput");
 const inputsdata = document.getElementsByClassName("dataunic");
 const marcoContainer = document.getElementById("marcoContainer");
@@ -25,7 +28,10 @@ const exportbuttonPNG = document.getElementById("exportbuttonPNG");
 const exportbuttonJPG = document.getElementById("exportbuttonJPG");
 const modalfich = document.getElementById("modalfich");
 const closeModal = document.getElementById("closeModal");
+const modalmessage = document.getElementById("modalmessage");
+const elmessage = document.getElementById("message");
 
+let timemessage = 5000;
 const fichData = {
   scale: "",
   title: "",
@@ -37,9 +43,6 @@ const fichData = {
   author: "",
   date: "",
 };
-
-//para o form não ser enviado automaticamente
-//event.preventDefault();
 
 function capturedataform() {
   const dados = new FormData(datafich);
@@ -531,4 +534,82 @@ exportbuttonJPG.addEventListener("click", () => {
   fichToModal();
   modalfich.classList.remove("hidden");
   exportToImage("jpeg");
+});
+
+function showFichsList(list) {
+  const listarray = list.body.map((el) => JSON.parse(el));
+  console.log(listarray);
+}
+
+async function getFichsList() {
+  fetch(urlbd + "?type=list").then((resp) => {
+    if (resp.status !== 200) {
+      console.log(
+        "Looks like there was a problem. Status Code: " + resp.status,
+      );
+      return;
+    }
+    resp.json().then((data) => {
+      showFichsList(data);
+    });
+  });
+}
+
+function showFich(fich) {
+  const fichobj = fich.body;
+  console.log(fichobj);
+}
+
+async function getFich(key) {
+  fetch(urlbd + "?type=file&id=" + key).then((resp) => {
+    if (resp.status !== 200) {
+      console.log(
+        "Looks like there was a problem. Status Code: " + resp.status,
+      );
+      return;
+    }
+    resp.json().then((data) => {
+      showFich(data);
+    });
+  });
+}
+async function postFich(fich) {
+  fetch(urlbd, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(fich),
+    mode: "no-cors", // Desativa CORS
+  }).then((resp) => {
+    if (resp.status !== 200 && resp.status !== 0) {
+      console.log(
+        "Looks like there was a problem. Status Code: " + resp.status,
+      );
+      showmessage(
+        `ocorreu um erro no envio da ficha (erro ${resp.status}), tente novamente mais tarde!`,
+      );
+      return;
+    }
+    showmessage("Ficha enviada com sucesso!");
+    /*resp.json().then((data) => {
+      console.log(data);
+      showmessage("Ficha enviada com sucesso!");
+    });*/
+  });
+}
+
+function showmessage(text) {
+  elmessage.innerHTML = text;
+  modalmessage.classList.remove("hidden");
+  setTimeout(() => {
+    modalmessage.classList.add("hidden");
+  }, timemessage);
+}
+
+sendbutton.addEventListener("click", () => {
+  fichData.date = formatarData();
+  showmessage("Enviando ficha...");
+  postFich(fichData);
 });

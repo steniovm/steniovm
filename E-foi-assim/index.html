@@ -25,7 +25,8 @@
       <ul class="menu">
         <li><button type="button" id="backbutton" class="backButton">Voltar</button></li>
         <li><button type="button" id="viewbutton">Visualizar</button></li>
-        <li><button type="button" id="savebutton">Salvar</button></li>
+        <li><button type="button" id="savebutton">Salvar Local</button></li>
+        <li><button type="button" id="sendbutton">Salvar Online</button></li>
         <li>
           <button type="button">Exportar</button>
           <ul>
@@ -74,15 +75,6 @@
       <h3>Autor</h3>
       <input type="text" id="authorName" class="dataunic" name="author"
         placeholder="Seu nome, ou como gostária de ser reconhecido." required />
-      <!--<button type="button" id="savebutton">Salvar (JSON)</button>-->
-      <!--ver se dá pra colocar os três botões de exportação em um menu flutuante-->
-      <!--
-      <button type="button" id="exportbuttonSVG">Exportar (SVG)</button>
-      <button type="button" id="exportbuttonPNG">Exportar (PNG)</button>
-      <button type="button" id="exportbuttonJPG">Exportar (JPG)</button>
-      <button type="button" id="viewbutton">Visualizar (HTML)</button>
-      <button type="button" id="backbutton" class="backButton">Voltar (Inicio)</button>
-      -->
     </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">
@@ -123,6 +115,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="modalmessage" class="modal hidden">
+    <span id="message">mensagem</span>
   </div>
   <script type="text/javascript" src="html-to-image.js"></script>
   <script src="script.js"></script>
