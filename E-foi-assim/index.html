@@ -82,6 +82,26 @@
   </fieldset>
   <fieldset id="searchfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+    <nav>
+      <ul class="menu">
+        <li><button type="button" id="backbuttonsf" class="backButton">Voltar</button></li>
+      </ul>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>Abrir</th>
+          <th>Nome da Aventura</th>
+          <th>Pesquisador</th>
+          <th>Objetivo</th>
+          <th>Autor</th>
+          <th>Data de Criação</th>
+        </tr>
+      </thead>
+      <tbody id="fichListtbody">
+        <!-- As fichas serão adicionadas aqui dinamicamente -->
+      </tbody>
+    </table>
   </fieldset>
   <div id="modalfich" class="modal hidden">
     <h3 id="closeModal">FECHAR</h3>
@@ -118,6 +138,9 @@
   </div>
   <div id="modalmessage" class="modal hidden">
     <span id="message">mensagem</span>
+  </div>
+  <div id="modaltime" class="modal hidden">
+    <img src="./assets/imgs/ampulheta.gif" />
   </div>
   <script type="text/javascript" src="html-to-image.js"></script>
   <script src="script.js"></script>

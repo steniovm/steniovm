@@ -28,8 +28,10 @@ const exportbuttonPNG = document.getElementById("exportbuttonPNG");
 const exportbuttonJPG = document.getElementById("exportbuttonJPG");
 const modalfich = document.getElementById("modalfich");
 const closeModal = document.getElementById("closeModal");
+const fichListtbody = document.getElementById("fichListtbody");
 const modalmessage = document.getElementById("modalmessage");
 const elmessage = document.getElementById("message");
+const modaltime = document.getElementById("modaltime");
 
 let timemessage = 5000;
 const fichData = {
@@ -43,6 +45,7 @@ const fichData = {
   author: "",
   date: "",
 };
+let fichlist = [];
 
 function capturedataform() {
   const dados = new FormData(datafich);
@@ -292,6 +295,9 @@ fileInput.addEventListener("change", (event) => {
 findfichButton.addEventListener("click", () => {
   startscreem.classList.add("hidden");
   searchfich.classList.remove("hidden");
+  modaltime.classList.remove("hidden");
+  getFichsList();
+  //createFichSearchList(); // Função para criar a lista de fichas
 });
 
 function creatMarcoBox(n) {
@@ -537,8 +543,28 @@ exportbuttonJPG.addEventListener("click", () => {
 });
 
 function showFichsList(list) {
-  const listarray = list.body.map((el) => JSON.parse(el));
-  console.log(listarray);
+  fichlist = list.body.map((el) => JSON.parse(el));
+  console.log(fichlist);
+  fichListtbody.innerHTML = ""; // Limpa a lista antes de adicionar novos itens
+  fichlist.forEach((fich) => {
+    const fichItem = document.createElement("tr");
+    fichItem.innerHTML = `
+      <td class="centertext"><button type="button" class="openButton"></button></td>
+      <td>${fich.title}</td>
+      <td>${fich.scientist}</td>
+      <td>${fich.objective}</td>
+      <td>${fich.author}</td>
+      <td class="centertext">${extrairData(fich.date)}</td>
+    `;
+    const openButton = fichItem.querySelector(".openButton");
+    openButton.addEventListener("click", () => {
+      loadfich(fich);
+      searchfich.classList.add("hidden");
+      setupfich.classList.remove("hidden");
+    });
+    fichListtbody.appendChild(fichItem);
+  });
+  modaltime.classList.add("hidden"); // Oculta o modal de carregamento após a lista ser exibida
 }
 
 async function getFichsList() {
@@ -593,6 +619,7 @@ async function postFich(fich) {
       return;
     }
     showmessage("Ficha enviada com sucesso!");
+    modaltime.classList.add("hidden");
     /*resp.json().then((data) => {
       console.log(data);
       showmessage("Ficha enviada com sucesso!");
@@ -611,5 +638,35 @@ function showmessage(text) {
 sendbutton.addEventListener("click", () => {
   fichData.date = formatarData();
   showmessage("Enviando ficha...");
+  modaltime.classList.remove("hidden");
   postFich(fichData);
 });
+
+/*
+async function createFichSearchList() {
+  fetch(urlbd + "?type=list").then((resp) => {
+    if (resp.status !== 200) {
+      console.log(
+        "Looks like there was a problem. Status Code: " + resp.status,
+      );
+      return;
+    }
+    resp.json().then((data) => {
+      const listarray = data.body.map((el) => JSON.parse(el));
+      const fichListContainer = document.getElementById("fichListContainer");
+      fichListContainer.innerHTML = ""; // Limpa a lista antes de adicionar novos itens
+      listarray.forEach((fich) => {
+        const fichItem = document.createElement("div");
+        fichItem.classList.add("fichItem");
+        fichItem.textContent = `${fich.title} - ${extrairData(fich.date)}`;
+        fichItem.addEventListener("click", () => {
+          loadfich(fich);
+          searchfich.classList.add("hidden");
+          setupfich.classList.remove("hidden");
+        });
+        fichListContainer.appendChild(fichItem);
+      });
+    });
+  });
+}
+*/
