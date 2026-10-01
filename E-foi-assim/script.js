@@ -101,9 +101,9 @@ continuefich.addEventListener("click", continuefichshow);
 for (let i = 0; i < backButton.length; i++) {
   backButton[i].addEventListener("click", () => {
     setupfich.classList.add("hidden");
+    searchfich.classList.add("hidden");
     startscreem.classList.remove("hidden");
     continuefich.classList.remove("hidden");
-    console.log("Back button clicked");
   });
 }
 
@@ -641,32 +641,3 @@ sendbutton.addEventListener("click", () => {
   modaltime.classList.remove("hidden");
   postFich(fichData);
 });
-
-/*
-async function createFichSearchList() {
-  fetch(urlbd + "?type=list").then((resp) => {
-    if (resp.status !== 200) {
-      console.log(
-        "Looks like there was a problem. Status Code: " + resp.status,
-      );
-      return;
-    }
-    resp.json().then((data) => {
-      const listarray = data.body.map((el) => JSON.parse(el));
-      const fichListContainer = document.getElementById("fichListContainer");
-      fichListContainer.innerHTML = ""; // Limpa a lista antes de adicionar novos itens
-      listarray.forEach((fich) => {
-        const fichItem = document.createElement("div");
-        fichItem.classList.add("fichItem");
-        fichItem.textContent = `${fich.title} - ${extrairData(fich.date)}`;
-        fichItem.addEventListener("click", () => {
-          loadfich(fich);
-          searchfich.classList.add("hidden");
-          setupfich.classList.remove("hidden");
-        });
-        fichListContainer.appendChild(fichItem);
-      });
-    });
-  });
-}
-*/
