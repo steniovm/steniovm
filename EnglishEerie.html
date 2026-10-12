@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Eerie: Rural Horror Storytelling</title>
+  <style>
+    :root {
+      --bg-color: #1a1614;
+      --card-bg: #2a231f;
+      --paper-bg: #d9cdb8;
+      --accent-color: #8c2d19;
+      --text-gold: #c9a86b;
+      --text-dark: #2b221a;
+      --text-light: #e6ded1;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-color);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--text-gold);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    body>div {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    input {
+      width: 100%;
+      background-color: var(--paper-bg);
+    }
+
+    textarea {
+      width: 100%;
+      height: 500px;
+      background-color: var(--paper-bg);
+    }
+
+    button {
+      background-color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    fieldset {
+      width: 100%;
+      max-width: 700px;
+      background-color: var(--card-bg);
+      border: 2px solid var(--text-gold);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      color: var(--text-gold);
+    }
+
+    #background {
+      height: 100px;
+    }
+
+    #attributepoints {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #gamecontrols {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    input[type="number"] {
+      width: 30px;
+    }
+
+    details {
+      background-color: var(--card-bg);
+      color: var(--text-light);
+      border: 1px solid var(--text-gold);
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--text-gold);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🕯️ English Eerie 🕯️</h1>
+  <p class="subtitle">Rural Horror Storytelling Game</p>
+  <fieldset id="charactercreation">
+    <legend>Criação de Personagem</legend>
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" placeholder="Digite o nome do personagem">
+    <br>
+    <label for="occupation">Profissão/Ocupação:</label>
+    <input type="text" id="occupation" name="occupation" placeholder="Digite a profissão/ocupação">
+    <br>
+    <label for="background">Histórico:</label>
+    <textarea id="background" name="background" rows="4" cols="50"
+      placeholder="Escreva um breve histórico do personagem"></textarea>
+    <br>
+    <div id="attributepoints">
+      <label for="resolve">Resolve (Determinação)</label>
+      <input type="number" id="resolveinput" name="resolve" min="3" max="10" value="3" readonly>
+      <button id="toResolve">&laquo;</button>
+      <button id="toSpirit">&raquo;</button>
+      <input type="number" id="spiritinput" name="spirit" min="3" max="10" value="7" readonly>
+      <label for="spirit">Spirit (Espírito)</label>
+    </div>
+    <button id="togame">Iniciar Jogo</button>
+  </fieldset>
+  <fieldset id="gamestory" hidden>
+    <legend>Jogando sua história</legend>
+    <div>
+      <p><strong>Personagem:</strong> <span id="gameName"></span> - <span id="gameOccupation"></span></p>
+      <p id="gameBackground"></p>
+      <div>
+        <label>Resolve (Determinação):</label>
+        <label id="resolvevalue"></label>
+      </div>
+      <div>
+        <label>Spirit (Espírito):</label>
+        <label id="spiritvalue"></label>
+      </div>
+    </div>
+    <div id="gamecontrols">
+      <button id="rolldice">🎲 Rolar dado (1D10)</button>
+      <button id="drawcard">🃁 Tirar uma carta</button>
+      <div>
+        <input type="number" id="spendValue" value="1" min="1" max="7" placeholder="Digite o valor do dado">
+        <button id="spendpoints">Gastar Pontos</button>
+      </div>
+      <button id="decreSpirit">Diminuir Espírito</button>
+    </div>
+    <textarea id="story" rows="10" cols="50" placeholder="Sua história de terror rural aparecerá aqui..."></textarea>
+  </fieldset>
+  <button id="savegame">💾 Salvar Jogo</button>
+  <br />
+  <button id="resetgame">🔄 Reiniciar Jogo</button>
+  <br />
+  <details>
+    <summary>📖 Instruções</summary>
+    <p>Criação de Personagem</p>
+    <ul>
+      <li>Identidade: Escolha nome, profissão/ocupação e um breve histórico para dar cor à história.</li>
+      <li>Atributos (10 Pontos): Divida 10 pontos entre Resolve e Spirit (mínimo de 3 em cada).</li>
+      <li>Resolve (Determinação): Representa a força de vontade do personagem para racionalizar o bizarro e superar
+        perigos. Gaste pontos para adicionar bônus à rolagem do dado.</li>
+      <li>Spirit (Espírito): Saúde mental, emocional e física. Se chegar a 0, seu personagem entra em uma espiral de
+        horror e colapso.</li>
+    </ul>
+    <p>Revele a carta do topo do Story Deck para determinar o tipo de cena. A cada 2 cartas reveladas, passa-se 1 dia na
+      narrativa do seu diário.</p>
+    <p>♥️ Copas - Personagem Secundário Prejudicado - Um personagem secundário sofre dano, ataque ou é encontrado morto
+      (sem teste).</p>
+    <p>♠️ Espadas - Pista Menor (Minor Clue) - Você descobre um indício, documento macabro ou ruído estranho (sem
+      teste).</p>
+    <p>♣️ Paus - Obstáculo por Personagem - Um personagem secundário bloqueia seu caminho ou o ataca (requer Teste de
+      d10).</p>
+    <p>♦️ Ouros - Obstáculo Ambiental - O ambiente conspira contra você (névoa densa, terreno traiçoeiro; requer Teste
+      de d10).</p>
+    <p>Como Resolver Obstáculos (Paus ♣️ e Ouros ♦️):
+    <ul>
+      <li>Calcule a Dificuldade (Meta): Meta = Número da Carta + Quantidade de Damas Cinzentas já reveladas na mesa</li>
+      <li>Gastar Resolve (Opcional): Antes de rolar o d10, você pode gastar fichas de Resolve. Cada ponto gasto concede
+        +1 ao resultado do dado.</li>
+      <li>Role o d10:</li>
+      <li>Sucesso (Dado + Bônus de Resolve >= Meta): Você supera a ameaça. Escreva o sucesso no diário10.</li>
+      <li>Falha (Dado + Bônus de Resolve < Meta): Perde 1 ponto de Spirit. Escreva as consequências e o medo no
+          diário.</li>
+    </ul>
+    </p>
+    <p>Revelando uma Dama Cinzenta (Grey Lady):</p>
+    <ul>
+      <li>Representa um salto na tensão e a manifestação direta do horror sobrenatural.</li>
+      <li>Efeito Imediato: Consulte a Tabela de Tensão do cenário para ler o evento. Em seguida, você deve gastar 1
+        Resolve OU perder 1 Spirit.</li>
+      <li>Efeito Permanente: A Dama permanece aberta na mesa. Cada Dama Cinzenta visível aumenta a Dificuldade de todos
+        os testes futuros em +1.</li>
+      <li>A 3ª e última Dama Cinzenta marca o clímax da história e equivale a um dia inteiro na narrativa.</li>
+    </ul>
+    <p>Fim da Partida e Conclusão:</p>
+    <p>Ao revelar a 3ª Dama Cinzenta e resolver a cena do clímax, verifique o seu Spirit restante e consulte a Tabela de
+      Conclusão do cenário:</p>
+    <ul>
+      <li>Spirit >= 1: Você sobreviveu ao encontro e manteve a sanidade (ainda que traumatizado).</li>
+      <li>Spirit = 0: Seu personagem sucumbe à loucura, ruína, sequestro ou morte.</li>
+    </ul>
+  </details>
+  <br />
+  <a href="https://steniovm.github.io/steniovm/">Meus projetos</a>
+  <script>
+    const charactercreation = document.getElementById('charactercreation');
+    const gamestory = document.getElementById('gamestory');
+    const nameInput = document.getElementById('name');
+    const occupationInput = document.getElementById('occupation');
+    const backgroundInput = document.getElementById('background');
+    const toResolve = document.getElementById('toResolve');
+    const toSpirit = document.getElementById('toSpirit');
+    const resolveInput = document.getElementById('resolveinput');
+    const spiritInput = document.getElementById('spiritinput');
+    const togame = document.getElementById('togame');
+    const gameName = document.getElementById('gameName');
+    const gameOccupation = document.getElementById('gameOccupation');
+    const resolvevalue = document.getElementById('resolvevalue');
+    const spiritvalue = document.getElementById('spiritvalue');
+    const diceButton = document.getElementById('rolldice');
+    const cardButton = document.getElementById('drawcard');
+    const spendpointsbutton = document.getElementById('spendpoints');
+    const spendValue = document.getElementById('spendValue');
+    const decreSpirit = document.getElementById('decreSpirit');
+    const storyTextarea = document.getElementById('story');
+    const savegameButton = document.getElementById('savegame');
+    const resetgameButton = document.getElementById('resetgame');
+    let deck = [];
+    let discartedCards = [];
+    let datagame = {};
+
+    function openGameSaved() {
+      const savedGame = localStorage.getItem('englishEerieGame');
+      if (savedGame) {
+        const gameData = JSON.parse(savedGame);
+        datagame.name = gameData.name;
+        gameName.textContent = gameData.name;
+        datagame.occupation = gameData.occupation;
+        gameOccupation.textContent = gameData.occupation;
+        datagame.background = gameData.background;
+        gameBackground.textContent = gameData.background;
+        datagame.resolve = gameData.resolve;
+        datagame.spirit = gameData.spirit;
+        resolveInput.value = gameData.resolve;
+        spiritInput.value = gameData.spirit;
+        resolvevalue.textContent = gameData.resolve;
+        spiritvalue.textContent = gameData.spirit;
+        spendValue.max = gameData.resolve;
+        datagame.spendpoints = 0;
+        storyTextarea.value = gameData.story || '';
+        deck = gameData.deck || [];
+        discartedCards = gameData.discartedCards || [];
+        datagame.greyLadyCount = gameData.greyLadyCount || 0;
+        console.log(datagame);
+        charactercreation.hidden = true;
+        gamestory.hidden = false;
+      }
+    }
+
+    savegameButton.addEventListener('click', () => {
+      const gameData = {
+        name: datagame.name,
+        occupation: datagame.occupation,
+        background: datagame.background,
+        resolve: datagame.resolve,
+        spirit: datagame.spirit,
+        spendpoints: datagame.spendpoints,
+        story: storyTextarea.value,
+        deck: deck,
+        discartedCards: discartedCards,
+        greyLadyCount: datagame.greyLadyCount
+      };
+      localStorage.setItem('englishEerieGame', JSON.stringify(gameData));
+      alert('Jogo salvo com sucesso!');
+    });
+
+    toResolve.addEventListener('click', () => {
+      if (spiritInput.value > 3) {
+        spiritInput.value--;
+        resolveInput.value++;
+      }
+    });
+    toSpirit.addEventListener('click', () => {
+      if (resolveInput.value > 3) {
+        resolveInput.value--;
+        spiritInput.value++;
+      }
+    });
+    togame.addEventListener('click', () => {
+      datagame.name = nameInput.value;
+      gameName.textContent = datagame.name;
+      gameOccupation.textContent = datagame.occupation;
+      gameBackground.textContent = datagame.background;
+      datagame.resolve = parseInt(resolveInput.value);
+      datagame.spirit = parseInt(spiritInput.value);
+      resolvevalue.textContent = datagame.resolve;
+      spiritvalue.textContent = datagame.spirit;
+      spendValue.max = datagame.resolve;
+      datagame.spendpoints = 0;
+      datagame.greyLadyCount = 0;
+      console.log(datagame);
+      charactercreation.hidden = true;
+      gamestory.hidden = false;
+      createDeck();
+    });
+    spendpointsbutton.addEventListener('click', () => {
+      const pointsToSpend = parseInt(spendValue.value);
+      if (pointsToSpend > 0 && pointsToSpend <= datagame.resolve) {
+        datagame.resolve -= pointsToSpend;
+        datagame.spendpoints = pointsToSpend;
+        spendValue.max = datagame.resolve;
+        resolvevalue.textContent = datagame.resolve;
+        spiritvalue.textContent = datagame.spirit;
+        storyTextarea.value += `Você gastou ${pointsToSpend} pontos de Resolve. Pontos restantes: ${datagame.resolve}\n`;
+      } else {
+        storyTextarea.value += `Valor inválido para gastar pontos de Resolve.\n`;
+      }
+    });
+    decreSpirit.addEventListener('click', () => {
+      if (datagame.spirit > 0) {
+        datagame.spirit--;
+        spiritvalue.textContent = datagame.spirit;
+        storyTextarea.value += `Você perdeu 1 ponto de Spirit. Pontos restantes: ${datagame.spirit}\n`;
+      } else {
+        storyTextarea.value += `Você não pode perder mais pontos de Spirit.\n`;
+      }
+    });
+
+    function createDeck() {
+      deck = [];
+      discartedCards = [];
+      const cards = [[4, "♣️paus"], [4, "♥️copas"], [4, "♠️espadas"], [4, "♦️ouros"],
+      [5, "♣️paus"], [5, "♥️copas"], [5, "♠️espadas"], [5, "♦️ouros"],
+      [6, "♣️paus"], [6, "♥️copas"], [6, "♠️espadas"], [6, "♦️ouros"],
+      [7, "♣️paus"], [7, "♥️copas"], [7, "♠️espadas"], [7, "♦️ouros"]];
+      const damas = [["👸🏻dama", "♣️paus"], ["👸🏻dama", "♥️copas"], ["👸🏻dama", "♠️espadas"], ["👸🏻dama", "♦️ouros"]];
+      for (let i = 0; i < 5; i++) {
+        deck.push(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+      }
+      deck.push(damas.splice(Math.floor(Math.random() * damas.length), 1)[0]);
+      for (let i = 0; i < 5; i++) {
+        deck.push(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+      }
+      deck.push(damas.splice(Math.floor(Math.random() * damas.length), 1)[0]);
+      for (let i = 0; i < 6; i++) {
+        deck.push(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+      }
+      deck.push(damas.splice(Math.floor(Math.random() * damas.length), 1)[0]);
+    }
+    function drawCard() {
+      if (deck.length === 0) {
+        return ["vazio", "vazio"];
+      }
+      const card = deck.shift();
+      if (card[0] === "👸🏻dama") {
+        datagame.greyLadyCount++;
+        storyTextarea.value += `Você revelou uma Dama Cinzenta! Total de Damas reveladas: ${datagame.greyLadyCount}\n`;
+      }
+      discartedCards.push(card);
+      console.log(`Carta tirada: ${card[0]} de ${card[1]}\n`);
+      return card;
+    }
+    diceButton.addEventListener('click', () => {
+      const roll = Math.ceil(Math.random() * 10);
+      storyTextarea.value += `Você rolou 1D10 e obteve: ${roll}+${datagame.spendpoints}=${roll + datagame.spendpoints}\n`;
+      datagame.spendpoints = 0;
+    });
+    cardButton.addEventListener('click', () => {
+      const card = drawCard();
+      console.log(card);
+      storyTextarea.value += `Você tirou a carta: ${card[0]} de ${card[1]}\n`;
+
+      if ((card[0] !== "👸🏻dama") && (card[1] === "♥️copas")) {
+        storyTextarea.value += `Um personagem secundário sofre dano, ataque ou é encontrado morto.\n`;
+      } else if ((card[0] !== "👸🏻dama") && (card[1] === "♠️espadas")) {
+        storyTextarea.value += `Você descobre um indício, documento macabro ou ruído estranho.\n`;
+      } else if ((card[0] !== "👸🏻dama") && (card[1] === "♣️paus")) {
+        storyTextarea.value += `Um personagem secundário bloqueia seu caminho ou o ataca.\n`;
+      } else if ((card[0] !== "👸🏻dama") && (card[1] === "♦️ouros")) {
+        storyTextarea.value += `O ambiente conspira contra você (névoa densa, terreno traiçoeiro, etc)\n`;
+      }
+      if ((card[0] !== "👸🏻dama") && ((card[1] === "♣️paus") || (card[1] === "♦️ouros"))) {
+        storyTextarea.value += `A dificuldade do teste é: ${card[0]}+${datagame.greyLadyCount}=${parseInt(card[0]) + datagame.greyLadyCount}\n`;
+        return;
+      }
+      return;
+    });
+
+    resetgameButton.addEventListener('click', () => {
+      if (confirm("Tem certeza de que deseja reiniciar o jogo? Todos os dados serão perdidos.")) {
+        localStorage.removeItem('englishEerieGame');
+        location.reload();
+      }
+    });
+    createDeck();
+    openGameSaved();
+  </script>
+</body>
+
+</html>
